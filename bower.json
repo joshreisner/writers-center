@@ -1,0 +1,20 @@
+{
+  "name": "writers-center",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joshreisner/writers-center",
+  "authors": [
+    "Josh Reisner <josh@joshreisner.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "foundation": "~5.2.2"
+  }
+}

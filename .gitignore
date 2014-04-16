@@ -1,5 +1,6 @@
 /bootstrap/compiled.php
 /vendor
+/public/bower_components
 composer.phar
 composer.lock
 .env.*.php

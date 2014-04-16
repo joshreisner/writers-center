@@ -13,5 +13,52 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	$items = array(
+		array(
+			'type'=>'course',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'event',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'blog',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'publication',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'blog',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'course',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+		array(
+			'type'=>'event',
+			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
+			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
+			'link_text'=>'Learn More',
+		),
+	);
+
+	return View::make('home', array(
+		'items'=>$items
+	));
 });

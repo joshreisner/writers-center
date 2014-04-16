@@ -1,0 +1,59 @@
+$red1		: #7f2f20;
+$red2		: #c96e50;
+$red3		: #ebc097;
+$purple1	: #47434c;
+$purple2	: #928388;
+$purple3	: #d6bdc1;
+$brown1		: #4f3914;
+$brown2		: #a76f39;
+$brown3		: #fce5b5;
+$gray1		: #2b2f27;
+$gray2		: #6c6b5f;
+$gray3		: #858f85;
+$green1		: #105745;
+$green2		: #3d946a;
+$green3		: #82cbaa;
+
+//dimensions
+$row_spacing		: 24px;
+$carousel_width 	: 520px;
+$carousel_margin	: 20px;
+$carousel_height	: 300px;
+
+body {
+	&.home {
+		.banner {
+			padding-top: $row_spacing;
+		}
+		.nav {
+			padding-top: $row_spacing;
+			a { 
+				display: block; padding: 6px 10px; background-color: $gray2; color: white; text-align: center;
+				text-transform: uppercase; font-size: 16px;
+				&:hover { background-color: $gray3; text-decoration: none; }
+			}
+		}
+		.carousel {
+			padding-top: $row_spacing; width: 100%; height: $carousel_height + $row_spacing; overflow-x: hidden;
+			.inner {
+				width: ($carousel_width + $carousel_margin) * 7; margin-left: -60px;
+				.item {
+					float: left; height: $carousel_height; width: $carousel_width; 
+					margin-right: $carousel_margin; padding: 20px 20px; position: relative;
+
+					&.course		{ background-color: $red3; }
+					&.blog			{ background-color: $brown3; }
+					&.event 		{ background-color: $green3; }
+					&.publication	{ background-color: $purple3; }
+				}
+			}
+		}
+		.promos {
+			padding-top: $row_spacing;
+			a { 
+				display: block; height: 140px; line-height: 130px; text-align: center; 
+				border: 5px solid $red3; font-size: 50px; color: $red2;
+			}
+		}
+	}
+}
