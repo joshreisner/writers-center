@@ -1,3 +1,16 @@
+$green1 : #3b9b8e;
+$green2 : lighten($green1, 20%);
+
 body {
-	
+	.header {
+		a { background-image: url(/assets/img/logo-avalon.png); width: 259px; height: 100px; }
+	}
+	a { 
+		color: $green1; 
+		&:hover { color: $green2; }
+	}
+	.btn-primary {
+		background-color: $green1; border-color: $green1; 
+		&:hover { background-color: $green2; border-color: $green1; }
+	}
 }

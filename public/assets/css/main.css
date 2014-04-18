@@ -43,9 +43,21 @@ body.home .carousel {
       float: left;
       height: 300px;
       width: 520px;
+      overflow: hidden;
       margin-right: 20px;
-      padding: 20px 20px;
-      position: relative; }
+      padding: 20px 40px;
+      position: relative;
+      color: inherit; }
+      body.home .carousel .inner .item h1 {
+        margin: 40px 0 0 0;
+        font-size: 30px; }
+      body.home .carousel .inner .item .description {
+        margin: 20px;
+        text-transform: uppercase; }
+      body.home .carousel .inner .item .type {
+        text-transform: uppercase;
+        position: absolute;
+        top: 20px; }
       body.home .carousel .inner .item.course {
         background-color: #ebc097; }
       body.home .carousel .inner .item.blog {
@@ -54,6 +66,8 @@ body.home .carousel {
         background-color: #82cbaa; }
       body.home .carousel .inner .item.publication {
         background-color: #d6bdc1; }
+      body.home .carousel .inner .item:hover {
+        text-decoration: none; }
 body.home .promos {
   padding-top: 24px; }
   body.home .promos a {

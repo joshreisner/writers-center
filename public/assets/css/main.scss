@@ -55,13 +55,19 @@ body {
 			.inner {
 				width: ($carousel_width + $carousel_margin) * 7; margin-left: -60px;
 				.item {
-					float: left; height: $carousel_height; width: $carousel_width; 
-					margin-right: $carousel_margin; padding: 20px 20px; position: relative;
+					float: left; height: $carousel_height; width: $carousel_width; overflow: hidden;
+					margin-right: $carousel_margin; padding: 20px 40px; position: relative; color: inherit;
 
+					h1 { margin: 40px 0 0 0; font-size: 30px; }
+
+					.description { margin: 20px; text-transform: uppercase; }
+					.type { text-transform: uppercase; position: absolute; top: 20px; }
 					&.course		{ background-color: $red3; }
 					&.blog			{ background-color: $brown3; }
 					&.event 		{ background-color: $green3; }
 					&.publication	{ background-color: $purple3; }
+
+					&:hover { text-decoration: none; }
 				}
 			}
 		}

@@ -1,0 +1,14 @@
+body .header a {
+  background-image: url(/assets/img/logo-avalon.png);
+  width: 259px;
+  height: 100px; }
+body a {
+  color: #3b9b8e; }
+  body a:hover {
+    color: #72cabe; }
+body .btn-primary {
+  background-color: #3b9b8e;
+  border-color: #3b9b8e; }
+  body .btn-primary:hover {
+    background-color: #72cabe;
+    border-color: #3b9b8e; }

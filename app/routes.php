@@ -13,53 +13,13 @@
 
 Route::get('/', function()
 {
-	$items = array(
-		array(
-			'type'=>'course',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'event',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'blog',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'publication',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'blog',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'course',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-		array(
-			'type'=>'event',
-			'title'=>'Write Flash Fiction!<br>with Peter Andrews',
-			'description'=>'6 Mondays, January 6&ndash;February 24<br>1:30&ndash;3:30 P.M.',
-			'link_text'=>'Learn More',
-		),
-	);
+	//set type slugs
+	$carouselItems = CarouselItem::with('carousel_types')->take(7)->orderBy('precedence')->get();
+	foreach ($carouselItems as &$item) $item->type = Str::slug($item->carousel_types->title);
 
 	return View::make('home', array(
-		'items'=>$items
+		'items'=>$carouselItems,
+		'promos'=>Promo::take(3)->orderBy('precedence')->get(),
 	));
 });
 
