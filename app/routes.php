@@ -62,3 +62,46 @@ Route::get('/', function()
 		'items'=>$items
 	));
 });
+
+Route::get('/about', function()
+{
+	return View::make('about')->with('title', 'About');
+});
+
+Route::get('/courses', function()
+{
+	return View::make('courses')->with('title', 'Courses');
+});
+
+Route::get('/events', function()
+{
+	return View::make('events')->with('title', 'Events');
+});
+
+Route::get('/blog', function()
+{
+	return View::make('blog')->with('title', 'Blog');
+});
+
+Route::get('/publications', function()
+{
+	return View::make('publications')->with('title', 'Publications');
+});
+
+Route::get('/contact', function()
+{
+	return View::make('contact')->with('title', 'Contact');
+});
+
+View::composer('template', function($view)
+{
+    $view->with('sections', array(
+    	'about'=>'About',
+    	'courses'=>'Courses',
+    	'events'=>'Events',
+    	'blog'=>'Blog',
+    	'publications'=>'Publications',
+    	'contact'=>'Contact',
+    ))
+    ->with('app_title', 'Hudson Valley Writers Center');
+});

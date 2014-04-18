@@ -21,16 +21,33 @@ $carousel_margin	: 20px;
 $carousel_height	: 300px;
 
 body {
+	a {
+		&:focus { outline: none; }
+	}
 	&.home {
 		.banner {
-			padding-top: $row_spacing;
+			padding-top: $row_spacing; position: relative;
+			.login {
+				background-color: yellow;
+				border: 3px solid #ccc;
+				border-top: 0;
+				position: absolute;
+				top: -$row_spacing;
+				right: 15px;
+				padding: 5px 20px;
+				font-size: 20px; 
+				border-radius: 0 0 10px 10px;
+				color: inherit;
+				opacity: .7;
+				&:hover { text-decoration: none; opacity: 1; }
+			}
 		}
 		.nav {
 			padding-top: $row_spacing;
 			a { 
-				display: block; padding: 6px 10px; background-color: $gray2; color: white; text-align: center;
+				display: block; padding: 6px 10px; background-color: $gray3; color: white; text-align: center;
 				text-transform: uppercase; font-size: 16px;
-				&:hover { background-color: $gray3; text-decoration: none; }
+				&:hover, &.active { background-color: $gray2; text-decoration: none; }
 			}
 		}
 		.carousel {

@@ -1,17 +1,35 @@
+body a:focus {
+  outline: none; }
 body.home .banner {
-  padding-top: 24px; }
+  padding-top: 24px;
+  position: relative; }
+  body.home .banner .login {
+    background-color: yellow;
+    border: 3px solid #ccc;
+    border-top: 0;
+    position: absolute;
+    top: -24px;
+    right: 15px;
+    padding: 5px 20px;
+    font-size: 20px;
+    border-radius: 0 0 10px 10px;
+    color: inherit;
+    opacity: .7; }
+    body.home .banner .login:hover {
+      text-decoration: none;
+      opacity: 1; }
 body.home .nav {
   padding-top: 24px; }
   body.home .nav a {
     display: block;
     padding: 6px 10px;
-    background-color: #6c6b5f;
+    background-color: #858f85;
     color: white;
     text-align: center;
     text-transform: uppercase;
     font-size: 16px; }
-    body.home .nav a:hover {
-      background-color: #858f85;
+    body.home .nav a:hover, body.home .nav a.active {
+      background-color: #6c6b5f;
       text-decoration: none; }
 body.home .carousel {
   padding-top: 24px;
