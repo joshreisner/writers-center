@@ -25,26 +25,30 @@ Route::get('/', function()
 
 Route::group(array('prefix' => 'about'), function()
 {
-	$subnav = array();
-	$pages = Page::orderBy('precedence')->get();
-	foreach ($pages as $page) {
-		$subnav['about' . (empty($page->slug) ? '' : '/' . $page->slug)] = $page->title;
+	//only only get subnav pages if url pattern matches
+	if (Request::is('about*')) {
+		$subnav = array();
+		$pages = Page::orderBy('precedence')->get();
+		foreach ($pages as $page) {
+			$subnav['about' . (empty($page->slug) ? '' : '/' . $page->slug)] = $page->title;
 
-		Route::get($page->slug, function() use ($page)
+			Route::get($page->slug, function() use ($page)
+			{
+				return View::make('about', array(
+					'title'=>$page->title,
+					'content'=>$page->content,
+				));
+			});
+		}
+
+		View::composer('subnav', function($view) use ($subnav)
 		{
-			return View::make('about', array(
-				'title'=>$page->title,
-				'content'=>$page->content,
-			));
+		    $view->with('pages', $subnav)
+		    ->with('app_title', 'Hudson Valley Writers Center');
 		});
 	}
-
-	View::composer('subnav', function($view) use ($subnav)
-	{
-	    $view->with('pages', $subnav)
-	    ->with('app_title', 'Hudson Valley Writers Center');
-	});
 });
+
 
 Route::get('/courses', function()
 {

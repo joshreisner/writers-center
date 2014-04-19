@@ -4,11 +4,11 @@ body .header a {
   height: 100px; }
 body a {
   color: #3b9b8e; }
-  body a:hover, body a:active {
+  body a:hover, body a:active, body a:focus {
     color: #72cabe; }
 body .btn-primary {
   background-color: #3b9b8e;
   border-color: #3b9b8e; }
-  body .btn-primary:hover, body .btn-primary:active {
+  body .btn-primary:hover, body .btn-primary:active, body .btn-primary:focus {
     background-color: #72cabe;
     border-color: #3b9b8e; }
