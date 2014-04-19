@@ -23,9 +23,27 @@ Route::get('/', function()
 	));
 });
 
-Route::get('/about', function()
+Route::group(array('prefix' => 'about'), function()
 {
-	return View::make('about')->with('title', 'About');
+	$subnav = array();
+	$pages = Page::orderBy('precedence')->get();
+	foreach ($pages as $page) {
+		$subnav['about' . (empty($page->slug) ? '' : '/' . $page->slug)] = $page->title;
+
+		Route::get($page->slug, function() use ($page)
+		{
+			return View::make('about', array(
+				'title'=>$page->title,
+				'content'=>$page->content,
+			));
+		});
+	}
+
+	View::composer('subnav', function($view) use ($subnav)
+	{
+	    $view->with('pages', $subnav)
+	    ->with('app_title', 'Hudson Valley Writers Center');
+	});
 });
 
 Route::get('/courses', function()

@@ -14,19 +14,40 @@ $green1		: #105745;
 $green2		: #3d946a;
 $green3		: #82cbaa;
 
+$white		: #ffffff;
+
 //dimensions
 $row_spacing		: 24px;
 $carousel_width 	: 520px;
 $carousel_margin	: 20px;
 $carousel_height	: 300px;
 
+$link 			: #3b9b8e;
+$link_highlight : lighten(#3b9b8e, 20%);
+
 body {
 	a {
-		color: #3b9b8e;
-		&:hover, &:active { color: lighten(#3b9b8e, 20%); }
+		color: $link;
+		&:hover, &:active { color: $link_highlight; }
 		&:focus { outline: none; }
 	}
+
 	.row { padding-top: $row_spacing; }
+
+	.subnav {
+		li {
+			list-style-type: none; margin: 0 -20px;
+			a {
+				display: block; padding: 6px 15px; border-top: 1px solid $link_highlight;
+			}
+			&.active {
+				a {
+					background-color: $link; color: $white; 
+				}
+			}
+		}
+	}
+
 	&.home {
 		.banner {
 			position: relative;

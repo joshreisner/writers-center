@@ -6,6 +6,16 @@ body a {
     outline: none; }
 body .row {
   padding-top: 24px; }
+body .subnav li {
+  list-style-type: none;
+  margin: 0 -20px; }
+  body .subnav li a {
+    display: block;
+    padding: 6px 15px;
+    border-top: 1px solid #72cabe; }
+  body .subnav li.active a {
+    background-color: #3b9b8e;
+    color: white; }
 body.home .banner {
   position: relative; }
   body.home .banner .login {
