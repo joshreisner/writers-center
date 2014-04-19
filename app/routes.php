@@ -30,7 +30,11 @@ Route::get('/about', function()
 
 Route::get('/courses', function()
 {
-	return View::make('courses')->with('title', 'Courses');
+	return View::make('courses', array(
+		'title'=>'Courses',
+		'genres'=>Genre::with('courses')->get(),
+		'days'=>Day::get(),
+	));
 });
 
 Route::get('/events', function()

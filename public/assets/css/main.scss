@@ -22,11 +22,14 @@ $carousel_height	: 300px;
 
 body {
 	a {
+		color: #3b9b8e;
+		&:hover, &:active { color: lighten(#3b9b8e, 20%); }
 		&:focus { outline: none; }
 	}
+	.row { padding-top: $row_spacing; }
 	&.home {
 		.banner {
-			padding-top: $row_spacing; position: relative;
+			position: relative;
 			.login {
 				background-color: yellow;
 				border: 3px solid #ccc;
@@ -43,7 +46,6 @@ body {
 			}
 		}
 		.nav {
-			padding-top: $row_spacing;
 			a { 
 				display: block; padding: 6px 10px; background-color: $gray3; color: white; text-align: center;
 				text-transform: uppercase; font-size: 16px;
@@ -72,7 +74,6 @@ body {
 			}
 		}
 		.promos {
-			padding-top: $row_spacing;
 			a { 
 				display: block; height: 140px; line-height: 130px; text-align: center; 
 				border: 5px solid $red3; font-size: 50px; color: $red2;
