@@ -26,6 +26,7 @@ $link 			: #3b9b8e;
 $link_highlight : lighten(#3b9b8e, 20%);
 
 body {
+	padding-bottom: 40px; 
 	a {
 		color: $link;
 		&:hover, &:active { color: $link_highlight; }
@@ -47,6 +48,8 @@ body {
 			}
 		}
 	}
+
+	#map-canvas { height: 400px; }
 
 	&.home {
 		.banner {

@@ -61,17 +61,28 @@ Route::get('/courses', function()
 
 Route::get('/events', function()
 {
-	return View::make('events')->with('title', 'Events');
+	return View::make('events', array(
+		'title'=>'Events',
+		'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+		'events'=>Event::get(),
+	));
 });
 
 Route::get('/blog', function()
 {
-	return View::make('blog')->with('title', 'Blog');
+	return View::make('blog', array(
+		'title'=>'Blog',
+		'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+		'posts'=>Post::get(),
+	));
 });
 
 Route::get('/publications', function()
 {
-	return View::make('publications')->with('title', 'Publications');
+	return View::make('publications', array(
+		'title'=>'Publications',
+		'products'=>Product::get(),
+	));
 });
 
 Route::get('/contact', function()
