@@ -24,13 +24,9 @@
 
 		<div class="col-md-9">
 			<div class="page-header">
-				<h1>{{ $title }}</h1>
+				<h1>{{ $publication->title }}</h1>
 			</div>
-			<ul>
-			@foreach ($publications as $publication)
-				<li><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></li>
-			@endforeach
-			</ul>
+			{{ $publication->description }}
 		</div>
 
 	</div>

@@ -37,22 +37,44 @@ Route::get('/about/{slug?}', function($slug='')
 	));
 });
 
-Route::get('/courses', function()
+Route::get('/courses/{slug?}', function($slug='')
 {
-	return View::make('courses.index', array(
-		'title'=>'Courses',
-		'genres'=>Genre::with('courses')->get(),
-		'days'=>Day::get(),
-	));
+	if (empty($slug)) {
+		return View::make('courses.index', array(
+			'title'=>'Courses',
+			'genres'=>Genre::with('courses')->get(),
+			'days'=>Day::get(),
+		));
+	} else {
+		$course = Course::where('slug', $slug)->first();
+		return View::make('courses.course', array(
+			'title'=>$course->title,
+			'genres'=>Genre::with('courses')->get(),
+			'days'=>Day::get(),
+			'course'=>$course,
+		));
+	}
 });
 
-Route::get('/events', function()
+Route::get('/events/{year?}/{month?}/{slug?}', function($year='', $month='', $slug='')
 {
-	return View::make('events.index', array(
-		'title'=>'Events',
-		'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-		'events'=>Event::get(),
-	));
+	if (empty($month)) {
+		return View::make('events.index', array(
+			'title'=>'Events',
+			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+			'events'=>Event::get(),
+		));
+	} else {
+		$event = Event::whereRaw('MONTH(start) = ?', array($month))
+			->whereRaw('YEAR(start) = ?', array($year))
+			->where('slug', $slug)
+			->first();
+		return View::make('events.event', array(
+			'title'=>$event->title,
+			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+			'event'=>$event,
+		));
+	}
 });
 
 Route::get('/blog/{slug?}', function($slug='')
@@ -75,12 +97,23 @@ Route::get('/blog/{slug?}', function($slug='')
 	}
 });
 
-Route::get('/publications', function()
+Route::get('/publications/{slug?}', function($slug='')
 {
-	return View::make('publications.index', array(
-		'title'=>'Publications',
-		'publications'=>Publication::get(),
-	));
+	if (empty($slug)) {
+		return View::make('publications.index', array(
+			'title'=>'Publications',
+			'publications'=>Publication::orderBy('precedence')->get(),
+			'types'=>PublicationType::orderBy('title')->get(),
+		));
+	} else {
+		$publication = Publication::where('slug', $slug)->first();
+		return View::make('publications.publication', array(
+			'title'=>$publication->title,
+			'publications'=>Publication::orderBy('precedence')->get(),
+			'types'=>PublicationType::orderBy('title')->get(),
+			'publication'=>$publication,
+		));		
+	}
 });
 
 Route::get('/contact', function()

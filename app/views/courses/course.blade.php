@@ -32,16 +32,9 @@
 		</div>
 		<div class="col-md-9">
 			<div class="page-header">
-				<h1>{{ $title }}</h1>
+				<h1>{{ $course->title }}</h1>
 			</div>
-			@foreach ($genres as $genre)
-				<h3>{{ $genre->title }}</h3>
-				<ul>
-				@foreach ($genre->courses as $course)
-					<li><a href="/courses/{{ $course->slug }}">{{ $course->title }}</a></li>
-				@endforeach
-				</ul>
-			@endforeach
+			{{ $course->description }}
 		</div>
 	</div>
 </div>

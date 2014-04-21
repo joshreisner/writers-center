@@ -20,7 +20,7 @@
 			</div>
 			<div class="row nav">
 				@foreach ($sections as $url=>$section)
-				<div class="col-md-2"><a href="/{{ $url }}" class="{{ Request::is($url) ? 'active' : '' }}">{{ $section }}</a></div>
+				<div class="col-md-2"><a href="/{{ $url }}" class="{{ Request::is($url . '*') ? 'active' : '' }}">{{ $section }}</a></div>
 				@endforeach
 			</div>
 		</div>

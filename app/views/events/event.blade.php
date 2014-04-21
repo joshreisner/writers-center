@@ -23,13 +23,9 @@
 
 		<div class="col-md-9">
 			<div class="page-header">
-				<h1>{{ $title }}</h1>
+				<h1>{{ $event->title }}</h1>
 			</div>
-			<ul>
-			@foreach ($events as $event)
-				<li><a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">{{ $event->title }}</a></li>
-			@endforeach
-			</ul>
+			{{ $event->description }}
 		</div>
 
 	</div>
