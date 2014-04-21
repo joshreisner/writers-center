@@ -16,6 +16,17 @@
 							@endforeach
 						</select>
 					</div>
+					<div class="form-group">
+						<label for="tags">Tags</label>
+						@foreach ($tags as $tag)
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="{{ $tag->id }}">
+								{{ $tag->title }}
+							</label>
+						</div>
+						@endforeach
+					</div>
 				</form>
 			</div>
 		</div>
@@ -24,11 +35,13 @@
 			<div class="page-header">
 				<h1>{{ $title }}</h1>
 			</div>
-			<ul>
 			@foreach ($posts as $post)
-				<li><a href="#">{{ $post->title }}</a></li>
+			<div class="post">
+				<h2><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h2>
+				<div class="date">Published: {{ $post->publish_date->format(Config::get('config.date_format')) }}</div>
+				<div class="content">{{ $post->content }}</div>
+			</div>
 			@endforeach
-			</ul>
 		</div>
 
 	</div>

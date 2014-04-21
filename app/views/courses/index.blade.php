@@ -17,15 +17,16 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<label for="genre">Day of Week</label>
-						<select name="genre" id="genre" class="form-control">
-							<option selected="selected">Any</option>
-							@foreach ($days as $day)
-								<option value="{{ $day->id }}">{{ $day->title }}</option>
-							@endforeach
-						</select>
+						<label for="tags">Days</label>
+						@foreach ($days as $day)
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" value="{{ $day->id }}">
+								{{ $day->title }}
+							</label>
+						</div>
+						@endforeach
 					</div>
-					<button type="submit" class="btn btn-default">Filter</button>
 				</form>
 
 			</div>

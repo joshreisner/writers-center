@@ -20,8 +20,8 @@
 				<h1>{{ $title }}</h1>
 			</div>
 			<ul>
-			@foreach ($products as $product)
-				<li><a href="#">{{ $product->title }}</a></li>
+			@foreach ($publications as $publication)
+				<li><a href="#">{{ $publication->title }}</a></li>
 			@endforeach
 			</ul>
 		</div>

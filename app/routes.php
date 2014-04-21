@@ -23,36 +23,23 @@ Route::get('/', function()
 	));
 });
 
-Route::group(array('prefix' => 'about'), function()
+Route::get('/about/{slug?}', function($slug='')
 {
-	//only only get subnav pages if url pattern matches
-	if (Request::is('about*')) {
-		$subnav = array();
-		$pages = Page::orderBy('precedence')->get();
-		foreach ($pages as $page) {
-			$subnav['about' . (empty($page->slug) ? '' : '/' . $page->slug)] = $page->title;
-
-			Route::get($page->slug, function() use ($page)
-			{
-				return View::make('about', array(
-					'title'=>$page->title,
-					'content'=>$page->content,
-				));
-			});
-		}
-
-		View::composer('subnav', function($view) use ($subnav)
-		{
-		    $view->with('pages', $subnav)
-		    ->with('app_title', 'Hudson Valley Writers Center');
-		});
+	if (empty($slug)) {
+		$page = Page::whereNull('slug')->first();
+	} else {
+		$page = Page::where('slug', $slug)->first();
 	}
+	return View::make('about', array(
+		'title'=>$page->title,
+		'page'=>$page,
+		'pages'=>Page::orderBy('precedence')->get(),
+	));
 });
-
 
 Route::get('/courses', function()
 {
-	return View::make('courses', array(
+	return View::make('courses.index', array(
 		'title'=>'Courses',
 		'genres'=>Genre::with('courses')->get(),
 		'days'=>Day::get(),
@@ -61,27 +48,38 @@ Route::get('/courses', function()
 
 Route::get('/events', function()
 {
-	return View::make('events', array(
+	return View::make('events.index', array(
 		'title'=>'Events',
 		'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 		'events'=>Event::get(),
 	));
 });
 
-Route::get('/blog', function()
+Route::get('/blog/{slug?}', function($slug='')
 {
-	return View::make('blog', array(
-		'title'=>'Blog',
-		'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-		'posts'=>Post::get(),
-	));
+	if (empty($slug)) {
+		return View::make('blog.index', array(
+			'title'=>'Blog',
+			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+			'posts'=>Post::orderBy('publish_date', 'desc')->get(),
+			'tags'=>Tag::orderBy('title')->get(),
+		));
+	} else {
+		$post = Post::where('slug', $slug)->first();
+		return View::make('blog.post', array(
+			'title'=>$post->title,
+			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+			'post'=>$post,
+			'tags'=>Tag::orderBy('title')->get(),
+		));
+	}
 });
 
 Route::get('/publications', function()
 {
-	return View::make('publications', array(
+	return View::make('publications.index', array(
 		'title'=>'Publications',
-		'products'=>Product::get(),
+		'publications'=>Publication::get(),
 	));
 });
 
