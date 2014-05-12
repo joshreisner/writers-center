@@ -1,53 +1,31 @@
-$red1		: #7f2f20;
-$red2		: #c96e50;
-$red3		: #ebc097;
-$purple1	: #47434c;
-$purple2	: #928388;
-$purple3	: #d6bdc1;
-$brown1		: #4f3914;
-$brown2		: #a76f39;
-$brown3		: #fce5b5;
-$gray1		: #2b2f27;
-$gray2		: #6c6b5f;
-$gray3		: #858f85;
-$green1		: #105745;
-$green2		: #3d946a;
-$green3		: #82cbaa;
+;//colorz
+$default:			rgb(73, 79, 67);
 
-$white		: #ffffff;
+$about:				rgb(41, 140, 118);
+$courses:			rgb(50, 84, 53);
+$events: 			rgb(159, 97, 23);
+$blog:				rgb(105, 93, 115);
+$publications: 		rgb(198, 81, 70);
+$contact:			rgb(75, 82, 69);
 
-//dimensions
-$row_spacing		: 24px;
-$carousel_width 	: 520px;
-$carousel_margin	: 20px;
-$carousel_height	: 300px;
-
-$link 			: #3b9b8e;
-$link_highlight : lighten(#3b9b8e, 20%);
+//dimensionz
+$row-spacing:		24px;
+$carousel-width:	654px;
+$carousel-margin:	11px;
+$carousel-height:	400px;
+$border-width:		5px;
+$promo-height:		140px;
 
 body {
-	padding-bottom: 40px; 
+	padding-bottom: 100px; font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+
 	a {
-		color: $link;
-		&:hover, &:active { color: $link_highlight; }
+		color: $default;
+		&:hover, &:active { color: lighten($default, 50%); }
 		&:focus { outline: none; }
 	}
 
-	.row { padding-top: $row_spacing; }
-
-	.subnav {
-		li {
-			list-style-type: none; margin: 0 -20px;
-			a {
-				display: block; padding: 6px 15px; border-top: 1px solid $link_highlight;
-			}
-			&.active {
-				a {
-					background-color: $link; color: $white; 
-				}
-			}
-		}
-	}
+	.row { padding-top: $row-spacing; }
 
 	#map-canvas { height: 400px; }
 
@@ -59,7 +37,7 @@ body {
 				border: 3px solid #ccc;
 				border-top: 0;
 				position: absolute;
-				top: -$row_spacing;
+				top: -$row-spacing;
 				right: 15px;
 				padding: 5px 20px;
 				font-size: 20px; 
@@ -70,37 +48,51 @@ body {
 			}
 		}
 		.nav {
+			text-align: center;
 			a { 
-				display: block; padding: 6px 10px; background-color: $gray3; color: white; text-align: center;
 				text-transform: uppercase; font-size: 16px;
-				&:hover, &.active { background-color: $gray2; text-decoration: none; }
+			}
+			div.active a, div a:hover { 
+				text-decoration: underline; 
+				&.about { color: $about; }
+				&.courses { color: $courses; }
+				&.events { color: $events; }
+				&.blog { color: $blog; }
+				&.publications { color: $publications; }
+				&.contact { color: $contact; }
 			}
 		}
 		.carousel {
-			padding-top: $row_spacing; width: 100%; height: $carousel_height + $row_spacing; overflow-x: hidden;
+			padding-top: $row-spacing; width: 100%; height: $carousel-height + $row-spacing; overflow-x: hidden;
 			.inner {
-				width: ($carousel_width + $carousel_margin) * 7; margin-left: -60px;
+				width: ($carousel-width + $carousel-margin) * 7; margin-left: -60px;
 				.item {
-					float: left; height: $carousel_height; width: $carousel_width; overflow: hidden;
-					margin-right: $carousel_margin; padding: 20px 40px; position: relative; color: inherit;
+					float: left; height: $carousel-height; width: $carousel-width; overflow: hidden;
+					margin-right: $carousel-margin; padding: 20px 40px; position: relative; color: inherit;
 
 					h1 { margin: 40px 0 0 0; font-size: 30px; }
 
 					.description { margin: 20px; text-transform: uppercase; }
 					.type { text-transform: uppercase; position: absolute; top: 20px; }
-					&.course		{ background-color: $red3; }
-					&.blog			{ background-color: $brown3; }
-					&.event 		{ background-color: $green3; }
-					&.publication	{ background-color: $purple3; }
+					&.course		{ background-color: lighten($courses, 50%); }
+					&.blog			{ background-color: lighten($blog, 50%); }
+					&.event 		{ background-color: lighten($events, 50%); }
+					&.publication	{ background-color: lighten($publications, 50%); }
 
 					&:hover { text-decoration: none; }
 				}
 			}
 		}
 		.promos {
-			a { 
-				display: block; height: 140px; line-height: 130px; text-align: center; 
-				border: 5px solid $red3; font-size: 50px; color: $red2;
+			div.promo { 
+				height: $promo-height; border: $border-width solid $default; overflow: hidden;
+				&.events { border-color: $events; }
+				&.courses { border-color: $courses; }
+				&.support { 
+					border-color: $publications; padding-top: 23px; 
+					a { display: block; line-height: 1; text-align: center; font-size: 40px; color: $publications; 
+						text-transform: uppercase; }
+				}
 			}
 		}
 	}

@@ -19,7 +19,6 @@ Route::get('/', function()
 
 	return View::make('home', array(
 		'items'=>$carouselItems,
-		'promos'=>Promo::take(3)->orderBy('precedence')->get(),
 	));
 });
 

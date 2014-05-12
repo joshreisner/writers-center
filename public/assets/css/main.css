@@ -1,23 +1,14 @@
 body {
-  padding-bottom: 40px; }
+  padding-bottom: 100px;
+  font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif; }
   body a {
-    color: #3b9b8e; }
+    color: #494f43; }
     body a:hover, body a:active {
-      color: #72cabe; }
+      color: #c9cdc4; }
     body a:focus {
       outline: none; }
   body .row {
     padding-top: 24px; }
-  body .subnav li {
-    list-style-type: none;
-    margin: 0 -20px; }
-    body .subnav li a {
-      display: block;
-      padding: 6px 15px;
-      border-top: 1px solid #72cabe; }
-    body .subnav li.active a {
-      background-color: #3b9b8e;
-      color: white; }
   body #map-canvas {
     height: 400px; }
   body.home .banner {
@@ -37,31 +28,39 @@ body {
       body.home .banner .login:hover {
         text-decoration: none;
         opacity: 1; }
-  body.home .nav a {
-    display: block;
-    padding: 6px 10px;
-    background-color: #858f85;
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 16px; }
-    body.home .nav a:hover, body.home .nav a.active {
-      background-color: #6c6b5f;
-      text-decoration: none; }
+  body.home .nav {
+    text-align: center; }
+    body.home .nav a {
+      text-transform: uppercase;
+      font-size: 16px; }
+    body.home .nav div.active a, body.home .nav div a:hover {
+      text-decoration: underline; }
+      body.home .nav div.active a.about, body.home .nav div a:hover.about {
+        color: #298c76; }
+      body.home .nav div.active a.courses, body.home .nav div a:hover.courses {
+        color: #325435; }
+      body.home .nav div.active a.events, body.home .nav div a:hover.events {
+        color: #9f6117; }
+      body.home .nav div.active a.blog, body.home .nav div a:hover.blog {
+        color: #695d73; }
+      body.home .nav div.active a.publications, body.home .nav div a:hover.publications {
+        color: #c65146; }
+      body.home .nav div.active a.contact, body.home .nav div a:hover.contact {
+        color: #4b5245; }
   body.home .carousel {
     padding-top: 24px;
     width: 100%;
-    height: 324px;
+    height: 424px;
     overflow-x: hidden; }
     body.home .carousel .inner {
-      width: 3780px;
+      width: 4655px;
       margin-left: -60px; }
       body.home .carousel .inner .item {
         float: left;
-        height: 300px;
-        width: 520px;
+        height: 400px;
+        width: 654px;
         overflow: hidden;
-        margin-right: 20px;
+        margin-right: 11px;
         padding: 20px 40px;
         position: relative;
         color: inherit; }
@@ -76,20 +75,30 @@ body {
           position: absolute;
           top: 20px; }
         body.home .carousel .inner .item.course {
-          background-color: #ebc097; }
+          background-color: #b3d2b6; }
         body.home .carousel .inner .item.blog {
-          background-color: #fce5b5; }
+          background-color: #e8e5ea; }
         body.home .carousel .inner .item.event {
-          background-color: #82cbaa; }
+          background-color: #f6ddbf; }
         body.home .carousel .inner .item.publication {
-          background-color: #d6bdc1; }
+          background-color: white; }
         body.home .carousel .inner .item:hover {
           text-decoration: none; }
-  body.home .promos a {
-    display: block;
+  body.home .promos div.promo {
     height: 140px;
-    line-height: 130px;
-    text-align: center;
-    border: 5px solid #ebc097;
-    font-size: 50px;
-    color: #c96e50; }
+    border: 5px solid #494f43;
+    overflow: hidden; }
+    body.home .promos div.promo.events {
+      border-color: #9f6117; }
+    body.home .promos div.promo.courses {
+      border-color: #325435; }
+    body.home .promos div.promo.support {
+      border-color: #c65146;
+      padding-top: 23px; }
+      body.home .promos div.promo.support a {
+        display: block;
+        line-height: 1;
+        text-align: center;
+        font-size: 40px;
+        color: #c65146;
+        text-transform: uppercase; }
