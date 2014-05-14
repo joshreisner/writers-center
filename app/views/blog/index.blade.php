@@ -2,10 +2,6 @@
 
 @section('page')
 
-	<div class="page-header">
-		<h1>{{ $title }}</h1>
-	</div>
-
 	@foreach ($posts as $post)
 	<div class="post">
 		<h2><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h2>

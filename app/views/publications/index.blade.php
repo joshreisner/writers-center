@@ -1,10 +1,8 @@
 @extends('publications.template')
 
 @section('page')
+	<h1>{{ $title }}</h1>
 
-	<div class="page-header">
-		<h1>{{ $title }}</h1>
-	</div>
 	<ul>
 	@foreach ($publications as $publication)
 		<li><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></li>

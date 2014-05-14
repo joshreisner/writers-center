@@ -14,12 +14,13 @@
 			</div>
 		</div>
 		<div class="col-md-8 page">
-			<div class="page-header">
-				<h1>{{ $page->title }}</h1>
+			<div class="inner">
+				<div class="col-md-offset-1">
+					<h1>{{ $page->title }}</h1>
+					{{ $page->content }}
+				</div>
 			</div>
-			{{ $page->content }}
 		</div>
-
 	</div>
 </div>
 

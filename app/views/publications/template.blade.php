@@ -25,9 +25,11 @@
 		</div>
 
 		<div class="col-md-8 page">
-
-			@yield('page')
-
+			<div class="inner">
+				<div class="col-md-offset-1">
+					@yield('page')
+				</div>
+			</div>
 		</div>
 
 	</div>

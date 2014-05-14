@@ -7,6 +7,18 @@ body {
       color: #c9cdc4; }
     body a:focus {
       outline: none; }
+  body button.dropdown-toggle {
+    background-color: #b3d2b6;
+    border-radius: 0;
+    width: 172px;
+    height: 20px;
+    position: relative; }
+    body button.dropdown-toggle span.caret {
+      border-width: 9px;
+      color: #325435;
+      position: absolute;
+      top: 9px;
+      right: 0; }
   body .row {
     padding-top: 30px; }
     body .row.banner {
@@ -96,12 +108,31 @@ body {
   body.home .promos div.promo {
     height: 161px;
     border: 3px solid #494f43;
-    overflow: hidden;
+    position: relative;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
     body.home .promos div.promo.events {
       border-color: #9f6117; }
     body.home .promos div.promo.courses {
       border-color: #325435; }
+      body.home .promos div.promo.courses form {
+        padding: 7.5px 15px; }
+        body.home .promos div.promo.courses form legend {
+          text-transform: uppercase;
+          border: 0;
+          margin-bottom: 0; }
+        body.home .promos div.promo.courses form .form-group {
+          margin-bottom: 0; }
+          body.home .promos div.promo.courses form .form-group .dropdown-toggle {
+            margin-top: 5px; }
+        body.home .promos div.promo.courses form input[type=submit] {
+          background-color: transparent;
+          border: 0;
+          position: absolute;
+          right: 15px;
+          bottom: 10px;
+          text-decoration: underline;
+          text-transform: uppercase;
+          font-size: 18px; }
     body.home .promos div.promo.support {
       border-color: #c65146;
       padding-top: 35px; }
@@ -112,9 +143,23 @@ body {
         font-size: 40px;
         color: #c65146;
         text-transform: uppercase; }
+  body.about .page {
+    color: #298c76; }
+    body.about .page .inner {
+      border-top: 3px solid #298c76; }
+    body.about .page a {
+      color: #298c76;
+      font-size: 150%; }
+    body.about .page ul {
+      list-style-type: none; }
+  body.about .side .inner {
+    border: 3px solid #298c76;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.courses .page {
-    color: #325435;
-    border-top: 3px solid #325435; }
+    color: #325435; }
+    body.courses .page .inner {
+      border-top: 3px solid #325435; }
     body.courses .page a {
       color: #325435;
       font-size: 150%; }
@@ -125,8 +170,9 @@ body {
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.events .page {
-    color: #9f6117;
-    border-top: 3px solid #9f6117; }
+    color: #9f6117; }
+    body.events .page .inner {
+      border-top: 3px solid #9f6117; }
     body.events .page a {
       color: #9f6117;
       font-size: 150%; }
@@ -136,21 +182,10 @@ body {
     border: 3px solid #9f6117;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.about .page {
-    color: #298c76;
-    border-top: 3px solid #298c76; }
-    body.about .page a {
-      color: #298c76;
-      font-size: 150%; }
-    body.about .page ul {
-      list-style-type: none; }
-  body.about .side .inner {
-    border: 3px solid #298c76;
-    padding: 20px;
-    box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.blog .page {
-    color: #695d73;
-    border-top: 3px solid #695d73; }
+    color: #695d73; }
+    body.blog .page .inner {
+      border-top: 3px solid #695d73; }
     body.blog .page a {
       color: #695d73;
       font-size: 150%; }
@@ -161,8 +196,9 @@ body {
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.publications .page {
-    color: #c65146;
-    border-top: 3px solid #c65146; }
+    color: #c65146; }
+    body.publications .page .inner {
+      border-top: 3px solid #c65146; }
     body.publications .page a {
       color: #c65146;
       font-size: 150%; }
@@ -170,5 +206,18 @@ body {
       list-style-type: none; }
   body.publications .side .inner {
     border: 3px solid #c65146;
+    padding: 20px;
+    box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+  body.contact .page {
+    color: #4b5245; }
+    body.contact .page .inner {
+      border-top: 3px solid #4b5245; }
+    body.contact .page a.btn-primary {
+      color: white;
+      background-color: #4b5245; }
+    body.contact .page #map-canvas {
+      height: 500px; }
+  body.contact .side .inner {
+    border: 3px solid #4b5245;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
