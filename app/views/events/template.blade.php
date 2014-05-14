@@ -1,11 +1,13 @@
 @extends('template')
 
+@section('body_class') events @endsection
+
 @section('content')
 
 <div class="container">
 	<div class="row content">
-		<div class="col-md-3">
-			<div class="well">
+		<div class="col-md-4 side">
+			<div class="inner">
 				<form role="form">
 					<div class="form-group">
 						<label for="timeframe">Timeframe</label>
@@ -21,11 +23,10 @@
 			</div>
 		</div>
 
-		<div class="col-md-9">
-			<div class="page-header">
-				<h1>{{ $event->title }}</h1>
-			</div>
-			{{ $event->description }}
+		<div class="col-md-8 page">
+
+			@yield('page')
+
 		</div>
 
 	</div>

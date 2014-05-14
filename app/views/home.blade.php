@@ -1,11 +1,14 @@
 @extends('template')
 
+@section('body_class') home @endsection
+
 @section('content')
 
 	<div class="carousel">
 		<div class="inner">
 			@foreach ($items as $item)
 			<a class="item {{ $item->type }}" href="#">
+				<img src="{{ $item->backing->url }}" width="{{ $item->backing->width }}" height="{{ $item->backing->height }}">
 				<h1>{{ nl2br($item->title) }}</h1>
 				<div class="description">{{ nl2br($item->content) }}</div>
 				<div class="type">{{ $item->type }}</div>

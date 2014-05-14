@@ -1,4 +1,4 @@
-;//colorz
+//colorz
 $default:			rgb(73, 79, 67);
 
 $about:				rgb(41, 140, 118);
@@ -9,12 +9,16 @@ $publications: 		rgb(198, 81, 70);
 $contact:			rgb(75, 82, 69);
 
 //dimensionz
-$row-spacing:		24px;
 $carousel-width:	654px;
 $carousel-margin:	11px;
 $carousel-height:	400px;
-$border-width:		5px;
-$promo-height:		140px;
+$border-width:		3px;
+$promo-height:		161px;
+$margin:			15px;
+
+@mixin shadow() {
+	box-shadow: 5px 5px 5px transparentize($default, .5);
+}
 
 body {
 	padding-bottom: 100px; font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
@@ -25,30 +29,17 @@ body {
 		&:focus { outline: none; }
 	}
 
-	.row { padding-top: $row-spacing; }
-
-	#map-canvas { height: 400px; }
-
-	&.home {
-		.banner {
-			position: relative;
-			.login {
-				background-color: yellow;
-				border: 3px solid #ccc;
-				border-top: 0;
-				position: absolute;
-				top: -$row-spacing;
-				right: 15px;
-				padding: 5px 20px;
-				font-size: 20px; 
-				border-radius: 0 0 10px 10px;
-				color: inherit;
-				opacity: .7;
-				&:hover { text-decoration: none; opacity: 1; }
+	.row { 
+		padding-top: $margin * 2; 
+		&.banner {
+			position: relative; 
+			nav#utility {
+				position: absolute; right: $margin; top: 0;
+				a { color: $default; margin-left: 40px;  }
 			}
 		}
-		.nav {
-			text-align: center;
+		&.nav {
+			text-align: center; 
 			a { 
 				text-transform: uppercase; font-size: 16px;
 			}
@@ -62,22 +53,44 @@ body {
 				&.contact { color: $contact; }
 			}
 		}
+		&.content {
+			padding-top: $margin;
+		}
+	}
+
+	&.home {
 		.carousel {
-			padding-top: $row-spacing; width: 100%; height: $carousel-height + $row-spacing; overflow-x: hidden;
+			padding-top: $margin; width: 100%; height: $carousel-height + $margin; overflow-x: hidden;
 			.inner {
 				width: ($carousel-width + $carousel-margin) * 7; margin-left: -60px;
 				.item {
 					float: left; height: $carousel-height; width: $carousel-width; overflow: hidden;
-					margin-right: $carousel-margin; padding: 20px 40px; position: relative; color: inherit;
+					margin-right: $margin; padding: 20px 40px; position: relative; color: inherit;
 
-					h1 { margin: 40px 0 0 0; font-size: 30px; }
-
+					h1 { margin: 40px 0 0 0; font-size: 40px; }
+					img { position: absolute; top: 0; left: 0; opacity: .15; }
 					.description { margin: 20px; text-transform: uppercase; }
 					.type { text-transform: uppercase; position: absolute; top: 20px; }
-					&.course		{ background-color: lighten($courses, 50%); }
-					&.blog			{ background-color: lighten($blog, 50%); }
-					&.event 		{ background-color: lighten($events, 50%); }
-					&.publication	{ background-color: lighten($publications, 50%); }
+					&.course	{ 
+						background-color: transparentize($courses, .7); 
+						color: $courses;
+						a { color: $courses; }
+					}
+					&.blog	{ 
+						background-color: transparentize($blog, .7); 
+						color: $blog;
+						a { color: $blog; }
+					}
+					&.event	{ 
+						background-color: transparentize($events, .7); 
+						color: $events;
+						a { color: $events; }
+					}
+					&.publication	{ 
+						background-color: transparentize($publications, .7); 
+						color: $publications;
+						a { color: $publications; }
+					}
 
 					&:hover { text-decoration: none; }
 				}
@@ -86,13 +99,79 @@ body {
 		.promos {
 			div.promo { 
 				height: $promo-height; border: $border-width solid $default; overflow: hidden;
+				@include shadow();
 				&.events { border-color: $events; }
 				&.courses { border-color: $courses; }
 				&.support { 
-					border-color: $publications; padding-top: 23px; 
+					border-color: $publications; padding-top: 35px; 
 					a { display: block; line-height: 1; text-align: center; font-size: 40px; color: $publications; 
 						text-transform: uppercase; }
 				}
+			}
+		}
+	}
+
+	&.courses {
+		.page {
+			color: $courses; border-top: $border-width solid $courses;
+			a { color: $courses; font-size: 150%; }
+			ul { list-style-type: none; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $courses; padding: 20px; @include shadow();
+			}
+		}
+	}
+
+	&.events {
+		.page {
+			color: $events; border-top: $border-width solid $events;
+			a { color: $events; font-size: 150%; }
+			ul { list-style-type: none; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $events; padding: 20px; @include shadow();
+			}
+		}
+	}
+
+	&.about {
+		.page {
+			color: $about; border-top: $border-width solid $about;
+			a { color: $about; font-size: 150%; }
+			ul { list-style-type: none; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $about; padding: 20px; @include shadow();
+			}
+		}
+	}
+
+	&.blog {
+		.page {
+			color: $blog; border-top: $border-width solid $blog;
+			a { color: $blog; font-size: 150%; }
+			ul { list-style-type: none; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $blog; padding: 20px; @include shadow();
+			}
+		}
+	}
+
+	&.publications {
+		.page {
+			color: $publications; border-top: $border-width solid $publications;
+			a { color: $publications; font-size: 150%; }
+			ul { list-style-type: none; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $publications; padding: 20px; @include shadow();
 			}
 		}
 	}
