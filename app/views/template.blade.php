@@ -11,7 +11,7 @@
 		<div class="container">
 			<div class="row banner">
 				<div class="col-md-12">
-					<a href="/"><img src="/assets/img/logo.png" width="330" height="127"></a>
+					<a href="/"><img src="/assets/img/logo.png" width="330" height="127" class="img-responsive"></a>
 
 					<nav id="utility">
 						<a href="#">Log In</a>

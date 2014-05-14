@@ -6,7 +6,12 @@
 
 <div class="container">
 	<div class="row content">
-		<div class="col-md-3 side">
+		<div class="col-md-8 page">
+
+			@yield('page')
+
+		</div>
+		<div class="col-md-4 side">
 			<div class="inner">
 				<form role="form">
 					<div class="form-group">
@@ -32,13 +37,6 @@
 				</form>
 			</div>
 		</div>
-
-		<div class="col-md-9 page">
-
-			@yield('page')
-
-		</div>
-
 	</div>
 </div>
 
