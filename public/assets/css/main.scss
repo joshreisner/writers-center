@@ -133,85 +133,102 @@ body {
 	}
 
 	&.about {
-		.page {
-			color: $about; 
-			.inner { border-top: $border-width solid $about; }
-			a { color: $about; font-size: 150%; }
-			ul { list-style-type: none; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $about; padding: 20px; @include shadow();
+		.content {
+			.page {
+				color: $about; 
+				.inner { border-top: $border-width solid $about; }
+				a { color: $about; font-size: 150%; }
+				ul { list-style-type: none; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $about; padding: 20px; @include shadow();
+				}
 			}
 		}
 	}
 
 	&.courses {
-		.page {
-			color: $courses;
-			.inner { border-top: $border-width solid $courses; }
-			a { color: $courses; font-size: 150%; }
-			ul { list-style-type: none; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $courses; padding: 20px; @include shadow();
+		.content {
+			.page {
+				color: $courses;
+				.inner { border-top: $border-width solid $courses; }
+				a { color: $courses; font-size: 150%; }
+				ul { list-style-type: none; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $courses; padding: 20px; @include shadow();
+				}
 			}
 		}
 	}
 
 	&.events {
-		.page {
-			color: $events; 
-			.inner { border-top: $border-width solid $events; }
-			a { color: $events; font-size: 150%; }
-			ul { list-style-type: none; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $events; padding: 20px; @include shadow();
+		.content {
+			.page {
+				color: $events; 
+				.inner { border-top: $border-width solid $events; }
+				a { color: $events; font-size: 150%; }
+				ul { list-style-type: none; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $events; padding: 20px; @include shadow();
+				}
 			}
 		}
 	}
 
 	&.blog {
-		.page {
-			color: $blog; 
-			.inner { border-top: $border-width solid $blog; }
-			a { color: $blog; font-size: 150%; }
-			ul { list-style-type: none; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $blog; padding: 20px; @include shadow();
+		.content {
+			.page {
+				color: $blog; 
+				.inner { border-top: $border-width solid $blog; }
+				a { color: $blog; font-size: 150%; }
+				ul { list-style-type: none; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $blog; padding: 20px; @include shadow();
+				}
 			}
 		}
 	}
 
 	&.publications {
-		.page {
-			color: $publications; 
-			.inner { border-top: $border-width solid $publications; }
-			a { color: $publications; font-size: 150%; }
-			ul { list-style-type: none; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $publications; padding: 20px; @include shadow();
+		.content {
+			.page {
+				color: $publications; 
+				.inner { border-top: $border-width solid $publications; }
+				a { color: $publications; font-size: 150%; }
+				ul { list-style-type: none; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $publications; padding: 20px; @include shadow();
+				}
 			}
 		}
 	}
 
 	&.contact {
-		.page {
-			color: $contact; 
-			.inner { border-top: $border-width solid $contact; }
-			a.btn-primary { color: white; background-color: $contact; }
-			#map-canvas { height: 500px; }
-		}
-		.side {
-			.inner {
-				border: $border-width solid $contact; padding: 20px; @include shadow();
+		.content {
+			a { 
+				color: $contact; 
+				&:hover { color: lighten($contact, 20%);  }
+			}			
+			.page {
+				color: $contact; 
+				.inner { border-top: $border-width solid $contact; }
+				a.btn-primary { color: white; background-color: $contact; }
+				#map-canvas { height: 500px; }
+			}
+			.side {
+				.inner {
+					border: $border-width solid $contact; padding: 20px; @include shadow();
+					ul { list-style-type: none; font-size: 140%; }
+				}
 			}
 		}
 	}

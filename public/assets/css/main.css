@@ -143,81 +143,88 @@ body {
         font-size: 40px;
         color: #c65146;
         text-transform: uppercase; }
-  body.about .page {
+  body.about .content .page {
     color: #298c76; }
-    body.about .page .inner {
+    body.about .content .page .inner {
       border-top: 3px solid #298c76; }
-    body.about .page a {
+    body.about .content .page a {
       color: #298c76;
       font-size: 150%; }
-    body.about .page ul {
+    body.about .content .page ul {
       list-style-type: none; }
-  body.about .side .inner {
+  body.about .content .side .inner {
     border: 3px solid #298c76;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.courses .page {
+  body.courses .content .page {
     color: #325435; }
-    body.courses .page .inner {
+    body.courses .content .page .inner {
       border-top: 3px solid #325435; }
-    body.courses .page a {
+    body.courses .content .page a {
       color: #325435;
       font-size: 150%; }
-    body.courses .page ul {
+    body.courses .content .page ul {
       list-style-type: none; }
-  body.courses .side .inner {
+  body.courses .content .side .inner {
     border: 3px solid #325435;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.events .page {
+  body.events .content .page {
     color: #9f6117; }
-    body.events .page .inner {
+    body.events .content .page .inner {
       border-top: 3px solid #9f6117; }
-    body.events .page a {
+    body.events .content .page a {
       color: #9f6117;
       font-size: 150%; }
-    body.events .page ul {
+    body.events .content .page ul {
       list-style-type: none; }
-  body.events .side .inner {
+  body.events .content .side .inner {
     border: 3px solid #9f6117;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.blog .page {
+  body.blog .content .page {
     color: #695d73; }
-    body.blog .page .inner {
+    body.blog .content .page .inner {
       border-top: 3px solid #695d73; }
-    body.blog .page a {
+    body.blog .content .page a {
       color: #695d73;
       font-size: 150%; }
-    body.blog .page ul {
+    body.blog .content .page ul {
       list-style-type: none; }
-  body.blog .side .inner {
+  body.blog .content .side .inner {
     border: 3px solid #695d73;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.publications .page {
+  body.publications .content .page {
     color: #c65146; }
-    body.publications .page .inner {
+    body.publications .content .page .inner {
       border-top: 3px solid #c65146; }
-    body.publications .page a {
+    body.publications .content .page a {
       color: #c65146;
       font-size: 150%; }
-    body.publications .page ul {
+    body.publications .content .page ul {
       list-style-type: none; }
-  body.publications .side .inner {
+  body.publications .content .side .inner {
     border: 3px solid #c65146;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-  body.contact .page {
+  body.contact .content a {
     color: #4b5245; }
-    body.contact .page .inner {
+    body.contact .content a:hover {
+      color: #7e8974; }
+  body.contact .content .page {
+    color: #4b5245; }
+    body.contact .content .page .inner {
       border-top: 3px solid #4b5245; }
-    body.contact .page a.btn-primary {
+    body.contact .content .page a.btn-primary {
       color: white;
       background-color: #4b5245; }
-    body.contact .page #map-canvas {
+    body.contact .content .page #map-canvas {
       height: 500px; }
-  body.contact .side .inner {
+  body.contact .content .side .inner {
     border: 3px solid #4b5245;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+    body.contact .content .side .inner ul {
+      list-style-type: none;
+      font-size: 140%; }
