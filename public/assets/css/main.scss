@@ -41,7 +41,14 @@ body {
 			position: relative; 
 			nav#utility {
 				position: absolute; right: $margin; top: 0;
-				a { color: $default; margin-left: 40px;  }
+				a { 
+					color: $default; margin-left: 40px;
+					&.dashicons { 
+						font-size: 240%; line-height: .5; 
+						&:last-child { margin-left: 10px; }
+						&:hover { text-decoration: none; color: lighten($default, 20%); }
+					}
+				}
 			}
 		}
 		&.nav {
@@ -143,6 +150,10 @@ body {
 			.side {
 				.inner {
 					border: $border-width solid $about; padding: 20px; @include shadow();
+
+					li {
+						list-style-type: none; font-size: 120%; 
+					}
 				}
 			}
 		}

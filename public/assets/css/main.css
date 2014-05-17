@@ -30,6 +30,14 @@ body {
         body .row.banner nav#utility a {
           color: #494f43;
           margin-left: 40px; }
+          body .row.banner nav#utility a.dashicons {
+            font-size: 240%;
+            line-height: .5; }
+            body .row.banner nav#utility a.dashicons:last-child {
+              margin-left: 10px; }
+            body .row.banner nav#utility a.dashicons:hover {
+              text-decoration: none;
+              color: #7c8672; }
     body .row.nav {
       text-align: center; }
       body .row.nav a {
@@ -156,6 +164,9 @@ body {
     border: 3px solid #298c76;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+    body.about .content .side .inner li {
+      list-style-type: none;
+      font-size: 120%; }
   body.courses .content .page {
     color: #325435; }
     body.courses .content .page .inner {

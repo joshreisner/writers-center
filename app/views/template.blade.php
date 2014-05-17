@@ -4,8 +4,9 @@
 		<meta charset="UTF-8">
 		<title>{{ $title or $app_title }}</title>
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//f.fontdeck.com/s/css/uH5+KWQnibDTJRYggGJ9XZLTAgw/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
+		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
-		<link rel="stylesheet" href="//f.fontdeck.com/s/css/uH5+KWQnibDTJRYggGJ9XZLTAgw/{{ $_SERVER['SERVER_NAME'] }}/45521.css" type="text/css" />
 	</head>
 	<body class="@yield('body_class');">
 		<div class="container">
@@ -16,8 +17,8 @@
 					<nav id="utility">
 						<a href="#">Log In</a>
 						<a href="#">Support the Center</a>
-						<a href="#" class="icon facebook">Facebook</a>
-						<a href="#" class="icon twitter">Twitter</a>
+						<a href="#" class="dashicons dashicons-facebook"></a>
+						<a href="#" class="dashicons dashicons-twitter"></a>
 					</nav>
 
 				</div>
