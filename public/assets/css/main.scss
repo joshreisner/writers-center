@@ -177,8 +177,24 @@ body {
 			.page {
 				color: $courses;
 				.inner { border-top: $border-width solid $courses; }
-				a { color: $courses; font-size: 150%; }
-				ul { list-style-type: none; }
+				a, small { color: $courses; }
+				h1 small { display: block; line-height: 1.3; }
+				ul { 
+					list-style-type: none;  
+					&.instructors {
+						padding: 0; overflow: auto; margin-top: $margin;
+						img { float: left; margin: 0 $margin $margin 0; }
+					}
+					&.courses {
+						a { font-size: 150%; }
+					}
+				}
+				dl {
+					overflow: auto; margin: 20px 0;
+					dt, dd { float: left; }
+					dt { font-weight: normal; clear: left; width: 80px; text-transform: uppercase; }
+					dd { }
+				}
 			}
 			.side {
 				.inner {

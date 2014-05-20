@@ -36,24 +36,8 @@ Route::get('/about/{slug?}', function($slug='')
 	));
 });
 
-Route::get('/courses/{slug?}', function($slug='')
-{
-	if (empty($slug)) {
-		return View::make('courses.index', array(
-			'title'=>'Courses',
-			'genres'=>Genre::with('courses')->get(),
-			'days'=>Day::get(),
-		));
-	} else {
-		$course = Course::where('slug', $slug)->first();
-		return View::make('courses.course', array(
-			'title'=>$course->title,
-			'genres'=>Genre::with('courses')->get(),
-			'days'=>Day::get(),
-			'course'=>$course,
-		));
-	}
-});
+Route::get('/courses', 'CourseController@index');
+Route::get('/courses/{slug}', 'CourseController@show');
 
 Route::get('/events/{year?}/{month?}/{slug?}', function($year='', $month='', $slug='')
 {
