@@ -33,7 +33,9 @@
 	<ul class="instructors">
 		@foreach ($course->instructors as $instructor)
 		<li>
+			@if (!empty($instructor->image->url))
 			<img src="{{ $instructor->image->url }}" width="{{ $instructor->image->width }}" height="{{ $instructor->image->height }}" alt="{{ $instructor->name }}">
+			@endif
 			{{ $instructor->bio }}
 		</li>
 		@endforeach

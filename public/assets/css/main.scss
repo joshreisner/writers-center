@@ -183,7 +183,10 @@ body {
 					list-style-type: none;  
 					&.instructors {
 						padding: 0; overflow: auto; margin-top: $margin;
-						img { float: left; margin: 0 $margin $margin 0; }
+						li {
+							overflow: auto;
+							img { float: left; margin: 0 $margin $margin 0; }
+						}
 					}
 					&.courses {
 						a { font-size: 150%; }
