@@ -62,6 +62,24 @@
 				</div>
 			</div>
 		</div>
+		<div class="row supporters">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					<div class="col-md-6">
+						<p>Programs and events at The Hudson Valley Writers' Center are made possible in part by grants from the Bydale Foundation, David G. Taft Foundation, Orchard Foundation, William E. Robinson Foundation, and Thendara Foundation; with public funds from the New York State Council on the Arts, a State Agency, and the National Endowment for the Arts; and by the Basic Program Support Grant of Arts Westchester with funds from Westchester County Government.</p>
+					</div>
+					<div class="col-md-2">
+						<a href=""><img src="/assets/img/supporter-artswestchester.png" width="330" height="299" class="img-responsive"></a>
+					</div>
+					<div class="col-md-2">
+						<a href=""><img src="/assets/img/supporter-nea.png" width="200" height="249" class="img-responsive"></a>
+					</div>
+					<div class="col-md-2">
+						<a href=""><img src="/assets/img/supporter-nysca.png" width="397" height="511" class="img-responsive"></a>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 @endsection

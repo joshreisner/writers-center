@@ -8,19 +8,19 @@
 		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
 	</head>
-	<body class="@yield('body_class');">
+	<body class="@yield('body_class')">
 		<div class="container">
 			<div class="row banner">
-				<div class="col-md-12">
-					<a href="/"><img src="/assets/img/logo.png" width="330" height="127" class="img-responsive"></a>
-
+				<div class="col-md-8">
+					<a href="/" class="logo col-md-offset-1"><img src="/assets/img/logo.png" width="330" height="127" class="img-responsive"></a>
+				</div>
+				<div class="col-md-4">
 					<nav id="utility">
 						<a class="login">Log In</a>
 						<a href="/support">Support the Center</a>
 						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>
-
 				</div>
 			</div>
 			<div class="row nav">
