@@ -2,9 +2,7 @@
 
 @section('page')
 
-	<div class="page-header">
-		<h1>{{ $publication->title }}</h1>
-	</div>
+	<h1>{{ $publication->title }}</h1>
 	{{ $publication->description }}
 
 @endsection

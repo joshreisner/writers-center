@@ -1,16 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
+//home
 Route::get('/', function()
 {
 	//set type slugs
@@ -22,6 +12,7 @@ Route::get('/', function()
 	));
 });
 
+//about section
 Route::get('/about/{slug?}', function($slug='')
 {
 	if (empty($slug)) {
@@ -36,79 +27,29 @@ Route::get('/about/{slug?}', function($slug='')
 	));
 });
 
-Route::get('/courses', 'CourseController@index');
-Route::get('/courses/{slug}', 'CourseController@show');
+//complex sections
+Route::get('/courses', 						'CourseController@index');
+Route::get('/courses/{slug}',				'CourseController@show');
+Route::get('/events',						'EventController@index');
+Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
+Route::get('/blog',							'BlogController@index');
+Route::get('/blog/{slug}', 					'BlogController@show');
+Route::get('/publications',					'PublicationController@index');
+Route::get('/publications/{slug}', 			'PublicationController@show');
 
-Route::get('/events/{year?}/{month?}/{slug?}', function($year='', $month='', $slug='')
-{
-	if (empty($month)) {
-		return View::make('events.index', array(
-			'title'=>'Events',
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'events'=>Event::get(),
-		));
-	} else {
-		$event = Event::whereRaw('MONTH(start) = ?', array($month))
-			->whereRaw('YEAR(start) = ?', array($year))
-			->where('slug', $slug)
-			->first();
-		return View::make('events.event', array(
-			'title'=>$event->title,
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'event'=>$event,
-		));
-	}
-});
-
-Route::get('/blog/{slug?}', function($slug='')
-{
-	if (empty($slug)) {
-		return View::make('blog.index', array(
-			'title'=>'Blog',
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'posts'=>Post::orderBy('publish_date', 'desc')->get(),
-			'tags'=>Tag::orderBy('title')->get(),
-		));
-	} else {
-		$post = Post::where('slug', $slug)->first();
-		return View::make('blog.post', array(
-			'title'=>$post->title,
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'post'=>$post,
-			'tags'=>Tag::orderBy('title')->get(),
-		));
-	}
-});
-
-Route::get('/publications/{slug?}', function($slug='')
-{
-	if (empty($slug)) {
-		return View::make('publications.index', array(
-			'title'=>'Publications',
-			'publications'=>Publication::orderBy('precedence')->get(),
-			'types'=>PublicationType::orderBy('title')->get(),
-		));
-	} else {
-		$publication = Publication::where('slug', $slug)->first();
-		return View::make('publications.publication', array(
-			'title'=>$publication->title,
-			'publications'=>Publication::orderBy('precedence')->get(),
-			'types'=>PublicationType::orderBy('title')->get(),
-			'publication'=>$publication,
-		));		
-	}
-});
-
+//contact
 Route::get('/contact', function()
 {
 	return View::make('contact')->with('title', 'Contact');
 });
 
+//support
 Route::get('/support', function()
 {
-	return View::make('support');
+	return View::make('support')->with('title', 'Support the Center');
 });
 
+//global vars
 View::composer('template', function($view)
 {
     $view->with('sections', array(

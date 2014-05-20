@@ -23,8 +23,8 @@
 		<dd>${{ $course->tuition_member }} members/${{ $course->tuition_outside }} non-members</dd>
 	</dl>
 
-	@if ($count = count($course->instructors) > 0)
-		@if ($count == 1)
+	@if (count($course->instructors) > 0)
+		@if (count($course->instructors) == 1)
 			<h3>About the Instructor</h3>
 		@else
 			<h3>About the Instructors</h3>

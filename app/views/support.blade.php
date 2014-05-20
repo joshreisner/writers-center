@@ -6,7 +6,7 @@
 	<div class="row content">
 		<div class="col-md-8 page">
 			<div class="inner">
-				<h1>Support the Center</h1>
+				<h1>{{ $title }}</h1>
 
 				<div class="alert alert-warning">Already a member? Please <a class="login alert-link">log in</a>.</div>
 
