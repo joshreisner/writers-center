@@ -17,8 +17,8 @@
 					<nav id="utility">
 						<a href="#">Log In</a>
 						<a href="#">Support the Center</a>
-						<a href="#" class="dashicons dashicons-facebook"></a>
-						<a href="#" class="dashicons dashicons-twitter"></a>
+						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
+						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>
 
 				</div>
@@ -34,5 +34,6 @@
 
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/assets/js/main.js"></script>
 	</body>
 </html>

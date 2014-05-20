@@ -35,7 +35,7 @@ body {
             line-height: .5; }
             body .row.banner nav#utility a.dashicons:last-child {
               margin-left: 10px; }
-            body .row.banner nav#utility a.dashicons:hover {
+            body .row.banner nav#utility a.dashicons:hover, body .row.banner nav#utility a.dashicons:focus, body .row.banner nav#utility a.dashicons:active {
               text-decoration: none;
               color: #7c8672; }
     body .row.nav {

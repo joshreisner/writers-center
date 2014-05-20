@@ -2,30 +2,6 @@ var map;
 
 google.maps.event.addDomListener(window, 'load', function() {
 
-  var styles = [
-    {
-      stylers: [
-        { hue: "#4B5245" },
-        { saturation: -20 }
-      ]
-    },{
-      featureType: "road",
-      elementType: "geometry",
-      stylers: [
-        { lightness: 100 },
-        { visibility: "simplified" }
-      ]
-    },{
-      featureType: "road",
-      elementType: "labels",
-      stylers: [
-        { visibility: "off" }
-      ]
-    }
-  ];
-  var styledMap = new google.maps.StyledMapType(styles,
-    {name: "Styled Map"});
-
 	map = new google.maps.Map(document.getElementById('map-canvas'), {
 		zoom: 15,
 		panControl: false,
@@ -38,7 +14,27 @@ google.maps.event.addDomListener(window, 'load', function() {
     	}
 	});
 
-	map.mapTypes.set('map_style', styledMap);
+	map.mapTypes.set('map_style', new google.maps.StyledMapType([
+		{
+			stylers: [
+				{ hue: "#4B5245" },
+				{ saturation: -20 }
+			]
+		},{
+			featureType: "road",
+			elementType: "geometry",
+			stylers: [
+				{ lightness: 100 },
+				{ visibility: "simplified" }
+			]
+		},{
+			featureType: "road",
+			elementType: "labels",
+			stylers: [
+				{ visibility: "off" }
+			]
+		}
+	], {name: "Styled Map"}));
 	map.setMapTypeId('map_style');
 
 	var infowindow = new google.maps.InfoWindow({

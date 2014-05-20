@@ -46,7 +46,7 @@ body {
 					&.dashicons { 
 						font-size: 240%; line-height: .5; 
 						&:last-child { margin-left: 10px; }
-						&:hover { text-decoration: none; color: lighten($default, 20%); }
+						&:hover, &:focus, &:active { text-decoration: none; color: lighten($default, 20%); }
 					}
 				}
 			}
