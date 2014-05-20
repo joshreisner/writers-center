@@ -27,6 +27,7 @@ body {
 		color: $default;
 		&:hover, &:active { color: lighten($default, 50%); }
 		&:focus { outline: none; }
+		&.login { cursor: pointer; }
 	}
 
 	button.dropdown-toggle {
@@ -139,18 +140,29 @@ body {
 		}
 	}
 
+	.content {
+		.page {
+			color: $default; 
+			.inner { border-top: $border-width solid $default; }
+			a { color: $default; }
+		}
+		.side {
+			.inner {
+				border: $border-width solid $default; padding: 20px; @include shadow();
+			}
+		}
+	}
+
 	&.about {
 		.content {
+			border-color: $about;
 			.page {
 				color: $about; 
-				.inner { border-top: $border-width solid $about; }
 				a { color: $about; font-size: 150%; }
 				ul { list-style-type: none; }
 			}
 			.side {
 				.inner {
-					border: $border-width solid $about; padding: 20px; @include shadow();
-
 					li {
 						list-style-type: none; font-size: 120%; 
 					}

@@ -120,6 +120,11 @@ Route::get('/contact', function()
 	return View::make('contact')->with('title', 'Contact');
 });
 
+Route::get('/support', function()
+{
+	return View::make('support');
+});
+
 View::composer('template', function($view)
 {
     $view->with('sections', array(

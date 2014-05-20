@@ -15,8 +15,8 @@
 					<a href="/"><img src="/assets/img/logo.png" width="330" height="127" class="img-responsive"></a>
 
 					<nav id="utility">
-						<a href="#">Log In</a>
-						<a href="#">Support the Center</a>
+						<a class="login">Log In</a>
+						<a href="/support">Support the Center</a>
 						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>

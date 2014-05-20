@@ -7,6 +7,8 @@ body {
       color: #c9cdc4; }
     body a:focus {
       outline: none; }
+    body a.login {
+      cursor: pointer; }
   body button.dropdown-toggle {
     background-color: #b3d2b6;
     border-radius: 0;
@@ -151,19 +153,25 @@ body {
         font-size: 40px;
         color: #c65146;
         text-transform: uppercase; }
-  body.about .content .page {
-    color: #298c76; }
-    body.about .content .page .inner {
-      border-top: 3px solid #298c76; }
-    body.about .content .page a {
-      color: #298c76;
-      font-size: 150%; }
-    body.about .content .page ul {
-      list-style-type: none; }
-  body.about .content .side .inner {
-    border: 3px solid #298c76;
+  body .content .page {
+    color: #494f43; }
+    body .content .page .inner {
+      border-top: 3px solid #494f43; }
+    body .content .page a {
+      color: #494f43; }
+  body .content .side .inner {
+    border: 3px solid #494f43;
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+  body.about .content {
+    border-color: #298c76; }
+    body.about .content .page {
+      color: #298c76; }
+      body.about .content .page a {
+        color: #298c76;
+        font-size: 150%; }
+      body.about .content .page ul {
+        list-style-type: none; }
     body.about .content .side .inner li {
       list-style-type: none;
       font-size: 120%; }
