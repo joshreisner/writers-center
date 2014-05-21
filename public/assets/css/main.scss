@@ -88,7 +88,17 @@ body {
 			}
 		}
 		&.content {
-			padding-top: $margin;
+			padding-top: $margin; border-color: $default;
+			.page {
+				color: $default; font-size: 115%;
+				.inner { border-width: $border-width 0 0 0; border-style: solid; }
+				a { color: $default; }
+			}
+			.side {
+				.inner {
+					border-width: $border-width; border-style: solid; padding: 20px; @include shadow();
+				}
+			}
 		}
 	}
 
@@ -160,20 +170,6 @@ body {
 		}
 	}
 
-	.content {
-		border-color: $default;
-		.page {
-			color: $default; 
-			.inner { border-width: $border-width 0 0 0; border-style: solid; }
-			a { color: $default; }
-		}
-		.side {
-			.inner {
-				border-width: $border-width; border-style: solid; padding: 20px; @include shadow();
-			}
-		}
-	}
-
 	&.about {
 		.content {
 			.inner { border-color: $about; }
@@ -233,8 +229,21 @@ body {
 		.content {
 			.page {
 				color: $events; 
-				a { color: $events; font-size: 150%; }
-				ul { list-style-type: none; }
+				a { color: $events; }
+				div.event {
+					div.date { font-weight: bold; }
+					div.description {
+						margin: 0 0 20px 20px; 
+						div.meta {
+							font-weight: bold; overflow: auto; 
+							div.time, div.price, div.location { float: left; margin-right: 20px; }
+							div.button { 
+								float: right; 
+								a { background-color: $events; color: white; width: 180px; display: block; text-align: center; }
+							}
+						}
+					}
+				}
 			}
 			.side {
 				.inner {

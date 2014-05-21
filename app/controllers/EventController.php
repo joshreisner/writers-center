@@ -6,7 +6,7 @@ class EventController extends BaseController {
 	 * show upcoming events
 	 */
 	public function index() {
-		$events = Event::where('end', '<', new DateTime())->orderBy('start', 'asc')->get();
+		$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
 		foreach ($events as $event) {
 			$event->month = $event->start->format('F Y');
 		}
@@ -30,6 +30,14 @@ class EventController extends BaseController {
 			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 			'event'=>$event,
 		));
+	}
+
+	/**
+	 * format price
+	 */
+	public static function formatPrice($int) {
+		if ($int == 0) return 'Free!';
+		return '$' . number_format($int);
 	}
 
 }

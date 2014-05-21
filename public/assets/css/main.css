@@ -82,7 +82,21 @@ body {
         body .row.nav div.active a.contact, body .row.nav div a:hover.contact {
           color: #4b5245; }
     body .row.content {
-      padding-top: 15px; }
+      padding-top: 15px;
+      border-color: #494f43; }
+      body .row.content .page {
+        color: #494f43;
+        font-size: 115%; }
+        body .row.content .page .inner {
+          border-width: 3px 0 0 0;
+          border-style: solid; }
+        body .row.content .page a {
+          color: #494f43; }
+      body .row.content .side .inner {
+        border-width: 3px;
+        border-style: solid;
+        padding: 20px;
+        box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.home .carousel {
     padding-top: 15px;
     width: 100%;
@@ -173,20 +187,6 @@ body {
         font-size: 40px;
         color: #c65146;
         text-transform: uppercase; }
-  body .content {
-    border-color: #494f43; }
-    body .content .page {
-      color: #494f43; }
-      body .content .page .inner {
-        border-width: 3px 0 0 0;
-        border-style: solid; }
-      body .content .page a {
-        color: #494f43; }
-    body .content .side .inner {
-      border-width: 3px;
-      border-style: solid;
-      padding: 20px;
-      box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.about .content .inner {
     border-color: #298c76; }
   body.about .content .page {
@@ -242,10 +242,25 @@ body {
   body.events .content .page {
     color: #9f6117; }
     body.events .content .page a {
-      color: #9f6117;
-      font-size: 150%; }
-    body.events .content .page ul {
-      list-style-type: none; }
+      color: #9f6117; }
+    body.events .content .page div.event div.date {
+      font-weight: bold; }
+    body.events .content .page div.event div.description {
+      margin: 0 0 20px 20px; }
+      body.events .content .page div.event div.description div.meta {
+        font-weight: bold;
+        overflow: auto; }
+        body.events .content .page div.event div.description div.meta div.time, body.events .content .page div.event div.description div.meta div.price, body.events .content .page div.event div.description div.meta div.location {
+          float: left;
+          margin-right: 20px; }
+        body.events .content .page div.event div.description div.meta div.button {
+          float: right; }
+          body.events .content .page div.event div.description div.meta div.button a {
+            background-color: #9f6117;
+            color: white;
+            width: 180px;
+            display: block;
+            text-align: center; }
   body.events .content .side .inner {
     padding: 20px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
