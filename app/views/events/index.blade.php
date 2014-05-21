@@ -6,7 +6,11 @@
 
 	<ul>
 	@foreach ($events as $event)
-		<li><a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">{{ $event->title }}</a></li>
+		<li>
+			<time>{{ $event->start->format('l, F j') }}</time> {{ $event->month }}
+			<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">{{ $event->title }}</a>
+			{{ $event->description }}
+		</li>
 	@endforeach
 	</ul>
 

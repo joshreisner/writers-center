@@ -6,11 +6,25 @@
 
 <div class="container">
 	<div class="row content">
+		<div class="col-md-8 page">
+			<div class="inner">
+				<div class="col-md-offset-1">
+					@yield('page')
+				</div>
+			</div>
+		</div>
 		<div class="col-md-4 side">
 			<div class="inner">
 				<form role="form">
 					<div class="form-group">
-						Upcoming Courses | <a href="">Past Courses</a>
+						<div class="btn-group btn-group-justified">
+  							<div class="btn-group">
+      							<button type="button" class="btn btn-default active">Current Courses</button>							
+      						</div>
+  							<div class="btn-group">
+    							<button type="button" class="btn btn-default">Past Courses</button>							
+    						</div>
+						</div>
 					</div>
 					<div class="form-group">
 						<label for="genre">Genre</label>
@@ -33,13 +47,6 @@
 						@endforeach
 					</div>
 				</form>
-			</div>
-		</div>
-		<div class="col-md-8 page">
-			<div class="inner">
-				<div class="col-md-offset-1">
-					@yield('page')
-				</div>
 			</div>
 		</div>
 	</div>

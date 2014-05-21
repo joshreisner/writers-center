@@ -32,13 +32,19 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="password" class="col-sm-2 control-label">Password</label>
+							<div class="col-sm-10">
+								<input type="password" class="form-control" id="password" placeholder="Password">
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="address" class="col-sm-2 control-label">Address</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" id="address" placeholder="Address">
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="city" class="col-sm-2 control-label">City, State, ZIP</label>
+							<label for="city" class="col-sm-2 control-label"></label>
 							<div class="col-sm-5">
 								<input type="text" class="form-control" id="city" placeholder="City">
 							</div>
