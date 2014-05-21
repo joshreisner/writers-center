@@ -21,7 +21,7 @@
 		<div class="row promos">
 			<div class="col-md-4">
 				<div class="promo events">
-					Events go here
+					Events will go here
 				</div>
 			</div>
 			<div class="col-md-4">
