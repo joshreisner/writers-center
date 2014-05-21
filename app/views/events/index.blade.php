@@ -16,7 +16,7 @@
 				<div class="meta">
 					<div class="time">{{ $event->start->format('g:i a') }}</div>
 					<div class="location">HVWC</div>
-					<div class="price">{{ EventController::formatPrice($event->price) }}</div>
+					<div class="price">{{ EventController::formatPrice($event) }}</div>
 					<div class="button">
 						<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">RSVP</a>
 					</div>

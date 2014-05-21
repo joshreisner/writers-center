@@ -175,7 +175,7 @@ body {
 			.inner { border-color: $about; }
 			.page {
 				color: $about; 
-				a { color: $about; font-size: 150%; }
+				a { color: $about; }
 				ul { list-style-type: none; }
 			}
 			.side {
@@ -183,6 +183,9 @@ body {
 					margin: 0; padding: $margin;
 					li {
 						list-style-type: none; font-size: 120%; 
+						&.active {
+							a { color: $about; text-decoration: underline; }
+						}
 					}
 				}
 			}
