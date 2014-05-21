@@ -17,7 +17,7 @@ class BlogController extends BaseController {
 	/**
 	 * show blog post
 	 */
-	function show() {
+	function show($slug) {
 		$post = Post::where('slug', $slug)->first();
 		return View::make('blog.post', array(
 			'title'=>$post->title,

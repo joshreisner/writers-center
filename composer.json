@@ -6,6 +6,7 @@
 	"require": {
 		"laravel/framework": "4.1.*",
 		"loic-sharma/profiler": "1.1.*",
+		"intouch/laravel-newrelic": "*",
 		"joshreisner/avalon": "*"
 	},
 	"autoload": {

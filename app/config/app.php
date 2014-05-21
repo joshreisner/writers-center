@@ -122,6 +122,7 @@ return array(
 
 		'Joshreisner\Avalon\AvalonServiceProvider',
 		'Profiler\ProfilerServiceProvider',
+		'Intouch\LaravelNewrelic\LaravelNewrelicServiceProvider',
 	),
 
 	/*
@@ -188,7 +189,8 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-		'Profiler' => 'Profiler\Facades\Profiler',
+		'Profiler'        => 'Profiler\Facades\Profiler',
+		'Newrelic'        => 'Intouch\LaravelNewrelic\Facades\Newrelic',
 	),
 
 );

@@ -1,6 +1,7 @@
 <?php
 
-//home
+# Home
+
 Route::get('/', function()
 {
 	//set type slugs
@@ -12,7 +13,9 @@ Route::get('/', function()
 	));
 });
 
-//about section
+
+# About section
+
 Route::get('/about/{slug?}', function($slug='')
 {
 	if (empty($slug)) {
@@ -27,7 +30,9 @@ Route::get('/about/{slug?}', function($slug='')
 	));
 });
 
-//complex sections
+
+# Complex sections
+
 Route::get('/courses', 						'CourseController@index');
 Route::get('/courses/{slug}',				'CourseController@show');
 Route::get('/events',						'EventController@index');
@@ -37,13 +42,17 @@ Route::get('/blog/{slug}', 					'BlogController@show');
 Route::get('/publications',					'PublicationController@index');
 Route::get('/publications/{slug}', 			'PublicationController@show');
 
-//contact
+
+# Contact
+
 Route::get('/contact', function()
 {
 	return View::make('contact')->with('title', 'Contact');
 });
 
-//support
+
+# Support
+
 Route::get('/support', function()
 {
 	return View::make('support', array(
@@ -66,7 +75,16 @@ Route::get('/support', function()
 	);
 });
 
-//global vars
+
+# Testing routes
+
+Route::get('/test/error', function() {
+	trigger_error('Test error');
+});
+
+
+# Global variables
+
 View::composer('template', function($view)
 {
     $view->with('sections', array(
