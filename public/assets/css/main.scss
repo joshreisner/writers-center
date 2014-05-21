@@ -36,6 +36,8 @@ body {
 		&:focus { outline: none; }
 	}
 
+	select:focus, option:focus { outline: none; }
+
 	label { font-family: "Apercu Mono Pro Regular"; font-weight: normal; font-size: 90%; }
 	div.checkbox {
 		margin-top: 0;

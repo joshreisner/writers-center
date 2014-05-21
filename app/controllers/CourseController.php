@@ -6,9 +6,23 @@ class CourseController extends BaseController {
 	 * show the course home page
 	 */
 	public function index() {
+		$genres = Genre::with('courses', 'courses.instructors')->get();
+		$genre_select = array(''=>'Any');
+		foreach ($genres as $genre) {
+			$genre_select[$genre->id] = $genre->title;
+		}
+
+		$instructors = Instructor::orderBy('name')->get();
+		$instructor_select = array(''=>'Any');
+		foreach ($instructors as $instructor) {
+			$instructor_select[$instructor->id] = $instructor->name;
+		}
+
 		return View::make('courses.index', array(
 			'title'=>'Courses',
-			'genres'=>Genre::with('courses', 'courses.instructors')->get(),
+			'genres'=>$genres,
+			'genre_select'=>$genre_select,
+			'instructor_select'=>$instructor_select,
 			'days'=>Day::get(),
 		));		
 	}

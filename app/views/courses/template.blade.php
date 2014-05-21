@@ -28,12 +28,11 @@
 					</div>
 					<div class="form-group">
 						<label for="genre">Genre</label>
-						<select name="genre" id="genre" class="form-control">
-							<option selected="selected">All</option>
-							@foreach ($genres as $genre)
-								<option value="{{ $genre->id }}">{{ $genre->title }}</option>
-							@endforeach
-						</select>
+						{{ Form::select('genre', $genre_select, false, array('class'=>'form-control')) }}
+					</div>
+					<div class="form-group">
+						<label for="genre">Instructor</label>
+						{{ Form::select('instructor', $instructor_select, false, array('class'=>'form-control')) }}
 					</div>
 					<div class="form-group">
 						<label for="tags">Days</label>

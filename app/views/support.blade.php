@@ -49,9 +49,7 @@
 								<input type="text" class="form-control" id="city" placeholder="City">
 							</div>
 							<div class="col-sm-3">
-								<select class="form-control">
-									<option>New York</option>
-								</select>
+								{{ Form::select('state', $states, 'NY', array('class'=>'form-control')) }}
 							</div>
 							<div class="col-sm-2">
 								<input type="text" class="form-control" id="zip" placeholder="ZIP">
