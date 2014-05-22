@@ -9,7 +9,11 @@ $events: 			rgb(159, 97, 23);
 $events-light:		lighten($events, 50%);
 $events-lighter:	lighten($events, 60%);
 $blog:				rgb(105, 93, 115);
-$publications: 		rgb(198, 81, 70);
+$blog-light:		lighten($blog, 50%);
+$blog-lighter:		lighten($blog, 60%);
+$publications: 			rgb(198, 81, 70);
+$publications-light:	lighten($publications, 20%);
+$publications-lighter:	lighten($publications, 40%);
 $contact:			rgb(75, 82, 69);
 
 //dimensionz
@@ -139,6 +143,50 @@ body {
 				ul { 
 					background-color: $events-lighter; 
 					li.active a, li a:hover, li.divider { background-color: $events-light; }
+				}
+			}
+		}
+	}
+
+	&.blog form.switchboard {
+		input[type=text] { border-color: $blog-light; }
+		.btn-group {
+			button {
+				border-color: $blog-light;
+				&.active { 
+					background-color: $blog-light; 
+					&:hover { background-color: $blog-light; }
+				} 
+				&:hover { background-color: $blog-lighter; }
+			}
+			&.dropdown {
+				button { background-color: $blog-light; }
+				span.caret { color: $blog; }
+				ul { 
+					background-color: $blog-lighter; 
+					li.active a, li a:hover, li.divider { background-color: $blog-light; }
+				}
+			}
+		}
+	}
+
+	&.publications form.switchboard {
+		input[type=text] { border-color: $publications-light; }
+		.btn-group {
+			button {
+				border-color: $publications-light;
+				&.active { 
+					background-color: $publications-light; 
+					&:hover { background-color: $publications-light; }
+				} 
+				&:hover { background-color: $publications-lighter; }
+			}
+			&.dropdown {
+				button { background-color: $publications-light; }
+				span.caret { color: $publications; }
+				ul { 
+					background-color: $publications-lighter; 
+					li.active a, li a:hover, li.divider { background-color: $publications-light; }
 				}
 			}
 		}

@@ -119,6 +119,42 @@ body {
     background-color: #fcf5ec; }
     body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider {
       background-color: #f6ddbf; }
+  body.blog form.switchboard input[type=text] {
+    border-color: #e8e5ea; }
+  body.blog form.switchboard .btn-group button {
+    border-color: #e8e5ea; }
+    body.blog form.switchboard .btn-group button.active {
+      background-color: #e8e5ea; }
+      body.blog form.switchboard .btn-group button.active:hover {
+        background-color: #e8e5ea; }
+    body.blog form.switchboard .btn-group button:hover {
+      background-color: white; }
+  body.blog form.switchboard .btn-group.dropdown button {
+    background-color: #e8e5ea; }
+  body.blog form.switchboard .btn-group.dropdown span.caret {
+    color: #695d73; }
+  body.blog form.switchboard .btn-group.dropdown ul {
+    background-color: white; }
+    body.blog form.switchboard .btn-group.dropdown ul li.active a, body.blog form.switchboard .btn-group.dropdown ul li a:hover, body.blog form.switchboard .btn-group.dropdown ul li.divider {
+      background-color: #e8e5ea; }
+  body.publications form.switchboard input[type=text] {
+    border-color: #de9a94; }
+  body.publications form.switchboard .btn-group button {
+    border-color: #de9a94; }
+    body.publications form.switchboard .btn-group button.active {
+      background-color: #de9a94; }
+      body.publications form.switchboard .btn-group button.active:hover {
+        background-color: #de9a94; }
+    body.publications form.switchboard .btn-group button:hover {
+      background-color: #f6e4e2; }
+  body.publications form.switchboard .btn-group.dropdown button {
+    background-color: #de9a94; }
+  body.publications form.switchboard .btn-group.dropdown span.caret {
+    color: #c65146; }
+  body.publications form.switchboard .btn-group.dropdown ul {
+    background-color: #f6e4e2; }
+    body.publications form.switchboard .btn-group.dropdown ul li.active a, body.publications form.switchboard .btn-group.dropdown ul li a:hover, body.publications form.switchboard .btn-group.dropdown ul li.divider {
+      background-color: #de9a94; }
   body .wallpaper {
     position: relative;
     padding: 20px;

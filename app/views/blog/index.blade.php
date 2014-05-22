@@ -16,26 +16,29 @@
 @endsection
 
 @section('side')
-	<form class="switchboard">
+	<form class="switchboard form-horizontal">
 		<div class="form-group">
-			<label for="genre">Show</label>
-			<select name="genre" id="genre" class="form-control">
-				<option selected="selected">Most Recent Posts</option>
-				@foreach ($years as $year)
-				<option value="{{ $year }}">{{ $year }}</option>
-				@endforeach
-			</select>
+			<label for="genre" class="col-md-3">Search</label>
+			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="tags">Tags</label>
-			@foreach ($tags as $tag)
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" value="{{ $tag->id }}">
-					{{ $tag->title }}
-				</label>
+			<label for="genre" class="col-md-3">Show</label>
+			<div class="col-md-9">
+				{{ Form::dropdown('year', $years) }}
 			</div>
-			@endforeach
+		</div>
+		<div class="form-group">
+			<label for="tags" class="col-md-3">Tags</label>
+			<div class="col-md-9">
+				@foreach ($tags as $tag)
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="{{ $tag->id }}">
+						{{ $tag->title }}
+					</label>
+				</div>
+				@endforeach
+			</div>
 		</div>
 	</form>
 @endsection

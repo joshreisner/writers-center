@@ -14,17 +14,23 @@
 @endsection
 
 @section('side')
-	<form class="switchboard">
+	<form class="switchboard form-horizontal">
 		<div class="form-group">
-			<label for="types">Types</label>
-			@foreach ($types as $type)
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" value="{{ $type->id }}">
-					{{ $type->title }}
-				</label>
+			<label for="genre" class="col-md-3">Search</label>
+			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>
+		</div>
+		<div class="form-group">
+			<label for="types" class="col-md-3">Types</label>
+			<div class="col-md-9">
+				@foreach ($types as $type)
+				<div class="checkbox">
+					<label>
+						<input type="checkbox" value="{{ $type->id }}">
+						{{ $type->title }}
+					</label>
+				</div>
+				@endforeach
 			</div>
-			@endforeach
 		</div>
 	</form>
 @endsection
