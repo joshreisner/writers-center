@@ -29,12 +29,12 @@ return array(
 	'connections' => array(
 
 		'production' => array(
-			'host'      => '',
-			'username'  => '',
+			'host'      => '162.243.85.44',
+			'username'  => 'forge',
 			'password'  => '',
-			'key'       => '',
+			'key'       => '/Users/joshreisner/.ssh/id_rsa',
 			'keyphrase' => '',
-			'root'      => '/var/www',
+			'root'      => '/home/forge/writerscenter.left-right.co',
 		),
 
 	),
