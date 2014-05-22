@@ -6,6 +6,7 @@ class CourseController extends BaseController {
 	 * show the course home page
 	 */
 	public function index() {
+
 		$genres = Genre::with('courses', 'courses.instructors')->get();
 		$genre_select = array(''=>'Any');
 		foreach ($genres as $genre) {
@@ -24,6 +25,7 @@ class CourseController extends BaseController {
 			'genre_select'=>$genre_select,
 			'instructor_select'=>$instructor_select,
 			'days'=>Day::get(),
+			'class'=>'courses',
 		));		
 	}
 
@@ -34,9 +36,8 @@ class CourseController extends BaseController {
 		$course = Course::with('instructors')->where('slug', $slug)->first();
 		return View::make('courses.course', array(
 			'title'=>$course->title,
-			'genres'=>Genre::with('courses')->get(),
-			'days'=>Day::get(),
 			'course'=>$course,
+			'class'=>'courses',
 		));
 	}
 
@@ -57,5 +58,12 @@ class CourseController extends BaseController {
 		return $instructors;
 	}
 
+	/**
+	 * generate avalon link
+	 */
+	public static function editLink(Course $course) {
+		if (!Auth::user()) return false;
+		return link_to(URL::action('InstanceController@edit', array(6, $course->id)), 'Edit', array('class'=>'avalon_edit'));
+	}
 
 }

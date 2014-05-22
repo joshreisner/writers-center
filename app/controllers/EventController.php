@@ -14,6 +14,7 @@ class EventController extends BaseController {
 			'title'=>'Events',
 			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 			'events'=>$events,
+			'class'=>'events',
 		));
 	}
 
@@ -29,6 +30,7 @@ class EventController extends BaseController {
 			'title'=>$event->title,
 			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 			'event'=>$event,
+			'class'=>'events',
 		));
 	}
 
@@ -39,6 +41,14 @@ class EventController extends BaseController {
 		if ($event->price === null) return 'Ticket price TBD';
 		if ($event->price === 0) return 'Free!';
 		return '$' . number_format($event->price);
+	}
+
+	/**
+	 * generate avalon link
+	 */
+	public static function editLink(Event $event) {
+		if (!Auth::user()) return false;
+		return link_to(URL::action('InstanceController@edit', array(12, $event->id)), 'Edit', array('class'=>'avalon_edit'));
 	}
 
 }

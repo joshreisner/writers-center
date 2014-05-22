@@ -1,8 +1,10 @@
-@extends('publications.template')
+@extends('page')
 
-@section('page')
+@section('content')
 
-	<h1>{{ $publication->title }}</h1>
-	{{ $publication->description }}
-
+	<div class="col-md-offset-1">
+		<h1>{{ $publication->title }}</h1>
+		{{ $publication->description }}
+	</div>
+	
 @endsection

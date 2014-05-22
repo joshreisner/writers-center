@@ -10,6 +10,7 @@ Route::get('/', function()
 
 	return View::make('home', array(
 		'items'=>$carouselItems,
+		'class'=>'home',
 	));
 });
 
@@ -27,6 +28,7 @@ Route::get('/about/{slug?}', function($slug='')
 		'title'=>$page->title,
 		'page'=>$page,
 		'pages'=>Page::orderBy('precedence')->get(),
+		'class'=>'about',
 	));
 });
 
@@ -47,7 +49,10 @@ Route::get('/publications/{slug}', 			'PublicationController@show');
 
 Route::get('/contact', function()
 {
-	return View::make('contact')->with('title', 'Contact');
+	return View::make('contact', array(
+		'title'=>'Contact',
+		'class'=>'contact',
+	));
 });
 
 
@@ -78,7 +83,8 @@ Route::get('/support', function()
 
 # Testing routes
 
-Route::get('/test/error', function() {
+Route::get('/test/error', function() 
+{
 	trigger_error('Test error');
 });
 
@@ -95,5 +101,7 @@ View::composer('template', function($view)
     	'publications'=>'Publications',
     	'contact'=>'Contact',
     ))
-    ->with('app_title', 'Hudson Valley Writers Center');
+    ->with('default_title', 'Hudson Valley Writers Center')
+    ->with('default_class', '')
+    ;
 });

@@ -10,6 +10,7 @@ class PublicationController extends BaseController {
 			'title'=>'Publications',
 			'publications'=>Publication::orderBy('precedence')->get(),
 			'types'=>PublicationType::orderBy('title')->get(),
+			'class'=>'publications',
 		));		
 	}
 
@@ -23,6 +24,16 @@ class PublicationController extends BaseController {
 			'publications'=>Publication::orderBy('precedence')->get(),
 			'types'=>PublicationType::orderBy('title')->get(),
 			'publication'=>$publication,
+			'class'=>'publications',
 		));
 	}
+
+	/**
+	 * generate avalon link
+	 */
+	public static function editLink(Publication $publication) {
+		if (!Auth::user()) return false;
+		return link_to(URL::action('InstanceController@edit', array(5, $publication->id)), 'Edit', array('class'=>'avalon_edit'));
+	}
+
 }

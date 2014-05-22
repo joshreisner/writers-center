@@ -2,17 +2,17 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>{{ $title or $app_title }}</title>
+		<title>{{ $title or $default_title }}</title>
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/uH5+KWQnibDTJRYggGJ9XZLTAgw/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
 		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
 		<link rel="stylesheet" href="/assets/css/main.css">
 	</head>
-	<body class="@yield('body_class')">
+	<body class="{{ $class or $default_class }}">
 		<div class="container">
 			<div class="row banner">
 				<div class="col-md-8">
-					<a href="/" class="logo col-md-offset-1"><img src="/assets/img/logo.png" width="330" height="127" class="img-responsive"></a>
+					<a href="/" class="logo col-md-offset-1"><img src="/assets/img/logo.png" width="290" height="112" class="img-responsive"></a>
 				</div>
 				<div class="col-md-4">
 					<nav id="utility">
@@ -30,7 +30,7 @@
 			</div>
 		</div>
 
-		@yield('content')
+		@yield('page')
 
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
 		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

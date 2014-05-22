@@ -1,8 +1,6 @@
 @extends('template')
 
-@section('body_class') home @endsection
-
-@section('content')
+@section('page')
 
 	<div class="carousel">
 		<div class="inner">

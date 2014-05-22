@@ -1,9 +1,10 @@
-@extends('events.template')
+@extends('page')
 
-@section('page')
+@section('content')
 
-	<h1>{{ $event->title }}</h1>
-
-	{{ $event->description }}
+	<div class="col-md-offset-1">
+		<h1>{{ $event->title }}</h1>
+		{{ $event->description }}
+	</div>
 
 @endsection
