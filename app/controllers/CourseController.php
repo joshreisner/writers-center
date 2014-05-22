@@ -14,6 +14,7 @@ class CourseController extends BaseController {
 			'genres'			=>$genres,
 			'genre_select'		=>self::getGenreList($genres),
 			'instructor_select'	=>self::getInstructorList(),
+			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
 			'class'				=>'courses',
 		));		
@@ -41,6 +42,14 @@ class CourseController extends BaseController {
 	public static function getInstructorList($instructors=false) {
 		if ($instructors === false) $instructors = Instructor::orderBy('name');
 		return $instructors->lists('name', 'id');
+	}
+
+	public static function getDurationList() {
+		return array(
+			'workshop'=>'Workshop',
+			'intensive'=>'1-day Intensive',
+			'course'=>'Multi-week Course',
+		);
 	}
 
 	/**

@@ -119,6 +119,21 @@ body {
     background-color: #fcf5ec; }
     body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider {
       background-color: #f6ddbf; }
+  body .wallpaper {
+    position: relative;
+    padding: 20px;
+    min-height: 400px;
+    font-size: 160%; }
+    body .wallpaper::after {
+      content: "";
+      background: url(/assets/img/wallpaper-bush1.jpg);
+      opacity: 0.3;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: -1; }
   body .row {
     padding-top: 30px; }
     body .row.banner {
@@ -236,7 +251,18 @@ body {
     position: relative;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
     body.home .promos div.promo.events {
-      border-color: #9f6117; }
+      padding: 15px 20px;
+      font-size: 120%; }
+      body.home .promos div.promo.events table {
+        width: 100%; }
+        body.home .promos div.promo.events table th {
+          font-size: 90%; }
+        body.home .promos div.promo.events table th, body.home .promos div.promo.events table td {
+          text-align: center;
+          height: 29px; }
+        body.home .promos div.promo.events table tbody th {
+          text-align: right;
+          width: 0; }
     body.home .promos div.promo.courses {
       border-color: #325435; }
       body.home .promos div.promo.courses form {
@@ -275,12 +301,13 @@ body {
       color: #298c76; }
     body.about .page .content ul {
       list-style-type: none; }
+  body.about .page .side .wallpaper {
+    background-color: rgba(41, 140, 118, 0.2); }
   body.about .page .side ul {
     margin: 0;
     padding: 15px; }
     body.about .page .side ul li {
-      list-style-type: none;
-      font-size: 120%; }
+      list-style-type: none; }
       body.about .page .side ul li.active a {
         color: #298c76;
         text-decoration: underline; }
@@ -373,6 +400,12 @@ body {
       background-color: #4b5245; }
     body.contact .page .content #map-canvas {
       height: 500px; }
-  body.contact .page .side ul {
-    list-style-type: none;
-    font-size: 140%; }
+  body.contact .page .side .wallpaper {
+    background-color: rgba(75, 82, 69, 0.2); }
+    body.contact .page .side .wallpaper ul {
+      list-style-type: none;
+      padding-left: 24px; }
+      body.contact .page .side .wallpaper ul li {
+        margin: 20px 0; }
+        body.contact .page .side .wallpaper ul li a i {
+          margin-right: 10px; }

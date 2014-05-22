@@ -25,6 +25,13 @@ $margin:			15px;
 	box-shadow: 5px 5px 5px transparentize($default, .5);
 }
 
+@mixin background-opacity($color, $opacity) {
+	$red:	red($color);
+	$green:	green($color);
+	$blue:	blue($color);
+	background-color: rgba($red, $green, $blue, $opacity);
+}
+
 body {
 	padding-bottom: 100px; font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
 
@@ -137,6 +144,20 @@ body {
 		}
 	}
 
+	.wallpaper {
+		position: relative; padding: 20px; min-height: 400px; font-size: 160%; 
+		&::after {
+			content: "";
+			background: url(/assets/img/wallpaper-bush1.jpg);
+			opacity: 0.3;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			position: absolute;
+			z-index: -1;   
+		}
+	}
 
 	.row { 
 		padding-top: $margin * 2; 
@@ -229,7 +250,15 @@ body {
 			div.promo { 
 				height: $promo-height; border: $border-width solid $default; position: relative;
 				@include shadow();
-				&.events { border-color: $events; }
+				&.events { 
+					padding: $margin 20px; font-size: 120%;
+					table { 
+						width: 100%; 
+						th { font-size: 90%; }
+						th, td { text-align: center; height: 29px; }
+						tbody th { text-align: right; width: 0; }
+					}
+				}
 				&.courses { 
 					border-color: $courses; 
 					form {
@@ -265,10 +294,13 @@ body {
 				ul { list-style-type: none; }
 			}
 			.side {
+				.wallpaper {
+					@include background-opacity($about, .2);
+				}
 				ul {
 					margin: 0; padding: $margin;
 					li {
-						list-style-type: none; font-size: 120%; 
+						list-style-type: none; 
 						&.active {
 							a { color: $about; text-decoration: underline; }
 						}
@@ -368,7 +400,18 @@ body {
 				#map-canvas { height: 500px; }
 			}
 			.side {
-				ul { list-style-type: none; font-size: 140%; }
+				.wallpaper {
+					@include background-opacity($contact, .2);
+					ul { 
+						list-style-type: none; padding-left: 24px;
+						li { 
+							margin: 20px 0; 
+							a { 
+								i { margin-right: 10px; }
+							}
+						}
+					}
+				}
 			}
 		}
 	}

@@ -19,7 +19,61 @@
 		<div class="row promos">
 			<div class="col-md-4">
 				<div class="promo events">
-					Events will go here
+					<table>
+						<thead>
+							<tr>
+								<th></th>
+								<th>Su</th>
+								<th>M</th>
+								<th>Tu</th>
+								<th>W</th>
+								<th>Th</th>
+								<th>F</th>
+								<th>Sa</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<th>May</th>
+								<td><a href="/events#2014-05-18">18</a></td>
+								<td><a href="/events#2014-05-19">19</a></td>
+								<td><a href="/events#2014-05-20">20</a></td>
+								<td><a href="/events#2014-05-21">21</a></td>
+								<td><a href="/events#2014-05-22">22</a></td>
+								<td><a href="/events#2014-05-23">23</a></td>
+								<td><a href="/events#2014-05-24">24</a></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><a href="/events#2014-05-18">25</a></td>
+								<td><a href="/events#2014-05-19">26</a></td>
+								<td><a href="/events#2014-05-20">27</a></td>
+								<td><a href="/events#2014-05-21">28</a></td>
+								<td><a href="/events#2014-05-22">29</a></td>
+								<td><a href="/events#2014-05-23">30</a></td>
+								<td><a href="/events#2014-05-24">31</a></td>
+							</tr>
+							<tr>
+								<th>Jun</th>
+								<td><a href="/events#2014-06-18">1</a></td>
+								<td><a href="/events#2014-06-19">2</a></td>
+								<td><a href="/events#2014-06-20">3</a></td>
+								<td><a href="/events#2014-06-21">4</a></td>
+								<td><a href="/events#2014-06-22">5</a></td>
+								<td><a href="/events#2014-06-23">6</a></td>
+								<td><a href="/events#2014-06-24">7</a></td>
+							</tr>
+							<tr>
+								<th></th>
+								<td><a href="/events#2014-06-08">8</a></td>
+								<td><a href="/events#2014-06-09">9</a></td>
+								<td><a href="/events#2014-06-10">10</a></td>
+								<td><a href="/events#2014-06-11">11</a></td>
+								<td><a href="/events#2014-06-12">12</a></td>
+								<td><a href="/events#2014-06-13">13</a></td>
+								<td><a href="/events#2014-06-14">14</a></td>
+							</tr>
+					</table>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -44,7 +98,7 @@
 								When
 							</label>
 						    <div class="col-sm-7">
-						    	{{ Form::dropdown('days', array()) }}
+						    	{{ Form::dropdown('days', $day_select) }}
 						    </div>
 						</div>
 						<div class="form-group">
@@ -60,7 +114,7 @@
 								Duration
 							</label>
 						    <div class="col-sm-7">
-						    	{{ Form::dropdown('duration', array()) }}
+						    	{{ Form::dropdown('duration', $duration_select) }}
 						    </div>
 						</div>
 					</form>

@@ -7,9 +7,11 @@
 @endsection
 
 @section('side')
-	<ul>
-		<li><a href="tel:9143325953"><i class="glyphicon glyphicon-earphone"></i> (914) 332-5953</a></li>
-		<li><a href="tel:9143324825"><i class="glyphicon glyphicon-print"></i> (914) 332-4825</a></li>
-		<li><a href="mailto:info@writerscenter.org"><i class="glyphicon glyphicon-envelope"></i> info@writerscenter.org</a></li>
-	</ul>
+	<div class="wallpaper">
+		<ul>
+			<li><a href="tel:9143325953"><i class="glyphicon glyphicon-earphone"></i> (914) 332-5953</a></li>
+			<li><a href="tel:9143324825"><i class="glyphicon glyphicon-print"></i> (914) 332-4825</a></li>
+			<li><a href="mailto:info@writerscenter.org"><i class="glyphicon glyphicon-envelope"></i> info@writerscenter.org</a></li>
+		</ul>
+	</div>
 @endsection

@@ -14,6 +14,7 @@ Route::get('/', function()
 		'instructor_select'	=>CourseController::getInstructorList(),
 		'genre_select'		=>CourseController::getGenreList(),
 		'day_select'		=>CourseController::getDayList(),
+		'duration_select'	=>CourseController::getDurationList(),
 	));
 });
 

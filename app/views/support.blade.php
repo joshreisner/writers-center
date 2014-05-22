@@ -63,5 +63,7 @@
 @endsection
 
 @section('side')
-				Perhaps information goes here about the donation, such as 501(c)(3) status, what the donation supports.
+	<div class="wallpaper">
+		<p>Perhaps information goes here about the donation, such as the Center's 501(c)(3) status or what the donation supports.</p>
+	</div>
 @endsection
