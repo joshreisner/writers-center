@@ -31,15 +31,12 @@
 
 @section('side')
 
-	<form class="switchboard">
+	<form class="switchboard form-horizontal">
 		<div class="form-group">
-			<label for="timeframe">Timeframe</label>
-			<select name="timeframe" id="timeframe" class="form-control">
-				<option selected="selected">Upcoming Events</option>
-				@foreach ($years as $year)
-				<option value="{{ $year }}">{{ $year }}</option>
-				@endforeach
-			</select>
+			<label for="timeframe" class="col-md-3">Timeframe</label>
+			<div class="col-md-9">
+				{{ Form::dropdown('year', $years) }}
+			</div>
 		</div>
 	</form>
 

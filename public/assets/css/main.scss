@@ -3,7 +3,11 @@ $default:			rgb(73, 79, 67);
 
 $about:				rgb(41, 140, 118);
 $courses:			rgb(50, 84, 53);
+$courses-light:		lighten($courses, 50%);
+$courses-lighter:	lighten($courses, 60%);
 $events: 			rgb(159, 97, 23);
+$events-light:		lighten($events, 50%);
+$events-lighter:	lighten($events, 60%);
 $blog:				rgb(105, 93, 115);
 $publications: 		rgb(198, 81, 70);
 $contact:			rgb(75, 82, 69);
@@ -12,8 +16,9 @@ $contact:			rgb(75, 82, 69);
 $carousel-width:	654px;
 $carousel-margin:	11px;
 $carousel-height:	400px;
+$control-height:	26px;
 $border-width:		3px;
-$promo-height:		161px;
+$promo-height:		180px;
 $margin:			15px;
 
 @mixin shadow() {
@@ -38,31 +43,100 @@ body {
 		}
 	}
 
-	input[type=checkbox] {
-		cursor: pointer;
-		&:focus { outline: none; }
+	input {
+		font-family: "Apercu Mono Pro Regular";
+		&[type=checkbox] {
+			cursor: pointer;
+			&:focus { outline: none; }
+		}
+		&[type=text] {
+			border-radius: 0; height: $control-height; box-shadow: none;
+		}
 	}
 
 	select:focus, option:focus { outline: none; }
 
-	label { font-family: "Apercu Mono Pro Regular"; font-weight: normal; font-size: 90%; }
+	label { font-family: "Apercu Mono Pro Regular"; font-weight: normal; font-size: 90%; margin-top: 8px; line-height: 1; }
 	
 	div.checkbox {
 		margin-top: 0;
 		label { font-family: "Apercu Pro Regular"; }
 	}
-
-	.btn-group { font-family: "Apercu Mono Pro Regular"; }
 	
 	p { margin: 0 0 $margin 0; }
 
 	dt { font-family: "Apercu Mono Pro Regular"; }
 
-	button.dropdown-toggle {
-		background-color: lighten($courses, 50%); border-radius: 0; width: 172px; height: 20px;
-		position: relative;
-		span.caret { border-width: 9px; color: $courses; position: absolute; top: 9px; right: 0; }
+	.btn-group {
+		font-family: "Apercu Mono Pro Regular";
+		button { 
+			border-radius: 0; padding-top: 3px; padding-bottom: 3px;
+			&.active { 
+				box-shadow: none; cursor: inherit; 
+				&:hover { background-color: transparent; }
+			}
+		}
+		&.dropdown {
+			width: 100%; position: relative;
+			button { width: 100%; height: $control-height; border-radius: 0; text-align: left; line-height: 1; }
+			span.caret { border-width: 9px 6px; position: absolute; top: 9px; right: 4px; }
+			// span.selected { background-color: pink; }
+			ul {
+				min-width: 100%; max-height: 300px; overflow-y: scroll; border-radius: 0;
+				li {
+					a {
+						cursor: pointer;
+					}
+				}
+			}
+		}
 	}
+
+	//either promo or section/body class
+	&.courses form.switchboard, &.home .promo.courses {
+		input[type=text] { border-color: $courses-light; }
+		.btn-group {
+			button {
+				border-color: $courses-light;
+				&.active { 
+					background-color: $courses-light; 
+					&:hover { background-color: $courses-light; }
+				} 
+				&:hover { background-color: $courses-lighter; }
+			}
+			&.dropdown {
+				button { background-color: $courses-light; }
+				span.caret { color: $courses; }
+				ul { 
+					background-color: $courses-lighter; 
+					li.active a, li a:hover, li.divider { background-color: $courses-light; }
+				}
+			}
+		}
+	}
+
+	&.events form.switchboard {
+		input[type=text] { border-color: $events-light; }
+		.btn-group {
+			button {
+				border-color: $events-light;
+				&.active { 
+					background-color: $events-light; 
+					&:hover { background-color: $events-light; }
+				} 
+				&:hover { background-color: $events-lighter; }
+			}
+			&.dropdown {
+				button { background-color: $events-light; }
+				span.caret { color: $events; }
+				ul { 
+					background-color: $events-lighter; 
+					li.active a, li a:hover, li.divider { background-color: $events-light; }
+				}
+			}
+		}
+	}
+
 
 	.row { 
 		padding-top: $margin * 2; 
@@ -107,7 +181,7 @@ body {
 			}
 			.side {
 				form.switchboard {
-					border-width: $border-width; border-style: solid; padding: 20px; @include shadow();
+					border-width: $border-width; border-style: solid; padding: 20px 20px 5px; @include shadow();
 				}
 			}
 		}
@@ -161,6 +235,7 @@ body {
 					form {
 						padding: $margin / 2 $margin;
 						legend { text-transform: uppercase; border: 0; margin-bottom: 0; }
+						label { font-size: 100%; }
 						.form-group { 
 							margin-bottom: 0; 
 							.dropdown-toggle { margin-top: 5px; }
@@ -173,7 +248,7 @@ body {
 					}
 				}
 				&.support { 
-					border-color: $publications; padding-top: 35px; 
+					border-color: $publications; padding-top: $promo-height / 4; 
 					a { display: block; line-height: 1; text-align: center; font-size: 40px; color: $publications; 
 						text-transform: uppercase; }
 				}

@@ -25,38 +25,100 @@ body {
       body a.avalon_edit:hover {
         text-decoration: none;
         opacity: 1; }
-  body input[type=checkbox] {
-    cursor: pointer; }
-    body input[type=checkbox]:focus {
-      outline: none; }
+  body input {
+    font-family: "Apercu Mono Pro Regular"; }
+    body input[type=checkbox] {
+      cursor: pointer; }
+      body input[type=checkbox]:focus {
+        outline: none; }
+    body input[type=text] {
+      border-radius: 0;
+      height: 26px;
+      box-shadow: none; }
   body select:focus, body option:focus {
     outline: none; }
   body label {
     font-family: "Apercu Mono Pro Regular";
     font-weight: normal;
-    font-size: 90%; }
+    font-size: 90%;
+    margin-top: 8px;
+    line-height: 1; }
   body div.checkbox {
     margin-top: 0; }
     body div.checkbox label {
       font-family: "Apercu Pro Regular"; }
-  body .btn-group {
-    font-family: "Apercu Mono Pro Regular"; }
   body p {
     margin: 0 0 15px 0; }
   body dt {
     font-family: "Apercu Mono Pro Regular"; }
-  body button.dropdown-toggle {
-    background-color: #b3d2b6;
-    border-radius: 0;
-    width: 172px;
-    height: 20px;
-    position: relative; }
-    body button.dropdown-toggle span.caret {
-      border-width: 9px;
-      color: #325435;
-      position: absolute;
-      top: 9px;
-      right: 0; }
+  body .btn-group {
+    font-family: "Apercu Mono Pro Regular"; }
+    body .btn-group button {
+      border-radius: 0;
+      padding-top: 3px;
+      padding-bottom: 3px; }
+      body .btn-group button.active {
+        box-shadow: none;
+        cursor: inherit; }
+        body .btn-group button.active:hover {
+          background-color: transparent; }
+    body .btn-group.dropdown {
+      width: 100%;
+      position: relative; }
+      body .btn-group.dropdown button {
+        width: 100%;
+        height: 26px;
+        border-radius: 0;
+        text-align: left;
+        line-height: 1; }
+      body .btn-group.dropdown span.caret {
+        border-width: 9px 6px;
+        position: absolute;
+        top: 9px;
+        right: 4px; }
+      body .btn-group.dropdown ul {
+        min-width: 100%;
+        max-height: 300px;
+        overflow-y: scroll;
+        border-radius: 0; }
+        body .btn-group.dropdown ul li a {
+          cursor: pointer; }
+  body.courses form.switchboard input[type=text], body.home .promo.courses input[type=text] {
+    border-color: #b3d2b6; }
+  body.courses form.switchboard .btn-group button, body.home .promo.courses .btn-group button {
+    border-color: #b3d2b6; }
+    body.courses form.switchboard .btn-group button.active, body.home .promo.courses .btn-group button.active {
+      background-color: #b3d2b6; }
+      body.courses form.switchboard .btn-group button.active:hover, body.home .promo.courses .btn-group button.active:hover {
+        background-color: #b3d2b6; }
+    body.courses form.switchboard .btn-group button:hover, body.home .promo.courses .btn-group button:hover {
+      background-color: #d3e5d5; }
+  body.courses form.switchboard .btn-group.dropdown button, body.home .promo.courses .btn-group.dropdown button {
+    background-color: #b3d2b6; }
+  body.courses form.switchboard .btn-group.dropdown span.caret, body.home .promo.courses .btn-group.dropdown span.caret {
+    color: #325435; }
+  body.courses form.switchboard .btn-group.dropdown ul, body.home .promo.courses .btn-group.dropdown ul {
+    background-color: #d3e5d5; }
+    body.courses form.switchboard .btn-group.dropdown ul li.active a, body.courses form.switchboard .btn-group.dropdown ul li a:hover, body.courses form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.courses .btn-group.dropdown ul li.active a, body.home .promo.courses .btn-group.dropdown ul li a:hover, body.home .promo.courses .btn-group.dropdown ul li.divider {
+      background-color: #b3d2b6; }
+  body.events form.switchboard input[type=text] {
+    border-color: #f6ddbf; }
+  body.events form.switchboard .btn-group button {
+    border-color: #f6ddbf; }
+    body.events form.switchboard .btn-group button.active {
+      background-color: #f6ddbf; }
+      body.events form.switchboard .btn-group button.active:hover {
+        background-color: #f6ddbf; }
+    body.events form.switchboard .btn-group button:hover {
+      background-color: #fcf5ec; }
+  body.events form.switchboard .btn-group.dropdown button {
+    background-color: #f6ddbf; }
+  body.events form.switchboard .btn-group.dropdown span.caret {
+    color: #9f6117; }
+  body.events form.switchboard .btn-group.dropdown ul {
+    background-color: #fcf5ec; }
+    body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider {
+      background-color: #f6ddbf; }
   body .row {
     padding-top: 30px; }
     body .row.banner {
@@ -111,7 +173,7 @@ body {
       body .row.page .side form.switchboard {
         border-width: 3px;
         border-style: solid;
-        padding: 20px;
+        padding: 20px 20px 5px;
         box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.home .carousel {
     padding-top: 15px;
@@ -169,7 +231,7 @@ body {
         body.home .carousel .inner .item:hover {
           text-decoration: none; }
   body.home .promos div.promo {
-    height: 161px;
+    height: 180px;
     border: 3px solid #494f43;
     position: relative;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
@@ -183,6 +245,8 @@ body {
           text-transform: uppercase;
           border: 0;
           margin-bottom: 0; }
+        body.home .promos div.promo.courses form label {
+          font-size: 100%; }
         body.home .promos div.promo.courses form .form-group {
           margin-bottom: 0; }
           body.home .promos div.promo.courses form .form-group .dropdown-toggle {
@@ -195,7 +259,7 @@ body {
           font-size: 18px; }
     body.home .promos div.promo.support {
       border-color: #c65146;
-      padding-top: 35px; }
+      padding-top: 45px; }
       body.home .promos div.promo.support a {
         display: block;
         line-height: 1;

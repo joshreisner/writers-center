@@ -8,25 +8,39 @@ class CourseController extends BaseController {
 	public function index() {
 
 		$genres = Genre::with('courses', 'courses.instructors')->get();
-		$genre_select = array(''=>'Any');
-		foreach ($genres as $genre) {
-			$genre_select[$genre->id] = $genre->title;
-		}
-
-		$instructors = Instructor::orderBy('name')->get();
-		$instructor_select = array(''=>'Any');
-		foreach ($instructors as $instructor) {
-			$instructor_select[$instructor->id] = $instructor->name;
-		}
 
 		return View::make('courses.index', array(
-			'title'=>'Courses',
-			'genres'=>$genres,
-			'genre_select'=>$genre_select,
-			'instructor_select'=>$instructor_select,
-			'days'=>Day::get(),
-			'class'=>'courses',
+			'title'				=>'Courses',
+			'genres'			=>$genres,
+			'genre_select'		=>self::getGenreList($genres),
+			'instructor_select'	=>self::getInstructorList(),
+			'day_select'		=>self::getDayList(),
+			'class'				=>'courses',
 		));		
+	}
+
+	/**
+	 * populate day select
+	 */
+	public static function getDayList($days=false) {
+		if ($days === false) $days = Day::orderBy('precedence');
+		return $days->lists('title', 'id');
+	}
+
+	/**
+	 * populate genre select
+	 */
+	public static function getGenreList($genres=false) {
+		if ($genres === false) $genres = Genre::orderBy('title');
+		return $genres->lists('title', 'id');
+	}
+
+	/**
+	 * populate instructor select
+	 */
+	public static function getInstructorList($instructors=false) {
+		if ($instructors === false) $instructors = Instructor::orderBy('name');
+		return $instructors->lists('name', 'id');
 	}
 
 	/**

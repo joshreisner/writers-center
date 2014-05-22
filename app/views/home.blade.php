@@ -36,18 +36,7 @@
 								Genre
 							</label>
 						    <div class="col-sm-7">
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
+						    	{{ Form::dropdown('genre', $genre_select) }}
 						    </div>
 						</div>
 						<div class="form-group">
@@ -55,18 +44,7 @@
 								When
 							</label>
 						    <div class="col-sm-7">
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
+						    	{{ Form::dropdown('days', array()) }}
 						    </div>
 						</div>
 						<div class="form-group">
@@ -74,37 +52,15 @@
 								Teacher
 							</label>
 						    <div class="col-sm-7">
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
+						    	{{ Form::dropdown('instructor', $instructor_select) }}
 						    </div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-4 control-label" for="duration">
 								Duration
 							</label>
-						    <div class="col-sm-8">
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-										<span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Action</a></li>
-										<li><a href="#">Another action</a></li>
-										<li><a href="#">Something else here</a></li>
-										<li class="divider"></li>
-										<li><a href="#">Separated link</a></li>
-									</ul>
-								</div>
+						    <div class="col-sm-7">
+						    	{{ Form::dropdown('duration', array()) }}
 						    </div>
 						</div>
 					</form>

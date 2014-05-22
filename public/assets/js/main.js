@@ -16,5 +16,11 @@ $(function(){
 	$("a.login").click(function(e){
 		e.preventDefault();
 	});
-	
+
+	//dropdowns
+	$(".btn-group.dropdown a").click(function(e){
+		e.preventDefault();
+		$(this).closest(".btn-group.dropdown").find('span.selected').html($(this).html());
+	});
+
 });

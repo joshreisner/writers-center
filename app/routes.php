@@ -9,8 +9,11 @@ Route::get('/', function()
 	foreach ($carouselItems as &$item) $item->type = Str::slug($item->carousel_types->title);
 
 	return View::make('home', array(
-		'items'=>$carouselItems,
-		'class'=>'home',
+		'items'				=>$carouselItems,
+		'class'				=>'home',
+		'instructor_select'	=>CourseController::getInstructorList(),
+		'genre_select'		=>CourseController::getGenreList(),
+		'day_select'		=>CourseController::getDayList(),
 	));
 });
 
@@ -102,6 +105,31 @@ View::composer('template', function($view)
     	'contact'=>'Contact',
     ))
     ->with('default_title', 'Hudson Valley Writers Center')
-    ->with('default_class', '')
-    ;
+    ->with('default_class', '');
+});
+
+# Form macros
+
+Form::macro('dropdown', function($name, $list=array(), $selected=null)
+{
+	$options = array();
+	foreach ($list as $id=>$value) {
+		if (empty($value)) $value = '&nbsp;';
+		$options[] = '<li><a data-id="' . $id . '">' . $value . '</a></li>';
+	}
+	$options = (count($options)) ? '<ul class="dropdown-menu">
+		<li><a data-id="">Any</a></li>
+		<li class="divider"></li>
+		' . implode($options) . 
+		'</ul>' : '';
+    return '
+		<div class="btn-group dropdown" data-name="' . $name . '">
+			<input type="hidden" name="' . $name . '">
+			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+				<span class="selected"></span>
+				<span class="caret"></span>
+			</button>
+			' . $options . '
+		</div>
+	';
 });
