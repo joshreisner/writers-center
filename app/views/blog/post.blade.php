@@ -11,3 +11,8 @@
 	</div>
 
 @endsection
+
+@section('side')
+	<div class="wallpaper">
+	</div>
+@endsection

@@ -31,7 +31,7 @@ body {
       cursor: pointer; }
       body input[type=checkbox]:focus {
         outline: none; }
-    body input[type=text] {
+    body input[type=text], body input[type=email], body input[type=search], body input[type=password], body input[type=submit] {
       border-radius: 0;
       height: 26px;
       box-shadow: none; }
@@ -379,6 +379,26 @@ body {
         clear: left;
         width: 80px;
         text-transform: uppercase; }
+  body.courses .page .side .wallpaper {
+    background-color: rgba(50, 84, 53, 0.2); }
+    body.courses .page .side .wallpaper h2 {
+      line-height: 1.2; }
+      body.courses .page .side .wallpaper h2 small {
+        color: inherit; }
+    body.courses .page .side .wallpaper span {
+      font-family: "Apercu Mono Pro Regular";
+      font-size: 60%;
+      text-transform: uppercase; }
+    body.courses .page .side .wallpaper .description {
+      font-size: 80%; }
+  body.courses .page .side ul {
+    margin: 0;
+    padding: 15px; }
+    body.courses .page .side ul li {
+      list-style-type: none; }
+      body.courses .page .side ul li.active a {
+        color: #298c76;
+        text-decoration: underline; }
   body.events .page .page .inner, body.events .page form.switchboard {
     border-color: #9f6117; }
   body.events .page .content {
@@ -403,6 +423,8 @@ body {
             width: 180px;
             display: block;
             text-align: center; }
+  body.events .page .side .wallpaper {
+    background-color: rgba(159, 97, 23, 0.2); }
   body.blog .page .page .inner, body.blog .page form.switchboard {
     border-color: #695d73; }
   body.blog .page .content {
@@ -414,6 +436,8 @@ body {
       margin-bottom: 15px; }
     body.blog .page .content .post {
       margin: 20px 0 40px 0; }
+  body.blog .page .side .wallpaper {
+    background-color: rgba(105, 93, 115, 0.2); }
   body.publications .page .page .inner, body.publications .page form.switchboard {
     border-color: #c65146; }
   body.publications .page .content {
@@ -423,6 +447,8 @@ body {
       font-size: 150%; }
     body.publications .page .content ul {
       list-style-type: none; }
+  body.publications .page .side .wallpaper {
+    background-color: rgba(198, 81, 70, 0.2); }
   body.contact .page .inner {
     border-color: #4b5245; }
   body.contact .page a {

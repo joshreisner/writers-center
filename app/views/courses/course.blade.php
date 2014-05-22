@@ -44,3 +44,14 @@
 		@endif
 	</div>
 @endsection
+
+@section('side')
+	<div class="wallpaper">
+		<span>You might also like</span>
+		<h2>
+			{{ $related->title }}
+			<small>with {{ CourseController::formatInstructors($related) }}</small>
+		</h2>
+		<div class="description">{{ $related->description }}</div>
+	</div>
+@endsection

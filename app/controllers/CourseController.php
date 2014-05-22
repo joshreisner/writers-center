@@ -21,6 +21,22 @@ class CourseController extends BaseController {
 	}
 
 	/**
+	 * show a single course
+	 */
+	public function show($slug) {
+		$course = Course::with('instructors')->where('slug', $slug)->first();
+		return View::make('courses.course', array(
+			'title'=>$course->title,
+			'course'=>$course,
+			'class'=>'courses',
+			'related'=>Course::where('genre_id', $course->genre_id)
+				->where('id', '<>', $course->id)
+				->orderBy(DB::raw('RAND()'))
+				->first(),
+		));
+	}
+
+	/**
 	 * populate day select
 	 */
 	public static function getDayList($days=false) {
@@ -44,6 +60,9 @@ class CourseController extends BaseController {
 		return $instructors->lists('name', 'id');
 	}
 
+	/**
+	 * populate duration select
+	 */
 	public static function getDurationList() {
 		return array(
 			'workshop'=>'Workshop',
@@ -53,15 +72,11 @@ class CourseController extends BaseController {
 	}
 
 	/**
-	 * show a single course
+	 * generate avalon link
 	 */
-	public function show($slug) {
-		$course = Course::with('instructors')->where('slug', $slug)->first();
-		return View::make('courses.course', array(
-			'title'=>$course->title,
-			'course'=>$course,
-			'class'=>'courses',
-		));
+	public static function editLink(Course $course) {
+		if (!Auth::user()) return false;
+		return link_to(URL::action('InstanceController@edit', array(6, $course->id)), 'Edit', array('class'=>'avalon_edit'));
 	}
 
 	/**
@@ -79,14 +94,6 @@ class CourseController extends BaseController {
 			$instructors = implode(' and ', $instructors);					
 		}
 		return $instructors;
-	}
-
-	/**
-	 * generate avalon link
-	 */
-	public static function editLink(Course $course) {
-		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(6, $course->id)), 'Edit', array('class'=>'avalon_edit'));
 	}
 
 }

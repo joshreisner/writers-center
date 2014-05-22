@@ -45,7 +45,7 @@
 					<input type="text" class="form-control" id="city" placeholder="City">
 				</div>
 				<div class="col-sm-3">
-					{{ Form::select('state', $states, 'NY', array('class'=>'form-control')) }}
+					{{ Form::dropdown('state', $states, 'NY') }}
 				</div>
 				<div class="col-sm-2">
 					<input type="text" class="form-control" id="zip" placeholder="ZIP">

@@ -60,7 +60,7 @@ body {
 			cursor: pointer;
 			&:focus { outline: none; }
 		}
-		&[type=text] {
+		&[type=text], &[type=email], &[type=search], &[type=password], &[type=submit] {
 			border-radius: 0; height: $control-height; box-shadow: none;
 		}
 	}
@@ -385,6 +385,27 @@ body {
 					dd { }
 				}
 			}
+			.side {
+				.wallpaper {
+					@include background-opacity($courses, .2);
+					h2 { 
+						line-height: 1.2; 
+						small { color: inherit; }
+					}
+					
+					span { font-family: "Apercu Mono Pro Regular"; font-size: 60%; text-transform: uppercase; }
+					.description { font-size: 80%; }
+				}
+				ul {
+					margin: 0; padding: $margin;
+					li {
+						list-style-type: none; 
+						&.active {
+							a { color: $about; text-decoration: underline; }
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -409,6 +430,11 @@ body {
 					}
 				}
 			}
+			.side {
+				.wallpaper {
+					@include background-opacity($events, .2);
+				}
+			}
 		}
 	}
 
@@ -421,6 +447,11 @@ body {
 				.date { font-family: "Apercu Mono Pro Regular"; margin-bottom: $margin; }
 				.post { margin: 20px 0 40px 0; }
 			}
+			.side {
+				.wallpaper {
+					@include background-opacity($blog, .2);
+				}
+			}
 		}
 	}
 
@@ -431,6 +462,11 @@ body {
 				color: $publications; 
 				a { color: $publications; font-size: 150%; }
 				ul { list-style-type: none; }
+			}
+			.side {
+				.wallpaper {
+					@include background-opacity($publications, .2);
+				}
 			}
 		}
 	}
