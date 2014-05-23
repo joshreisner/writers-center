@@ -210,9 +210,10 @@ body {
 	.row { 
 		padding-top: $margin * 2; 
 		&.banner {
-			padding-top: $margin;
+			padding-top: $margin; height: 127px;
 			div {
 				position: relative; 
+				a.logo { position: fixed; left: 94px; }
 				nav#utility {
 					position: absolute; right: $margin * 2; top: 0;
 					a { 
@@ -299,7 +300,7 @@ body {
 				height: $promo-height; border: $border-width solid $default; position: relative;
 				@include shadow();
 				&.events { 
-					padding: $margin 20px; font-size: 120%;
+					border-color: $events; padding: $margin 20px; font-size: 120%;
 					table { 
 						width: 100%; 
 						th { font-size: 90%; }

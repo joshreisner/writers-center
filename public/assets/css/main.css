@@ -173,9 +173,13 @@ body {
   body .row {
     padding-top: 30px; }
     body .row.banner {
-      padding-top: 15px; }
+      padding-top: 15px;
+      height: 127px; }
       body .row.banner div {
         position: relative; }
+        body .row.banner div a.logo {
+          position: fixed;
+          left: 94px; }
         body .row.banner div nav#utility {
           position: absolute;
           right: 30px;
@@ -287,6 +291,7 @@ body {
     position: relative;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
     body.home .promos div.promo.events {
+      border-color: #9f6117;
       padding: 15px 20px;
       font-size: 120%; }
       body.home .promos div.promo.events table {
