@@ -35,6 +35,8 @@ body {
       border-radius: 0;
       height: 26px;
       box-shadow: none; }
+      body input[type=text]:focus, body input[type=email]:focus, body input[type=search]:focus, body input[type=password]:focus, body input[type=submit]:focus {
+        box-shadow: none; }
   body select:focus, body option:focus {
     outline: none; }
   body label {
@@ -199,7 +201,8 @@ body {
         position: relative; }
         body .row.banner div a.logo {
           position: fixed;
-          left: 94px; }
+          left: 94px;
+          z-index: -100; }
         body .row.banner div nav#utility {
           position: absolute;
           right: 30px;
@@ -470,8 +473,17 @@ body {
     body.publications .page .content a {
       color: #c65146;
       font-size: 150%; }
-    body.publications .page .content ul {
-      list-style-type: none; }
+    body.publications .page .content .publication {
+      margin-bottom: 20px;
+      height: 300px; }
+      body.publications .page .content .publication a {
+        display: block;
+        background-color: #f6e4e2;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%; }
   body.publications .page .side .wallpaper {
     background-color: rgba(198, 81, 70, 0.2); }
   body.contact .page .inner {

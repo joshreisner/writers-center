@@ -4,11 +4,11 @@
 
 	<div class="col-md-offset-1">
 		<h1>{{ $title }}</h1>
-		<ul>
-		@foreach ($publications as $publication)
-			<li><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></li>
-		@endforeach
-		</ul>
+	</div>
+	<div class="row">
+	@foreach ($publications as $publication)
+		<div class="publication col-md-6"><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></div>
+	@endforeach
 	</div>
 
 @endsection

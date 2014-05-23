@@ -62,6 +62,7 @@ body {
 		}
 		&[type=text], &[type=email], &[type=search], &[type=password], &[type=submit] {
 			border-radius: 0; height: $control-height; box-shadow: none;
+			&:focus { box-shadow: none; }
 		}
 	}
 
@@ -222,7 +223,7 @@ body {
 			padding-top: $margin; height: 127px;
 			div {
 				position: relative; 
-				a.logo { position: fixed; left: 94px; }
+				a.logo { position: fixed; left: 94px; z-index: -100; }
 				nav#utility {
 					position: absolute; right: $margin * 2; top: 0;
 					a { 
@@ -471,7 +472,18 @@ body {
 			.content {
 				color: $publications; 
 				a { color: $publications; font-size: 150%; }
-				ul { list-style-type: none; }
+				.publication { 
+					margin-bottom: 20px; height: 300px;
+					a { 
+						display: block; background-color: $publications-lighter;  
+						//background-image: url(...);
+						background-size: contain;
+						background-position: center;
+						background-repeat: no-repeat;
+						height: 100%;
+						width: 100%;
+					}
+				}
 			}
 			.side {
 				.wallpaper {
