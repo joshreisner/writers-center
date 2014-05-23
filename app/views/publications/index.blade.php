@@ -25,7 +25,7 @@
 				@foreach ($types as $type)
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" value="{{ $type->id }}">
+						{{ Form::chkbox('types', $type->id) }}
 						{{ $type->title }}
 					</label>
 				</div>

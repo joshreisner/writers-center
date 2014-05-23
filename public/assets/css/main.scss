@@ -70,8 +70,15 @@ body {
 	label { font-family: "Apercu Mono Pro Regular"; font-weight: normal; font-size: 90%; margin-top: 8px; line-height: 1; }
 	
 	div.checkbox {
-		margin-top: 0;
+		margin-top: 0; padding: 0;
 		label { font-family: "Apercu Pro Regular"; }
+		.chkbox {
+			width: 20px; height: 20px; float: left; margin-right: 10px; background-color: lighten($default, 50%); 	
+			text-align: center; color: $default; 
+			i { font-size: 180%; line-height: .9; margin-left: -3px; visibility: hidden; }
+			&.active i { visibility: visible; }
+		}
+
 	}
 	
 	p { margin: 0 0 $margin 0; }
@@ -168,6 +175,7 @@ body {
 				}
 			}
 		}
+		.chkbox { background-color: $blog-light; }
 	}
 
 	&.publications form.switchboard {
@@ -190,6 +198,7 @@ body {
 				}
 			}
 		}
+		.chkbox { background-color: $publications-light; }
 	}
 
 	.wallpaper {

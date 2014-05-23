@@ -33,7 +33,7 @@
 				@foreach ($tags as $tag)
 				<div class="checkbox">
 					<label>
-						<input type="checkbox" value="{{ $tag->id }}">
+						{{ Form::chkbox('tag', $tag->id) }}
 						{{ $tag->title }}
 					</label>
 				</div>

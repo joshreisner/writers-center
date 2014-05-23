@@ -23,4 +23,11 @@ $(function(){
 		$(this).closest(".btn-group.dropdown").find('span.selected').html($(this).html());
 	});
 
+	//checkbox
+	$("div.checkbox label").click(function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		$(this).find(".chkbox").toggleClass("active");
+	});
+
 });
