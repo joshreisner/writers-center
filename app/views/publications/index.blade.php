@@ -7,7 +7,16 @@
 	</div>
 	<div class="row">
 	@foreach ($publications as $publication)
-		<div class="publication col-md-6"><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></div>
+		<div class="publication col-md-6">
+			<div class="inner">
+				<a href="/publications/{{ $publication->slug }}" style="background-image:url({{ $publication->image->url }});">
+					<div class="info">
+						<div>{{ $publication->title }}</div>
+						<div>{{ $publication->price}}</div>
+					</div>
+				</a>
+			</div>
+		</div>
 	@endforeach
 	</div>
 
