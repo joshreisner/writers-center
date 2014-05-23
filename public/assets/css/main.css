@@ -202,7 +202,7 @@ body {
         body .row.banner div a.logo {
           position: fixed;
           left: 94px;
-          z-index: -100; }
+          z-index: -1; }
         body .row.banner div nav#utility {
           position: absolute;
           right: 30px;
@@ -473,22 +473,44 @@ body {
     body.publications .page .content a {
       color: #c65146;
       font-size: 150%; }
+    body.publications .page .content img {
+      margin: 5px 20px 20px -60px;
+      float: left; }
+      body.publications .page .content img.portrait {
+        width: 220px;
+        height: auto; }
+      body.publications .page .content img.landscape {
+        height: 220px;
+        width: auto; }
+    body.publications .page .content ul {
+      clear: left; }
     body.publications .page .content .publication {
       margin-bottom: 20px; }
       body.publications .page .content .publication .inner {
         background-color: #f6e4e2;
-        padding: 15px;
         height: 300px;
-        border: 0; }
+        border: 0;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat; }
         body.publications .page .content .publication .inner a {
           display: block;
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-          height: 100%;
-          width: 100%; }
-          body.publications .page .content .publication .inner a div.info {
-            display: none; }
+          height: 300px;
+          padding-top: 36%;
+          background-color: #c65146;
+          opacity: 0; }
+          body.publications .page .content .publication .inner a div {
+            font-size: 80%;
+            color: white;
+            text-align: center;
+            line-height: 1;
+            font-style: italic; }
+            body.publications .page .content .publication .inner a div .separator {
+              border-top: 3px solid white;
+              width: 20px;
+              margin: 20px auto; }
+          body.publications .page .content .publication .inner a:hover {
+            opacity: .8; }
   body.publications .page .side .wallpaper {
     background-color: rgba(198, 81, 70, 0.2); }
   body.contact .page .inner {

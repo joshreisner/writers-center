@@ -1,4 +1,4 @@
-//colorz
+//colors
 $default:			rgb(73, 79, 67);
 
 $about:				rgb(41, 140, 118);
@@ -16,7 +16,7 @@ $publications-light:	lighten($publications, 20%);
 $publications-lighter:	lighten($publications, 40%);
 $contact:			rgb(75, 82, 69);
 
-//dimensionz
+//dimensions
 $carousel-width:	654px;
 $carousel-margin:	11px;
 $carousel-height:	400px;
@@ -223,7 +223,7 @@ body {
 			padding-top: $margin; height: 127px;
 			div {
 				position: relative; 
-				a.logo { position: fixed; left: 94px; z-index: -100; }
+				a.logo { position: fixed; left: 94px; z-index: -1; }
 				nav#utility {
 					position: absolute; right: $margin * 2; top: 0;
 					a { 
@@ -472,19 +472,32 @@ body {
 			.content {
 				color: $publications; 
 				a { color: $publications; font-size: 150%; }
+				img { 
+					margin: 5px 20px 20px -60px; float: left; 
+					&.portrait { width: 220px; height: auto; }
+					&.landscape { height: 220px; width: auto; }
+				}
+				ul { clear: left; }
 				.publication { 
 					margin-bottom: 20px; 
 					.inner {
-						background-color: $publications-lighter; padding: $margin;
+						background-color: $publications-lighter; 
 						height: 300px; border: 0;
+						background-size: contain; 
+						background-position: center;
+						background-repeat: no-repeat;
 						a { 
-							display: block; 
-							background-size: contain;
-							background-position: center;
-							background-repeat: no-repeat;
-							height: 100%;
-							width: 100%;
-							div.info { display: none; }
+							display: block; height: 300px; padding-top: 36%;
+							background-color: $publications; opacity: 0;
+							div { 
+								// display: none; 
+								font-size: 80%;
+								color: white;
+								text-align: center;
+								line-height: 1; font-style: italic;
+								.separator { border-top: $border-width solid white; width: 20px; margin: 20px auto; }
+							}
+							&:hover { opacity: .8; }
 						}
 					} 
 
