@@ -223,7 +223,7 @@ body {
 			padding-top: $margin; height: 127px;
 			div {
 				position: relative; 
-				a.logo { position: fixed; left: 94px; z-index: -1; }
+				a.logo { position: fixed; left: 94px; }
 				nav#utility {
 					position: absolute; right: $margin * 2; top: 0;
 					a { 

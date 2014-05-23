@@ -201,8 +201,7 @@ body {
         position: relative; }
         body .row.banner div a.logo {
           position: fixed;
-          left: 94px;
-          z-index: -1; }
+          left: 94px; }
         body .row.banner div nav#utility {
           position: absolute;
           right: 30px;
