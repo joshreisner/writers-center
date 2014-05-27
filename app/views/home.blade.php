@@ -1,18 +1,37 @@
 @extends('template')
 
+@section('script')
+	<script src="/bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.carousel').slick({
+        		arrows: true,
+        		centerMode: true,
+				centerPadding: '260px',
+    			slidesToShow: 1,
+    			infinite: true
+			});
+        });
+    </script>	
+@endsection
+
+@section('style')
+	<link rel="stylesheet" type="text/css" href="/bower_components/slick-carousel/slick/slick.css">
+@endsection
+
 @section('page')
 
 	<div class="carousel">
-		<div class="inner">
-			@foreach ($items as $item)
-			<a class="item {{ $item->type }}" href="#">
+		@foreach ($items as $item)
+		<div class="item {{ Str::slug($item->type) }}">
+			<div class="inner">
 				<img src="{{ $item->backing->url }}" width="{{ $item->backing->width }}" height="{{ $item->backing->height }}">
 				<h1>{{ nl2br($item->title) }}</h1>
 				<div class="description">{{ nl2br($item->content) }}</div>
 				<div class="type">{{ $item->type }}</div>
-			</a>
-			@endforeach
+			</div>
 		</div>
+		@endforeach
 	</div>
 
 	<div class="container">
@@ -23,56 +42,42 @@
 						<thead>
 							<tr>
 								<th></th>
-								<th>Su</th>
 								<th>M</th>
 								<th>Tu</th>
 								<th>W</th>
 								<th>Th</th>
 								<th>F</th>
 								<th>Sa</th>
+								<th>Su</th>
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<th>May</th>
-								<td><a href="/events#2014-05-18">18</a></td>
-								<td><a href="/events#2014-05-19">19</a></td>
-								<td><a href="/events#2014-05-20">20</a></td>
-								<td><a href="/events#2014-05-21">21</a></td>
-								<td><a href="/events#2014-05-22">22</a></td>
-								<td><a href="/events#2014-05-23">23</a></td>
-								<td><a href="/events#2014-05-24">24</a></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td><a href="/events#2014-05-18">25</a></td>
-								<td><a href="/events#2014-05-19">26</a></td>
-								<td><a href="/events#2014-05-20">27</a></td>
-								<td><a href="/events#2014-05-21">28</a></td>
-								<td><a href="/events#2014-05-22">29</a></td>
-								<td><a href="/events#2014-05-23">30</a></td>
-								<td><a href="/events#2014-05-24">31</a></td>
-							</tr>
-							<tr>
-								<th>Jun</th>
-								<td><a href="/events#2014-06-18">1</a></td>
-								<td><a href="/events#2014-06-19">2</a></td>
-								<td><a href="/events#2014-06-20">3</a></td>
-								<td><a href="/events#2014-06-21">4</a></td>
-								<td><a href="/events#2014-06-22">5</a></td>
-								<td><a href="/events#2014-06-23">6</a></td>
-								<td><a href="/events#2014-06-24">7</a></td>
-							</tr>
-							<tr>
-								<th></th>
-								<td><a href="/events#2014-06-08">8</a></td>
-								<td><a href="/events#2014-06-09">9</a></td>
-								<td><a href="/events#2014-06-10">10</a></td>
-								<td><a href="/events#2014-06-11">11</a></td>
-								<td><a href="/events#2014-06-12">12</a></td>
-								<td><a href="/events#2014-06-13">13</a></td>
-								<td><a href="/events#2014-06-14">14</a></td>
-							</tr>
+
+						<?php
+						$month = '';
+						for ($week = 0; $week < 4; $week++) {
+							echo '<tr><th>';
+							if ($month != date('M', $start)) {
+								$month = date('M', $start);
+								echo $month;
+							}
+							echo '</th>';
+							for ($day = 0; $day < 7; $day++) {
+								echo '<td>';
+								$format = date('Y-m-d', $start);
+								if (in_array($format, $event_dates)) {
+									echo '<a href="/events#' . $format . '">';
+									echo date('d', $start);
+									echo '</a>';
+								} else {
+									echo date('d', $start);
+								}
+								echo '</td>';
+								$start += 86400;
+							}
+							echo '</tr>';
+						}
+						?>
 					</table>
 				</div>
 			</div>

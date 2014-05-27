@@ -11,6 +11,8 @@ Route::get('/', function()
 	return View::make('home', array(
 		'items'				=>$carouselItems,
 		'class'				=>'home',
+		'event_dates'		=>DB::table('events')->distinct()->lists(DB::raw('DATE_FORMAT(start, "%Y-%m-%d")')),
+		'start'				=>strtotime('this week', time()),
 		'instructor_select'	=>CourseController::getInstructorList(),
 		'genre_select'		=>CourseController::getGenreList(),
 		'day_select'		=>CourseController::getDayList(),

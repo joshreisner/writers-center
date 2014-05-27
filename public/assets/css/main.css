@@ -253,60 +253,59 @@ body {
         padding: 20px 20px 5px;
         box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
   body.home .carousel {
-    padding-top: 15px;
-    width: 100%;
-    height: 415px;
-    overflow-x: hidden; }
-    body.home .carousel .inner {
-      width: 4655px;
-      margin-left: -60px; }
-      body.home .carousel .inner .item {
-        float: left;
-        height: 400px;
-        width: 654px;
-        overflow: hidden;
-        margin-right: 15px;
-        padding: 20px 40px;
-        position: relative;
-        color: inherit; }
-        body.home .carousel .inner .item h1 {
-          margin: 40px 0 0 0;
+    overflow-x: hidden;
+    margin: 15px 0 0 0;
+    height: 400px; }
+    body.home .carousel .item {
+      height: 400px;
+      width: 654px;
+      overflow: hidden;
+      color: inherit; }
+      body.home .carousel .item .inner {
+        margin: 0 7.5px;
+        position: relative; }
+        body.home .carousel .item .inner h1 {
+          position: absolute;
+          left: 60px;
+          top: 60px;
           font-size: 42px;
           line-height: 1.3; }
-        body.home .carousel .inner .item img {
-          position: absolute;
-          top: 0;
-          left: 0;
+        body.home .carousel .item .inner img {
+          width: 100%;
+          height: auto;
           opacity: .15; }
-        body.home .carousel .inner .item .description {
-          margin: 20px;
+        body.home .carousel .item .inner .description {
+          position: absolute;
+          left: 60px;
+          top: 280px;
           text-transform: uppercase; }
-        body.home .carousel .inner .item .type {
+        body.home .carousel .item .inner .type {
           text-transform: uppercase;
           position: absolute;
+          left: 20px;
           top: 20px; }
-        body.home .carousel .inner .item.course {
-          background-color: rgba(50, 84, 53, 0.3);
+      body.home .carousel .item.course .inner {
+        background-color: rgba(50, 84, 53, 0.3);
+        color: #325435; }
+        body.home .carousel .item.course .inner a {
           color: #325435; }
-          body.home .carousel .inner .item.course a {
-            color: #325435; }
-        body.home .carousel .inner .item.blog {
-          background-color: rgba(105, 93, 115, 0.3);
+      body.home .carousel .item.blog .inner {
+        background-color: rgba(105, 93, 115, 0.3);
+        color: #695d73; }
+        body.home .carousel .item.blog .inner a {
           color: #695d73; }
-          body.home .carousel .inner .item.blog a {
-            color: #695d73; }
-        body.home .carousel .inner .item.event {
-          background-color: rgba(159, 97, 23, 0.3);
+      body.home .carousel .item.event .inner {
+        background-color: rgba(159, 97, 23, 0.3);
+        color: #9f6117; }
+        body.home .carousel .item.event .inner a {
           color: #9f6117; }
-          body.home .carousel .inner .item.event a {
-            color: #9f6117; }
-        body.home .carousel .inner .item.publication {
-          background-color: rgba(198, 81, 70, 0.3);
+      body.home .carousel .item.publication .inner {
+        background-color: rgba(198, 81, 70, 0.3);
+        color: #c65146; }
+        body.home .carousel .item.publication .inner a {
           color: #c65146; }
-          body.home .carousel .inner .item.publication a {
-            color: #c65146; }
-        body.home .carousel .inner .item:hover {
-          text-decoration: none; }
+      body.home .carousel .item:hover {
+        text-decoration: none; }
   body.home .promos div.promo {
     height: 180px;
     border: 3px solid #494f43;
@@ -326,6 +325,8 @@ body {
         body.home .promos div.promo.events table tbody th {
           text-align: right;
           width: 0; }
+        body.home .promos div.promo.events table a {
+          font-weight: bold; }
     body.home .promos div.promo.courses {
       border-color: #325435; }
       body.home .promos div.promo.courses form {
