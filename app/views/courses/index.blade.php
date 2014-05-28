@@ -38,6 +38,24 @@
 			<label for="genre" class="col-md-3">Duration</label>
 			<div class="col-md-9">{{ Form::dropdown('duration', $duration_select) }}</div>
 		</div>
+		<!--
+		<div class="form-group">
+			<label for="types" class="col-md-3">Scope</label>
+			<div class="col-md-9">
+				<div class="checkbox">
+					<label>
+						{{ Form::chkbox('scope', 'current') }}
+						Currently Offered
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+						{{ Form::chkbox('scope', 'all') }}
+						All Courses
+					</label>
+				</div>
+			</div>
+		</div>
 		<div class="form-group">
 			<div class="btn-group btn-group-justified col-md-12">
 				<div class="btn-group">
@@ -48,5 +66,6 @@
 				</div>
 			</div>
 		</div>
+		-->
 	</form>
 @endsection

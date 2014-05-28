@@ -49,7 +49,7 @@
 	<div class="wallpaper">
 		<span>You might also like</span>
 		<h2>
-			{{ $related->title }}
+			<a href="/courses/{{ $related->slug }}">{{ $related->title }}</a>
 			<small>with {{ CourseController::formatInstructors($related) }}</small>
 		</h2>
 		<div class="description">{{ $related->description }}</div>

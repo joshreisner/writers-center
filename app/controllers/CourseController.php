@@ -37,6 +37,48 @@ class CourseController extends BaseController {
 	}
 
 	/**
+	 * provide json for the AJAX switchboard
+	 */
+	public function ajax() {
+
+		$with = array();
+
+		# Get initial resultset
+		$return = Genre::with('courses');
+		if (Input::has('search')) {
+			$with['courses'] = function($query){
+				$query->where('title', 'like', '%' . Input::get('search') . '%');
+			};
+		} else {
+			$with[] = 'courses';
+		}
+		if (Input::has('genre')) {
+			$return->where('genres.id', Input::get('genre'));
+		}
+		if (Input::has('instructor')) {
+			$with['courses.instructors'] = function($query){
+			    $query->where('id', Input::get('instructor'));
+			};
+		} else {
+			$with[] = 'courses.instructors';
+		}
+		$genres = $return->with($with)->get();
+
+		# Add formatted instructor string
+		foreach ($genres as $genre) {
+			foreach ($genre->courses as $course) {
+				$course->instructor_string = self::formatInstructors($course);
+			}
+		}
+
+		//echo '<pre>';
+		//dd(DB::getQueryLog());
+
+		# Return
+		return $genres;
+	}
+
+	/**
 	 * populate day select
 	 */
 	public static function getDayList($days=false) {

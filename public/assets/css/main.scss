@@ -45,11 +45,8 @@ body {
 		&:focus { outline: none; }
 		&.login { cursor: pointer; }
 		&.logo { display: block; }
-		&.avalon_edit { 
-			border-width: 1px; border-style: solid; opacity: .5; line-height: 18px;
-			text-transform: uppercase; text-decoration: none;
-			font-size: 10px; font-family: "Apercu Mono Pro Regular";
-			vertical-align: text-top; padding: 1px 6px; 
+
+		&.edit { 
 			&:hover { text-decoration: none; opacity: 1; }
 		}
 	}
@@ -88,6 +85,7 @@ body {
 
 	.btn-group {
 		font-family: "Apercu Mono Pro Regular";
+		/*
 		button { 
 			border-radius: 0; padding-top: 3px; padding-bottom: 3px;
 			&.active { 
@@ -95,8 +93,9 @@ body {
 				&:hover { background-color: transparent; }
 			}
 		}
+		*/
 		&.dropdown {
-			width: 100%; position: relative;
+			width: 100%; position: relative; 
 			button { width: 100%; height: $control-height; border-radius: 0; text-align: left; line-height: 1; }
 			span.caret { border-width: 9px 6px; position: absolute; top: 9px; right: 4px; }
 			// span.selected { background-color: pink; }
@@ -115,6 +114,7 @@ body {
 	&.courses form.switchboard, &.home .promo.courses {
 		input[type=text] { border-color: $courses-light; }
 		.btn-group {
+			/*
 			button {
 				border-color: $courses-light;
 				&.active { 
@@ -123,6 +123,7 @@ body {
 				} 
 				&:hover { background-color: $courses-lighter; }
 			}
+			*/
 			&.dropdown {
 				button { background-color: $courses-light; }
 				span.caret { color: $courses; }
@@ -132,11 +133,13 @@ body {
 				}
 			}
 		}
+		.chkbox { background-color: $courses-light; }
 	}
 
 	&.events form.switchboard {
 		input[type=text] { border-color: $events-light; }
 		.btn-group {
+			/*
 			button {
 				border-color: $events-light;
 				&.active { 
@@ -145,6 +148,7 @@ body {
 				} 
 				&:hover { background-color: $events-lighter; }
 			}
+			*/
 			&.dropdown {
 				button { background-color: $events-light; }
 				span.caret { color: $events; }
@@ -154,11 +158,13 @@ body {
 				}
 			}
 		}
+		.chkbox { background-color: $events-light; }
 	}
 
 	&.blog form.switchboard {
 		input[type=text] { border-color: $blog-light; }
 		.btn-group {
+			/*
 			button {
 				border-color: $blog-light;
 				&.active { 
@@ -167,6 +173,7 @@ body {
 				} 
 				&:hover { background-color: $blog-lighter; }
 			}
+			*/
 			&.dropdown {
 				button { background-color: $blog-light; }
 				span.caret { color: $blog; }
@@ -271,6 +278,19 @@ body {
 		.carousel {
 			overflow-x: hidden; margin: $margin 0 0 0; height: $carousel-height; 
 			
+			button {
+
+				&.slick-prev {
+					&::before { font-size: 60px; line-height: .5; }
+					left: 20px; 
+				}
+				
+				&.slick-next {
+					&::before { font-size: 60px; line-height: .5; }
+					right: 60px; 
+				}
+			}
+
 			.item {
 				height: $carousel-height; width: $carousel-width; overflow: hidden;
 				color: inherit; 
@@ -321,7 +341,7 @@ body {
 						th { font-size: 90%; }
 						th, td { text-align: center; height: 29px; }
 						tbody th { text-align: right; width: 0; }
-						a { font-weight: bold; }
+						a { font-weight: bold; color: $events; }
 					}
 				}
 				&.courses { 
@@ -412,15 +432,6 @@ body {
 					
 					span { font-family: "Apercu Mono Pro Regular"; font-size: 60%; text-transform: uppercase; }
 					.description { font-size: 80%; }
-				}
-				ul {
-					margin: 0; padding: $margin;
-					li {
-						list-style-type: none; 
-						&.active {
-							a { color: $about; text-decoration: underline; }
-						}
-					}
 				}
 			}
 		}

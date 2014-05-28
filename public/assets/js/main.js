@@ -20,7 +20,13 @@ $(function(){
 	//dropdowns
 	$(".btn-group.dropdown a").click(function(e){
 		e.preventDefault();
-		$(this).closest(".btn-group.dropdown").find('span.selected').html($(this).html());
+		var parent = $(this).closest(".btn-group.dropdown");
+		parent.find("span.selected").html($(this).html());
+		parent.find("input").val($(this).attr("data-id"));
+		parent.find("li").removeClass("active");
+		$(this).closest("li").addClass("active");
+		var switchboard = $(this).closest('form.switchboard');
+		if (switchboard.size()) updateSwitchboard(switchboard);
 	});
 
 	//checkbox
@@ -30,4 +36,33 @@ $(function(){
 		$(this).find(".chkbox").toggleClass("active");
 	});
 
+	$("form.switchboard").submit(function(){
+		updateSwitchboard($(this));
+		return false;
+	});
+
+	//update any switchboard
+	function updateSwitchboard(whichBoard) {
+		if ($("body").hasClass("courses")) {
+			$.getJSON("/courses/ajax", whichBoard.serialize(), function(data){
+				var str = '';
+				$.each(data, function(i, genre){
+					str += "<h2>" + genre.title + "</h2><ul class='courses'>";
+					$.each(genre.courses, function(i, course){
+						str += "<li><a href='/courses/" + course.slug + "'>" + course.title + "</a> with " +
+						course.instructor_string + "</li>";
+					});
+					str += "</ul>";
+				});
+				$(".page .content .inner div").html(str);
+			});
+		} else {
+			console.log("body not defined");
+		}
+	}
+
 });
+
+
+
+

@@ -11,20 +11,9 @@ body {
       cursor: pointer; }
     body a.logo {
       display: block; }
-    body a.avalon_edit {
-      border-width: 1px;
-      border-style: solid;
-      opacity: .5;
-      line-height: 18px;
-      text-transform: uppercase;
+    body a.edit:hover {
       text-decoration: none;
-      font-size: 10px;
-      font-family: "Apercu Mono Pro Regular";
-      vertical-align: text-top;
-      padding: 1px 6px; }
-      body a.avalon_edit:hover {
-        text-decoration: none;
-        opacity: 1; }
+      opacity: 1; }
   body input {
     font-family: "Apercu Mono Pro Regular"; }
     body input[type=checkbox] {
@@ -70,16 +59,16 @@ body {
   body dt {
     font-family: "Apercu Mono Pro Regular"; }
   body .btn-group {
-    font-family: "Apercu Mono Pro Regular"; }
-    body .btn-group button {
-      border-radius: 0;
-      padding-top: 3px;
-      padding-bottom: 3px; }
-      body .btn-group button.active {
-        box-shadow: none;
-        cursor: inherit; }
-        body .btn-group button.active:hover {
-          background-color: transparent; }
+    font-family: "Apercu Mono Pro Regular";
+    /*
+    button { 
+    	border-radius: 0; padding-top: 3px; padding-bottom: 3px;
+    	&.active { 
+    		box-shadow: none; cursor: inherit; 
+    		&:hover { background-color: transparent; }
+    	}
+    }
+    */ }
     body .btn-group.dropdown {
       width: 100%;
       position: relative; }
@@ -103,58 +92,71 @@ body {
           cursor: pointer; }
   body.courses form.switchboard input[type=text], body.home .promo.courses input[type=text] {
     border-color: #b3d2b6; }
-  body.courses form.switchboard .btn-group button, body.home .promo.courses .btn-group button {
-    border-color: #b3d2b6; }
-    body.courses form.switchboard .btn-group button.active, body.home .promo.courses .btn-group button.active {
+  body.courses form.switchboard .btn-group, body.home .promo.courses .btn-group {
+    /*
+    button {
+    	border-color: $courses-light;
+    	&.active { 
+    		background-color: $courses-light; 
+    		&:hover { background-color: $courses-light; }
+    	} 
+    	&:hover { background-color: $courses-lighter; }
+    }
+    */ }
+    body.courses form.switchboard .btn-group.dropdown button, body.home .promo.courses .btn-group.dropdown button {
       background-color: #b3d2b6; }
-      body.courses form.switchboard .btn-group button.active:hover, body.home .promo.courses .btn-group button.active:hover {
-        background-color: #b3d2b6; }
-    body.courses form.switchboard .btn-group button:hover, body.home .promo.courses .btn-group button:hover {
+    body.courses form.switchboard .btn-group.dropdown span.caret, body.home .promo.courses .btn-group.dropdown span.caret {
+      color: #325435; }
+    body.courses form.switchboard .btn-group.dropdown ul, body.home .promo.courses .btn-group.dropdown ul {
       background-color: #d3e5d5; }
-  body.courses form.switchboard .btn-group.dropdown button, body.home .promo.courses .btn-group.dropdown button {
+      body.courses form.switchboard .btn-group.dropdown ul li.active a, body.courses form.switchboard .btn-group.dropdown ul li a:hover, body.courses form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.courses .btn-group.dropdown ul li.active a, body.home .promo.courses .btn-group.dropdown ul li a:hover, body.home .promo.courses .btn-group.dropdown ul li.divider {
+        background-color: #b3d2b6; }
+  body.courses form.switchboard .chkbox, body.home .promo.courses .chkbox {
     background-color: #b3d2b6; }
-  body.courses form.switchboard .btn-group.dropdown span.caret, body.home .promo.courses .btn-group.dropdown span.caret {
-    color: #325435; }
-  body.courses form.switchboard .btn-group.dropdown ul, body.home .promo.courses .btn-group.dropdown ul {
-    background-color: #d3e5d5; }
-    body.courses form.switchboard .btn-group.dropdown ul li.active a, body.courses form.switchboard .btn-group.dropdown ul li a:hover, body.courses form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.courses .btn-group.dropdown ul li.active a, body.home .promo.courses .btn-group.dropdown ul li a:hover, body.home .promo.courses .btn-group.dropdown ul li.divider {
-      background-color: #b3d2b6; }
   body.events form.switchboard input[type=text] {
     border-color: #f6ddbf; }
-  body.events form.switchboard .btn-group button {
-    border-color: #f6ddbf; }
-    body.events form.switchboard .btn-group button.active {
+  body.events form.switchboard .btn-group {
+    /*
+    button {
+    	border-color: $events-light;
+    	&.active { 
+    		background-color: $events-light; 
+    		&:hover { background-color: $events-light; }
+    	} 
+    	&:hover { background-color: $events-lighter; }
+    }
+    */ }
+    body.events form.switchboard .btn-group.dropdown button {
       background-color: #f6ddbf; }
-      body.events form.switchboard .btn-group button.active:hover {
-        background-color: #f6ddbf; }
-    body.events form.switchboard .btn-group button:hover {
+    body.events form.switchboard .btn-group.dropdown span.caret {
+      color: #9f6117; }
+    body.events form.switchboard .btn-group.dropdown ul {
       background-color: #fcf5ec; }
-  body.events form.switchboard .btn-group.dropdown button {
+      body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider {
+        background-color: #f6ddbf; }
+  body.events form.switchboard .chkbox {
     background-color: #f6ddbf; }
-  body.events form.switchboard .btn-group.dropdown span.caret {
-    color: #9f6117; }
-  body.events form.switchboard .btn-group.dropdown ul {
-    background-color: #fcf5ec; }
-    body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider {
-      background-color: #f6ddbf; }
   body.blog form.switchboard input[type=text] {
     border-color: #e8e5ea; }
-  body.blog form.switchboard .btn-group button {
-    border-color: #e8e5ea; }
-    body.blog form.switchboard .btn-group button.active {
+  body.blog form.switchboard .btn-group {
+    /*
+    button {
+    	border-color: $blog-light;
+    	&.active { 
+    		background-color: $blog-light; 
+    		&:hover { background-color: $blog-light; }
+    	} 
+    	&:hover { background-color: $blog-lighter; }
+    }
+    */ }
+    body.blog form.switchboard .btn-group.dropdown button {
       background-color: #e8e5ea; }
-      body.blog form.switchboard .btn-group button.active:hover {
-        background-color: #e8e5ea; }
-    body.blog form.switchboard .btn-group button:hover {
+    body.blog form.switchboard .btn-group.dropdown span.caret {
+      color: #695d73; }
+    body.blog form.switchboard .btn-group.dropdown ul {
       background-color: white; }
-  body.blog form.switchboard .btn-group.dropdown button {
-    background-color: #e8e5ea; }
-  body.blog form.switchboard .btn-group.dropdown span.caret {
-    color: #695d73; }
-  body.blog form.switchboard .btn-group.dropdown ul {
-    background-color: white; }
-    body.blog form.switchboard .btn-group.dropdown ul li.active a, body.blog form.switchboard .btn-group.dropdown ul li a:hover, body.blog form.switchboard .btn-group.dropdown ul li.divider {
-      background-color: #e8e5ea; }
+      body.blog form.switchboard .btn-group.dropdown ul li.active a, body.blog form.switchboard .btn-group.dropdown ul li a:hover, body.blog form.switchboard .btn-group.dropdown ul li.divider {
+        background-color: #e8e5ea; }
   body.blog form.switchboard .chkbox {
     background-color: #e8e5ea; }
   body.publications form.switchboard input[type=text] {
@@ -256,6 +258,16 @@ body {
     overflow-x: hidden;
     margin: 15px 0 0 0;
     height: 400px; }
+    body.home .carousel button.slick-prev {
+      left: 20px; }
+      body.home .carousel button.slick-prev::before {
+        font-size: 60px;
+        line-height: .5; }
+    body.home .carousel button.slick-next {
+      right: 60px; }
+      body.home .carousel button.slick-next::before {
+        font-size: 60px;
+        line-height: .5; }
     body.home .carousel .item {
       height: 400px;
       width: 654px;
@@ -326,7 +338,8 @@ body {
           text-align: right;
           width: 0; }
         body.home .promos div.promo.events table a {
-          font-weight: bold; }
+          font-weight: bold;
+          color: #9f6117; }
     body.home .promos div.promo.courses {
       border-color: #325435; }
       body.home .promos div.promo.courses form {
@@ -419,14 +432,6 @@ body {
       text-transform: uppercase; }
     body.courses .page .side .wallpaper .description {
       font-size: 80%; }
-  body.courses .page .side ul {
-    margin: 0;
-    padding: 15px; }
-    body.courses .page .side ul li {
-      list-style-type: none; }
-      body.courses .page .side ul li.active a {
-        color: #298c76;
-        text-decoration: underline; }
   body.events .page .page .inner, body.events .page form.switchboard {
     border-color: #9f6117; }
   body.events .page .content {

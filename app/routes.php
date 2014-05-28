@@ -42,6 +42,7 @@ Route::get('/about/{slug?}', function($slug='')
 # Complex sections
 
 Route::get('/courses', 						'CourseController@index');
+Route::get('/courses/ajax', 				'CourseController@ajax');
 Route::get('/courses/{slug}',				'CourseController@show');
 Route::get('/events',						'EventController@index');
 Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
@@ -111,23 +112,23 @@ View::composer('template', function($view)
     ->with('default_class', '');
 });
 
-# Form macros
+# Form macros for styled controls in switchboards
 
 Form::macro('dropdown', function($name, $list=array(), $selected=null)
 {
 	$options = array();
 	foreach ($list as $id=>$value) {
 		if (empty($value)) $value = '&nbsp;';
-		$options[] = '<li><a data-id="' . $id . '">' . $value . '</a></li>';
+		$options[] = '<li' . ($selected == $id ? ' class="active"' : '') . '><a data-id="' . $id . '">' . $value . '</a></li>';
 	}
 	$options = (count($options)) ? '<ul class="dropdown-menu">
-		<li><a data-id="">Any</a></li>
+		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">&nbsp;</a></li>
 		<li class="divider"></li>
 		' . implode($options) . 
 		'</ul>' : '';
     return '
 		<div class="btn-group dropdown" data-name="' . $name . '">
-			<input type="hidden" name="' . $name . '">
+			<input type="hidden" name="' . $name . '" value="' . $selected . '">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
 				<span class="selected"></span>
 				<span class="caret"></span>
