@@ -4,13 +4,11 @@
 	<div class="col-md-offset-1">
 		@foreach ($posts as $post)
 		<div class="post">
-			<div class="date">
-				{{ $post->publish_date->format(Config::get('config.date_format')) }}
-			</div>
-			<h2>
+			<h1>
+				<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
 				<a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
-			</h2>
-			<div class="content">{{ $post->content }}</div>
+			</h1>
+			<p>{{ $post->excerpt }}</p>
 		</div>
 		@endforeach
 	</div>

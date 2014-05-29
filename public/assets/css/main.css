@@ -226,7 +226,7 @@ body {
       text-align: center; }
       body .row.nav a {
         text-transform: uppercase;
-        font-size: 16px; }
+        font-size: 20px; }
       body .row.nav div.active a, body .row.nav div a:hover {
         text-decoration: underline; }
         body .row.nav div.active a.about, body .row.nav div a:hover.about {
@@ -246,12 +246,20 @@ body {
       border-color: #494f43; }
       body .row.page .content {
         color: #494f43;
-        font-size: 115%; }
+        font-size: 20px; }
         body .row.page .content .inner {
           border-width: 3px 0 0 0;
           border-style: solid; }
-        body .row.page .content a {
-          color: #494f43; }
+          body .row.page .content .inner h1 {
+            margin: 30px 0; }
+            body .row.page .content .inner h1 a.edit {
+              text-decoration: none; }
+          body .row.page .content .inner a {
+            text-decoration: underline; }
+          body .row.page .content .inner p {
+            margin: 0 0 15px 0; }
+            body .row.page .content .inner p img {
+              margin-top: 7px !important; }
       body .row.page .side form.switchboard {
         border-width: 3px;
         border-style: solid;
@@ -461,18 +469,27 @@ body {
             text-align: center; }
   body.events .page .side .wallpaper {
     background-color: rgba(159, 97, 23, 0.2); }
-  body.blog .page .page .inner, body.blog .page form.switchboard {
+  body.blog .row.page .inner, body.blog .row.page form.switchboard {
     border-color: #695d73; }
-  body.blog .page .content {
+  body.blog .row.page .content .inner {
     color: #695d73; }
-    body.blog .page .content a {
+    body.blog .row.page .content .inner a {
       color: #695d73; }
-    body.blog .page .content .date {
+    body.blog .row.page .content .inner h1 a {
+      text-decoration: none; }
+      body.blog .row.page .content .inner h1 a:hover {
+        text-decoration: underline; }
+      body.blog .row.page .content .inner h1 a.edit:hover {
+        text-decoration: none; }
+    body.blog .row.page .content .inner h1 small {
+      color: inherit;
+      font-size: 16px;
+      display: block;
       font-family: "Apercu Mono Pro Regular";
       margin-bottom: 15px; }
-    body.blog .page .content .post {
-      margin: 20px 0 40px 0; }
-  body.blog .page .side .wallpaper {
+    body.blog .row.page .content .inner .post {
+      margin: 30px 0 60px; }
+  body.blog .row.page .side .wallpaper {
     background-color: rgba(105, 93, 115, 0.2); }
   body.publications .page .page .inner, body.publications .page form.switchboard {
     border-color: #c65146; }

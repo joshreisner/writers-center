@@ -12,3 +12,10 @@ body .btn-primary {
   body .btn-primary:hover, body .btn-primary:active, body .btn-primary:focus {
     background-color: #72cabe;
     border-color: #3b9b8e; }
+body .redactor_editor p {
+  font-size: 20px;
+  line-height: 1.42857143;
+  margin-top: 0 !important;
+  margin-bottom: 15px !important; }
+  body .redactor_editor p img {
+    margin-top: 7px !important; }

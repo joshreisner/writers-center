@@ -4,8 +4,8 @@
 
 	<div class="col-md-offset-1">
 		<div class="post">
-			<div class="date">{{ $post->publish_date->format(Config::get('config.date_format')) }}</div>
 			<h1>
+				<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
 				{{ $post->title }}
 				{{ BlogController::editLink($post) }}
 			</h1>

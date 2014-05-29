@@ -1,30 +1,36 @@
 //colors
-$default:			rgb(73, 79, 67);
-
-$about:				rgb(41, 140, 118);
-$courses:			rgb(50, 84, 53);
-$courses-light:		lighten($courses, 50%);
-$courses-lighter:	lighten($courses, 60%);
-$events: 			rgb(159, 97, 23);
-$events-light:		lighten($events, 50%);
-$events-lighter:	lighten($events, 60%);
-$blog:				rgb(105, 93, 115);
-$blog-light:		lighten($blog, 50%);
-$blog-lighter:		lighten($blog, 60%);
+$default:				rgb(73, 79, 67);
+$default-light:			lighten($default, 50%);
+$default-lighter:		lighten($default, 60%);
+$about:					rgb(41, 140, 118);
+$about-light:			lighten($about, 50%);
+$about-lighter:			lighten($about, 60%);
+$courses:				rgb(50, 84, 53);
+$courses-light:			lighten($courses, 50%);
+$courses-lighter:		lighten($courses, 60%);
+$events: 				rgb(159, 97, 23);
+$events-light:			lighten($events, 50%);
+$events-lighter:		lighten($events, 60%);
+$blog:					rgb(105, 93, 115);
+$blog-light:			lighten($blog, 50%);
+$blog-lighter:			lighten($blog, 60%);
 $publications: 			rgb(198, 81, 70);
 $publications-light:	lighten($publications, 20%);
 $publications-lighter:	lighten($publications, 40%);
-$contact:			rgb(75, 82, 69);
+$contact:				rgb(75, 82, 69);
+$contact-light:			lighten($contact, 50%);
+$contact-lighter:		lighten($contact, 60%);
 
 //dimensions
-$carousel-width:	654px;
-$carousel-margin:	11px;
-$carousel-height:	400px;
-$control-height:	26px;
-$border-width:		3px;
-$promo-height:		180px;
-$margin:			15px;
+$carousel-width:		654px;
+$carousel-margin:		11px;
+$carousel-height:		400px;
+$control-height:		26px;
+$border-width:			3px;
+$promo-height:			180px;
+$margin:				15px;
 
+//mixins
 @mixin shadow() {
 	box-shadow: 5px 5px 5px transparentize($default, .5);
 }
@@ -41,7 +47,7 @@ body {
 
 	a {
 		color: $default;
-		&:hover, &:active { color: lighten($default, 50%); }
+		&:hover, &:active { color: $default-light; }
 		&:focus { outline: none; }
 		&.login { cursor: pointer; }
 		&.logo { display: block; }
@@ -248,7 +254,7 @@ body {
 		&.nav {
 			text-align: center; 
 			a { 
-				text-transform: uppercase; font-size: 16px;
+				text-transform: uppercase; font-size: 20px;
 			}
 			div.active a, div a:hover { 
 				text-decoration: underline; 
@@ -263,9 +269,19 @@ body {
 		&.page {
 			padding-top: $margin; border-color: $default;
 			.content {
-				color: $default; font-size: 115%;
-				.inner { border-width: $border-width 0 0 0; border-style: solid; }
-				a { color: $default; }
+				color: $default; font-size: 20px;
+				.inner { 
+					border-width: $border-width 0 0 0; border-style: solid; 
+					h1 { 
+						margin: $margin * 2 0; 
+						a.edit { text-decoration: none; }
+					}
+					a { text-decoration: underline; }
+					p { 
+						margin: 0 0 $margin 0; 
+						img { margin-top: 7px !important; }
+					}
+				}
 			}
 			.side {
 				form.switchboard {
@@ -468,13 +484,22 @@ body {
 	}
 
 	&.blog {
-		.page {
-			.page .inner, form.switchboard { border-color: $blog; }
+		.row.page {
+			.inner, form.switchboard { border-color: $blog; }
 			.content {
-				color: $blog; 
-				a { color: $blog; }
-				.date { font-family: "Apercu Mono Pro Regular"; margin-bottom: $margin; }
-				.post { margin: 20px 0 40px 0; }
+				.inner {
+					color: $blog; 
+					a { color: $blog; }
+					h1 {
+						a { 
+							text-decoration: none; 
+							&:hover { text-decoration: underline; }
+							&.edit:hover { text-decoration: none; }
+						}
+						small { color: inherit; font-size: 16px; display: block; font-family: "Apercu Mono Pro Regular"; margin-bottom: $margin; }
+					}
+					.post { margin: $margin * 2 0 $margin * 4; }
+				}
 			}
 			.side {
 				.wallpaper {

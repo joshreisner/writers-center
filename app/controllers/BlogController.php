@@ -8,8 +8,8 @@ class BlogController extends BaseController {
 	function index() {
 		return View::make('blog.index', array(
 			'title'=>'Blog',
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'posts'=>Post::orderBy('publish_date', 'desc')->get(),
+			'years'=>Post::orderBy('publish_date', 'desc')->distinct()->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)')),
+			'posts'=>Post::orderBy('publish_date', 'desc')->take(10)->get(),
 			'tags'=>Tag::orderBy('title')->get(),
 			'class'=>'blog',
 		));
@@ -22,7 +22,6 @@ class BlogController extends BaseController {
 		$post = Post::where('slug', $slug)->first();
 		return View::make('blog.post', array(
 			'title'=>$post->title,
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 			'post'=>$post,
 			'tags'=>Tag::orderBy('title')->get(),
 			'class'=>'blog',
