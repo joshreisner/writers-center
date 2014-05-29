@@ -635,33 +635,37 @@
         },
         {
             "name": "intervention/image",
-            "version": "1.6.4",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "606228bc7614105125d0e65b4187d5e436facf76"
+                "reference": "e6fb391319683a832e537798036fc15bb69d3785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/606228bc7614105125d0e65b4187d5e436facf76",
-                "reference": "606228bc7614105125d0e65b4187d5e436facf76",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/e6fb391319683a832e537798036fc15bb69d3785",
+                "reference": "e6fb391319683a832e537798036fc15bb69d3785",
                 "shasum": ""
             },
             "require": {
-                "ext-gd": "*",
+                "ext-fileinfo": "*",
+                "illuminate/config": "4.*",
                 "illuminate/support": "4.*",
                 "php": ">=5.3.0"
             },
             "require-dev": {
+                "mockery/mockery": "0.9.*",
                 "phpunit/phpunit": "3.*"
             },
             "suggest": {
+                "ext-gd": "to use GD library based image processing.",
+                "ext-imagick": "to use Imagick based image processing.",
                 "intervention/imagecache": "Caching extension for the Intervention Image library"
             },
             "type": "library",
             "autoload": {
                 "psr-0": {
-                    "Intervention\\Image": "src/"
+                    "Intervention\\Image\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -680,11 +684,12 @@
             "keywords": [
                 "gd",
                 "image",
+                "imagick",
                 "laravel",
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-04-29 14:50:43"
+            "time": "2014-05-25 19:00:00"
         },
         {
             "name": "intouch/laravel-newrelic",
@@ -864,18 +869,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "d078e769b14b5d37d0aa9e654726ac05afb3689c"
+                "reference": "9dadf297828ba1f7aae4d9aaa2bace36af5cb174"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/d078e769b14b5d37d0aa9e654726ac05afb3689c",
-                "reference": "d078e769b14b5d37d0aa9e654726ac05afb3689c",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/9dadf297828ba1f7aae4d9aaa2bace36af5cb174",
+                "reference": "9dadf297828ba1f7aae4d9aaa2bace36af5cb174",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.*",
                 "illuminate/support": "4.*",
-                "intervention/image": "1.*",
+                "intervention/image": "2.*",
                 "php": ">=5.3.0"
             },
             "type": "library",
@@ -896,7 +901,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-05-29 02:09:04"
+            "time": "2014-05-29 03:12:34"
         },
         {
             "name": "laravel/framework",
