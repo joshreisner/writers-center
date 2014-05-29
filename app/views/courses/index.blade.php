@@ -8,7 +8,9 @@
 		@foreach ($genre->courses as $course)
 			<li>
 				<a href="/courses/{{ $course->slug }}">{{ $course->title }}</a>
-				with {{ CourseController::formatInstructors($course) }}
+				@if (count($course->instructors))
+					with {{ CourseController::formatInstructors($course) }}
+				@endif
 			</li>
 		@endforeach
 		</ul>

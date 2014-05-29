@@ -5,7 +5,9 @@
 	<div class="col-md-offset-1">
 		<h1>
 			{{ $course->title }} {{ CourseController:: editLink($course) }}
+			@if (count($course->instructors))
 			<small>with {{ CourseController::formatInstructors($course) }}</small>
+			@endif
 		</h1>
 
 		{{ $course->description }}
@@ -17,14 +19,15 @@
 			<dt>Dates</dt>
 			<dd>January 6&ndash;February 24 (No class on January 20 or February 17)</dd>
 
-			<dt>Code</dt>
-			<dd>PAw14a</dd>
-
 			<dt>Tuition</dt>
-			<dd>${{ $course->tuition_member }} members/${{ $course->tuition_outside }} non-members</dd>
+			<dd>${{ $course->tuition_member }} 
+				@if ($course->tuition_member != $course->tuition_outside)
+					members/${{ $course->tuition_outside }} non-members
+				@endif
+			</dd>
 		</dl>
 
-		@if (count($course->instructors) > 0)
+		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)
 				<h3>About the Instructor</h3>
 			@else
