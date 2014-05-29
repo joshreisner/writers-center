@@ -4,7 +4,7 @@
 
 	<div class="col-md-offset-1">
 		<h1>
-			{{ $course->title }}
+			{{ $course->title }} {{ CourseController:: editLink($course) }}
 			<small>with {{ CourseController::formatInstructors($course) }}</small>
 		</h1>
 

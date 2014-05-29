@@ -34,7 +34,7 @@ class BlogController extends BaseController {
 	 */
 	public static function editLink(Post $post) {
 		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(2, $post->id)), 'Edit', array('class'=>'avalon_edit'));
+		return link_to(URL::action('InstanceController@edit', array(2, $post->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
 }

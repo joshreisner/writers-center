@@ -7,7 +7,10 @@
 		<div class="col-md-8 content">
 			<div class="inner">
 				<div class="col-md-offset-1">
-					<h1>{{ $page->title }}</h1>
+					<h1>
+						{{ $page->title }}
+						{{ AboutController::editLink($page) }}
+					</h1>
 					{{ $page->content }}
 				</div>
 			</div>

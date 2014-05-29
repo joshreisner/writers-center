@@ -33,7 +33,7 @@ class PublicationController extends BaseController {
 	 */
 	public static function editLink(Publication $publication) {
 		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(5, $publication->id)), 'Edit', array('class'=>'avalon_edit'));
+		return link_to(URL::action('InstanceController@edit', array(5, $publication->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
 }

@@ -11,9 +11,12 @@ body {
       cursor: pointer; }
     body a.logo {
       display: block; }
-    body a.edit:hover {
-      text-decoration: none;
-      opacity: 1; }
+    body a.edit {
+      font-size: 100%;
+      opacity: .4; }
+      body a.edit:hover {
+        text-decoration: none;
+        opacity: 1; }
   body input {
     font-family: "Apercu Mono Pro Regular"; }
     body input[type=checkbox] {
@@ -476,8 +479,7 @@ body {
   body.publications .page .content {
     color: #c65146; }
     body.publications .page .content a {
-      color: #c65146;
-      font-size: 150%; }
+      color: #c65146; }
     body.publications .page .content img {
       margin: 5px 20px 20px -60px;
       float: left; }

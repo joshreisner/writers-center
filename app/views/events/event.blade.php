@@ -3,7 +3,10 @@
 @section('content')
 
 	<div class="col-md-offset-1">
-		<h1>{{ $event->title }}</h1>
+		<h1>
+			{{ $event->title }}
+			{{ EventController::editLink($event) }}
+		</h1>
 		{{ $event->description }}
 	</div>
 

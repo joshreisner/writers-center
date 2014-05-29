@@ -869,12 +869,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "58d569b2929c56d5460aac50f6e51157ea9e3cd9"
+                "reference": "cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/58d569b2929c56d5460aac50f6e51157ea9e3cd9",
-                "reference": "58d569b2929c56d5460aac50f6e51157ea9e3cd9",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e",
+                "reference": "cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e",
                 "shasum": ""
             },
             "require": {
@@ -901,7 +901,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-05-29 05:55:09"
+            "time": "2014-05-29 08:12:50"
         },
         {
             "name": "laravel/framework",

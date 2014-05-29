@@ -6,9 +6,10 @@
 		<div class="post">
 			<div class="date">
 				{{ $post->publish_date->format(Config::get('config.date_format')) }}
-				{{ BlogController::editLink($post) }}
 			</div>
-			<h2><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h2>
+			<h2>
+				<a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
+			</h2>
 			<div class="content">{{ $post->content }}</div>
 		</div>
 		@endforeach

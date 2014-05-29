@@ -21,26 +21,10 @@ Route::get('/', function()
 });
 
 
-# About section
+# Complex-ish sections
 
-Route::get('/about/{slug?}', function($slug='')
-{
-	if (empty($slug)) {
-		$page = Page::whereNull('slug')->first();
-	} else {
-		$page = Page::where('slug', $slug)->first();
-	}
-	return View::make('about', array(
-		'title'=>$page->title,
-		'page'=>$page,
-		'pages'=>Page::orderBy('precedence')->get(),
-		'class'=>'about',
-	));
-});
-
-
-# Complex sections
-
+Route::get('/about', 						'AboutController@index');
+Route::get('/about/{slug}',					'AboutController@show');
 Route::get('/courses', 						'CourseController@index');
 Route::get('/courses/ajax', 				'CourseController@ajax');
 Route::get('/courses/{slug}',				'CourseController@show');

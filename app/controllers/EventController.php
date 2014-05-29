@@ -48,7 +48,7 @@ class EventController extends BaseController {
 	 */
 	public static function editLink(Event $event) {
 		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(12, $event->id)), 'Edit', array('class'=>'avalon_edit'));
+		return link_to(URL::action('InstanceController@edit', array(12, $event->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
 }
