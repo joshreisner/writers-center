@@ -14,8 +14,13 @@
 			<figcaption>{{ $post->caption }}</figcaption>
 			@endif
 		</figure>
-		@endif				
+		@endif
+
 		{{ $post->content }}
+		
+		@if (!empty($post->action_url))
+		<a class="btn btn-primary" href="{{ $post->action_url }}">{{ $post->action or 'Click here' }}</a>
+		@endif		
 	</div>
 @endsection
 

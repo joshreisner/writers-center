@@ -27,6 +27,10 @@
 			</dd>
 		</dl>
 
+		@if (!empty($course->register_url))
+		<a class="btn btn-primary" href="{{ $course->register_url }}">Register</a>
+		@endif
+
 		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)
 				<h3>About the Instructor</h3>
