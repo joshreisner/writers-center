@@ -25,6 +25,7 @@ class PublicationController extends BaseController {
 			'types'=>PublicationType::orderBy('title')->get(),
 			'publication'=>$publication,
 			'class'=>'publications',
+			'related'=>Publication::where('id', '<>', $publication->id)->orderBy('precedence')->take(5)->get(),
 		));
 	}
 

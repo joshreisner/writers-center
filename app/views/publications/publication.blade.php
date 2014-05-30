@@ -8,6 +8,10 @@
 			{{ $publication->title }}
 			{{ PublicationController::editLink($publication) }}
 		</h1>
+
+		@if (!empty($publication->author))
+			<div class="author">by {{ $publication->author }}</div>
+		@endif
 		
 		@if (!empty($publication->image->url))
 		<figure class="{{ ($publication->image->width > $publication->image->height) ? 'landscape' : 'portrait' }}">
@@ -20,6 +24,17 @@
 
 		{{ $publication->description }}
 	
+		<dl>
+			<dt>Length</dt>
+			<dd>{{ $publication->pages }} pages</dd>
+
+			<dt>Year</dt>
+			<dd>{{ $publication->year }}</dd>
+
+			<dt>Price</dt>
+			<dd>${{ $publication->price }}</dd>
+		</dl>
+
 		@if (!empty($publication->paypal_id))
 		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"> 
 			<input type="hidden" name="cmd" value="_s-xclick">
@@ -27,10 +42,30 @@
 			<input type="submit" name="submit" class="btn btn-primary" value="Add to Cart">
 		</form>	
 		@endif
+
+		@if (!empty($publication->praise))
+		<div class="praise">
+			<h3>Praise for <em>{{ $publication->title }}</em></h3>
+			{{ $publication->praise }}
+		</div>
+		@endif
+
+		@if (!empty($publication->about_the_author))
+		<div class="about_the_author">
+			<h3>About the Author</em></h3>
+			{{ $publication->about_the_author }}
+		</div>
+		@endif
+
 	</div>
 	
 @endsection
 
 @section('side')
-	<div class="wallpaper"></div>
+	<div class="wallpaper">
+		<span>Latest Publications</span>
+		@foreach ($related as $publication)
+			<h3><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></h3>
+		@endforeach
+	</div>
 @endsection

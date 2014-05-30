@@ -219,7 +219,7 @@ body {
 	}
 
 	.wallpaper {
-		position: relative; padding: $margin * 3 $margin $margin $margin * 3; min-height: 400px; font-size: 160%; 
+		position: relative; padding: $margin * 3 $margin * 2 $margin * 2 $margin * 3; min-height: 400px; font-size: 160%; 
 		span { font-family: "Apercu Mono Pro Regular"; font-size: 60%; text-transform: uppercase; position: absolute; top: $margin; left: $margin; }
 		a:hover { color: $default; }
 		&::after {
@@ -280,6 +280,7 @@ body {
 					h1 { 
 						margin: $margin * 2 0; 
 						a.edit { text-decoration: none; }
+						small { color: inherit; }
 					}
 					a { text-decoration: underline; }
 					p { 
@@ -288,6 +289,12 @@ body {
 					}
 					input[type=text], input[type=email], input[type=password], button { padding: 18px 6px; }
 					button span.caret { top: 14px; }
+
+					blockquote {
+						clear: left; border-left: $border-width solid $default-lighter;
+						p:last-child { margin-bottom: 0; }
+					}
+
 					figure {
 						margin: 5px 20px 20px -60px; float: left; background-color: $default-light;
 						font-family: "Apercu Mono Pro Regular"; font-size: 13px;
@@ -453,7 +460,7 @@ body {
 						padding: 0; overflow: auto; margin-top: $margin;
 						li {
 							overflow: auto;
-							img { float: left; margin: 0 $margin $margin 0; }
+							img { float: left; margin: 6px $margin 10px 0; }
 						}
 					}
 					&.courses {
@@ -539,7 +546,13 @@ body {
 					color: $publications; 
 					a { color: $publications; }
 					input[type=submit] { background-color: $publications; }
+					div.author { margin: -$margin * 2 0 $margin * 2; font-family: "Apercu Mono Pro Regular"; }
 					figure { background-color: $publications-lighter; }
+					blockquote { border-left-color: $publications-lighter; float: left; clear: none; }
+					form { margin: 0 0 $margin * 2 0; }
+					dl { clear: left; }
+					.praise, .about_the_author { clear: left; margin: $margin 0 $margin * 3; }
+					h3 { border-bottom: $border-width solid $publications; }
 					.publication { 
 						margin-bottom: 20px; 
 						.inner {
