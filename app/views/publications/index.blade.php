@@ -1,7 +1,6 @@
 @extends('page')
 
 @section('content')
-
 	<div class="col-md-offset-1">
 		<h1>{{ $title }}</h1>
 	</div>
@@ -20,11 +19,10 @@
 		</div>
 	@endforeach
 	</div>
-
 @endsection
 
 @section('side')
-	<form class="switchboard form-horizontal">
+	<form class="switchboard form-horizontal" data-model="publications">
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Search</label>
 			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>

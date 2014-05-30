@@ -184,9 +184,16 @@ body {
     background-color: #de9a94; }
   body .wallpaper {
     position: relative;
-    padding: 20px;
+    padding: 45px 15px 15px 45px;
     min-height: 400px;
     font-size: 160%; }
+    body .wallpaper span {
+      font-family: "Apercu Mono Pro Regular";
+      font-size: 60%;
+      text-transform: uppercase;
+      position: absolute;
+      top: 15px;
+      left: 15px; }
     body .wallpaper::after {
       content: "";
       background: url(/assets/img/wallpaper-bush1.jpg);
@@ -260,6 +267,26 @@ body {
             margin: 0 0 15px 0; }
             body .row.page .content .inner p img {
               margin-top: 7px !important; }
+          body .row.page .content .inner figure {
+            margin: 5px 20px 20px -60px;
+            float: left;
+            background-color: #c9cdc4;
+            font-family: "Apercu Mono Pro Regular";
+            font-size: 13px; }
+            body .row.page .content .inner figure figcaption {
+              padding: 7.5px 15px 22.5px 7.5px; }
+            body .row.page .content .inner figure.portrait {
+              width: 220px; }
+              body .row.page .content .inner figure.portrait img {
+                width: 100%;
+                height: auto; }
+            body .row.page .content .inner figure.landscape {
+              width: 360px; }
+              body .row.page .content .inner figure.landscape img {
+                width: 100%;
+                height: auto; }
+          body .row.page .content .inner ul {
+            clear: left; }
       body .row.page .side form.switchboard {
         border-width: 3px;
         border-style: solid;
@@ -437,10 +464,6 @@ body {
       line-height: 1.2; }
       body.courses .page .side .wallpaper h2 small {
         color: inherit; }
-    body.courses .page .side .wallpaper span {
-      font-family: "Apercu Mono Pro Regular";
-      font-size: 60%;
-      text-transform: uppercase; }
     body.courses .page .side .wallpaper .description {
       font-size: 80%; }
   body.events .page .page .inner, body.events .page form.switchboard {
@@ -475,6 +498,8 @@ body {
     color: #695d73; }
     body.blog .row.page .content .inner a {
       color: #695d73; }
+    body.blog .row.page .content .inner figure {
+      background-color: #e8e5ea; }
     body.blog .row.page .content .inner h1 a {
       text-decoration: none; }
       body.blog .row.page .content .inner h1 a:hover {
@@ -493,47 +518,38 @@ body {
     background-color: rgba(105, 93, 115, 0.2); }
   body.publications .page .page .inner, body.publications .page form.switchboard {
     border-color: #c65146; }
-  body.publications .page .content {
+  body.publications .page .content .inner {
     color: #c65146; }
-    body.publications .page .content a {
+    body.publications .page .content .inner a {
       color: #c65146; }
-    body.publications .page .content img {
-      margin: 5px 20px 20px -60px;
-      float: left; }
-      body.publications .page .content img.portrait {
-        width: 220px;
-        height: auto; }
-      body.publications .page .content img.landscape {
-        height: 220px;
-        width: auto; }
-    body.publications .page .content ul {
-      clear: left; }
-    body.publications .page .content .publication {
+    body.publications .page .content .inner figure {
+      background-color: #f6e4e2; }
+    body.publications .page .content .inner .publication {
       margin-bottom: 20px; }
-      body.publications .page .content .publication .inner {
+      body.publications .page .content .inner .publication .inner {
         background-color: #f6e4e2;
         height: 300px;
         border: 0;
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat; }
-        body.publications .page .content .publication .inner a {
+        body.publications .page .content .inner .publication .inner a {
           display: block;
           height: 300px;
           padding-top: 36%;
           background-color: #c65146;
           opacity: 0; }
-          body.publications .page .content .publication .inner a div {
+          body.publications .page .content .inner .publication .inner a div {
             font-size: 80%;
             color: white;
             text-align: center;
             line-height: 1;
             font-style: italic; }
-            body.publications .page .content .publication .inner a div .separator {
+            body.publications .page .content .inner .publication .inner a div .separator {
               border-top: 3px solid white;
               width: 20px;
               margin: 20px auto; }
-          body.publications .page .content .publication .inner a:hover {
+          body.publications .page .content .inner .publication .inner a:hover {
             opacity: .8; }
   body.publications .page .side .wallpaper {
     background-color: rgba(198, 81, 70, 0.2); }

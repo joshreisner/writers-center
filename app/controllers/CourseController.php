@@ -75,7 +75,7 @@ class CourseController extends BaseController {
 		//dd(DB::getQueryLog());
 
 		# Return
-		return $genres;
+		return View::make('courses.genres', array('genres'=>$genres));
 	}
 
 	/**

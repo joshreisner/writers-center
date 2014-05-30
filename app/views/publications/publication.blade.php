@@ -7,7 +7,14 @@
 			{{ $publication->title }}
 			{{ PublicationController::editLink($publication) }}
 		</h1>
-		<img src="{{ $publication->image->url }}" width="{{ $publication->image->width }}" height="{{ $publication->image->height }}" class="{{ ($publication->image->width > $publication->image->height) ? 'landscape' : 'portrait' }}">
+		@if (!empty($publication->image->url))
+		<figure class="{{ ($publication->image->width > $publication->image->height) ? 'landscape' : 'portrait' }}">
+			<img src="{{ $publication->image->url }}" width="{{ $publication->image->width }}" height="{{ $publication->image->height }}">
+			@if (!empty($publication->caption))
+				<figcaption>{{ $publication->caption }}</figcaption>
+			@endif
+		</figure>
+		@endif
 		{{ $publication->description }}
 	</div>
 	

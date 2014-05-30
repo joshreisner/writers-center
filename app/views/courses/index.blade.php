@@ -2,24 +2,12 @@
 
 @section('content')
 	<div class="col-md-offset-1">
-	@foreach ($genres as $genre)
-		<h2>{{ $genre->title }}</h2>
-		<ul class="courses">
-		@foreach ($genre->courses as $course)
-			<li>
-				<a href="/courses/{{ $course->slug }}">{{ $course->title }}</a>
-				@if (count($course->instructors))
-					with {{ CourseController::formatInstructors($course) }}
-				@endif
-			</li>
-		@endforeach
-		</ul>
-	@endforeach
+		@include('courses.genres')
 	</div>
 @endsection
 
 @section('side')
-	<form class="switchboard form-horizontal">
+	<form class="switchboard form-horizontal" data-model="courses">
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Search</label>
 			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>

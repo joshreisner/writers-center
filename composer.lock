@@ -869,12 +869,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e"
+                "reference": "b58dccb920b10f937d778e098cd1a0d8594a1b19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e",
-                "reference": "cde2d40c76f61f2d89c2d16a5f545cb6d3c6569e",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/b58dccb920b10f937d778e098cd1a0d8594a1b19",
+                "reference": "b58dccb920b10f937d778e098cd1a0d8594a1b19",
                 "shasum": ""
             },
             "require": {
@@ -901,7 +901,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-05-29 08:12:50"
+            "time": "2014-05-29 23:52:27"
         },
         {
             "name": "laravel/framework",
@@ -1067,12 +1067,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fd991850387b36a3c3f2c4860f0a3f86f4e33b52"
+                "reference": "016423a804140a33814b8fad4240dbfa49a884da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd991850387b36a3c3f2c4860f0a3f86f4e33b52",
-                "reference": "fd991850387b36a3c3f2c4860f0a3f86f4e33b52",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/016423a804140a33814b8fad4240dbfa49a884da",
+                "reference": "016423a804140a33814b8fad4240dbfa49a884da",
                 "shasum": ""
             },
             "require": {
@@ -1127,7 +1127,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-05-28 08:49:30"
+            "time": "2014-05-29 15:04:35"
         },
         {
             "name": "nesbot/carbon",
@@ -1277,12 +1277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "aa5f9b77ecc5adf32d7765e85c739ba91f37595b"
+                "reference": "6805704b4fd36a9c110491d29851be54dc30af4d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/aa5f9b77ecc5adf32d7765e85c739ba91f37595b",
-                "reference": "aa5f9b77ecc5adf32d7765e85c739ba91f37595b",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6805704b4fd36a9c110491d29851be54dc30af4d",
+                "reference": "6805704b4fd36a9c110491d29851be54dc30af4d",
                 "shasum": ""
             },
             "require": {
@@ -1366,7 +1366,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-05-27 22:39:40"
+            "time": "2014-05-29 22:00:04"
         },
         {
             "name": "predis/predis",

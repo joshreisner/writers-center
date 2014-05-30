@@ -217,7 +217,8 @@ body {
 	}
 
 	.wallpaper {
-		position: relative; padding: 20px; min-height: 400px; font-size: 160%; 
+		position: relative; padding: $margin * 3 $margin $margin $margin * 3; min-height: 400px; font-size: 160%; 
+		span { font-family: "Apercu Mono Pro Regular"; font-size: 60%; text-transform: uppercase; position: absolute; top: $margin; left: $margin; }
 		&::after {
 			content: "";
 			background: url(/assets/img/wallpaper-bush1.jpg);
@@ -281,6 +282,20 @@ body {
 						margin: 0 0 $margin 0; 
 						img { margin-top: 7px !important; }
 					}
+					figure {
+						margin: 5px 20px 20px -60px; float: left; background-color: $default-light;
+						font-family: "Apercu Mono Pro Regular"; font-size: 13px;
+						figcaption { padding: $margin / 2 $margin $margin * 1.5 $margin / 2; }
+						&.portrait { 
+							width: 220px; 
+							img { width: 100%; height: auto; }
+						}
+						&.landscape { 
+							width: 360px;
+							img { width: 100%; height: auto; }
+						}
+					}
+					ul { clear: left; }
 				}
 			}
 			.side {
@@ -446,8 +461,6 @@ body {
 						line-height: 1.2; 
 						small { color: inherit; }
 					}
-					
-					span { font-family: "Apercu Mono Pro Regular"; font-size: 60%; text-transform: uppercase; }
 					.description { font-size: 80%; }
 				}
 			}
@@ -490,6 +503,7 @@ body {
 				.inner {
 					color: $blog; 
 					a { color: $blog; }
+					figure { background-color: $blog-light; }
 					h1 {
 						a { 
 							text-decoration: none; 
@@ -513,37 +527,33 @@ body {
 		.page {
 			.page .inner, form.switchboard { border-color: $publications; }
 			.content {
-				color: $publications; 
-				a { color: $publications; }
-				img { 
-					margin: 5px 20px 20px -60px; float: left; 
-					&.portrait { width: 220px; height: auto; }
-					&.landscape { height: 220px; width: auto; }
-				}
-				ul { clear: left; }
-				.publication { 
-					margin-bottom: 20px; 
-					.inner {
-						background-color: $publications-lighter; 
-						height: 300px; border: 0;
-						background-size: contain; 
-						background-position: center;
-						background-repeat: no-repeat;
-						a { 
-							display: block; height: 300px; padding-top: 36%;
-							background-color: $publications; opacity: 0;
-							div { 
-								// display: none; 
-								font-size: 80%;
-								color: white;
-								text-align: center;
-								line-height: 1; font-style: italic;
-								.separator { border-top: $border-width solid white; width: 20px; margin: 20px auto; }
+				.inner {
+					color: $publications; 
+					a { color: $publications; }
+					figure { background-color: $publications-lighter; }
+					.publication { 
+						margin-bottom: 20px; 
+						.inner {
+							background-color: $publications-lighter; 
+							height: 300px; border: 0;
+							background-size: contain; 
+							background-position: center;
+							background-repeat: no-repeat;
+							a { 
+								display: block; height: 300px; padding-top: 36%;
+								background-color: $publications; opacity: 0;
+								div { 
+									// display: none; 
+									font-size: 80%;
+									color: white;
+									text-align: center;
+									line-height: 1; font-style: italic;
+									.separator { border-top: $border-width solid white; width: 20px; margin: 20px auto; }
+								}
+								&:hover { opacity: .8; }
 							}
-							&:hover { opacity: .8; }
-						}
-					} 
-
+						} 
+					}
 				}
 			}
 			.side {

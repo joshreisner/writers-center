@@ -31,6 +31,7 @@ Route::get('/courses/{slug}',				'CourseController@show');
 Route::get('/events',						'EventController@index');
 Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
 Route::get('/blog',							'BlogController@index');
+Route::get('/blog/ajax', 					'BlogController@ajax');
 Route::get('/blog/{slug}', 					'BlogController@show');
 Route::get('/publications',					'PublicationController@index');
 Route::get('/publications/{slug}', 			'PublicationController@show');

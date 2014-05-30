@@ -42,23 +42,10 @@ $(function(){
 	});
 
 	//update any switchboard
-	function updateSwitchboard(whichBoard) {
-		if ($("body").hasClass("courses")) {
-			$.getJSON("/courses/ajax", whichBoard.serialize(), function(data){
-				var str = '';
-				$.each(data, function(i, genre){
-					str += "<h2>" + genre.title + "</h2><ul class='courses'>";
-					$.each(genre.courses, function(i, course){
-						str += "<li><a href='/courses/" + course.slug + "'>" + course.title + "</a> with " +
-						course.instructor_string + "</li>";
-					});
-					str += "</ul>";
-				});
-				$(".page .content .inner div").html(str);
-			});
-		} else {
-			console.log("body not defined");
-		}
+	function updateSwitchboard(which) {
+		$.get("/" + which.attr("data-model") + "/ajax", which.serialize(), function(data){
+			$(".page .content .inner div").html(data);
+		});
 	}
 
 });
