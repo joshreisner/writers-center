@@ -2,6 +2,8 @@
 
 return array(
 
+	'cipher' => MCRYPT_RIJNDAEL_256,
+
 	/*
 	|--------------------------------------------------------------------------
 	| Application Debug Mode
@@ -78,7 +80,7 @@ return array(
 	|
 	*/
 
-	'key' => 'I0RmilZcOZLFo24ipp1kybmYZT1m5X9I',
+	'key' => $_ENV['SECRET_KEY'],
 
 	/*
 	|--------------------------------------------------------------------------
