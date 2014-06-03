@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="row banner">
 				<div class="col-md-8">
-					<a href="/" class="logo col-md-offset-1"><img src="/assets/img/logo.png" width="290" height="112" class="img-responsive"></a>
+					<a href="/" class="logo col-md-offset-1"><img src="/assets/img/logo-{{ $class or $default_class }}.png" width="290" height="112" class="img-responsive"></a>
 				</div>
 				<div class="col-md-4">
 					<nav id="utility">
