@@ -4,7 +4,7 @@
 
 body 
 	+font()
-	padding-bottom: 100px
+	padding-bottom: $margin * 4
 
 	//eg body.courses .switchboard or body.home promo.courses
 	@each $section in $sections
@@ -33,21 +33,19 @@ body
 		&.banner
 			padding-top: $margin
 			height: 127px
-			div
-				position: relative
-				nav#utility
-					position: absolute
-					right: $margin * 2
-					top: 0
-					a
-						margin-left: $margin * 2
-						&.dashicons
-							font-size: 200%
-							line-height: .7
-							&:last-child
-								margin-left: $margin / 2
-							&:hover, &:focus, &:active
-								text-decoration: none
+			a.logo
+				margin-left: 17.5%
+			nav#utility
+				float: right
+				a
+					margin-left: $margin * 2
+					&.dashicons
+						font-size: 200%
+						line-height: .7
+						&:last-child
+							margin-left: $margin / 2
+						&:hover, &:focus, &:active
+							text-decoration: none
 
 		&.nav
 			ul
@@ -187,6 +185,7 @@ body
 
 	&.home
 		.carousel
+			display: none
 			overflow-x: hidden
 			margin: $margin 0 0 0
 			height: $carousel-height
@@ -238,9 +237,11 @@ body
 						color: $color
 						a
 							color: $color
+							&:hover
+								text-decoration: none
+			&.slick-initialized
+				display: block
 
-				&:hover
-					text-decoration: none
 
 		.promos
 			div.promo
