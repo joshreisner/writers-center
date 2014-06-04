@@ -1,0 +1,24 @@
+//mixins
+=shadow()
+	box-shadow: 5px 5px 5px transparentize($default, .5)
+
+=background-opacity($color, $opacity)
+	$red:	red($color)
+	$green:	green($color)
+	$blue:	blue($color)
+	background-color: rgba($red, $green, $blue, $opacity)
+
+=font($size:1.3, $style:"regular")
+	@if $style == "regular"
+		font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif
+		font-weight: normal
+	@if $style == "mono"
+		font-family: "Apercu Mono Pro Regular", Monaco, monospace
+		font-weight: normal
+	@if $style == "bold"
+		font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif
+		font-weight: bold
+
+	font-size: ($size * 10) + px
+	font-size: $size + rem
+	font-style: normal

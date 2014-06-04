@@ -1,92 +1,101 @@
-body {
-  padding-bottom: 100px;
-  font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif; }
-  body a {
-    color: #494f43; }
-    body a:hover, body a:active {
-      color: #c9cdc4; }
-    body a:focus {
-      outline: none; }
-    body a.login {
-      cursor: pointer; }
-    body a.logo {
-      display: block; }
-    body a.edit {
-      font-size: 100%;
-      opacity: 0.4; }
-      body a.edit:hover {
-        text-decoration: none;
-        opacity: 1; }
-  body a.btn, body input[type=submit] {
-    border-radius: 0;
-    padding: 3px 50px;
-    text-transform: uppercase;
-    border: 0; }
-  body form input {
-    font-family: "Apercu Mono Pro Regular"; }
-    body form input[type=checkbox] {
-      cursor: pointer; }
-      body form input[type=checkbox]:focus {
-        outline: none; }
-    body form input[type=text], body form input[type=email], body form input[type=search], body form input[type=password], body form input[type=submit] {
-      border-radius: 0;
-      height: 26px;
-      box-shadow: none; }
-      body form input[type=text]:focus, body form input[type=email]:focus, body form input[type=search]:focus, body form input[type=password]:focus, body form input[type=submit]:focus {
-        box-shadow: none; }
-  body form select:focus, body form option:focus {
+a {
+  color: #494f43; }
+  a:hover, a:active {
+    color: #c9cdc4; }
+  a:focus {
     outline: none; }
-  body form label {
-    font-family: "Apercu Mono Pro Regular";
-    font-weight: normal;
-    font-size: 13px; }
-  body form .btn-group {
-    font-family: "Apercu Mono Pro Regular"; }
-    body form .btn-group.dropdown {
+  a.login {
+    cursor: pointer; }
+  a.logo {
+    display: block; }
+  a.edit {
+    font-size: 100%;
+    opacity: 0.4; }
+    a.edit:hover {
+      text-decoration: none;
+      opacity: 1; }
+
+a.btn, input[type=submit] {
+  border-radius: 0;
+  padding: 3px 50px;
+  text-transform: uppercase;
+  border: 0; }
+
+form input {
+  font-family: "Apercu Mono Pro Regular"; }
+  form input[type=checkbox] {
+    cursor: pointer; }
+    form input[type=checkbox]:focus {
+      outline: none; }
+  form input[type=text], form input[type=email], form input[type=search], form input[type=password], form input[type=submit] {
+    border-radius: 0;
+    height: 26px;
+    box-shadow: none; }
+    form input[type=text]:focus, form input[type=email]:focus, form input[type=search]:focus, form input[type=password]:focus, form input[type=submit]:focus {
+      box-shadow: none; }
+form select:focus, form option:focus {
+  outline: none; }
+form label {
+  font-family: "Apercu Mono Pro Regular";
+  font-weight: normal;
+  font-size: 13px; }
+form .btn-group {
+  font-family: "Apercu Mono Pro Regular"; }
+  form .btn-group.dropdown {
+    width: 100%;
+    position: relative; }
+    form .btn-group.dropdown button {
       width: 100%;
-      position: relative; }
-      body form .btn-group.dropdown button {
-        width: 100%;
-        height: 26px;
-        border-radius: 0;
-        text-align: left;
-        line-height: 1; }
-      body form .btn-group.dropdown span.caret {
-        border-width: 9px 6px;
-        position: absolute;
-        top: 9px;
-        right: 4px; }
-      body form .btn-group.dropdown ul {
-        min-width: 100%;
-        max-height: 300px;
-        overflow-y: scroll;
-        border-radius: 0; }
-        body form .btn-group.dropdown ul li a {
-          cursor: pointer; }
-  body form div.checkbox {
-    margin-top: 0;
-    padding: 0; }
-    body form div.checkbox label {
-      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif; }
-    body form div.checkbox .chkbox {
-      width: 20px;
-      height: 20px;
-      float: left;
-      margin-right: 10px;
-      background-color: #c9cdc4;
-      text-align: center;
-      color: #494f43; }
-      body form div.checkbox .chkbox i {
-        font-size: 180%;
-        line-height: 0.9;
-        margin-left: -3px;
-        visibility: hidden; }
-      body form div.checkbox .chkbox.active i {
-        visibility: visible; }
-  body p {
-    margin: 0 0 15px 0; }
-  body dt {
-    font-family: "Apercu Mono Pro Regular"; }
+      height: 26px;
+      border-radius: 0;
+      text-align: left;
+      line-height: 1; }
+    form .btn-group.dropdown span.caret {
+      border-width: 9px 6px;
+      position: absolute;
+      top: 9px;
+      right: 4px; }
+    form .btn-group.dropdown ul {
+      min-width: 100%;
+      max-height: 300px;
+      overflow-y: scroll;
+      border-radius: 0; }
+      form .btn-group.dropdown ul li a {
+        cursor: pointer; }
+form div.checkbox {
+  margin-top: 0;
+  padding: 0; }
+  form div.checkbox label {
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif; }
+  form div.checkbox .chkbox {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-right: 10px;
+    background-color: #c9cdc4;
+    text-align: center;
+    color: #494f43; }
+    form div.checkbox .chkbox i {
+      font-size: 180%;
+      line-height: 0.9;
+      margin-left: -3px;
+      visibility: hidden; }
+    form div.checkbox .chkbox.active i {
+      visibility: visible; }
+
+p {
+  margin: 0 0 15px 0; }
+
+dt {
+  font-family: "Apercu Mono Pro Regular"; }
+
+body {
+  font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 13px;
+  font-size: 1.3rem;
+  font-style: normal;
+  padding-bottom: 100px; }
   body.default form.switchboard input[type=text], body.home .promo.default input[type=text] {
     border-color: #494f43; }
   body.default form.switchboard .btn-group.dropdown button, body.home .promo.default .btn-group.dropdown button {
@@ -195,13 +204,16 @@ body {
       list-style-type: none;
       text-align: justify;
       overflow: hidden;
-      font-size: 0;
       margin: 0;
-      padding: 0; }
-      body .row.nav ul a {
-        text-transform: uppercase;
-        font-size: 20px; }
+      padding: 0;
+      font-size: 0; }
       body .row.nav ul li {
+        text-transform: uppercase;
+        font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        font-size: 1.8rem;
+        font-style: normal;
         display: inline-block; }
       body .row.nav ul li.active a, body .row.nav ul li a:hover {
         text-decoration: underline; }
@@ -224,7 +236,7 @@ body {
         display: inline-block;
         width: 100%; }
     body .row.page {
-      padding-top: 15px;
+      padding-top: 7.5px;
       border-color: #494f43; }
       body .row.page .content {
         color: #494f43; }

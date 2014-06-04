@@ -93,8 +93,7 @@ View::composer('template', function($view)
     	'publications'=>'Publications',
     	'contact'=>'Contact',
     ))
-    ->with('default_title', 'Hudson Valley Writers Center')
-    ->with('default_class', '');
+    ->with('default_title', 'Hudson Valley Writers Center');
 });
 
 # Form macros for styled controls in switchboards

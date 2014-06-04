@@ -1,151 +1,10 @@
-//colors
-$default:				rgb(73, 79, 67)
-$default-light:			lighten($default, 50%)
-$default-lighter:		lighten($default, 60%)
-$about:					rgb(41, 140, 118)
-$about-light:			lighten($about, 50%)
-$about-lighter:			lighten($about, 60%)
-$courses:				rgb(50, 84, 53)
-$courses-light:			lighten($courses, 50%)
-$courses-lighter:		lighten($courses, 60%)
-$events: 				rgb(159, 97, 23)
-$events-light:			lighten($events, 50%)
-$events-lighter:		lighten($events, 60%)
-$blog:					rgb(105, 93, 115)
-$blog-light:			lighten($blog, 50%)
-$blog-lighter:			lighten($blog, 55%)
-$publications: 			rgb(198, 81, 70)
-$publications-light:	lighten($publications, 20%)
-$publications-lighter:	lighten($publications, 40%)
-$contact:				rgb(75, 82, 69)
-$contact-light:			lighten($contact, 50%)
-$contact-lighter:		lighten($contact, 60%)
-
-$sections: default $default $default-light $default-lighter, about $about $about-light $about-lighter, courses $courses $courses-light $courses-lighter, events $events $events-light $events-light, blog $blog $blog-light $blog-lighter, publications $publications $publications-light $publications-lighter, contact $contact $contact-light $contact-lighter
-
-//dimensions
-$carousel-width:		654px
-$carousel-margin:		11px
-$carousel-height:		400px
-$control-height:		26px
-$border-width:			3px
-$promo-height:			180px
-$margin:				15px
-
-//strings
-$font: "Apercu Pro Regular", Helvetica, Arial, sans-serif
-$font-mono: "Apercu Mono Pro Regular"
-
-//mixins
-=shadow()
-	box-shadow: 5px 5px 5px transparentize($default, .5)
-
-=background-opacity($color, $opacity)
-	$red:	red($color)
-	$green:	green($color)
-	$blue:	blue($color)
-	background-color: rgba($red, $green, $blue, $opacity)
+@import "main/variables.sass"
+@import "main/mixins.sass"
+@import "main/globals.sass"
 
 body 
+	+font()
 	padding-bottom: 100px
-	font-family: $font
-
-	a
-		color: $default
-		&:hover, &:active 
-			color: $default-light
-		&:focus
-			outline: none
-		&.login
-			cursor: pointer
-		&.logo
-			display: block
-		&.edit
-			font-size: 100%
-			opacity: .4
-			&:hover
-				text-decoration: none
-				opacity: 1
-
-	a.btn, input[type=submit]
-		border-radius: 0
-		padding: 3px 50px
-		text-transform: uppercase
-		border: 0
-
-	form
-		input
-			font-family: $font-mono
-			&[type=checkbox]
-				cursor: pointer
-				&:focus
-					outline: none
-			&[type=text], &[type=email], &[type=search], &[type=password], &[type=submit]
-				border-radius: 0
-				height: $control-height
-				box-shadow: none
-				&:focus
-					box-shadow: none
-
-		select:focus, option:focus
-			outline: none
-
-		label
-			font-family: $font-mono
-			font-weight: normal
-			font-size: 13px
-		
-		.btn-group
-			font-family: $font-mono
-			&.dropdown
-				width: 100%
-				position: relative
-				button
-					width: 100%
-					height: $control-height
-					border-radius: 0
-					text-align: left
-					line-height: 1
-				span.caret
-					border-width: 9px 6px
-					position: absolute
-					top: 9px
-					right: 4px
-				ul
-					min-width: 100%
-					max-height: 300px
-					overflow-y: scroll
-					border-radius: 0
-					li
-						a
-							cursor: pointer
-
-		div.checkbox
-			margin-top: 0
-			padding: 0
-			label
-				font-family: $font
-			.chkbox
-				width: 20px
-				height: 20px
-				float: left
-				margin-right: 10px
-				background-color: $default-light
-				text-align: center
-				color: $default
-				i
-					font-size: 180%
-					line-height: .9
-					margin-left: -3px
-					visibility: hidden
-				&.active i
-					visibility: visible
-	
-	p
-		margin: 0 0 $margin 0
-
-	dt
-		font-family: $font-mono
 
 	//eg body.courses .switchboard or body.home promo.courses
 	@each $section in $sections
@@ -195,13 +54,12 @@ body
 				list-style-type: none
 				text-align: justify
 				overflow: hidden
-				font-size: 0
 				margin: 0
 				padding: 0
-				a
-					text-transform: uppercase
-					font-size: 20px
+				font-size: 0
 				li
+					text-transform: uppercase
+					+font(1.8, "bold")
 					display: inline-block
 				li.active a, li a:hover 
 					text-decoration: underline
@@ -216,7 +74,7 @@ body
 					width: 100%
 
 		&.page
-			padding-top: $margin
+			padding-top: $margin / 2
 			border-color: $default
 			.content
 				color: $default
