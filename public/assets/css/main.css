@@ -13,7 +13,7 @@ body {
       display: block; }
     body a.edit {
       font-size: 100%;
-      opacity: .4; }
+      opacity: 0.4; }
       body a.edit:hover {
         text-decoration: none;
         opacity: 1; }
@@ -78,7 +78,7 @@ body {
       color: #494f43; }
       body form div.checkbox .chkbox i {
         font-size: 180%;
-        line-height: .9;
+        line-height: 0.9;
         margin-left: -3px;
         visibility: hidden; }
       body form div.checkbox .chkbox.active i {
@@ -130,7 +130,7 @@ body {
   body.events form.switchboard .btn-group.dropdown span.caret, body.home .promo.events .btn-group.dropdown span.caret {
     color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown ul, body.home .promo.events .btn-group.dropdown ul {
-    background-color: #fcf5ec; }
+    background-color: #f6ddbf; }
     body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.events .btn-group.dropdown ul li.active a, body.home .promo.events .btn-group.dropdown ul li a:hover, body.home .promo.events .btn-group.dropdown ul li.divider {
       background-color: #f6ddbf; }
   body.events form.switchboard .chkbox, body.home .promo.events .chkbox {
@@ -142,7 +142,7 @@ body {
   body.blog form.switchboard .btn-group.dropdown span.caret, body.home .promo.blog .btn-group.dropdown span.caret {
     color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown ul, body.home .promo.blog .btn-group.dropdown ul {
-    background-color: white; }
+    background-color: #f4f3f5; }
     body.blog form.switchboard .btn-group.dropdown ul li.active a, body.blog form.switchboard .btn-group.dropdown ul li a:hover, body.blog form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.blog .btn-group.dropdown ul li.active a, body.home .promo.blog .btn-group.dropdown ul li a:hover, body.home .promo.blog .btn-group.dropdown ul li.divider {
       background-color: #e8e5ea; }
   body.blog form.switchboard .chkbox, body.home .promo.blog .chkbox {
@@ -186,32 +186,43 @@ body {
             margin-left: 30px; }
             body .row.banner div nav#utility a.dashicons {
               font-size: 200%;
-              line-height: .7; }
+              line-height: 0.7; }
               body .row.banner div nav#utility a.dashicons:last-child {
                 margin-left: 7.5px; }
               body .row.banner div nav#utility a.dashicons:hover, body .row.banner div nav#utility a.dashicons:focus, body .row.banner div nav#utility a.dashicons:active {
                 text-decoration: none; }
-    body .row.nav {
-      text-align: center; }
-      body .row.nav a {
+    body .row.nav ul {
+      list-style-type: none;
+      text-align: justify;
+      overflow: hidden;
+      font-size: 0;
+      margin: 0;
+      padding: 0; }
+      body .row.nav ul a {
         text-transform: uppercase;
         font-size: 20px; }
-      body .row.nav div.active a, body .row.nav div a:hover {
+      body .row.nav ul li {
+        display: inline-block; }
+      body .row.nav ul li.active a, body .row.nav ul li a:hover {
         text-decoration: underline; }
-        body .row.nav div.active a.default, body .row.nav div a:hover.default {
+        body .row.nav ul li.active a.default, body .row.nav ul li a:hover.default {
           color: #494f43; }
-        body .row.nav div.active a.about, body .row.nav div a:hover.about {
+        body .row.nav ul li.active a.about, body .row.nav ul li a:hover.about {
           color: #298c76; }
-        body .row.nav div.active a.courses, body .row.nav div a:hover.courses {
+        body .row.nav ul li.active a.courses, body .row.nav ul li a:hover.courses {
           color: #325435; }
-        body .row.nav div.active a.events, body .row.nav div a:hover.events {
+        body .row.nav ul li.active a.events, body .row.nav ul li a:hover.events {
           color: #9f6117; }
-        body .row.nav div.active a.blog, body .row.nav div a:hover.blog {
+        body .row.nav ul li.active a.blog, body .row.nav ul li a:hover.blog {
           color: #695d73; }
-        body .row.nav div.active a.publications, body .row.nav div a:hover.publications {
+        body .row.nav ul li.active a.publications, body .row.nav ul li a:hover.publications {
           color: #c65146; }
-        body .row.nav div.active a.contact, body .row.nav div a:hover.contact {
+        body .row.nav ul li.active a.contact, body .row.nav ul li a:hover.contact {
           color: #4b5245; }
+      body .row.nav ul:after {
+        content: "";
+        display: inline-block;
+        width: 100%; }
     body .row.page {
       padding-top: 15px;
       border-color: #494f43; }
@@ -226,7 +237,12 @@ body {
             body .row.page .content .inner h1 a.edit {
               text-decoration: none; }
             body .row.page .content .inner h1 small {
-              color: inherit; }
+              color: inherit;
+              font-size: 16px;
+              line-height: 1.3;
+              display: block;
+              font-family: "Apercu Mono Pro Regular";
+              margin-bottom: 15px; }
           body .row.page .content .inner a {
             text-decoration: underline; }
           body .row.page .content .inner p {
@@ -238,14 +254,15 @@ body {
           body .row.page .content .inner button span.caret {
             top: 14px; }
           body .row.page .content .inner blockquote {
-            clear: left;
-            border-left: 3px solid #e2e4e0; }
+            float: left;
+            clear: none;
+            border-left-width: 3px;
+            border-left-style: solid; }
             body .row.page .content .inner blockquote p:last-child {
               margin-bottom: 0; }
           body .row.page .content .inner figure {
             margin: 5px 20px 20px -60px;
             float: left;
-            background-color: #c9cdc4;
             font-family: "Apercu Mono Pro Regular";
             font-size: 13px; }
             body .row.page .content .inner figure figcaption {
@@ -265,7 +282,8 @@ body {
           body .row.page .content .inner dl {
             overflow: auto;
             margin: 20px 0;
-            font-size: 85%; }
+            font-size: 85%;
+            clear: left; }
             body .row.page .content .inner dl dt, body .row.page .content .inner dl dd {
               float: left;
               margin-bottom: 8px; }
@@ -298,32 +316,31 @@ body {
             list-style-type: none; }
             body .row.page .side .wallpaper ul li.active a {
               text-decoration: underline; }
-        body .row.page .side .wallpaper a:hover {
+        body .row.page .side .wallpaper a {
           color: #494f43; }
+          body .row.page .side .wallpaper a:hover {
+            color: #494f43; }
         body .row.page .side .wallpaper::after {
           content: "";
-          background: url(/assets/img/wallpaper-bush1.jpg);
           opacity: 0.3;
+          z-index: -1;
+          background: url(/assets/img/wallpaper-bush1.jpg);
+          position: absolute;
           top: 0;
           left: 0;
           bottom: 0;
-          right: 0;
-          position: absolute;
-          z-index: -1; }
+          right: 0; }
   body.home .carousel {
     overflow-x: hidden;
     margin: 15px 0 0 0;
     height: 400px; }
     body.home .carousel button.slick-prev {
       left: 20px; }
-      body.home .carousel button.slick-prev::before {
-        font-size: 60px;
-        line-height: .5; }
     body.home .carousel button.slick-next {
       right: 60px; }
-      body.home .carousel button.slick-next::before {
-        font-size: 60px;
-        line-height: .5; }
+    body.home .carousel button::before {
+      font-size: 60px;
+      line-height: 0.5; }
     body.home .carousel .item {
       height: 400px;
       width: 654px;
@@ -341,7 +358,7 @@ body {
         body.home .carousel .item .inner img {
           width: 100%;
           height: auto;
-          opacity: .15; }
+          opacity: 0.15; }
         body.home .carousel .item .inner .description {
           position: absolute;
           left: 60px;
@@ -455,9 +472,9 @@ body {
         text-decoration: underline;
         text-transform: uppercase;
         font-size: 18px; }
-    body.home .promos div.promo.support {
+    body.home .promos div.promo.publications {
       padding-top: 45px; }
-      body.home .promos div.promo.support a {
+      body.home .promos div.promo.publications a {
         display: block;
         line-height: 1;
         text-align: center;
@@ -469,9 +486,13 @@ body {
     border-color: #494f43; }
   body.default .page .content {
     color: #494f43; }
-    body.default .page .content a.btn.btn-primary {
+    body.default .page .content a.btn.btn-primary, body.default .page .content input[type=submit] {
       color: white;
       background-color: #494f43; }
+    body.default .page .content figure {
+      background-color: #e2e4e0; }
+    body.default .page .content blockquote {
+      border-left-color: #e2e4e0; }
   body.default .page .side form.switchboard {
     border-color: #494f43; }
   body.default .page .side .wallpaper {
@@ -484,9 +505,13 @@ body {
     border-color: #298c76; }
   body.about .page .content {
     color: #298c76; }
-    body.about .page .content a.btn.btn-primary {
+    body.about .page .content a.btn.btn-primary, body.about .page .content input[type=submit] {
       color: white;
       background-color: #298c76; }
+    body.about .page .content figure {
+      background-color: #edfaf7; }
+    body.about .page .content blockquote {
+      border-left-color: #edfaf7; }
   body.about .page .side form.switchboard {
     border-color: #298c76; }
   body.about .page .side .wallpaper {
@@ -499,9 +524,13 @@ body {
     border-color: #325435; }
   body.courses .page .content {
     color: #325435; }
-    body.courses .page .content a.btn.btn-primary {
+    body.courses .page .content a.btn.btn-primary, body.courses .page .content input[type=submit] {
       color: white;
       background-color: #325435; }
+    body.courses .page .content figure {
+      background-color: #d3e5d5; }
+    body.courses .page .content blockquote {
+      border-left-color: #d3e5d5; }
   body.courses .page .side form.switchboard {
     border-color: #325435; }
   body.courses .page .side .wallpaper {
@@ -514,9 +543,13 @@ body {
     border-color: #9f6117; }
   body.events .page .content {
     color: #9f6117; }
-    body.events .page .content a.btn.btn-primary {
+    body.events .page .content a.btn.btn-primary, body.events .page .content input[type=submit] {
       color: white;
       background-color: #9f6117; }
+    body.events .page .content figure {
+      background-color: #f6ddbf; }
+    body.events .page .content blockquote {
+      border-left-color: #f6ddbf; }
   body.events .page .side form.switchboard {
     border-color: #9f6117; }
   body.events .page .side .wallpaper {
@@ -529,9 +562,13 @@ body {
     border-color: #695d73; }
   body.blog .page .content {
     color: #695d73; }
-    body.blog .page .content a.btn.btn-primary {
+    body.blog .page .content a.btn.btn-primary, body.blog .page .content input[type=submit] {
       color: white;
       background-color: #695d73; }
+    body.blog .page .content figure {
+      background-color: #f4f3f5; }
+    body.blog .page .content blockquote {
+      border-left-color: #f4f3f5; }
   body.blog .page .side form.switchboard {
     border-color: #695d73; }
   body.blog .page .side .wallpaper {
@@ -544,9 +581,13 @@ body {
     border-color: #c65146; }
   body.publications .page .content {
     color: #c65146; }
-    body.publications .page .content a.btn.btn-primary {
+    body.publications .page .content a.btn.btn-primary, body.publications .page .content input[type=submit] {
       color: white;
       background-color: #c65146; }
+    body.publications .page .content figure {
+      background-color: #f6e4e2; }
+    body.publications .page .content blockquote {
+      border-left-color: #f6e4e2; }
   body.publications .page .side form.switchboard {
     border-color: #c65146; }
   body.publications .page .side .wallpaper {
@@ -559,18 +600,19 @@ body {
     border-color: #4b5245; }
   body.contact .page .content {
     color: #4b5245; }
-    body.contact .page .content a.btn.btn-primary {
+    body.contact .page .content a.btn.btn-primary, body.contact .page .content input[type=submit] {
       color: white;
       background-color: #4b5245; }
+    body.contact .page .content figure {
+      background-color: #e4e7e2; }
+    body.contact .page .content blockquote {
+      border-left-color: #e4e7e2; }
   body.contact .page .side form.switchboard {
     border-color: #4b5245; }
   body.contact .page .side .wallpaper {
     background-color: rgba(75, 82, 69, 0.2); }
   body.contact .page .side ul li.active a {
     color: #4b5245; }
-  body.courses .page .content h1 small {
-    display: block;
-    line-height: 1.3; }
   body.courses .page .content ul {
     list-style-type: none; }
     body.courses .page .content ul.instructors {
@@ -584,137 +626,51 @@ body {
           margin: 6px 15px 10px 0; }
     body.courses .page .content ul.courses a {
       font-size: 150%; }
-  body.courses .page .side .wallpaper h2 {
-    line-height: 1.2; }
-    body.courses .page .side .wallpaper h2 small {
-      color: inherit; }
-  body.courses .page .side .wallpaper .description {
-    font-size: 80%; }
-  body.events .page .page .inner, body.events .page form.switchboard {
-    border-color: #9f6117; }
-  body.events .page .content {
-    color: #9f6117; }
-    body.events .page .content a {
-      color: #9f6117; }
-    body.events .page .content div.event div.date {
-      font-weight: bold; }
-    body.events .page .content div.event div.description {
-      margin: 0 0 20px 20px; }
-      body.events .page .content div.event div.description div.meta {
-        font-weight: bold;
-        overflow: auto; }
-        body.events .page .content div.event div.description div.meta div.time, body.events .page .content div.event div.description div.meta div.price, body.events .page .content div.event div.description div.meta div.location {
-          float: left;
-          margin-right: 20px; }
-        body.events .page .content div.event div.description div.meta div.button {
-          float: right; }
-          body.events .page .content div.event div.description div.meta div.button a {
-            background-color: #9f6117;
-            color: white;
-            width: 180px;
-            display: block;
-            text-align: center; }
-  body.events .page .side .wallpaper {
-    background-color: rgba(159, 97, 23, 0.2); }
-  body.blog .row.page .inner, body.blog .row.page form.switchboard {
-    border-color: #695d73; }
-  body.blog .row.page .content .inner {
-    color: #695d73; }
-    body.blog .row.page .content .inner a {
-      color: #695d73; }
-    body.blog .row.page .content .inner a.btn.btn-primary {
-      color: white;
-      background-color: #695d73; }
-    body.blog .row.page .content .inner figure {
-      background-color: #e8e5ea; }
-    body.blog .row.page .content .inner h1 a {
-      text-decoration: none; }
-      body.blog .row.page .content .inner h1 a:hover {
-        text-decoration: underline; }
-      body.blog .row.page .content .inner h1 a.edit:hover {
-        text-decoration: none; }
-    body.blog .row.page .content .inner h1 small {
-      color: inherit;
-      font-size: 16px;
-      display: block;
-      font-family: "Apercu Mono Pro Regular";
-      margin-bottom: 15px; }
-    body.blog .row.page .content .inner .post {
-      margin: 30px 0 60px; }
-  body.blog .row.page .side .wallpaper {
-    background-color: rgba(105, 93, 115, 0.2); }
-  body.publications .page .page .inner, body.publications .page form.switchboard {
-    border-color: #c65146; }
-  body.publications .page .content .inner {
-    color: #c65146; }
-    body.publications .page .content .inner a {
-      color: #c65146; }
-    body.publications .page .content .inner input[type=submit] {
-      background-color: #c65146; }
-    body.publications .page .content .inner div.author {
-      margin: -30px 0 30px;
-      font-family: "Apercu Mono Pro Regular"; }
-    body.publications .page .content .inner figure {
-      background-color: #f6e4e2; }
-    body.publications .page .content .inner blockquote {
-      border-left-color: #f6e4e2;
-      float: left;
-      clear: none; }
-    body.publications .page .content .inner form {
-      margin: 0 0 30px 0; }
-    body.publications .page .content .inner dl {
-      clear: left; }
-    body.publications .page .content .inner .praise, body.publications .page .content .inner .about_the_author {
-      clear: left;
-      margin: 15px 0 45px; }
-    body.publications .page .content .inner h3 {
-      border-bottom: 3px solid #c65146; }
-    body.publications .page .content .inner .publication {
-      margin-bottom: 20px; }
-      body.publications .page .content .inner .publication .inner {
-        background-color: #f6e4e2;
+  body.events .page .content div.event div.date {
+    font-weight: bold; }
+  body.events .page .content div.event div.description {
+    margin: 0 0 20px 20px; }
+    body.events .page .content div.event div.description div.meta {
+      font-weight: bold;
+      overflow: auto; }
+      body.events .page .content div.event div.description div.meta div.time, body.events .page .content div.event div.description div.meta div.price, body.events .page .content div.event div.description div.meta div.location {
+        float: left;
+        margin-right: 20px; }
+  body.blog .row.page .content .inner .post {
+    margin: 30px 0 60px; }
+  body.publications .page .content .inner form {
+    margin: 0 0 30px 0; }
+  body.publications .page .content .inner .praise, body.publications .page .content .inner .about_the_author {
+    clear: left;
+    margin: 15px 0 45px; }
+  body.publications .page .content .inner h3 {
+    border-bottom: 3px solid #c65146; }
+  body.publications .page .content .inner .publication {
+    margin-bottom: 20px; }
+    body.publications .page .content .inner .publication .inner {
+      background-color: #f6e4e2;
+      height: 300px;
+      border: 0;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat; }
+      body.publications .page .content .inner .publication .inner a {
+        display: block;
         height: 300px;
-        border: 0;
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat; }
-        body.publications .page .content .inner .publication .inner a {
-          display: block;
-          height: 300px;
-          padding-top: 36%;
-          background-color: #c65146;
-          opacity: 0; }
-          body.publications .page .content .inner .publication .inner a div {
-            font-size: 80%;
-            color: white;
-            text-align: center;
-            line-height: 1;
-            font-style: italic; }
-            body.publications .page .content .inner .publication .inner a div .separator {
-              border-top: 3px solid white;
-              width: 20px;
-              margin: 20px auto; }
-          body.publications .page .content .inner .publication .inner a:hover {
-            opacity: .8; }
-  body.publications .page .side .wallpaper {
-    background-color: rgba(198, 81, 70, 0.2); }
-  body.contact .page .inner {
-    border-color: #4b5245; }
-  body.contact .page a {
-    color: #4b5245; }
-  body.contact .page .content {
-    color: #4b5245; }
-    body.contact .page .content a.btn-primary {
-      color: white;
-      background-color: #4b5245; }
-    body.contact .page .content #map-canvas {
-      height: 500px; }
-  body.contact .page .side .wallpaper {
-    background-color: rgba(75, 82, 69, 0.2); }
-    body.contact .page .side .wallpaper ul {
-      list-style-type: none;
-      padding: 0; }
-      body.contact .page .side .wallpaper ul li {
-        margin: 20px 0; }
-        body.contact .page .side .wallpaper ul li a i {
-          margin-right: 10px; }
+        padding-top: 36%;
+        background-color: #c65146;
+        opacity: 0; }
+        body.publications .page .content .inner .publication .inner a div {
+          font-size: 80%;
+          color: white;
+          text-align: center;
+          line-height: 1;
+          font-style: italic; }
+          body.publications .page .content .inner .publication .inner a div .separator {
+            border-top: 3px solid white;
+            width: 20px;
+            margin: 20px auto; }
+        body.publications .page .content .inner .publication .inner a:hover {
+          opacity: 0.8; }
+  body.contact #map-canvas {
+    height: 500px; }

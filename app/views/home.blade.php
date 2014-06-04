@@ -126,7 +126,7 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="promo support">
+				<div class="promo publications">
 					<a href="/support">Support the Center</a>
 				</div>
 			</div>

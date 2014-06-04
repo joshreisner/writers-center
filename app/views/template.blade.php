@@ -25,9 +25,13 @@
 				</div>
 			</div>
 			<div class="row nav">
-				@foreach ($sections as $url=>$section)
-				<div class="col-md-2 {{ Request::is($url . '*') ? 'active' : '' }}"><a href="/{{ $url }}" class="{{ $url }}">{{ $section }}</a></div>
-				@endforeach
+				<div class="col-md-12">
+					<ul>
+					@foreach ($sections as $url=>$section)
+						<li class="{{ Request::is($url . '*') ? 'active' : '' }}"><a href="/{{ $url }}" class="{{ $url }}">{{ $section }}</a></li>
+					@endforeach
+					</ul>
+				</div>
 			</div>
 		</div>
 

@@ -7,11 +7,10 @@
 		<h1>
 			{{ $publication->title }}
 			{{ PublicationController::editLink($publication) }}
+			@if (!empty($publication->author))
+				<small>by {{ $publication->author }}</small>
+			@endif
 		</h1>
-
-		@if (!empty($publication->author))
-			<div class="author">by {{ $publication->author }}</div>
-		@endif
 		
 		@if (!empty($publication->image->url))
 		<figure class="{{ ($publication->image->width > $publication->image->height) ? 'landscape' : 'portrait' }}">

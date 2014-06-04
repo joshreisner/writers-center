@@ -19,7 +19,7 @@
 						<div class="location">HVWC</div>
 						<div class="price">{{ EventController::formatPrice($event) }}</div>
 						<div class="button">
-							<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">RSVP</a>
+							<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}" class="btn btn-primary">RSVP</a>
 						</div>
 					</div>
 				</div>
