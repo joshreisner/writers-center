@@ -5,8 +5,23 @@
 Route::get('/', function()
 {
 	//set type slugs
-	$carouselItems = CarouselItem::with('carousel_types')->take(7)->orderBy('precedence')->get();
-	foreach ($carouselItems as &$item) $item->type = Str::slug($item->carousel_types->title);
+	$carouselItems = CarouselItem::take(7)->with('courses', 'events', 'publications', 'posts')->orderBy('precedence')->get();
+	foreach ($carouselItems as &$item) {
+		//dd($item);
+		if (isset($item->courses)) {
+			$item->type = 'courses';
+			$item->title = link_to('/courses/' . $item->courses->slug, $item->title);
+		} elseif (isset($item->events)) {
+			$item->type = 'events';
+			$item->title = link_to('/events/' . $item->events->start->format('Y/m/') . $item->events->slug, $item->title);
+		} elseif (isset($item->publications)) {
+			$item->type = 'publications';
+			$item->title = link_to('/publications/' . $item->publications->slug, $item->title);
+		} elseif (isset($item->posts)) {
+			$item->type = 'posts';
+			$item->title = link_to('/posts/' . $item->posts->slug, $item->title);
+		}
+	}
 
 	return View::make('home', array(
 		'items'				=>$carouselItems,

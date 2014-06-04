@@ -82,8 +82,7 @@ class CourseController extends BaseController {
 	 * populate day select
 	 */
 	public static function getDayList($days=false) {
-		if ($days === false) $days = Day::orderBy('precedence');
-		return $days->lists('title', 'id');
+		return array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
 	}
 
 	/**
