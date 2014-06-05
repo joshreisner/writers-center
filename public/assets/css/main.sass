@@ -1,6 +1,7 @@
 @import "main/variables.sass"
 @import "main/mixins.sass"
 @import "main/globals.sass"
+@import "main/home.sass"
 
 body 
 	+font()
@@ -90,10 +91,10 @@ body
 							+font("sm", "mono")
 							line-height: 1.3
 							margin-bottom: $margin
-					a
-						text-decoration: underline
 					p
 						margin: 0 0 $margin 0
+						a
+							text-decoration: underline
 						img
 							margin-top: 7px !important
 					input[type=text], input[type=email], input[type=password], button
@@ -147,9 +148,9 @@ body
 
 				.wallpaper
 					position: relative
-					padding: $margin * 3 $margin * 2 $margin * 2 $margin * 3
+					padding: $margin * 2 $margin $margin $margin * 2
 					min-height: 400px
-					font-size: 160%
+					+font("md")
 					span
 						font-family: $font-mono
 						font-size: 60%
@@ -178,127 +179,6 @@ body
 						left: 0
 						bottom: 0
 						right: 0
-
-	&.home
-		.carousel
-			visibility: none
-			overflow-x: hidden
-			margin: $margin 0 0 0
-			height: $carousel-height
-			
-			button
-				&.slick-prev
-					left: 20px 
-				&.slick-next
-					right: 60px
-				&::before
-					font-size: 60px
-					line-height: .5
-
-			.item
-				height: $carousel-height
-				width: $carousel-width
-				overflow: hidden
-				color: inherit
-
-				.inner
-					margin: 0 $margin / 2
-					position: relative
-					h1
-						position: absolute
-						left: 60px
-						top: 60px
-						font-size: 42px
-						line-height: 1.3
-					img
-						width: 100%
-						height: auto
-						opacity: .15
-					.description
-						position: absolute
-						left: 60px
-						top: 280px
-						text-transform: uppercase
-					.type
-						+font("sm", "mono")
-						text-transform: uppercase
-						position: absolute
-						left: 20px
-						top: 20px
-
-				@each $section in $sections
-					$name:  nth($section, 1)
-					$color: nth($section, 2)
-					&.#{$name} .inner
-						background-color: transparentize($color, .7)
-						color: $color
-						a
-							color: $color
-							&:hover
-								text-decoration: none
-			&.slick-initialized
-				visibility: visible
-
-
-		.promos
-			div.promo
-				height: $promo-height
-				border: $border-width solid $default
-				position: relative
-				@include shadow()
-
-				@each $section in $sections
-					$name:  nth($section, 1)
-					$color: nth($section, 2)
-					&.#{$name}
-						border-color: $color
-						a
-							color: $color
-
-				&.events
-					padding: $margin 20px
-					+font("sm")
-					table
-						width: 100%
-						th, a
-							+font("xs", "bold")
-						th, td
-							text-align: center
-							height: 29px
-						tbody th
-							text-align: right
-							width: 0
-						a
-							+font("sm", "bold")
-
-				&.courses
-					form
-						padding: $margin / 2 $margin
-						legend
-							text-transform: uppercase
-							border: 0
-							margin-bottom: 0
-						label
-							font-size: 100%
-						.form-group
-							margin-bottom: 0
-							.dropdown-toggle
-								margin-top: 5px
-						input[type=submit]
-							background-color: transparent
-							border: 0
-							text-decoration: underline
-							text-transform: uppercase
-							font-size: 18px
-
-				&.publications
-					padding-top: $promo-height / 4
-					a
-						display: block
-						line-height: 1
-						text-align: center
-						font-size: 40px
-						text-transform: uppercase
 
 	@each $section in $sections
 		$name:    nth($section, 1)
@@ -329,6 +209,10 @@ body
 					ul li.active a
 						color: $color
 
+	&.about
+		.wallpaper
+			text-transform: uppercase
+
 	&.courses
 		.page
 			.content
@@ -344,8 +228,9 @@ body
 								float: left
 								margin: 6px $margin 10px 0
 					&.courses
+						+font("sm")
 						a
-							font-size: 150%
+							+font("md")
 
 	&.events
 		.page

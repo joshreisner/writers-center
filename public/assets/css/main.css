@@ -19,6 +19,8 @@ a.btn, input[type=submit] {
   border-radius: 0;
   padding: 3px 50px;
   text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
   border: 0; }
 
 form input {
@@ -88,6 +90,198 @@ p {
 
 dt {
   font-family: "Apercu Mono Pro Regular"; }
+
+body.home .carousel {
+  height: 400px;
+  margin: 15px 0 0 0;
+  overflow-x: hidden;
+  visibility: none; }
+  body.home .carousel button.slick-prev {
+    left: 20px; }
+  body.home .carousel button.slick-next {
+    right: 60px; }
+  body.home .carousel button::before {
+    font-size: 60px;
+    line-height: 0.5; }
+  body.home .carousel .item {
+    color: inherit;
+    height: 400px;
+    overflow: hidden;
+    width: 654px; }
+    body.home .carousel .item .inner {
+      margin: 0 7.5px;
+      position: relative; }
+      body.home .carousel .item .inner h1 {
+        font-size: 42px;
+        font-size: 4.2rem;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        left: 60px;
+        line-height: 1.3;
+        position: absolute;
+        top: 40px; }
+      body.home .carousel .item .inner img {
+        height: auto;
+        opacity: 0.15;
+        width: 100%; }
+      body.home .carousel .item .inner .description {
+        font-size: 20px;
+        font-size: 2rem;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal;
+        left: 60px;
+        position: absolute;
+        text-transform: uppercase;
+        top: 260px; }
+      body.home .carousel .item .inner .type {
+        font-size: 14px;
+        font-size: 1.4rem;
+        font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+        font-weight: normal;
+        font-style: normal;
+        left: 20px;
+        position: absolute;
+        text-transform: uppercase;
+        top: 20px; }
+    body.home .carousel .item.default .inner {
+      background-color: rgba(73, 79, 67, 0.3);
+      color: #494f43; }
+      body.home .carousel .item.default .inner a {
+        color: #494f43; }
+        body.home .carousel .item.default .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.about .inner {
+      background-color: rgba(41, 140, 118, 0.3);
+      color: #298c76; }
+      body.home .carousel .item.about .inner a {
+        color: #298c76; }
+        body.home .carousel .item.about .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.courses .inner {
+      background-color: rgba(50, 84, 53, 0.3);
+      color: #325435; }
+      body.home .carousel .item.courses .inner a {
+        color: #325435; }
+        body.home .carousel .item.courses .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.events .inner {
+      background-color: rgba(159, 97, 23, 0.3);
+      color: #9f6117; }
+      body.home .carousel .item.events .inner a {
+        color: #9f6117; }
+        body.home .carousel .item.events .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.blog .inner {
+      background-color: rgba(105, 93, 115, 0.3);
+      color: #695d73; }
+      body.home .carousel .item.blog .inner a {
+        color: #695d73; }
+        body.home .carousel .item.blog .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.publications .inner {
+      background-color: rgba(198, 81, 70, 0.3);
+      color: #c65146; }
+      body.home .carousel .item.publications .inner a {
+        color: #c65146; }
+        body.home .carousel .item.publications .inner a:hover {
+          text-decoration: none; }
+    body.home .carousel .item.contact .inner {
+      background-color: rgba(75, 82, 69, 0.3);
+      color: #4b5245; }
+      body.home .carousel .item.contact .inner a {
+        color: #4b5245; }
+        body.home .carousel .item.contact .inner a:hover {
+          text-decoration: none; }
+  body.home .carousel.slick-initialized {
+    visibility: visible; }
+body.home .promos div.promo {
+  border: 3px solid #494f43;
+  height: 180px;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+  body.home .promos div.promo.default {
+    border-color: #494f43; }
+    body.home .promos div.promo.default a {
+      color: #494f43; }
+  body.home .promos div.promo.about {
+    border-color: #298c76; }
+    body.home .promos div.promo.about a {
+      color: #298c76; }
+  body.home .promos div.promo.courses {
+    border-color: #325435; }
+    body.home .promos div.promo.courses a {
+      color: #325435; }
+  body.home .promos div.promo.events {
+    border-color: #9f6117; }
+    body.home .promos div.promo.events a {
+      color: #9f6117; }
+  body.home .promos div.promo.blog {
+    border-color: #695d73; }
+    body.home .promos div.promo.blog a {
+      color: #695d73; }
+  body.home .promos div.promo.publications {
+    border-color: #c65146; }
+    body.home .promos div.promo.publications a {
+      color: #c65146; }
+  body.home .promos div.promo.contact {
+    border-color: #4b5245; }
+    body.home .promos div.promo.contact a {
+      color: #4b5245; }
+  body.home .promos div.promo.events {
+    padding: 15px 20px;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal; }
+    body.home .promos div.promo.events table {
+      width: 100%; }
+      body.home .promos div.promo.events table th, body.home .promos div.promo.events table a {
+        font-size: 14px;
+        font-size: 1.4rem;
+        font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-style: normal; }
+      body.home .promos div.promo.events table th, body.home .promos div.promo.events table td {
+        text-align: center;
+        height: 29px; }
+      body.home .promos div.promo.events table th:first-child {
+        width: 30px; }
+      body.home .promos div.promo.events table tbody th {
+        text-align: right;
+        width: 0; }
+  body.home .promos div.promo.courses form {
+    padding: 7.5px 15px; }
+    body.home .promos div.promo.courses form label {
+      font-size: 100%; }
+    body.home .promos div.promo.courses form legend {
+      text-transform: uppercase;
+      border: 0;
+      margin-bottom: 0; }
+    body.home .promos div.promo.courses form .form-group {
+      margin-bottom: 0; }
+      body.home .promos div.promo.courses form .form-group .dropdown-toggle {
+        margin-top: 5px; }
+    body.home .promos div.promo.courses form input[type=submit] {
+      background-color: transparent;
+      border: 0;
+      font-size: 18px;
+      text-decoration: underline;
+      text-transform: uppercase; }
+  body.home .promos div.promo.publications {
+    padding-top: 45px; }
+    body.home .promos div.promo.publications a {
+      font-size: 42px;
+      font-size: 4.2rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      display: block;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase; }
 
 body {
   font-size: 14px;
@@ -260,10 +454,10 @@ body {
               font-style: normal;
               line-height: 1.3;
               margin-bottom: 15px; }
-          body .row.page .content .inner a {
-            text-decoration: underline; }
           body .row.page .content .inner p {
             margin: 0 0 15px 0; }
+            body .row.page .content .inner p a {
+              text-decoration: underline; }
             body .row.page .content .inner p img {
               margin-top: 7px !important; }
           body .row.page .content .inner input[type=text], body .row.page .content .inner input[type=email], body .row.page .content .inner input[type=password], body .row.page .content .inner button {
@@ -321,9 +515,13 @@ body {
         box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
       body .row.page .side .wallpaper {
         position: relative;
-        padding: 45px 30px 30px 45px;
+        padding: 30px 15px 15px 30px;
         min-height: 400px;
-        font-size: 160%; }
+        font-size: 20px;
+        font-size: 2rem;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal; }
         body .row.page .side .wallpaper span {
           font-family: "Apercu Mono Pro Regular";
           font-size: 60%;
@@ -352,188 +550,6 @@ body {
           left: 0;
           bottom: 0;
           right: 0; }
-  body.home .carousel {
-    visibility: none;
-    overflow-x: hidden;
-    margin: 15px 0 0 0;
-    height: 400px; }
-    body.home .carousel button.slick-prev {
-      left: 20px; }
-    body.home .carousel button.slick-next {
-      right: 60px; }
-    body.home .carousel button::before {
-      font-size: 60px;
-      line-height: 0.5; }
-    body.home .carousel .item {
-      height: 400px;
-      width: 654px;
-      overflow: hidden;
-      color: inherit; }
-      body.home .carousel .item .inner {
-        margin: 0 7.5px;
-        position: relative; }
-        body.home .carousel .item .inner h1 {
-          position: absolute;
-          left: 60px;
-          top: 60px;
-          font-size: 42px;
-          line-height: 1.3; }
-        body.home .carousel .item .inner img {
-          width: 100%;
-          height: auto;
-          opacity: 0.15; }
-        body.home .carousel .item .inner .description {
-          position: absolute;
-          left: 60px;
-          top: 280px;
-          text-transform: uppercase; }
-        body.home .carousel .item .inner .type {
-          font-size: 14px;
-          font-size: 1.4rem;
-          font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-          font-weight: normal;
-          font-style: normal;
-          text-transform: uppercase;
-          position: absolute;
-          left: 20px;
-          top: 20px; }
-      body.home .carousel .item.default .inner {
-        background-color: rgba(73, 79, 67, 0.3);
-        color: #494f43; }
-        body.home .carousel .item.default .inner a {
-          color: #494f43; }
-          body.home .carousel .item.default .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.about .inner {
-        background-color: rgba(41, 140, 118, 0.3);
-        color: #298c76; }
-        body.home .carousel .item.about .inner a {
-          color: #298c76; }
-          body.home .carousel .item.about .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.courses .inner {
-        background-color: rgba(50, 84, 53, 0.3);
-        color: #325435; }
-        body.home .carousel .item.courses .inner a {
-          color: #325435; }
-          body.home .carousel .item.courses .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.events .inner {
-        background-color: rgba(159, 97, 23, 0.3);
-        color: #9f6117; }
-        body.home .carousel .item.events .inner a {
-          color: #9f6117; }
-          body.home .carousel .item.events .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.blog .inner {
-        background-color: rgba(105, 93, 115, 0.3);
-        color: #695d73; }
-        body.home .carousel .item.blog .inner a {
-          color: #695d73; }
-          body.home .carousel .item.blog .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.publications .inner {
-        background-color: rgba(198, 81, 70, 0.3);
-        color: #c65146; }
-        body.home .carousel .item.publications .inner a {
-          color: #c65146; }
-          body.home .carousel .item.publications .inner a:hover {
-            text-decoration: none; }
-      body.home .carousel .item.contact .inner {
-        background-color: rgba(75, 82, 69, 0.3);
-        color: #4b5245; }
-        body.home .carousel .item.contact .inner a {
-          color: #4b5245; }
-          body.home .carousel .item.contact .inner a:hover {
-            text-decoration: none; }
-    body.home .carousel.slick-initialized {
-      visibility: visible; }
-  body.home .promos div.promo {
-    height: 180px;
-    border: 3px solid #494f43;
-    position: relative;
-    box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-    body.home .promos div.promo.default {
-      border-color: #494f43; }
-      body.home .promos div.promo.default a {
-        color: #494f43; }
-    body.home .promos div.promo.about {
-      border-color: #298c76; }
-      body.home .promos div.promo.about a {
-        color: #298c76; }
-    body.home .promos div.promo.courses {
-      border-color: #325435; }
-      body.home .promos div.promo.courses a {
-        color: #325435; }
-    body.home .promos div.promo.events {
-      border-color: #9f6117; }
-      body.home .promos div.promo.events a {
-        color: #9f6117; }
-    body.home .promos div.promo.blog {
-      border-color: #695d73; }
-      body.home .promos div.promo.blog a {
-        color: #695d73; }
-    body.home .promos div.promo.publications {
-      border-color: #c65146; }
-      body.home .promos div.promo.publications a {
-        color: #c65146; }
-    body.home .promos div.promo.contact {
-      border-color: #4b5245; }
-      body.home .promos div.promo.contact a {
-        color: #4b5245; }
-    body.home .promos div.promo.events {
-      padding: 15px 20px;
-      font-size: 14px;
-      font-size: 1.4rem;
-      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-      font-weight: normal;
-      font-style: normal; }
-      body.home .promos div.promo.events table {
-        width: 100%; }
-        body.home .promos div.promo.events table th, body.home .promos div.promo.events table a {
-          font-size: 12px;
-          font-size: 1.2rem;
-          font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
-          font-weight: bold;
-          font-style: normal; }
-        body.home .promos div.promo.events table th, body.home .promos div.promo.events table td {
-          text-align: center;
-          height: 29px; }
-        body.home .promos div.promo.events table tbody th {
-          text-align: right;
-          width: 0; }
-        body.home .promos div.promo.events table a {
-          font-size: 14px;
-          font-size: 1.4rem;
-          font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
-          font-weight: bold;
-          font-style: normal; }
-    body.home .promos div.promo.courses form {
-      padding: 7.5px 15px; }
-      body.home .promos div.promo.courses form legend {
-        text-transform: uppercase;
-        border: 0;
-        margin-bottom: 0; }
-      body.home .promos div.promo.courses form label {
-        font-size: 100%; }
-      body.home .promos div.promo.courses form .form-group {
-        margin-bottom: 0; }
-        body.home .promos div.promo.courses form .form-group .dropdown-toggle {
-          margin-top: 5px; }
-      body.home .promos div.promo.courses form input[type=submit] {
-        background-color: transparent;
-        border: 0;
-        text-decoration: underline;
-        text-transform: uppercase;
-        font-size: 18px; }
-    body.home .promos div.promo.publications {
-      padding-top: 45px; }
-      body.home .promos div.promo.publications a {
-        display: block;
-        line-height: 1;
-        text-align: center;
-        font-size: 40px;
-        text-transform: uppercase; }
   body.default a, body.default small {
     color: #494f43; }
   body.default .page .inner {
@@ -667,6 +683,8 @@ body {
     background-color: rgba(75, 82, 69, 0.2); }
   body.contact .page .side ul li.active a {
     color: #4b5245; }
+  body.about .wallpaper {
+    text-transform: uppercase; }
   body.courses .page .content ul {
     list-style-type: none; }
     body.courses .page .content ul.instructors {
@@ -678,8 +696,18 @@ body {
         body.courses .page .content ul.instructors li img {
           float: left;
           margin: 6px 15px 10px 0; }
-    body.courses .page .content ul.courses a {
-      font-size: 150%; }
+    body.courses .page .content ul.courses {
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal; }
+      body.courses .page .content ul.courses a {
+        font-size: 20px;
+        font-size: 2rem;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal; }
   body.events .page .content div.event div.date {
     font-weight: bold; }
   body.events .page .content div.event div.description {
