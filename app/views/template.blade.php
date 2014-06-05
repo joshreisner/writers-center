@@ -17,10 +17,8 @@
 				</div>
 				<div class="col-md-8">
 					<nav id="utility">
-						<!--
 						<a class="login">Log In</a>
 						<a href="/support">Support the Center</a>
-						-->
 						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>
