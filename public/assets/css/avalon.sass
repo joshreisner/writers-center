@@ -1,0 +1,58 @@
+@import "main/variables.sass"
+@import "main/mixins.sass"
+
+body
+	.header
+		a
+			background-image: url(/assets/img/logo-avalon.png)
+			width: 259px
+			height: 100px
+
+	a
+		color: $about
+		&:hover, &:active, &:focus
+			color: $about-light
+
+	.btn-primary
+		background-color: $about
+		border: 0
+		&:hover, &:active, &:focus
+			background-color: $about-light
+			color: $default
+
+	.redactor_editor
+		font-family: "Apercu Pro Regular" !important
+		font-size: 2rem !important
+		p
+			font-family: "Apercu Pro Regular" !important
+			font-size: 2rem !important
+			margin-top: 0 !important
+			margin-bottom: 15px !important
+			img
+				margin-top: 7px !important
+
+		p, ul, ol, h2, blockquote
+			line-height: 1.42857143 !important
+			color: inherit
+
+		h2
+			font-family: "Apercu Pro Regular" !important
+			font-size: 2rem !important
+			text-transform: uppercase
+
+		blockquote
+			border-width: $border-width 0
+			border-style: dashed
+			clear: left
+			margin: $margin * 2 0 !important
+			padding: $margin * 2 $margin * 4 !important
+
+			p:last-child
+				margin-bottom: 0 !important
+
+	form.publications
+		.form-group.html
+			.redactor_editor
+				color: $publications
+				blockquote
+					border-color: $publications

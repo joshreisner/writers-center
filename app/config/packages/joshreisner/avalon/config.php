@@ -2,8 +2,11 @@
 
 return array(
 	
-	//specify a local stylesheet
-	'css'					=> '/assets/css/avalon.css', 
+	//specify custom stylesheets
+	'css'					=> array(
+		'//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/' . getenv('SERVER_NAME') . '/45521.css',
+		'/assets/css/avalon.css', 
+	), 
 
 	//prefix all table names
 	'db_fields'				=> 'avalon_fields',

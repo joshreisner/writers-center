@@ -96,8 +96,8 @@ dt {
   font-family: "Apercu Mono Pro Regular"; }
 
 blockquote {
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 19px;
+  font-size: 1.9rem;
   font-family: "Apercu Pro Italic", Helvetica, Arial, sans-serif;
   font-weight: normal;
   font-style: italic;
@@ -108,6 +108,10 @@ blockquote {
   padding: 30px 60px; }
   blockquote p:last-child {
     margin-bottom: 0; }
+
+h2 {
+  font-size: 1.9rem;
+  text-transform: uppercase; }
 
 figure {
   margin: 5px 20px 20px -60px;
@@ -165,8 +169,8 @@ body.home .carousel {
         opacity: 0.15;
         width: 100%; }
       body.home .carousel .item .inner .description {
-        font-size: 20px;
-        font-size: 2rem;
+        font-size: 19px;
+        font-size: 1.9rem;
         font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
         font-weight: normal;
         font-style: normal;
@@ -440,8 +444,8 @@ body {
       font-size: 0; }
       body .row.nav ul li {
         text-transform: uppercase;
-        font-size: 20px;
-        font-size: 2rem;
+        font-size: 19px;
+        font-size: 1.9rem;
         font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
         font-weight: bold;
         font-style: normal;
@@ -472,8 +476,8 @@ body {
       body .row.page .content {
         color: #494f43; }
         body .row.page .content .inner {
-          font-size: 20px;
-          font-size: 2rem;
+          font-size: 19px;
+          font-size: 1.9rem;
           font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
           font-weight: normal;
           font-style: normal;
@@ -523,8 +527,8 @@ body {
         position: relative;
         padding: 30px 15px 15px 30px;
         min-height: 400px;
-        font-size: 20px;
-        font-size: 2rem;
+        font-size: 19px;
+        font-size: 1.9rem;
         font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
         font-weight: normal;
         font-style: normal; }
@@ -712,8 +716,8 @@ body {
       font-weight: normal;
       font-style: normal; }
       body.courses .page .content ul.courses a {
-        font-size: 20px;
-        font-size: 2rem;
+        font-size: 19px;
+        font-size: 1.9rem;
         font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
         font-weight: normal;
         font-style: normal; }
@@ -766,16 +770,16 @@ body {
   body.contact #map-canvas {
     height: 500px; }
     body.contact #map-canvas .infowindow {
-      font-size: 20px;
-      font-size: 2rem;
+      font-size: 19px;
+      font-size: 1.9rem;
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal;
       height: 170px;
       width: 300px; }
       body.contact #map-canvas .infowindow h3 {
-        font-size: 20px;
-        font-size: 2rem;
+        font-size: 19px;
+        font-size: 1.9rem;
         font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
         font-weight: bold;
         font-style: normal;
