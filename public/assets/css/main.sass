@@ -97,34 +97,13 @@ body
 							text-decoration: underline
 						img
 							margin-top: 7px !important
+
 					input[type=text], input[type=email], input[type=password], button
 						padding: 18px 6px
+
 					button span.caret
 						top: 14px
-					blockquote
-						float: left
-						clear: none
-						border-left-width: $border-width
-						border-left-style: solid
-						p:last-child
-							margin-bottom: 0
 
-					figure
-						margin: 5px 20px 20px -60px
-						float: left 
-						+font("xs", "mono")
-						figcaption
-							padding: $margin / 2 $margin $margin * 1.5 $margin / 2
-						&.portrait
-							width: 220px
-							img
-								width: 100%
-								height: auto
-						&.landscape
-							width: 360px
-							img
-								width: 100%
-								height: auto
 					ul
 						clear: left
 					dl
@@ -296,3 +275,14 @@ body
 	&.contact
 		#map-canvas
 			height: 500px
+			.infowindow
+				+font("md")
+				height: 170px
+				width: 300px
+				h3
+					+font("md", "bold")
+					margin: 0 0 $margin
+				p
+					margin: 0 0 $margin
+				a
+					text-decoration: none

@@ -91,6 +91,41 @@ p {
 dt {
   font-family: "Apercu Mono Pro Regular"; }
 
+blockquote {
+  font-size: 20px;
+  font-size: 2rem;
+  font-family: "Apercu Pro Italic", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: italic;
+  border-width: 3px 0;
+  border-style: dashed;
+  clear: left;
+  margin: 60px 0;
+  padding: 30px 60px; }
+  blockquote p:last-child {
+    margin-bottom: 0; }
+
+figure {
+  margin: 5px 20px 20px -60px;
+  float: left;
+  font-size: 12px;
+  font-size: 1.2rem;
+  font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+  font-weight: normal;
+  font-style: normal; }
+  figure figcaption {
+    padding: 7.5px 15px 22.5px 7.5px; }
+  figure.portrait {
+    width: 220px; }
+    figure.portrait img {
+      width: 100%;
+      height: auto; }
+  figure.landscape {
+    width: 360px; }
+    figure.landscape img {
+      width: 100%;
+      height: auto; }
+
 body.home .carousel {
   height: 400px;
   margin: 15px 0 0 0;
@@ -464,33 +499,6 @@ body {
             padding: 18px 6px; }
           body .row.page .content .inner button span.caret {
             top: 14px; }
-          body .row.page .content .inner blockquote {
-            float: left;
-            clear: none;
-            border-left-width: 3px;
-            border-left-style: solid; }
-            body .row.page .content .inner blockquote p:last-child {
-              margin-bottom: 0; }
-          body .row.page .content .inner figure {
-            margin: 5px 20px 20px -60px;
-            float: left;
-            font-size: 12px;
-            font-size: 1.2rem;
-            font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-            font-weight: normal;
-            font-style: normal; }
-            body .row.page .content .inner figure figcaption {
-              padding: 7.5px 15px 22.5px 7.5px; }
-            body .row.page .content .inner figure.portrait {
-              width: 220px; }
-              body .row.page .content .inner figure.portrait img {
-                width: 100%;
-                height: auto; }
-            body .row.page .content .inner figure.landscape {
-              width: 360px; }
-              body .row.page .content .inner figure.landscape img {
-                width: 100%;
-                height: auto; }
           body .row.page .content .inner ul {
             clear: left; }
           body .row.page .content .inner dl {
@@ -756,3 +764,22 @@ body {
           opacity: 0.8; }
   body.contact #map-canvas {
     height: 500px; }
+    body.contact #map-canvas .infowindow {
+      font-size: 20px;
+      font-size: 2rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      height: 170px;
+      width: 300px; }
+      body.contact #map-canvas .infowindow h3 {
+        font-size: 20px;
+        font-size: 2rem;
+        font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
+        font-weight: bold;
+        font-style: normal;
+        margin: 0 0 15px; }
+      body.contact #map-canvas .infowindow p {
+        margin: 0 0 15px; }
+      body.contact #map-canvas .infowindow a {
+        text-decoration: none; }

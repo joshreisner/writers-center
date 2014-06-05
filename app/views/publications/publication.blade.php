@@ -21,8 +21,6 @@
 		</figure>
 		@endif
 
-		{{ $publication->description }}
-	
 		<dl>
 			<dt>Length</dt>
 			<dd>{{ $publication->pages }} pages</dd>
@@ -42,6 +40,8 @@
 		</form>	
 		@endif
 
+		{{ $publication->description }}
+	
 		@if (!empty($publication->praise))
 		<div class="praise">
 			<h3>Praise for <em>{{ $publication->title }}</em></h3>

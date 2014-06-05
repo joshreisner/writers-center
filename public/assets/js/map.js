@@ -38,10 +38,10 @@ google.maps.event.addDomListener(window, 'load', function() {
 	map.setMapTypeId('map_style');
 
 	var infowindow = new google.maps.InfoWindow({
-		content: '<div style="height:160px">'+
-		'<h3 style="margin-top:5px;margin-right:5px;">Hudson Valley Writers Center</h3>'+
-		'<p style="font-size:15px;">300 Riverside Drive<br>Sleepy Hollow, New York 10591</p>'+
-		'<p><a class="btn btn-primary btn-xs" href="http://maps.apple.com/maps?daddr=300+Riverside+Drive+Sleepy+Hollow,+New+York+10591" target="_blank">Directions</a></p>'
+		content: '<div class="infowindow">'+
+		'<h3>Hudson Valley Writers Center</h3>'+
+		'<p>300 Riverside Drive<br>Sleepy Hollow, New York<br>10591</p>'+
+		'<p><a class="btn btn-primary" href="http://maps.apple.com/maps?daddr=300+Riverside+Drive+Sleepy+Hollow,+New+York+10591" target="_blank">Directions</a></p>'
 	});
 
 	var marker = new google.maps.Marker({
