@@ -239,12 +239,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "97475b2761f22cd9817c135283ad1079543a4586"
+                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/97475b2761f22cd9817c135283ad1079543a4586",
-                "reference": "97475b2761f22cd9817c135283ad1079543a4586",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
+                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
                 "shasum": ""
             },
             "require": {
@@ -299,7 +299,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2014-05-07 01:20:20"
+            "time": "2014-06-05 18:37:07"
         },
         {
             "name": "doctrine/common",
@@ -876,12 +876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "53e389c7e295dfa4ddfb16e1d01ebdb7adb17283"
+                "reference": "55a9640598d5e2124aeb207b1a4d5fd55498b8e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/53e389c7e295dfa4ddfb16e1d01ebdb7adb17283",
-                "reference": "53e389c7e295dfa4ddfb16e1d01ebdb7adb17283",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/55a9640598d5e2124aeb207b1a4d5fd55498b8e9",
+                "reference": "55a9640598d5e2124aeb207b1a4d5fd55498b8e9",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +908,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-06-04 00:53:17"
+            "time": "2014-06-05 20:05:58"
         },
         {
             "name": "laravel/framework",
@@ -1284,12 +1284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8b7a605c0f06acb9d3def47b6591fa7ce6c476f6"
+                "reference": "25d31e5867eff112d747a1f5e13d582b1a2392f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8b7a605c0f06acb9d3def47b6591fa7ce6c476f6",
-                "reference": "8b7a605c0f06acb9d3def47b6591fa7ce6c476f6",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/25d31e5867eff112d747a1f5e13d582b1a2392f8",
+                "reference": "25d31e5867eff112d747a1f5e13d582b1a2392f8",
                 "shasum": ""
             },
             "require": {
@@ -1373,7 +1373,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-06-02 10:51:21"
+            "time": "2014-06-05 14:56:34"
         },
         {
             "name": "predis/predis",

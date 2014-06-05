@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title>{{ $title or $default_title }}</title>
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
-		<link rel="stylesheet" href="//f.fontdeck.com/s/css/uH5+KWQnibDTJRYggGJ9XZLTAgw/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
+		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
 		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
 		@yield('style')
 		<link rel="stylesheet" href="/assets/css/main.css">

@@ -87,6 +87,10 @@ form div.checkbox {
 
 p {
   margin: 0 0 15px 0; }
+  p a {
+    text-decoration: underline; }
+  p img {
+    margin-top: 7px !important; }
 
 dt {
   font-family: "Apercu Mono Pro Regular"; }
@@ -489,12 +493,6 @@ body {
               font-style: normal;
               line-height: 1.3;
               margin-bottom: 15px; }
-          body .row.page .content .inner p {
-            margin: 0 0 15px 0; }
-            body .row.page .content .inner p a {
-              text-decoration: underline; }
-            body .row.page .content .inner p img {
-              margin-top: 7px !important; }
           body .row.page .content .inner input[type=text], body .row.page .content .inner input[type=email], body .row.page .content .inner input[type=password], body .row.page .content .inner button {
             padding: 18px 6px; }
           body .row.page .content .inner button span.caret {
@@ -531,8 +529,11 @@ body {
         font-weight: normal;
         font-style: normal; }
         body .row.page .side .wallpaper span {
-          font-family: "Apercu Mono Pro Regular";
-          font-size: 60%;
+          font-size: 12px;
+          font-size: 1.2rem;
+          font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+          font-weight: normal;
+          font-style: normal;
           text-transform: uppercase;
           position: absolute;
           top: 15px;
