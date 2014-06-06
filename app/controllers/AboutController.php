@@ -28,12 +28,4 @@ class AboutController extends BaseController {
 		));
 	}
 
-	/**
-	 * generate avalon link
-	 */
-	public static function editLink(Page $page) {
-		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(13, $page->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
-	}
-
 }

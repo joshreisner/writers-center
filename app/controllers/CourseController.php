@@ -69,16 +69,7 @@ class CourseController extends BaseController {
 			$genres[$course->genres->title][] = $course;
 		}
 
-		/* Add formatted instructor string
-		foreach ($genres as $genre) {
-			foreach ($genre->courses as $course) {
-				$course->instructor_string = self::formatInstructors($course);
-			}
-		}
-		*/
-
-		//echo '<pre>';
-		//dd(DB::getQueryLog());
+		$courses = BaseController::highlightResults($courses, array('title'));
 
 		# Return
 		return View::make('courses.genres', array('genres'=>$genres));
@@ -110,14 +101,6 @@ class CourseController extends BaseController {
 	 */
 	public static function getDurationList() {
 		return array('workshop'=>'Workshop', 'intensive'=>'1-day Intensive', 'course'=>'Multi-week Course');
-	}
-
-	/**
-	 * generate avalon link
-	 */
-	public static function editLink(Course $course) {
-		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(6, $course->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
 	/**

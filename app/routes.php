@@ -121,7 +121,7 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null)
 		$options[] = '<li' . ($selected == $id ? ' class="active"' : '') . '><a data-id="' . $id . '">' . $value . '</a></li>';
 	}
 	$options = (count($options)) ? '<ul class="dropdown-menu">
-		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">&nbsp;</a></li>
+		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">Any</a></li>
 		<li class="divider"></li>
 		' . implode($options) . 
 		'</ul>' : '';

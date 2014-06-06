@@ -611,7 +611,7 @@ body {
     body.default .page .content a.btn.btn-primary, body.default .page .content input[type=submit] {
       color: white;
       background-color: #494f43; }
-    body.default .page .content figure {
+    body.default .page .content figure, body.default .page .content mark {
       background-color: #e2e4e0; }
     body.default .page .content blockquote {
       border-left-color: #e2e4e0; }
@@ -630,7 +630,7 @@ body {
     body.about .page .content a.btn.btn-primary, body.about .page .content input[type=submit] {
       color: white;
       background-color: #298c76; }
-    body.about .page .content figure {
+    body.about .page .content figure, body.about .page .content mark {
       background-color: #edfaf7; }
     body.about .page .content blockquote {
       border-left-color: #edfaf7; }
@@ -649,7 +649,7 @@ body {
     body.courses .page .content a.btn.btn-primary, body.courses .page .content input[type=submit] {
       color: white;
       background-color: #325435; }
-    body.courses .page .content figure {
+    body.courses .page .content figure, body.courses .page .content mark {
       background-color: #d3e5d5; }
     body.courses .page .content blockquote {
       border-left-color: #d3e5d5; }
@@ -668,7 +668,7 @@ body {
     body.events .page .content a.btn.btn-primary, body.events .page .content input[type=submit] {
       color: white;
       background-color: #9f6117; }
-    body.events .page .content figure {
+    body.events .page .content figure, body.events .page .content mark {
       background-color: #f6ddbf; }
     body.events .page .content blockquote {
       border-left-color: #f6ddbf; }
@@ -687,7 +687,7 @@ body {
     body.blog .page .content a.btn.btn-primary, body.blog .page .content input[type=submit] {
       color: white;
       background-color: #695d73; }
-    body.blog .page .content figure {
+    body.blog .page .content figure, body.blog .page .content mark {
       background-color: #f4f3f5; }
     body.blog .page .content blockquote {
       border-left-color: #f4f3f5; }
@@ -706,7 +706,7 @@ body {
     body.publications .page .content a.btn.btn-primary, body.publications .page .content input[type=submit] {
       color: white;
       background-color: #c65146; }
-    body.publications .page .content figure {
+    body.publications .page .content figure, body.publications .page .content mark {
       background-color: #f6e4e2; }
     body.publications .page .content blockquote {
       border-left-color: #f6e4e2; }
@@ -725,7 +725,7 @@ body {
     body.contact .page .content a.btn.btn-primary, body.contact .page .content input[type=submit] {
       color: white;
       background-color: #4b5245; }
-    body.contact .page .content figure {
+    body.contact .page .content figure, body.contact .page .content mark {
       background-color: #e4e7e2; }
     body.contact .page .content blockquote {
       border-left-color: #e4e7e2; }
@@ -764,8 +764,6 @@ body {
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal; }
-      body.courses .row.page .content .inner ul.courses a ::after {
-        content: "--"; }
   body.events .row.page .content .inner h1.group {
     font-size: 25px;
     font-size: 2.5rem;

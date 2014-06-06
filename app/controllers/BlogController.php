@@ -38,20 +38,18 @@ class BlogController extends BaseController {
 		if (Input::has('search')) {
 			$posts
 				->where('title', 'like', '%' . Input::get('search') . '%')
+				->orWhere('excerpt', 'like', '%' . Input::get('search') . '%')
 				->orWhere('content', 'like', '%' . Input::get('search') . '%');
 		}
 		
 		if (Input::has('year')) $posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
 
-		return View::make('blog.posts', array('posts'=>$posts->take(10)->get()));
-	}
+		# Highlight search results
+		$posts = $posts->take(10)->get();
 
-	/**
-	 * generate avalon link
-	 */
-	public static function editLink(Post $post) {
-		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array(2, $post->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
+		$posts = BaseController::highlightResults($posts, array('title', 'excerpt'));
+
+		return View::make('blog.posts', array('posts'=>$posts));
 	}
 
 }

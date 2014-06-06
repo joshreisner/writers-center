@@ -6,7 +6,7 @@
 		<h1>
 			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
 			{{ $post->title }}
-			{{ BlogController::editLink($post) }}
+			{{ BaseController::editLink($post) }}
 		</h1>
 		
 		@if (!empty($post->image->url))

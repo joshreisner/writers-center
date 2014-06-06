@@ -6,7 +6,7 @@
 		
 		<h1>
 			{{ $publication->title }}
-			{{ PublicationController::editLink($publication) }}
+			{{ BaseController::editLink($publication) }}
 			@if (!empty($publication->author))
 				<small>by {{ $publication->author }}</small>
 			@endif

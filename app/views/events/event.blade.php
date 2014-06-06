@@ -6,7 +6,7 @@
 		
 		<h1>
 			{{ $event->title }}
-			{{ EventController::editLink($event) }}
+			{{ BaseController::editLink($event) }}
 		</h1>
 		
 		{{ $event->description }}

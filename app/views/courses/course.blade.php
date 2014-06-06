@@ -4,9 +4,10 @@
 
 	<div class="col-md-offset-1">
 		<h1>
-			{{ $course->title }} {{ CourseController:: editLink($course) }}
+			{{ $course->title }}
+			{{ BaseController:: editLink($course) }}
 			@if (count($course->instructors))
-			<small>with {{ CourseController::formatInstructors($course) }}</small>
+				<small>{{ CourseController::formatInstructors($course) }}</small>
 			@endif
 		</h1>
 
