@@ -12,7 +12,7 @@ class EventController extends BaseController {
 
 		return View::make('events.index', array(
 			'title'=>'Events',
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
+			'years'=>Event::orderBy('start', 'desc')->distinct()->lists(DB::raw('YEAR(start)'), DB::raw('YEAR(start)')),
 			'months'=>self::groupByMonth($events),
 			'class'=>'events',
 		));
@@ -41,15 +41,19 @@ class EventController extends BaseController {
 
 		# Construct chained Eloquent statement based on input
 		$events = Event::orderBy('start', 'asc');
+		if (Input::has('search') or Input::has('year')) {
 
-		if (Input::has('search')) {
-			$events
-				->where('title', 'like', '%' . Input::get('search') . '%')
-				->orWhere('description', 'like', '%' . Input::get('search') . '%');
-		}
-		
-		if (Input::has('year')) {
-			$events->where(DB::raw('YEAR(start)'), Input::get('year'));
+			if (Input::has('search')) {
+				$events
+					->where('title', 'like', '%' . Input::get('search') . '%')
+					->orWhere('description', 'like', '%' . Input::get('search') . '%');
+			}
+			
+			if (Input::has('year')) {
+				$events->where(DB::raw('YEAR(start)'), Input::get('year'));
+			}			
+		} else {
+			$events->where('end', '>', new DateTime());
 		}
 
 		$events = $events->get();

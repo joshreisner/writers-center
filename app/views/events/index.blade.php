@@ -16,7 +16,7 @@
 			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="timeframe" class="col-md-3">Timeframe</label>
+			<label for="timeframe" class="col-md-3">Year</label>
 			<div class="col-md-9">
 				{{ Form::dropdown('year', $years) }}
 			</div>

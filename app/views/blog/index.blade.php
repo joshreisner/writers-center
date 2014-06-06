@@ -13,7 +13,7 @@
 			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="genre" class="col-md-3">Show</label>
+			<label for="genre" class="col-md-3">Year</label>
 			<div class="col-md-9">
 				{{ Form::dropdown('year', $years) }}
 			</div>
