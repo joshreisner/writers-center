@@ -25,11 +25,11 @@ body
 		font-size: 2rem !important
 		p
 			font-family: "Apercu Pro Regular" !important
-			font-size: 2rem !important
+			font-size: #{$font-md}rem !important
 			margin-top: 0 !important
-			margin-bottom: 15px !important
+			margin-bottom: $margin !important
 			img
-				margin-top: 7px !important
+				margin-top: $margin / 2 !important
 
 		p, ul, ol, h2, blockquote
 			line-height: 1.42857143 !important
@@ -37,7 +37,7 @@ body
 
 		h2
 			font-family: "Apercu Pro Regular" !important
-			font-size: 2rem !important
+			font-size: #{$font-md}rem !important
 			text-transform: uppercase
 
 		blockquote
@@ -50,9 +50,15 @@ body
 			p:last-child
 				margin-bottom: 0 !important
 
-	form.publications
+@each $section in $sections
+	$name:    nth($section, 1)
+	$color:   nth($section, 2)
+
+	form.#{$name}
 		.form-group.html
 			.redactor_editor
-				color: $publications
+				color: $color
 				blockquote
-					border-color: $publications
+					border-color: $color
+				a
+					color: $color !important
