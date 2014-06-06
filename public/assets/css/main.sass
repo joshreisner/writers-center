@@ -31,7 +31,6 @@ body
 				color: $lighter
 
 	.row
-		padding-top: $margin * 2
 		&.banner
 			padding-top: $margin
 			height: 127px
@@ -50,6 +49,7 @@ body
 							text-decoration: none
 
 		&.nav
+			padding-top: $margin * 2
 			ul
 				list-style-type: none
 				text-align: justify
@@ -84,13 +84,13 @@ body
 					border-style: solid
 					h1 
 						+font("lg")
-						margin: $margin * 2 0
+						margin: $margin * 2 0 $margin * 1.5
 						a.edit
 							text-decoration: none
 						small
 							color: inherit
 							display: block
-							+font("sm", "mono")
+							+font(1.8, "mono")
 							line-height: 1.3
 							margin-bottom: $margin
 
@@ -123,9 +123,9 @@ body
 
 				.wallpaper
 					position: relative
-					padding: $margin * 2 $margin $margin $margin * 2
+					padding: $margin * 2
 					min-height: 400px
-					+font("md")
+					+font(1.7)
 					span
 						+font("xs", "mono")
 						text-transform: uppercase
@@ -146,11 +146,11 @@ body
 					p, .description, span
 						color: $default
 					h1
-						+font("md")
+						+font(2.2)
 						small
 							color: $default
 							display: block
-							+font("sm", "mono")
+							+font(1.6, "mono")
 							margin-bottom: $margin / 2
 					&::after
 						content: ""
@@ -197,10 +197,13 @@ body
 			text-transform: uppercase
 
 	&.courses
-		.page
-			.content
+		.row.page
+			.content .inner
+				h1.group
+					+font(2.8)
+
 				ul 
-					+font("sm")
+					+font(1.6)
 					list-style-type: none
 					&.instructors
 						padding: 0
@@ -212,22 +215,22 @@ body
 								margin: 4px $margin 10px 0
 					&.courses
 						a
-							+font("md")
+							+font(2.5)
+							::after
+								content: "--"
 
 	&.events
-		.page
-			.content
-				div.event
-					div.date
-						font-weight: bold
-					div.description
-						margin: 0 0 20px 20px
-						div.meta
-							font-weight: bold
-							overflow: auto
-							div.time, div.price, div.location
-								float: left
-								margin-right: 20px
+		.row.page .content .inner
+			h1.group
+				+font(2.5)
+				margin: $margin * 2 0 0
+			.event
+				padding-top: $margin
+				div.date
+					+font("sm", "mono")
+					line-height: 2
+				a.title
+					+font("md", "bold")
 
 	&.blog
 		.row.page

@@ -7,15 +7,19 @@ class CourseController extends BaseController {
 	 */
 	public function index() {
 
-		$genres = Genre::with('courses', 'courses.instructors')->get();
-
+		$genres = array();
+		$courses = Course::with('genres', 'instructors')->get();
+		foreach ($courses as $course) {
+			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
+			$genres[$course->genres->title][] = $course;
+		}
 		return View::make('courses.index', array(
 			'title'				=>'Courses',
 			'genres'			=>$genres,
-			'genre_select'		=>self::getGenreList($genres),
-			'instructor_select'	=>self::getInstructorList(),
-			'duration_select'	=>self::getDurationList(),
-			'day_select'		=>self::getDayList(),
+			'genre_select'		=>Genre::orderBy('title')->lists('title', 'id'),
+			'instructor_select'	=>Instructor::orderBy('name')->lists('name', 'id'),
+			'duration_select'	=>array('workshop'=>'Workshop', 'intensive'=>'1-day Intensive', 'course'=>'Multi-week Course'),
+			'day_select'		=>array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
 			'class'				=>'courses',
 		));		
 	}
@@ -41,75 +45,43 @@ class CourseController extends BaseController {
 	 */
 	public function ajax() {
 
-		$with = array();
+		$genres = array();
 
-		# Get initial resultset
-		$return = Genre::with('courses');
-		if (Input::has('search')) {
-			$with['courses'] = function($query){
-				$query->where('title', 'like', '%' . Input::get('search') . '%');
-			};
-		} else {
-			$with[] = 'courses';
+		$courses = Course::with('genres', 'instructors');
+
+		if (Input::has('instructor')) {
+			$courses->whereHas('instructors', function($q) {
+			    $q->where('id', Input::get('instructor'));
+			});
 		}
 		if (Input::has('genre')) {
-			$return->where('genres.id', Input::get('genre'));
+			$courses->where('genre_id', Input::get('genre'));
 		}
-		if (Input::has('instructor')) {
-			$with['courses.instructors'] = function($query){
-			    $query->where('id', Input::get('instructor'));
-			};
-		} else {
-			$with[] = 'courses.instructors';
-		}
-		$genres = $return->with($with)->get();
 
-		# Add formatted instructor string
+		if (Input::has('search')) {
+			$courses->where('title', 'like', '%' . Input::get('search') . '%');
+		}
+
+		$courses = $courses->get();
+
+		foreach ($courses as $course) {
+			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
+			$genres[$course->genres->title][] = $course;
+		}
+
+		/* Add formatted instructor string
 		foreach ($genres as $genre) {
 			foreach ($genre->courses as $course) {
 				$course->instructor_string = self::formatInstructors($course);
 			}
 		}
+		*/
 
 		//echo '<pre>';
 		//dd(DB::getQueryLog());
 
 		# Return
 		return View::make('courses.genres', array('genres'=>$genres));
-	}
-
-	/**
-	 * populate day select
-	 */
-	public static function getDayList($days=false) {
-		return array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-	}
-
-	/**
-	 * populate genre select
-	 */
-	public static function getGenreList($genres=false) {
-		if ($genres === false) $genres = Genre::orderBy('title');
-		return $genres->lists('title', 'id');
-	}
-
-	/**
-	 * populate instructor select
-	 */
-	public static function getInstructorList($instructors=false) {
-		if ($instructors === false) $instructors = Instructor::orderBy('name');
-		return $instructors->lists('name', 'id');
-	}
-
-	/**
-	 * populate duration select
-	 */
-	public static function getDurationList() {
-		return array(
-			'workshop'=>'Workshop',
-			'intensive'=>'1-day Intensive',
-			'course'=>'Multi-week Course',
-		);
 	}
 
 	/**

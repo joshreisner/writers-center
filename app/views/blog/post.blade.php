@@ -2,11 +2,13 @@
 
 @section('content')
 	<div class="col-md-offset-1">
+		
 		<h1>
 			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
 			{{ $post->title }}
 			{{ BlogController::editLink($post) }}
 		</h1>
+		
 		@if (!empty($post->image->url))
 		<figure class="{{ ($post->image->width > $post->image->height) ? 'landscape' : 'portrait' }}">
 			<img src="{{ $post->image->url }}" width="{{ $post->image->width }}" height="{{ $post->image->height }}">
@@ -18,6 +20,11 @@
 
 		{{ $post->content }}
 		
+		@if (!empty($post->action_url))
+		<a class="btn btn-primary" href="{{ $post->action_url }}">{{ $post->action or 'Click here' }}</a>
+		@endif	
+
+		<!--
 		<dl>
 			<dt>Tags</dt>
 			<dd>
@@ -26,9 +33,8 @@
 				@endforeach
 			</dd>
 		</dl>
-		@if (!empty($post->action_url))
-		<a class="btn btn-primary" href="{{ $post->action_url }}">{{ $post->action or 'Click here' }}</a>
-		@endif		
+		-->
+
 	</div>
 @endsection
 

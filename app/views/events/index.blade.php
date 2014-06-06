@@ -2,30 +2,24 @@
 
 @section('content')
 
-	<div class="col-md-offset-1">
-		{{ $last_month = '' }}
+	@foreach ($months as $month=>$events)
+		
+		<h1 class="group">{{ $month }}</h1>
+		
 		@foreach ($events as $event)
-			@if ($event->month != $last_month)
-				<h2>{{ $event->month }}</h2>
-				<?php $last_month = $event->month ?>
-			@endif
-			<div class="event">
-				<div class="date">{{ $event->start->format('l, F j') }}</div>
-				<div class="description">
-					<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">{{ $event->title }}</a>
-					{{ $event->description }}
-					<div class="meta">
-						<div class="time">{{ $event->start->format('g:i a') }}</div>
-						<div class="location">HVWC</div>
-						<div class="price">{{ EventController::formatPrice($event) }}</div>
-						<div class="button">
-							<a href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}" class="btn btn-primary">RSVP</a>
-						</div>
-					</div>
-				</div>
+		<div class="event row">
+			<div class="col-md-1 date">
+				{{ $event->start->format('m/y') }}<br>
+				{{ $event->start->format('D') }}
 			</div>
+			<div class="col-md-11 description">
+				<a class="title" href="/events/{{ $event->start->format('Y/m') }}/{{ $event->slug }}">{{ $event->title }}, {{ $event->start->format('g:i a') }}</a>
+				{{ $event->description }}
+			</div>
+		</div>
 		@endforeach
-	</div>
+
+	@endforeach
 	
 @endsection
 

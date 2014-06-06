@@ -6,14 +6,20 @@ class EventController extends BaseController {
 	 * show upcoming events
 	 */
 	public function index() {
+
+		# Build array of months
 		$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
+		$months = array();
 		foreach ($events as $event) {
-			$event->month = $event->start->format('F Y');
+			$month = $event->start->format('F Y');
+			if (!isset($months[$month])) $months[$month] = array();
+			$months[$month][] = $event;
 		}
+
 		return View::make('events.index', array(
 			'title'=>'Events',
 			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
-			'events'=>$events,
+			'months'=>$months,
 			'class'=>'events',
 		));
 	}

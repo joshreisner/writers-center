@@ -12,18 +12,21 @@
 	@if $size == "xs"
 		font-size: #{$font-xs * 10}px
 		font-size: #{$font-xs}rem
-	@if $size == "sm"
+	@else if $size == "sm"
 		font-size: #{$font-sm * 10}px
 		font-size: #{$font-sm}rem
-	@if $size == "md"
+	@else if $size == "md"
 		font-size: #{$font-md * 10}px
 		font-size: #{$font-md}rem
-	@if $size == "lg"
+	@else if $size == "lg"
 		font-size: #{$font-lg * 10}px
 		font-size: #{$font-lg}rem
-	@if $size == "xl"
+	@else if $size == "xl"
 		font-size: #{$font-xl * 10}px
 		font-size: #{$font-xl}rem
+	@else 
+		font-size: #{$size * 10}px
+		font-size: #{$size}rem
 
 	@if $style == "regular"
 		font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif

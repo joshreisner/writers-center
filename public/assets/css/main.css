@@ -101,7 +101,7 @@ blockquote {
   border-width: 3px 0;
   border-style: dashed;
   clear: left;
-  margin: 60px 0;
+  margin: 30px 0;
   padding: 30px 60px; }
   blockquote p:last-child {
     margin-bottom: 0; }
@@ -421,24 +421,24 @@ body {
   body.contact form.switchboard .chkbox, body.home .promo.contact .chkbox {
     background-color: #4b5245;
     color: #e4e7e2; }
-  body .row {
+  body .row.banner {
+    padding-top: 15px;
+    height: 127px; }
+    body .row.banner a.logo {
+      margin-left: 17.5%; }
+    body .row.banner nav#utility {
+      float: right; }
+      body .row.banner nav#utility a {
+        margin-left: 30px; }
+        body .row.banner nav#utility a.dashicons {
+          font-size: 200%;
+          line-height: 0.7; }
+          body .row.banner nav#utility a.dashicons:last-child {
+            margin-left: 7.5px; }
+          body .row.banner nav#utility a.dashicons:hover, body .row.banner nav#utility a.dashicons:focus, body .row.banner nav#utility a.dashicons:active {
+            text-decoration: none; }
+  body .row.nav {
     padding-top: 30px; }
-    body .row.banner {
-      padding-top: 15px;
-      height: 127px; }
-      body .row.banner a.logo {
-        margin-left: 17.5%; }
-      body .row.banner nav#utility {
-        float: right; }
-        body .row.banner nav#utility a {
-          margin-left: 30px; }
-          body .row.banner nav#utility a.dashicons {
-            font-size: 200%;
-            line-height: 0.7; }
-            body .row.banner nav#utility a.dashicons:last-child {
-              margin-left: 7.5px; }
-            body .row.banner nav#utility a.dashicons:hover, body .row.banner nav#utility a.dashicons:focus, body .row.banner nav#utility a.dashicons:active {
-              text-decoration: none; }
     body .row.nav ul {
       list-style-type: none;
       text-align: justify;
@@ -474,121 +474,121 @@ body {
         content: "";
         display: inline-block;
         width: 100%; }
-    body .row.page {
-      padding-top: 7.5px;
-      border-color: #494f43; }
-      body .row.page .content {
-        color: #494f43; }
-        body .row.page .content .inner {
-          font-size: 19px;
-          font-size: 1.9rem;
-          font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-          font-weight: normal;
-          font-style: normal;
-          border-width: 3px 0 0 0;
-          border-style: solid; }
-          body .row.page .content .inner h1 {
-            font-size: 36px;
-            font-size: 3.6rem;
-            font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-            font-weight: normal;
-            font-style: normal;
-            margin: 30px 0; }
-            body .row.page .content .inner h1 a.edit {
-              text-decoration: none; }
-            body .row.page .content .inner h1 small {
-              color: inherit;
-              display: block;
-              font-size: 14px;
-              font-size: 1.4rem;
-              font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-              font-weight: normal;
-              font-style: normal;
-              line-height: 1.3;
-              margin-bottom: 15px; }
-          body .row.page .content .inner input[type=text], body .row.page .content .inner input[type=email], body .row.page .content .inner input[type=password], body .row.page .content .inner button {
-            padding: 18px 6px; }
-          body .row.page .content .inner button span.caret {
-            top: 14px; }
-          body .row.page .content .inner ul {
-            clear: left; }
-          body .row.page .content .inner dl {
-            overflow: auto;
-            margin: 15px 0; }
-            body .row.page .content .inner dl dt, body .row.page .content .inner dl dd {
-              float: left;
-              margin-bottom: 7.5px; }
-            body .row.page .content .inner dl dt {
-              clear: left;
-              font-size: 14px;
-              font-size: 1.4rem;
-              font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-              font-weight: normal;
-              font-style: normal;
-              text-transform: uppercase;
-              width: 90px; }
-      body .row.page .side form.switchboard {
-        border-width: 3px;
-        border-style: solid;
-        padding: 20px 20px 5px;
-        box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
-      body .row.page .side .wallpaper {
-        position: relative;
-        padding: 30px 15px 15px 30px;
-        min-height: 400px;
+  body .row.page {
+    padding-top: 7.5px;
+    border-color: #494f43; }
+    body .row.page .content {
+      color: #494f43; }
+      body .row.page .content .inner {
         font-size: 19px;
         font-size: 1.9rem;
         font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
         font-weight: normal;
-        font-style: normal; }
-        body .row.page .side .wallpaper span {
-          font-size: 12px;
-          font-size: 1.2rem;
-          font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-          font-weight: normal;
-          font-style: normal;
-          text-transform: uppercase;
-          position: absolute;
-          top: 15px;
-          left: 15px; }
-        body .row.page .side .wallpaper ul {
-          margin: 0;
-          padding: 0; }
-          body .row.page .side .wallpaper ul li {
-            list-style-type: none; }
-            body .row.page .side .wallpaper ul li.active a {
-              text-decoration: underline; }
-        body .row.page .side .wallpaper a {
-          color: #494f43; }
-          body .row.page .side .wallpaper a:hover {
-            color: #494f43; }
-        body .row.page .side .wallpaper p, body .row.page .side .wallpaper .description, body .row.page .side .wallpaper span {
-          color: #494f43; }
-        body .row.page .side .wallpaper h1 {
-          font-size: 19px;
-          font-size: 1.9rem;
+        font-style: normal;
+        border-width: 3px 0 0 0;
+        border-style: solid; }
+        body .row.page .content .inner h1 {
+          font-size: 36px;
+          font-size: 3.6rem;
           font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
           font-weight: normal;
-          font-style: normal; }
-          body .row.page .side .wallpaper h1 small {
-            color: #494f43;
+          font-style: normal;
+          margin: 30px 0 22.5px; }
+          body .row.page .content .inner h1 a.edit {
+            text-decoration: none; }
+          body .row.page .content .inner h1 small {
+            color: inherit;
             display: block;
+            font-size: 18px;
+            font-size: 1.8rem;
+            font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+            font-weight: normal;
+            font-style: normal;
+            line-height: 1.3;
+            margin-bottom: 15px; }
+        body .row.page .content .inner input[type=text], body .row.page .content .inner input[type=email], body .row.page .content .inner input[type=password], body .row.page .content .inner button {
+          padding: 18px 6px; }
+        body .row.page .content .inner button span.caret {
+          top: 14px; }
+        body .row.page .content .inner ul {
+          clear: left; }
+        body .row.page .content .inner dl {
+          overflow: auto;
+          margin: 15px 0; }
+          body .row.page .content .inner dl dt, body .row.page .content .inner dl dd {
+            float: left;
+            margin-bottom: 7.5px; }
+          body .row.page .content .inner dl dt {
+            clear: left;
             font-size: 14px;
             font-size: 1.4rem;
             font-family: "Apercu Mono Pro Regular", Monaco, monospace;
             font-weight: normal;
             font-style: normal;
-            margin-bottom: 7.5px; }
-        body .row.page .side .wallpaper::after {
-          content: "";
-          opacity: 0.3;
-          z-index: -1;
-          background: url(/assets/img/wallpaper-bush1.jpg);
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0; }
+            text-transform: uppercase;
+            width: 90px; }
+    body .row.page .side form.switchboard {
+      border-width: 3px;
+      border-style: solid;
+      padding: 20px 20px 5px;
+      box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
+    body .row.page .side .wallpaper {
+      position: relative;
+      padding: 30px;
+      min-height: 400px;
+      font-size: 17px;
+      font-size: 1.7rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal; }
+      body .row.page .side .wallpaper span {
+        font-size: 12px;
+        font-size: 1.2rem;
+        font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: uppercase;
+        position: absolute;
+        top: 15px;
+        left: 15px; }
+      body .row.page .side .wallpaper ul {
+        margin: 0;
+        padding: 0; }
+        body .row.page .side .wallpaper ul li {
+          list-style-type: none; }
+          body .row.page .side .wallpaper ul li.active a {
+            text-decoration: underline; }
+      body .row.page .side .wallpaper a {
+        color: #494f43; }
+        body .row.page .side .wallpaper a:hover {
+          color: #494f43; }
+      body .row.page .side .wallpaper p, body .row.page .side .wallpaper .description, body .row.page .side .wallpaper span {
+        color: #494f43; }
+      body .row.page .side .wallpaper h1 {
+        font-size: 22px;
+        font-size: 2.2rem;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
+        font-style: normal; }
+        body .row.page .side .wallpaper h1 small {
+          color: #494f43;
+          display: block;
+          font-size: 16px;
+          font-size: 1.6rem;
+          font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+          font-weight: normal;
+          font-style: normal;
+          margin-bottom: 7.5px; }
+      body .row.page .side .wallpaper::after {
+        content: "";
+        opacity: 0.3;
+        z-index: -1;
+        background: url(/assets/img/wallpaper-bush1.jpg);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0; }
   body.default a, body.default small {
     color: #494f43; }
   body.default .page .inner {
@@ -724,37 +724,57 @@ body {
     color: #4b5245; }
   body.about .wallpaper {
     text-transform: uppercase; }
-  body.courses .page .content ul {
-    font-size: 14px;
-    font-size: 1.4rem;
+  body.courses .row.page .content .inner h1.group {
+    font-size: 28px;
+    font-size: 2.8rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal; }
+  body.courses .row.page .content .inner ul {
+    font-size: 16px;
+    font-size: 1.6rem;
     font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     list-style-type: none; }
-    body.courses .page .content ul.instructors {
+    body.courses .row.page .content .inner ul.instructors {
       padding: 0;
       overflow: auto; }
-      body.courses .page .content ul.instructors li {
+      body.courses .row.page .content .inner ul.instructors li {
         overflow: auto; }
-        body.courses .page .content ul.instructors li img {
+        body.courses .row.page .content .inner ul.instructors li img {
           float: left;
           margin: 4px 15px 10px 0; }
-    body.courses .page .content ul.courses a {
-      font-size: 19px;
-      font-size: 1.9rem;
+    body.courses .row.page .content .inner ul.courses a {
+      font-size: 25px;
+      font-size: 2.5rem;
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal; }
-  body.events .page .content div.event div.date {
-    font-weight: bold; }
-  body.events .page .content div.event div.description {
-    margin: 0 0 20px 20px; }
-    body.events .page .content div.event div.description div.meta {
+      body.courses .row.page .content .inner ul.courses a ::after {
+        content: "--"; }
+  body.events .row.page .content .inner h1.group {
+    font-size: 25px;
+    font-size: 2.5rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    margin: 30px 0 0; }
+  body.events .row.page .content .inner .event {
+    padding-top: 15px; }
+    body.events .row.page .content .inner .event div.date {
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 2; }
+    body.events .row.page .content .inner .event a.title {
+      font-size: 19px;
+      font-size: 1.9rem;
+      font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
       font-weight: bold;
-      overflow: auto; }
-      body.events .page .content div.event div.description div.meta div.time, body.events .page .content div.event div.description div.meta div.price, body.events .page .content div.event div.description div.meta div.location {
-        float: left;
-        margin-right: 20px; }
+      font-style: normal; }
   body.blog .row.page .content .inner .post {
     margin: 30px 0 60px; }
   body.publications .page .content .inner form {
