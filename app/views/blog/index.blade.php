@@ -24,7 +24,7 @@
 				@foreach ($tags as $tag)
 				<div class="checkbox">
 					<label>
-						{{ Form::chkbox('tag', $tag->id) }}
+						{{ Form::chkbox('tags[]', $tag->id) }}
 						{{ $tag->title }}
 					</label>
 				</div>

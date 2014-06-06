@@ -12,7 +12,7 @@ $(function(){
 		}
 	});	
 
-	//scroll
+	//scroll banners & background
 	$(window).scroll(function(e){
 	    var height = $(window).scrollTop();
 	    //console.log(height);
@@ -48,7 +48,12 @@ $(function(){
 	$("div.checkbox label").click(function(e){
 		e.preventDefault();
 		e.stopPropagation();
-		$(this).find(".chkbox").toggleClass("active");
+		$(this).find("input").prop(
+			"checked", 
+			$(this).find(".chkbox").toggleClass("active").hasClass("active")
+		);
+		var switchboard = $(this).closest('form.switchboard');
+		if (switchboard.size()) updateSwitchboard(switchboard);
 	});
 
 	//capture switchboard submit
@@ -59,7 +64,8 @@ $(function(){
 
 	//update any switchboard
 	function updateSwitchboard(which) {
-		$.get("/" + which.attr("data-model") + "/ajax", which.serialize(), function(data){
+		$.get("/" + which.attr("data-model") + "/ajax", which.serializeArray(), function(data){
+			console.log('updating switchboard with ' + which.serializeArray());
 			$(".page .content .inner div").html(data);
 		});
 	}

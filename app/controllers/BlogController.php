@@ -33,6 +33,8 @@ class BlogController extends BaseController {
 	 * ajax
 	 */
 	function ajax() {
+
+		# Construct chained Eloquent statement based on input
 		$posts = Post::orderBy('publish_date', 'desc');
 
 		if (Input::has('search')) {
@@ -42,13 +44,22 @@ class BlogController extends BaseController {
 				->orWhere('content', 'like', '%' . Input::get('search') . '%');
 		}
 		
-		if (Input::has('year')) $posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
+		if (Input::has('year')) {
+			$posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
+		}
 
-		# Highlight search results
+		if (Input::has('tags')) {
+		    $posts->whereHas('tags', function($query) {
+				$query->whereIn('id', Input::get('tags'));
+			});
+		}
+
 		$posts = $posts->take(10)->get();
 
+		# Highlight search terms
 		$posts = BaseController::highlightResults($posts, array('title', 'excerpt'));
 
+		# Return HTML view
 		return View::make('blog.posts', array('posts'=>$posts));
 	}
 

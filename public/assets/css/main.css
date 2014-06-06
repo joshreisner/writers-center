@@ -77,6 +77,8 @@ form div.checkbox {
     background-color: #c9cdc4;
     text-align: center;
     color: #494f43; }
+    form div.checkbox .chkbox input {
+      display: none; }
     form div.checkbox .chkbox i {
       visibility: hidden; }
     form div.checkbox .chkbox.active i {
@@ -552,6 +554,7 @@ body {
       border-width: 3px;
       border-style: solid;
       padding: 20px 20px 5px;
+      background-color: white;
       box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
     body .row.page .side .wallpaper {
       position: relative;
