@@ -34,8 +34,8 @@ class EventController extends BaseController {
 			->first();
 		return View::make('events.event', array(
 			'title'=>$event->title,
-			'years'=>array(2014, 2013, 2012, 2011, 2010, 2009, 2008, 2007, 2006),
 			'event'=>$event,
+			'next'=>Event::orderBy('start', 'desc')->first(),
 			'class'=>'events',
 		));
 	}

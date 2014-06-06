@@ -326,6 +326,8 @@ body.home .promos {
         text-transform: uppercase; }
 body.home .supporters {
   padding-top: 30px; }
+  body.home .supporters img {
+    margin-top: 4px; }
 
 body {
   font-size: 14px;
@@ -337,7 +339,8 @@ body {
   body.default form.switchboard input[type=text], body.home .promo.default input[type=text] {
     border-color: #494f43; }
   body.default form.switchboard .btn-group.dropdown button, body.home .promo.default .btn-group.dropdown button {
-    background-color: #c9cdc4; }
+    background-color: #c9cdc4;
+    color: #494f43; }
   body.default form.switchboard .btn-group.dropdown span.caret, body.home .promo.default .btn-group.dropdown span.caret {
     color: #494f43; }
   body.default form.switchboard .btn-group.dropdown ul, body.home .promo.default .btn-group.dropdown ul {
@@ -350,7 +353,8 @@ body {
   body.about form.switchboard input[type=text], body.home .promo.about input[type=text] {
     border-color: #298c76; }
   body.about form.switchboard .btn-group.dropdown button, body.home .promo.about .btn-group.dropdown button {
-    background-color: #c6eee5; }
+    background-color: #c6eee5;
+    color: #298c76; }
   body.about form.switchboard .btn-group.dropdown span.caret, body.home .promo.about .btn-group.dropdown span.caret {
     color: #298c76; }
   body.about form.switchboard .btn-group.dropdown ul, body.home .promo.about .btn-group.dropdown ul {
@@ -363,7 +367,8 @@ body {
   body.courses form.switchboard input[type=text], body.home .promo.courses input[type=text] {
     border-color: #325435; }
   body.courses form.switchboard .btn-group.dropdown button, body.home .promo.courses .btn-group.dropdown button {
-    background-color: #b3d2b6; }
+    background-color: #b3d2b6;
+    color: #325435; }
   body.courses form.switchboard .btn-group.dropdown span.caret, body.home .promo.courses .btn-group.dropdown span.caret {
     color: #325435; }
   body.courses form.switchboard .btn-group.dropdown ul, body.home .promo.courses .btn-group.dropdown ul {
@@ -376,7 +381,8 @@ body {
   body.events form.switchboard input[type=text], body.home .promo.events input[type=text] {
     border-color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown button, body.home .promo.events .btn-group.dropdown button {
-    background-color: #f6ddbf; }
+    background-color: #f6ddbf;
+    color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown span.caret, body.home .promo.events .btn-group.dropdown span.caret {
     color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown ul, body.home .promo.events .btn-group.dropdown ul {
@@ -389,7 +395,8 @@ body {
   body.blog form.switchboard input[type=text], body.home .promo.blog input[type=text] {
     border-color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown button, body.home .promo.blog .btn-group.dropdown button {
-    background-color: #e8e5ea; }
+    background-color: #e8e5ea;
+    color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown span.caret, body.home .promo.blog .btn-group.dropdown span.caret {
     color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown ul, body.home .promo.blog .btn-group.dropdown ul {
@@ -402,7 +409,8 @@ body {
   body.publications form.switchboard input[type=text], body.home .promo.publications input[type=text] {
     border-color: #c65146; }
   body.publications form.switchboard .btn-group.dropdown button, body.home .promo.publications .btn-group.dropdown button {
-    background-color: #de9a94; }
+    background-color: #de9a94;
+    color: #c65146; }
   body.publications form.switchboard .btn-group.dropdown span.caret, body.home .promo.publications .btn-group.dropdown span.caret {
     color: #c65146; }
   body.publications form.switchboard .btn-group.dropdown ul, body.home .promo.publications .btn-group.dropdown ul {
@@ -415,7 +423,8 @@ body {
   body.contact form.switchboard input[type=text], body.home .promo.contact input[type=text] {
     border-color: #4b5245; }
   body.contact form.switchboard .btn-group.dropdown button, body.home .promo.contact .btn-group.dropdown button {
-    background-color: #cbcfc7; }
+    background-color: #cbcfc7;
+    color: #4b5245; }
   body.contact form.switchboard .btn-group.dropdown span.caret, body.home .promo.contact .btn-group.dropdown span.caret {
     color: #4b5245; }
   body.contact form.switchboard .btn-group.dropdown ul, body.home .promo.contact .btn-group.dropdown ul {

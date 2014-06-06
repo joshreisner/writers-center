@@ -129,7 +129,7 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null)
 		<div class="btn-group dropdown" data-name="' . $name . '">
 			<input type="hidden" name="' . $name . '" value="' . $selected . '">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-				<span class="selected"></span>
+				<span class="selected">Any</span>
 				<span class="caret"></span>
 			</button>
 			' . $options . '

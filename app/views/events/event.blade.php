@@ -31,5 +31,12 @@
 @section('side')
 	<div class="wallpaper">
 		<span>Next Event</span>
+		<h1>
+			{{ $event->title }}
+			<small>{{ $event->start->format('M d, Y g:i a') }}</small>
+		</h1>
+		<div class="description">
+			{{ $event->description }}
+		</div>
 	</div>
 @endsection

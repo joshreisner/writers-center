@@ -12,6 +12,13 @@ $(function(){
 		}
 	});	
 
+	//scroll
+	$(window).scroll(function(e){
+	    var height = $(window).scrollTop();
+	    console.log(height);
+	    $(".banner").css("opacity", (100 - height) / 100);
+	});
+
 	//login
 	$("a.login").click(function(e){
 		e.preventDefault();
@@ -36,6 +43,7 @@ $(function(){
 		$(this).find(".chkbox").toggleClass("active");
 	});
 
+	//capture switchboard submit
 	$("form.switchboard").submit(function(){
 		updateSwitchboard($(this));
 		return false;
