@@ -112,6 +112,9 @@ h2 {
   font-size: 1.9rem;
   text-transform: uppercase; }
 
+mark {
+  color: inherit; }
+
 figure {
   margin: 5px 20px 20px -60px;
   float: left;

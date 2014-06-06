@@ -1,7 +1,7 @@
 @extends('page')
 
 @section('content')
-	<div class="col-md-offset-1">
+	<div class="col-md-offset-1 target">
 		@include('blog.posts')
 	</div>
 @endsection

@@ -66,7 +66,7 @@ $(function(){
 	function updateSwitchboard(which) {
 		$.get("/" + which.attr("data-model") + "/ajax", which.serializeArray(), function(data){
 			console.log('updating switchboard with ' + which.serializeArray());
-			$(".page .content .inner div").html(data);
+			$(".page .content .inner div.target").html(data);
 		});
 	}
 
