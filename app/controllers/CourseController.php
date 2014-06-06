@@ -16,10 +16,10 @@ class CourseController extends BaseController {
 		return View::make('courses.index', array(
 			'title'				=>'Courses',
 			'genres'			=>$genres,
-			'genre_select'		=>Genre::orderBy('title')->lists('title', 'id'),
-			'instructor_select'	=>Instructor::orderBy('name')->lists('name', 'id'),
-			'duration_select'	=>array('workshop'=>'Workshop', 'intensive'=>'1-day Intensive', 'course'=>'Multi-week Course'),
-			'day_select'		=>array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+			'genre_select'		=>self::getGenreList(),
+			'instructor_select'	=>self::getInstructorList(),
+			'duration_select'	=>self::getDurationList(),
+			'day_select'		=>self::getDayList(),
 			'class'				=>'courses',
 		));		
 	}
@@ -82,6 +82,34 @@ class CourseController extends BaseController {
 
 		# Return
 		return View::make('courses.genres', array('genres'=>$genres));
+	}
+
+	/**
+	 * populate instructor select on course.index or home
+	 */
+	public static function getInstructorList() {
+		return Instructor::orderBy('name')->lists('name', 'id');
+	}
+
+	/**
+	 * populate genre select on course.index or home
+	 */
+	public static function getGenreList() {
+		return Genre::orderBy('title')->lists('title', 'id');
+	}
+
+	/**
+	 * populate day select on course.index or home
+	 */
+	public static function getDayList() {
+		return array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+	}
+
+	/**
+	 * populate duration select on course.index or home
+	 */
+	public static function getDurationList() {
+		return array('workshop'=>'Workshop', 'intensive'=>'1-day Intensive', 'course'=>'Multi-week Course');
 	}
 
 	/**

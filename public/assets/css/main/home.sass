@@ -7,7 +7,7 @@ body.home
 		
 		button
 			&.slick-prev
-				left: 20px 
+				left: 20px
 			&.slick-next
 				right: 60px
 			&::before
@@ -56,10 +56,13 @@ body.home
 						color: $color
 						&:hover
 							text-decoration: none
+
 		&.slick-initialized
 			visibility: visible
 
 	.promos
+		padding-top: $margin * 2
+
 		div.promo
 			border: $border-width solid $default
 			height: $promo-height
@@ -118,3 +121,6 @@ body.home
 					line-height: 1
 					text-align: center
 					text-transform: uppercase
+
+	.supporters
+		padding-top: $margin * 2

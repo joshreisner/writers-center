@@ -2015,12 +2015,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "044085422005aa3258fb3f710a7bf0202011f259"
+                "reference": "efa2b935a1305a578aef7fc22a28ad5204969927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/044085422005aa3258fb3f710a7bf0202011f259",
-                "reference": "044085422005aa3258fb3f710a7bf0202011f259",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/efa2b935a1305a578aef7fc22a28ad5204969927",
+                "reference": "efa2b935a1305a578aef7fc22a28ad5204969927",
                 "shasum": ""
             },
             "require": {
@@ -2061,7 +2061,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-05-26 19:02:40"
+            "time": "2014-06-06 03:57:03"
         },
         {
             "name": "symfony/http-kernel",
