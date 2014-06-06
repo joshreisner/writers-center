@@ -28,6 +28,7 @@ body
 							background-color: $light
 			.chkbox
 				background-color: $color
+				color: $lighter
 
 	.row
 		padding-top: $margin * 2
@@ -142,6 +143,15 @@ body
 						color: $default
 						&:hover
 							color: $default
+					p, .description, span
+						color: $default
+					h1
+						+font("md")
+						small
+							color: $default
+							display: block
+							+font("sm", "mono")
+							margin-bottom: $margin / 2
 					&::after
 						content: ""
 						opacity: 0.3
@@ -190,18 +200,17 @@ body
 		.page
 			.content
 				ul 
+					+font("sm")
 					list-style-type: none
 					&.instructors
 						padding: 0
 						overflow: auto
-						margin-top: $margin
 						li
 							overflow: auto
 							img
 								float: left
-								margin: 6px $margin 10px 0
+								margin: 4px $margin 10px 0
 					&.courses
-						+font("sm")
 						a
 							+font("md")
 

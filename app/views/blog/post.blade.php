@@ -18,6 +18,14 @@
 
 		{{ $post->content }}
 		
+		<dl>
+			<dt>Tags</dt>
+			<dd>
+				@foreach ($post->tags as $tag)
+				<div>{{ $tag->title }}</div>
+				@endforeach
+			</dd>
+		</dl>
 		@if (!empty($post->action_url))
 		<a class="btn btn-primary" href="{{ $post->action_url }}">{{ $post->action or 'Click here' }}</a>
 		@endif		
@@ -28,7 +36,10 @@
 	<div class="wallpaper">
 		<span>Recent posts</span>
 		@foreach ($related as $post)
-		<h3><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h3>
+		<h1>
+			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
+			<a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
+		</h1>
 		@endforeach
 	</div>
 @endsection

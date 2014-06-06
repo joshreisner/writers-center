@@ -139,5 +139,5 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null)
 
 Form::macro('chkbox', function($name, $value)
 {
-	return '<div class="chkbox"><i class="dashicons dashicons-yes"></i></div>';
+	return '<div class="chkbox"><i class="dashicons dashicons-no"></i></div>';
 });

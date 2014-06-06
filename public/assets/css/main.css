@@ -78,9 +78,6 @@ form div.checkbox {
     text-align: center;
     color: #494f43; }
     form div.checkbox .chkbox i {
-      font-size: 180%;
-      line-height: 0.9;
-      margin-left: -3px;
       visibility: hidden; }
     form div.checkbox .chkbox.active i {
       visibility: visible; }
@@ -344,7 +341,8 @@ body {
     body.default form.switchboard .btn-group.dropdown ul li.active a, body.default form.switchboard .btn-group.dropdown ul li a:hover, body.default form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.default .btn-group.dropdown ul li.active a, body.home .promo.default .btn-group.dropdown ul li a:hover, body.home .promo.default .btn-group.dropdown ul li.divider {
       background-color: #c9cdc4; }
   body.default form.switchboard .chkbox, body.home .promo.default .chkbox {
-    background-color: #494f43; }
+    background-color: #494f43;
+    color: #e2e4e0; }
   body.about form.switchboard input[type=text], body.home .promo.about input[type=text] {
     border-color: #298c76; }
   body.about form.switchboard .btn-group.dropdown button, body.home .promo.about .btn-group.dropdown button {
@@ -356,7 +354,8 @@ body {
     body.about form.switchboard .btn-group.dropdown ul li.active a, body.about form.switchboard .btn-group.dropdown ul li a:hover, body.about form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.about .btn-group.dropdown ul li.active a, body.home .promo.about .btn-group.dropdown ul li a:hover, body.home .promo.about .btn-group.dropdown ul li.divider {
       background-color: #c6eee5; }
   body.about form.switchboard .chkbox, body.home .promo.about .chkbox {
-    background-color: #298c76; }
+    background-color: #298c76;
+    color: #edfaf7; }
   body.courses form.switchboard input[type=text], body.home .promo.courses input[type=text] {
     border-color: #325435; }
   body.courses form.switchboard .btn-group.dropdown button, body.home .promo.courses .btn-group.dropdown button {
@@ -368,7 +367,8 @@ body {
     body.courses form.switchboard .btn-group.dropdown ul li.active a, body.courses form.switchboard .btn-group.dropdown ul li a:hover, body.courses form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.courses .btn-group.dropdown ul li.active a, body.home .promo.courses .btn-group.dropdown ul li a:hover, body.home .promo.courses .btn-group.dropdown ul li.divider {
       background-color: #b3d2b6; }
   body.courses form.switchboard .chkbox, body.home .promo.courses .chkbox {
-    background-color: #325435; }
+    background-color: #325435;
+    color: #d3e5d5; }
   body.events form.switchboard input[type=text], body.home .promo.events input[type=text] {
     border-color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown button, body.home .promo.events .btn-group.dropdown button {
@@ -380,7 +380,8 @@ body {
     body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.events .btn-group.dropdown ul li.active a, body.home .promo.events .btn-group.dropdown ul li a:hover, body.home .promo.events .btn-group.dropdown ul li.divider {
       background-color: #f6ddbf; }
   body.events form.switchboard .chkbox, body.home .promo.events .chkbox {
-    background-color: #9f6117; }
+    background-color: #9f6117;
+    color: #f6ddbf; }
   body.blog form.switchboard input[type=text], body.home .promo.blog input[type=text] {
     border-color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown button, body.home .promo.blog .btn-group.dropdown button {
@@ -392,7 +393,8 @@ body {
     body.blog form.switchboard .btn-group.dropdown ul li.active a, body.blog form.switchboard .btn-group.dropdown ul li a:hover, body.blog form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.blog .btn-group.dropdown ul li.active a, body.home .promo.blog .btn-group.dropdown ul li a:hover, body.home .promo.blog .btn-group.dropdown ul li.divider {
       background-color: #e8e5ea; }
   body.blog form.switchboard .chkbox, body.home .promo.blog .chkbox {
-    background-color: #695d73; }
+    background-color: #695d73;
+    color: #f4f3f5; }
   body.publications form.switchboard input[type=text], body.home .promo.publications input[type=text] {
     border-color: #c65146; }
   body.publications form.switchboard .btn-group.dropdown button, body.home .promo.publications .btn-group.dropdown button {
@@ -404,7 +406,8 @@ body {
     body.publications form.switchboard .btn-group.dropdown ul li.active a, body.publications form.switchboard .btn-group.dropdown ul li a:hover, body.publications form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.publications .btn-group.dropdown ul li.active a, body.home .promo.publications .btn-group.dropdown ul li a:hover, body.home .promo.publications .btn-group.dropdown ul li.divider {
       background-color: #de9a94; }
   body.publications form.switchboard .chkbox, body.home .promo.publications .chkbox {
-    background-color: #c65146; }
+    background-color: #c65146;
+    color: #f6e4e2; }
   body.contact form.switchboard input[type=text], body.home .promo.contact input[type=text] {
     border-color: #4b5245; }
   body.contact form.switchboard .btn-group.dropdown button, body.home .promo.contact .btn-group.dropdown button {
@@ -416,7 +419,8 @@ body {
     body.contact form.switchboard .btn-group.dropdown ul li.active a, body.contact form.switchboard .btn-group.dropdown ul li a:hover, body.contact form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.contact .btn-group.dropdown ul li.active a, body.home .promo.contact .btn-group.dropdown ul li a:hover, body.home .promo.contact .btn-group.dropdown ul li.divider {
       background-color: #cbcfc7; }
   body.contact form.switchboard .chkbox, body.home .promo.contact .chkbox {
-    background-color: #4b5245; }
+    background-color: #4b5245;
+    color: #e4e7e2; }
   body .row {
     padding-top: 30px; }
     body .row.banner {
@@ -558,6 +562,23 @@ body {
           color: #494f43; }
           body .row.page .side .wallpaper a:hover {
             color: #494f43; }
+        body .row.page .side .wallpaper p, body .row.page .side .wallpaper .description, body .row.page .side .wallpaper span {
+          color: #494f43; }
+        body .row.page .side .wallpaper h1 {
+          font-size: 19px;
+          font-size: 1.9rem;
+          font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+          font-weight: normal;
+          font-style: normal; }
+          body .row.page .side .wallpaper h1 small {
+            color: #494f43;
+            display: block;
+            font-size: 14px;
+            font-size: 1.4rem;
+            font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+            font-weight: normal;
+            font-style: normal;
+            margin-bottom: 7.5px; }
         body .row.page .side .wallpaper::after {
           content: "";
           opacity: 0.3;
@@ -704,28 +725,26 @@ body {
   body.about .wallpaper {
     text-transform: uppercase; }
   body.courses .page .content ul {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
     list-style-type: none; }
     body.courses .page .content ul.instructors {
       padding: 0;
-      overflow: auto;
-      margin-top: 15px; }
+      overflow: auto; }
       body.courses .page .content ul.instructors li {
         overflow: auto; }
         body.courses .page .content ul.instructors li img {
           float: left;
-          margin: 6px 15px 10px 0; }
-    body.courses .page .content ul.courses {
-      font-size: 14px;
-      font-size: 1.4rem;
+          margin: 4px 15px 10px 0; }
+    body.courses .page .content ul.courses a {
+      font-size: 19px;
+      font-size: 1.9rem;
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal; }
-      body.courses .page .content ul.courses a {
-        font-size: 19px;
-        font-size: 1.9rem;
-        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-        font-weight: normal;
-        font-style: normal; }
   body.events .page .content div.event div.date {
     font-weight: bold; }
   body.events .page .content div.event div.description {

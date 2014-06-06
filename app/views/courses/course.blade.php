@@ -33,9 +33,9 @@
 
 		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)
-				<h3>About the Instructor</h3>
+				<h2>About the Instructor</h2>
 			@else
-				<h3>About the Instructors</h3>
+				<h2>About the Instructors</h2>
 			@endif
 
 		<ul class="instructors">
@@ -55,10 +55,10 @@
 @section('side')
 	<div class="wallpaper">
 		<span>You might also like</span>
-		<h2>
+		<h1>
 			<a href="/courses/{{ $related->slug }}">{{ $related->title }}</a>
 			<small>with {{ CourseController::formatInstructors($related) }}</small>
-		</h2>
+		</h1>
 		<div class="description">{{ $related->description }}</div>
 	</div>
 @endsection
