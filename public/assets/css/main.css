@@ -434,6 +434,14 @@ body {
   body.contact form.switchboard .chkbox, body.home .promo.contact .chkbox {
     background-color: #4b5245;
     color: #e4e7e2; }
+  body .background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10;
+    opacity: 0; }
   body .row.banner {
     padding-top: 15px;
     height: 127px; }
@@ -602,6 +610,8 @@ body {
         left: 0;
         bottom: 0;
         right: 0; }
+  body.default .background {
+    background: url(/assets/img/background-default.png) center center no-repeat; }
   body.default a, body.default small {
     color: #494f43; }
   body.default .page .inner {
@@ -621,6 +631,8 @@ body {
     background-color: rgba(73, 79, 67, 0.2); }
   body.default .page .side ul li.active a {
     color: #494f43; }
+  body.about .background {
+    background: url(/assets/img/background-about.png) center center no-repeat; }
   body.about a, body.about small {
     color: #298c76; }
   body.about .page .inner {
@@ -640,6 +652,8 @@ body {
     background-color: rgba(41, 140, 118, 0.2); }
   body.about .page .side ul li.active a {
     color: #298c76; }
+  body.courses .background {
+    background: url(/assets/img/background-courses.png) center center no-repeat; }
   body.courses a, body.courses small {
     color: #325435; }
   body.courses .page .inner {
@@ -659,6 +673,8 @@ body {
     background-color: rgba(50, 84, 53, 0.2); }
   body.courses .page .side ul li.active a {
     color: #325435; }
+  body.events .background {
+    background: url(/assets/img/background-events.png) center center no-repeat; }
   body.events a, body.events small {
     color: #9f6117; }
   body.events .page .inner {
@@ -678,6 +694,8 @@ body {
     background-color: rgba(159, 97, 23, 0.2); }
   body.events .page .side ul li.active a {
     color: #9f6117; }
+  body.blog .background {
+    background: url(/assets/img/background-blog.png) center center no-repeat; }
   body.blog a, body.blog small {
     color: #695d73; }
   body.blog .page .inner {
@@ -697,6 +715,8 @@ body {
     background-color: rgba(105, 93, 115, 0.2); }
   body.blog .page .side ul li.active a {
     color: #695d73; }
+  body.publications .background {
+    background: url(/assets/img/background-publications.png) center center no-repeat; }
   body.publications a, body.publications small {
     color: #c65146; }
   body.publications .page .inner {
@@ -716,6 +736,8 @@ body {
     background-color: rgba(198, 81, 70, 0.2); }
   body.publications .page .side ul li.active a {
     color: #c65146; }
+  body.contact .background {
+    background: url(/assets/img/background-contact.png) center center no-repeat; }
   body.contact a, body.contact small {
     color: #4b5245; }
   body.contact .page .inner {

@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="/assets/css/main.css">
 	</head>
 	<body class="{{ $class or '' }}">
+		<div class="background"></div>
 		<div class="container">
 			<div class="row banner">
 				<div class="col-md-4">

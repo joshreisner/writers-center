@@ -15,8 +15,16 @@ $(function(){
 	//scroll
 	$(window).scroll(function(e){
 	    var height = $(window).scrollTop();
-	    console.log(height);
-	    $(".banner").css("opacity", (100 - height) / 100);
+	    //console.log(height);
+	    
+	    var banner_opacity = (100 - height) / 100;
+	    if (banner_opacity < 0) banner_opacity = 0;
+	    $(".banner").css("opacity", banner_opacity);
+	    
+	    var background_opacity = height / 1000;
+	    if (background_opacity > .1) background_opacity = .1;
+	    $(".background").css("opacity", background_opacity);
+
 	});
 
 	//login
