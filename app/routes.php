@@ -36,20 +36,22 @@ Route::get('/', function()
 });
 
 
-# Complex-ish sections
+# Main sections
 
 Route::get('/about', 						'AboutController@index');
 Route::get('/about/{slug}',					'AboutController@show');
 Route::get('/courses', 						'CourseController@index');
-Route::get('/courses/ajax', 				'CourseController@ajax');
 Route::get('/courses/{slug}',				'CourseController@show');
+Route::get('/courses/ajax', 				'CourseController@ajax');
 Route::get('/events',						'EventController@index');
 Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
+Route::get('/events/ajax',					'EventController@ajax');
 Route::get('/blog',							'BlogController@index');
-Route::get('/blog/ajax', 					'BlogController@ajax');
 Route::get('/blog/{slug}', 					'BlogController@show');
+Route::get('/blog/ajax', 					'BlogController@ajax');
 Route::get('/publications',					'PublicationController@index');
 Route::get('/publications/{slug}', 			'PublicationController@show');
+Route::get('/publications/ajax', 			'PublicationController@ajax');
 
 
 # Contact

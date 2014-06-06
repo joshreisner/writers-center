@@ -388,12 +388,12 @@ body {
   body.events form.switchboard .btn-group.dropdown span.caret, body.home .promo.events .btn-group.dropdown span.caret {
     color: #9f6117; }
   body.events form.switchboard .btn-group.dropdown ul, body.home .promo.events .btn-group.dropdown ul {
-    background-color: #f6ddbf; }
+    background-color: #fcf5ec; }
     body.events form.switchboard .btn-group.dropdown ul li.active a, body.events form.switchboard .btn-group.dropdown ul li a:hover, body.events form.switchboard .btn-group.dropdown ul li.divider, body.home .promo.events .btn-group.dropdown ul li.active a, body.home .promo.events .btn-group.dropdown ul li a:hover, body.home .promo.events .btn-group.dropdown ul li.divider {
       background-color: #f6ddbf; }
   body.events form.switchboard .chkbox, body.home .promo.events .chkbox {
     background-color: #9f6117;
-    color: #f6ddbf; }
+    color: #fcf5ec; }
   body.blog form.switchboard input[type=text], body.home .promo.blog input[type=text] {
     border-color: #695d73; }
   body.blog form.switchboard .btn-group.dropdown button, body.home .promo.blog .btn-group.dropdown button {
@@ -473,8 +473,8 @@ body {
         text-transform: uppercase;
         font-size: 19px;
         font-size: 1.9rem;
-        font-family: "Apercu Pro Bold", Helvetica, Arial, sans-serif;
-        font-weight: bold;
+        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+        font-weight: normal;
         font-style: normal;
         display: inline-block; }
       body .row.nav ul li.active a, body .row.nav ul li a:hover {
@@ -688,9 +688,9 @@ body {
       color: white;
       background-color: #9f6117; }
     body.events .page .content figure, body.events .page .content mark {
-      background-color: #f6ddbf; }
+      background-color: #fcf5ec; }
     body.events .page .content blockquote {
-      border-left-color: #f6ddbf; }
+      border-left-color: #fcf5ec; }
   body.events .page .side form.switchboard {
     border-color: #9f6117; }
   body.events .page .side .wallpaper {
