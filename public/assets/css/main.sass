@@ -122,7 +122,8 @@ body
 							clear: left
 							+font("sm", "mono")
 							text-transform: uppercase
-							width: 90px
+							width: 100px
+							padding-top: 4px
 
 			.side
 				form.switchboard
@@ -210,24 +211,37 @@ body
 
 	&.courses
 		.row.page
-			.content .inner
-				h1.group
-					+font(2.8)
+			.content .inner 
+				.target
+					h1.group
+						+font(2.8)
 
-				ul 
-					+font(1.6)
-					list-style-type: none
-					&.instructors
+					ul 
+						+font(1.6)
+						list-style-type: none
+						&.courses
+							a
+								+font(2.5)
+				dl
+					ul
+						list-style-type: none
 						padding: 0
-						overflow: auto
 						li
 							overflow: auto
-							img
-								float: left
-								margin: 4px $margin 10px 0
-					&.courses
-						a
-							+font(2.5)
+						span
+							width: 150px
+							float: left
+
+				ul.instructors
+					+font(1.6)
+					list-style-type: none
+					padding: 0
+					overflow: auto
+					li
+						overflow: auto
+						img
+							float: left
+							margin: 4px $margin 10px 0
 
 	&.events
 		.row.page .content .inner

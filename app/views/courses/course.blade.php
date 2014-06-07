@@ -14,11 +14,25 @@
 		{{ $course->description }}
 
 		<dl>
+			<!--
 			<dt>When</dt>
 			<dd>Six Mondays, 1:30&ndash;3:30 p.m.</dd>
 
 			<dt>Dates</dt>
 			<dd>January 6&ndash;February 24 (No class on January 20 or February 17)</dd>
+			-->
+
+			<dt>Session 1</dt>
+			<dd>
+				<ul>
+					<li><span>August 7</span> 10:30 a.m.–12:30 p.m.</li>
+					<li><span>August 14</span> 10:30 a.m.–12:30 p.m.</li>
+					<li><span>August 21</span> 10:30 a.m.–12:30 p.m.</li>
+					<li><span>August 28</span> 10:30 a.m.–12:30 p.m.</li>
+					<li><span>September 4</span> 10:30 a.m.–12:30 p.m.</li>
+					<li><span>September 11</span> 10:30 a.m.–12:30 p.m.</li>
+				</ul>
+			</dd>
 
 			<dt>Tuition</dt>
 			<dd>${{ $course->tuition_member }} 

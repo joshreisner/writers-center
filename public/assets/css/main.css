@@ -552,7 +552,8 @@ body {
             font-weight: normal;
             font-style: normal;
             text-transform: uppercase;
-            width: 90px; }
+            width: 100px;
+            padding-top: 4px; }
     body .row.page .side form.switchboard {
       border-width: 3px;
       border-style: solid;
@@ -765,33 +766,47 @@ body {
     color: #4b5245; }
   body.about .wallpaper {
     text-transform: uppercase; }
-  body.courses .row.page .content .inner h1.group {
+  body.courses .row.page .content .inner .target h1.group {
     font-size: 28px;
     font-size: 2.8rem;
     font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-style: normal; }
-  body.courses .row.page .content .inner ul {
+  body.courses .row.page .content .inner .target ul {
     font-size: 16px;
     font-size: 1.6rem;
     font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
     font-weight: normal;
     font-style: normal;
     list-style-type: none; }
-    body.courses .row.page .content .inner ul.instructors {
-      padding: 0;
-      overflow: auto; }
-      body.courses .row.page .content .inner ul.instructors li {
-        overflow: auto; }
-        body.courses .row.page .content .inner ul.instructors li img {
-          float: left;
-          margin: 4px 15px 10px 0; }
-    body.courses .row.page .content .inner ul.courses a {
+    body.courses .row.page .content .inner .target ul.courses a {
       font-size: 25px;
       font-size: 2.5rem;
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal; }
+  body.courses .row.page .content .inner dl ul {
+    list-style-type: none;
+    padding: 0; }
+    body.courses .row.page .content .inner dl ul li {
+      overflow: auto; }
+    body.courses .row.page .content .inner dl ul span {
+      width: 150px;
+      float: left; }
+  body.courses .row.page .content .inner ul.instructors {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    list-style-type: none;
+    padding: 0;
+    overflow: auto; }
+    body.courses .row.page .content .inner ul.instructors li {
+      overflow: auto; }
+      body.courses .row.page .content .inner ul.instructors li img {
+        float: left;
+        margin: 4px 15px 10px 0; }
   body.events .row.page .content .inner h1.group {
     font-size: 25px;
     font-size: 2.5rem;
