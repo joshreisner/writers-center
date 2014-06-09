@@ -2,6 +2,8 @@
 
 @section('content')
 
+	<a class="label" href="/events">Events</a>
+
 	<div class="col-md-offset-1">
 		
 		<h1>
@@ -30,7 +32,7 @@
 
 @section('side')
 	<div class="wallpaper">
-		<span>Next Event</span>
+		<span class="label">Next Event</span>
 		<h1>
 			{{ $event->title }}
 			<small>{{ $event->start->format('M d, Y g:i a') }}</small>

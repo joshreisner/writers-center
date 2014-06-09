@@ -2,6 +2,8 @@
 
 @section('content')
 
+	<a class="label" href="/publications">Publications</a>
+
 	<div class="col-md-offset-1">
 		
 		<h1>
@@ -62,7 +64,7 @@
 
 @section('side')
 	<div class="wallpaper">
-		<span>Latest Publications</span>
+		<span class="label">Latest Publications</span>
 		@foreach ($related as $publication)
 			<h3><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></h3>
 		@endforeach

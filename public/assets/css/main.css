@@ -441,12 +441,12 @@ body {
     color: #e4e7e2; }
   body .background {
     position: fixed;
-    top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
+    height: 434px;
     z-index: -10;
-    opacity: 0; }
+    opacity: 0.1;
+    top: 100%; }
   body .row.banner {
     padding-top: 15px;
     height: 127px; }
@@ -503,6 +503,19 @@ body {
   body .row.page {
     padding-top: 7.5px;
     border-color: #494f43; }
+    body .row.page .label {
+      font-size: 12px;
+      font-size: 1.2rem;
+      font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+      font-weight: normal;
+      font-style: normal;
+      text-transform: uppercase;
+      position: absolute;
+      top: 15px;
+      left: 15px; }
+      body .row.page .label:hover {
+        color: inherit;
+        text-decoration: underline; }
     body .row.page .content {
       color: #494f43; }
       body .row.page .content .inner {
@@ -569,16 +582,6 @@ body {
       font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
       font-weight: normal;
       font-style: normal; }
-      body .row.page .side .wallpaper span {
-        font-size: 12px;
-        font-size: 1.2rem;
-        font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-        font-weight: normal;
-        font-style: normal;
-        text-transform: uppercase;
-        position: absolute;
-        top: 15px;
-        left: 15px; }
       body .row.page .side .wallpaper ul {
         margin: 0;
         padding: 0; }

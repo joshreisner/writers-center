@@ -12,6 +12,9 @@ $(function(){
 		}
 	});	
 
+	//init scroller
+	win_height = $(window).height();
+
 	//scroll banners & background
 	$(window).scroll(function(e){
 	    var height = $(window).scrollTop();
@@ -21,9 +24,15 @@ $(function(){
 	    if (banner_opacity < 0) banner_opacity = 0;
 	    $(".banner").css("opacity", banner_opacity);
 	    
-	    var background_opacity = height / 1000;
-	    if (background_opacity > .1) background_opacity = .1;
-	    $(".background").css("opacity", background_opacity);
+	    /*
+		var background_opacity = height / 3000;
+		if (background_opacity > .1) background_opacity = .1;
+		$(".background").css("opacity", background_opacity);
+		*/
+
+	    var offset = win_height - (height / 1.75);
+	    $(".background").css("top", offset + 'px');
+
 
 	});
 

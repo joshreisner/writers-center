@@ -33,12 +33,12 @@ body
 
 	.background
 		position: fixed
-		top: 0
-		bottom: 0
 		left: 0
 		right: 0
+		height: 434px
 		z-index: -10
-		opacity: 0
+		opacity: .1
+		top: 100%
 
 	.row
 		&.banner
@@ -86,6 +86,17 @@ body
 		&.page
 			padding-top: $margin / 2
 			border-color: $default
+
+			.label
+				+font("xs", "mono")
+				text-transform: uppercase
+				position: absolute
+				top: $margin
+				left: $margin
+				&:hover
+					color: inherit
+					text-decoration: underline
+
 			.content
 				color: $default
 				.inner
@@ -138,12 +149,6 @@ body
 					padding: $margin * 2
 					min-height: 400px
 					+font(1.7)
-					span
-						+font("xs", "mono")
-						text-transform: uppercase
-						position: absolute
-						top: $margin
-						left: $margin
 					ul
 						margin: 0
 						padding: 0

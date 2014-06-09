@@ -2,7 +2,10 @@
 
 @section('content')
 
+	<a class="label" href="/courses">Courses</a>
+	
 	<div class="col-md-offset-1">
+
 		<h1>
 			{{ $course->title }}
 			{{ BaseController:: editLink($course) }}
@@ -69,7 +72,7 @@
 
 @section('side')
 	<div class="wallpaper">
-		<span>You might also like</span>
+		<span class="label">You might also like</span>
 		<h1>
 			<a href="/courses/{{ $related->slug }}">{{ $related->title }}</a>
 			<small>with {{ CourseController::formatInstructors($related) }}</small>

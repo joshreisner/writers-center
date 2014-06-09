@@ -1,6 +1,8 @@
 @extends('page')
 
 @section('content')
+	<a class="label" href="/blog">Blog</a>
+
 	<div class="col-md-offset-1">
 		
 		<h1>
