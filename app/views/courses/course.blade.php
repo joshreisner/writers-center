@@ -43,8 +43,8 @@
 				@endif
 			</dd>
 			
-			@if (!empty($course->register_url))
-				<dt><a class="btn btn-primary" href="{{ $course->register_url }}">Register</a></dt>
+			@if (!empty($session->register_url))
+				<dt><a class="btn btn-primary" href="{{ $session->register_url }}">Register</a></dt>
 			@endif
 		</dl>
 		@endforeach
