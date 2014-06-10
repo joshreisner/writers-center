@@ -43,7 +43,6 @@ body
 	.row
 		&.banner
 			padding-top: $margin
-			height: 127px
 			nav#utility
 				float: right
 				a
@@ -326,11 +325,30 @@ body
 	a.logo
 		margin-left: 17.5%
 
-
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px)
+	a.logo
+		height: 93px
+
+	body.home
+		.carousel
+			.item
+				h1
+					left: 60px
+
+
+				.description
+					display: block
 
 
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px)
+	a.logo
+		height: 112px
+
+	body.home
+		.carousel
+			.item
+				h1
+					+font("xl")

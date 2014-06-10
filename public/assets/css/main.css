@@ -155,41 +155,44 @@ body.home .carousel {
     width: 654px; }
     body.home .carousel .item .inner {
       margin: 0 7.5px;
-      position: relative; }
-      body.home .carousel .item .inner h1 {
-        font-size: 42px;
-        font-size: 4.2rem;
-        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        left: 60px;
-        line-height: 1.3;
-        position: absolute;
-        top: 40px; }
-      body.home .carousel .item .inner img {
-        height: auto;
-        opacity: 0.15;
-        width: 100%; }
-      body.home .carousel .item .inner .description {
-        font-size: 19px;
-        font-size: 1.9rem;
-        font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
-        font-weight: normal;
-        font-style: normal;
-        left: 60px;
-        position: absolute;
-        text-transform: uppercase;
-        top: 260px; }
-      body.home .carousel .item .inner .type {
-        font-size: 14px;
-        font-size: 1.4rem;
-        font-family: "Apercu Mono Pro Regular", Monaco, monospace;
-        font-weight: normal;
-        font-style: normal;
-        left: 20px;
-        position: absolute;
-        text-transform: uppercase;
-        top: 20px; }
+      position: relative;
+      overflow: hidden; }
+    body.home .carousel .item h1 {
+      font-size: 36px;
+      font-size: 3.6rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      left: 20px;
+      line-height: 1.3;
+      position: absolute;
+      top: 40px;
+      width: 90%; }
+    body.home .carousel .item img {
+      min-height: 100%;
+      opacity: 0.15;
+      min-width: 100%; }
+    body.home .carousel .item .description {
+      font-size: 19px;
+      font-size: 1.9rem;
+      font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      left: 60px;
+      position: absolute;
+      text-transform: uppercase;
+      top: 260px;
+      display: none; }
+    body.home .carousel .item .type {
+      font-size: 14px;
+      font-size: 1.4rem;
+      font-family: "Apercu Mono Pro Regular", Monaco, monospace;
+      font-weight: normal;
+      font-style: normal;
+      left: 20px;
+      position: absolute;
+      text-transform: uppercase;
+      top: 20px; }
     body.home .carousel .item.default .inner {
       background-color: rgba(73, 79, 67, 0.3);
       color: #494f43; }
@@ -245,8 +248,9 @@ body.home .promos {
   padding-top: 30px; }
   body.home .promos div.promo {
     border: 3px solid #494f43;
-    height: 180px;
+    min-height: 180px;
     position: relative;
+    margin-bottom: 15px;
     box-shadow: 5px 5px 5px rgba(73, 79, 67, 0.5); }
     body.home .promos div.promo.default {
       border-color: #494f43; }
@@ -452,8 +456,7 @@ body {
     opacity: 0.1;
     top: 100%; }
   body .row.banner {
-    padding-top: 15px;
-    height: 127px; }
+    padding-top: 15px; }
     body .row.banner nav#utility {
       float: right; }
       body .row.banner nav#utility a {
@@ -897,4 +900,22 @@ body {
   a.logo {
     margin-left: 17.5%; } }
 /* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  a.logo {
+    height: 93px; }
+
+  body.home .carousel .item h1 {
+    left: 60px; }
+  body.home .carousel .item .description {
+    display: block; } }
 /* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  a.logo {
+    height: 112px; }
+
+  body.home .carousel .item h1 {
+    font-size: 42px;
+    font-size: 4.2rem;
+    font-family: "Apercu Pro Regular", Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    font-style: normal; } }

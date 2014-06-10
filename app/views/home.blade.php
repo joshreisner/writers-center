@@ -9,7 +9,17 @@
         		centerMode: true,
 				centerPadding: '260px',
     			slidesToShow: 1,
-    			infinite: true
+    			infinite: true,
+    			responsive: [
+    				{
+    					breakpoint: 400,
+    					settings: {
+    						infinite: false,
+    						centerPadding: 0,
+    						arrows: false
+    					}
+    				}
+    			]
 			});
         });
     </script>	
@@ -128,33 +138,31 @@
 			</div>
 			<div class="col-md-4">
 				<div class="promo publications">
-					<a href="/support">Support the Center</a>
+					<a href="#">Support the Center</a>
 				</div>
 			</div>
 		</div>
 		<div class="row supporters">
-				<div class="col-md-1"></div>
-				<div class="col-md-7">
-					<p>Programs and events at The Hudson Valley Writers' Center are made possible in part by grants from the 
-						Bydale Foundation, 
-						David G. Taft Foundation, 
-						Orchard Foundation, 
-						William E. Robinson Foundation, and 
-						Thendara Foundation; with public funds from the 
-						<a href="http://www.nysca.org/">New York State Council on the Arts</a>, a State Agency, and the 
-						<a href="http://www.nea.gov/">National Endowment for the Arts</a>; and by the Basic Program Support Grant of 
-						<a href="http://www.westarts.com/">Arts Westchester</a> with funds from Westchester County Government.</p>
-				</div>
-				<div class="col-md-1">
-					<a href=""><img src="/assets/img/supporter-artswestchester.png" width="330" height="299" class="img-responsive"></a>
-				</div>
-				<div class="col-md-1">
-					<a href=""><img src="/assets/img/supporter-nea.png" width="200" height="249" class="img-responsive"></a>
-				</div>
-				<div class="col-md-1">
-					<a href=""><img src="/assets/img/supporter-nysca.png" width="397" height="511" class="img-responsive"></a>
-				</div>
-				<div class="col-md-1"></div>
+			<div class="col-md-7 col-md-offset-1">
+				<p>Programs and events at The Hudson Valley Writers' Center are made possible in part by grants from the 
+					Bydale Foundation, 
+					David G. Taft Foundation, 
+					Orchard Foundation, 
+					William E. Robinson Foundation, and 
+					Thendara Foundation; with public funds from the 
+					<a href="http://www.nysca.org/">New York State Council on the Arts</a>, a State Agency, and the 
+					<a href="http://www.nea.gov/">National Endowment for the Arts</a>; and by the Basic Program Support Grant of 
+					<a href="http://www.westarts.com/">Arts Westchester</a> with funds from Westchester County Government.</p>
+			</div>
+			<div class="col-md-1 col-xs-4">
+				<a href=""><img src="/assets/img/supporter-artswestchester.png" width="330" height="299" class="img-responsive"></a>
+			</div>
+			<div class="col-md-1 col-xs-4">
+				<a href=""><img src="/assets/img/supporter-nea.png" width="200" height="249" class="img-responsive"></a>
+			</div>
+			<div class="col-md-1 col-xs-4">
+				<a href=""><img src="/assets/img/supporter-nysca.png" width="397" height="511" class="img-responsive"></a>
+			</div>
 		</div>
 	</div>
 

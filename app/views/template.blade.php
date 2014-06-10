@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>{{ $title or $default_title }}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
 		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
@@ -13,11 +14,11 @@
 		<div class="background"></div>
 		<div class="container">
 			<div class="row banner">
-				<div class="col-md-4">
+				<div class="col-md-4 col-xs-9">
 					<a href="/" class="logo"><img src="/assets/img/logo-{{ $class or 'default' }}.png" width="290" height="112" class="img-responsive"></a>
 				</div>
-				<div class="col-md-8">
-					<nav id="utility" class="hidden-xs">
+				<div class="col-md-8 hidden-xs">
+					<nav id="utility">
 						<!--
 						<a class="login">Log In</a>
 						<a href="/support">Support the Center</a>
