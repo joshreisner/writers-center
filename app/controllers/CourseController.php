@@ -25,6 +25,7 @@ class CourseController extends BaseController {
 			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
 			'class'				=>'courses',
+			'years'				=>array(2014=>2014),
 		));		
 	}
 
@@ -57,19 +58,40 @@ class CourseController extends BaseController {
 
 		$courses = Course::with('genres', 'instructors');
 
-		if (Input::has('instructor')) {
-			$courses->whereHas('instructors', function($q) {
-			    $q->where('id', Input::get('instructor'));
-			});
-		}
 		if (Input::has('genre')) {
 			$courses->where('genre_id', Input::get('genre'));
 		}
-
+		if (Input::has('day')) {
+			$courses->whereHas('sessions', function($query){
+				$query->where('day_id', Input::get('day'));
+			});
+		}
+		if (Input::has('duration')) {
+			$courses->whereHas('sessions', function($query) {
+				if (Input::get('duration') == 'intensive') {
+				    $query->where('classes', 1);
+				} else {
+				    $query->where('classes', '>', 1);
+				}
+			});
+		}
+		if (Input::has('instructor')) {
+			$courses->whereHas('instructors', function($query) {
+			    $query->where('id', Input::get('instructor'));
+			});
+		}
 		if (Input::has('search')) {
 			$courses->where('title', 'like', '%' . Input::get('search') . '%');
 		}
-
+		if (Input::has('year')) {
+			$courses->whereHas('sessions', function($query){
+				$query->where(DB::raw('YEAR(start_date)'), '=', Input::get('year'));
+			});
+		} else {
+			$courses->whereHas('sessions', function($query){
+				$query->where('start_date', '>', new DateTime());
+			});
+		}
 		$courses = $courses->get();
 
 		foreach ($courses as $course) {
@@ -101,14 +123,14 @@ class CourseController extends BaseController {
 	 * populate day select on course.index or home
 	 */
 	public static function getDayList() {
-		return array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+		return Day::orderBy('precedence')->lists('title', 'id');
 	}
 
 	/**
 	 * populate duration select on course.index or home
 	 */
 	public static function getDurationList() {
-		return array('workshop'=>'Workshop', 'intensive'=>'1-day Intensive', 'course'=>'Multi-week Course');
+		return array('intensive'=>'1-day Intensive', 'course'=>'Multi-week Course');
 	}
 
 	/**

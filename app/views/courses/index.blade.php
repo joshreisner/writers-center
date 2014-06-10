@@ -9,7 +9,7 @@
 @section('side')
 	<form class="switchboard form-horizontal" data-model="courses">
 		<div class="form-group">
-			<label for="genre" class="col-md-3">Search</label>
+			<label for="search" class="col-md-3">Search</label>
 			<div class="col-md-9">{{ Form::text('search', false, array('class'=>'form-control')) }}</div>
 		</div>
 		<div class="form-group">
@@ -17,16 +17,20 @@
 			<div class="col-md-9">{{ Form::dropdown('genre', $genre_select) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="tags" class="col-md-3">When</label>
-			<div class="col-md-9">{{ Form::dropdown('days', $day_select) }}</div>
+			<label for="day" class="col-md-3">Day</label>
+			<div class="col-md-9">{{ Form::dropdown('day', $day_select) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="genre" class="col-md-3">Teacher</label>
+			<label for="instructor" class="col-md-3">Teacher</label>
 			<div class="col-md-9">{{ Form::dropdown('instructor', $instructor_select) }}</div>
 		</div>
 		<div class="form-group">
-			<label for="genre" class="col-md-3">Duration</label>
+			<label for="duration" class="col-md-3">Duration</label>
 			<div class="col-md-9">{{ Form::dropdown('duration', $duration_select) }}</div>
+		</div>
+		<div class="form-group">
+			<label for="year" class="col-md-3">When</label>
+			<div class="col-md-9">{{ Form::dropdown('year', $years, null, 'Upcoming') }}</div>
 		</div>
 		<!--
 		<div class="form-group">

@@ -99,11 +99,11 @@
 						    </div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="when">
-								When
+							<label class="col-sm-4 control-label" for="day">
+								Day
 							</label>
 						    <div class="col-sm-7">
-						    	{{ Form::dropdown('days', $day_select) }}
+						    	{{ Form::dropdown('day', $day_select) }}
 						    </div>
 						</div>
 						<div class="form-group">

@@ -16,9 +16,8 @@
 
 		{{ $course->description }}
 
-		<div class="row sessions">
 		@foreach ($course->sessions as $session)
-		<dl class="col-md-6">
+		<dl>
 			<dt>
 				@if (count($course->sessions) == 1)
 				When
@@ -32,7 +31,7 @@
 				{{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}				
 				@else
 				{{ $session->classes }} {{ $session->days->title }}s, {{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}<br>
-				{{ $session->start_date->format('n/d/Y') }}&ndash;{{ $session->end_date->format('n/d/Y') }}
+				{{ $session->start_date->format('n/d/Y') }}&ndash;{{ $session->end_date->format('n/d/Y') }} <em>{{ $session->notes }}</em>
 				@endif
 			</dd>
 
@@ -48,7 +47,6 @@
 			@endif
 		</dl>
 		@endforeach
-		</div>
 
 		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)

@@ -115,7 +115,7 @@ View::composer('template', function($view)
 
 # Form macros for styled controls in switchboards
 
-Form::macro('dropdown', function($name, $list=array(), $selected=null)
+Form::macro('dropdown', function($name, $list=array(), $selected=null, $default='Any')
 {
 	$options = array();
 	foreach ($list as $id=>$value) {
@@ -123,7 +123,7 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null)
 		$options[] = '<li' . ($selected == $id ? ' class="active"' : '') . '><a data-id="' . $id . '">' . $value . '</a></li>';
 	}
 	$options = (count($options)) ? '<ul class="dropdown-menu">
-		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">Any</a></li>
+		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">' . $default . '</a></li>
 		<li class="divider"></li>
 		' . implode($options) . 
 		'</ul>' : '';
@@ -131,7 +131,7 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null)
 		<div class="btn-group dropdown" data-name="' . $name . '">
 			<input type="hidden" name="' . $name . '" value="' . $selected . '">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-				<span class="selected">Any</span>
+				<span class="selected">' . $default . '</span>
 				<span class="caret"></span>
 			</button>
 			' . $options . '
