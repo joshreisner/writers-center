@@ -81,7 +81,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="promo courses">
-					<form class="form-horizontal">
+					{{ Form::open(array('url'=>URL::action('CourseController@index'), 'method'=>'get', 'class'=>'form-horizontal')) }}
 						<div class="form-group">
 							<label class="col-sm-3 control-label"></label>
 						    <div class="col-sm-9">
@@ -89,7 +89,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="genre">
+							<label class="col-sm-3 control-label" for="genre">
 								Genre
 							</label>
 						    <div class="col-sm-7">
@@ -97,7 +97,7 @@
 						    </div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="day">
+							<label class="col-sm-3 control-label" for="day">
 								Day
 							</label>
 						    <div class="col-sm-7">
@@ -105,7 +105,7 @@
 						    </div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="teacher">
+							<label class="col-sm-3 control-label" for="instructor">
 								Teacher
 							</label>
 						    <div class="col-sm-7">
@@ -113,14 +113,17 @@
 						    </div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-4 control-label" for="duration">
+							<label class="col-sm-3 control-label" for="duration">
 								Duration
 							</label>
 						    <div class="col-sm-7">
 						    	{{ Form::dropdown('duration', $duration_select) }}
 						    </div>
+						    <div class="col-sm-2">
+						    	{{ Form::submit('Go') }}
+						    </div>
 						</div>
-					</form>
+					{{ Form::close() }}
 				</div>
 			</div>
 			<div class="col-md-4">

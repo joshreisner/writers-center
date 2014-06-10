@@ -7,19 +7,9 @@ class CourseController extends BaseController {
 	 */
 	public function index() {
 
-		$genres = array();
-		$courses = Course::with(array('genres', 'instructors', 'sessions'))
-			->whereHas('sessions', function($query){
-				$query->where('start_date', '>', new DateTime());
-			})
-			->get();
-		foreach ($courses as $course) {
-			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
-			$genres[$course->genres->title][] = $course;
-		}
 		return View::make('courses.index', array(
 			'title'				=>'Courses',
-			'genres'			=>$genres,
+			'genres'			=>self::searchCoursesByGenre(),
 			'genre_select'		=>self::getGenreList(),
 			'instructor_select'	=>self::getInstructorList(),
 			'duration_select'	=>self::getDurationList(),
@@ -54,6 +44,14 @@ class CourseController extends BaseController {
 	 */
 	public function ajax() {
 
+		# Return
+		return View::make('courses.genres', array('genres'=>self::searchCoursesByGenre()));
+	}
+
+	/**
+	 * generic select for index() and ajax()
+	 */
+	private static function searchCoursesByGenre() {
 		$genres = array();
 
 		$courses = Course::with('genres', 'instructors');
@@ -61,11 +59,13 @@ class CourseController extends BaseController {
 		if (Input::has('genre')) {
 			$courses->where('genre_id', Input::get('genre'));
 		}
+
 		if (Input::has('day')) {
 			$courses->whereHas('sessions', function($query){
 				$query->where('day_id', Input::get('day'));
 			});
 		}
+
 		if (Input::has('duration')) {
 			$courses->whereHas('sessions', function($query) {
 				if (Input::get('duration') == 'intensive') {
@@ -75,14 +75,17 @@ class CourseController extends BaseController {
 				}
 			});
 		}
+
 		if (Input::has('instructor')) {
 			$courses->whereHas('instructors', function($query) {
 			    $query->where('id', Input::get('instructor'));
 			});
 		}
+
 		if (Input::has('search')) {
 			$courses->where('title', 'like', '%' . Input::get('search') . '%');
 		}
+
 		if (Input::has('year')) {
 			$courses->whereHas('sessions', function($query){
 				$query->where(DB::raw('YEAR(start_date)'), '=', Input::get('year'));
@@ -92,17 +95,17 @@ class CourseController extends BaseController {
 				$query->where('start_date', '>', new DateTime());
 			});
 		}
+
 		$courses = $courses->get();
+
+		$courses = BaseController::highlightResults($courses, array('title'));
 
 		foreach ($courses as $course) {
 			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
 			$genres[$course->genres->title][] = $course;
 		}
 
-		$courses = BaseController::highlightResults($courses, array('title'));
-
-		# Return
-		return View::make('courses.genres', array('genres'=>$genres));
+		return $genres;
 	}
 
 	/**

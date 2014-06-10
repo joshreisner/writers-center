@@ -14,23 +14,23 @@
 		</div>
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Genre</label>
-			<div class="col-md-9">{{ Form::dropdown('genre', $genre_select) }}</div>
+			<div class="col-md-9">{{ Form::dropdown('genre', $genre_select, Input::get('genre')) }}</div>
 		</div>
 		<div class="form-group">
 			<label for="day" class="col-md-3">Day</label>
-			<div class="col-md-9">{{ Form::dropdown('day', $day_select) }}</div>
+			<div class="col-md-9">{{ Form::dropdown('day', $day_select, Input::get('day')) }}</div>
 		</div>
 		<div class="form-group">
 			<label for="instructor" class="col-md-3">Teacher</label>
-			<div class="col-md-9">{{ Form::dropdown('instructor', $instructor_select) }}</div>
+			<div class="col-md-9">{{ Form::dropdown('instructor', $instructor_select, Input::get('instructor')) }}</div>
 		</div>
 		<div class="form-group">
 			<label for="duration" class="col-md-3">Duration</label>
-			<div class="col-md-9">{{ Form::dropdown('duration', $duration_select) }}</div>
+			<div class="col-md-9">{{ Form::dropdown('duration', $duration_select, Input::get('duration')) }}</div>
 		</div>
 		<div class="form-group">
 			<label for="year" class="col-md-3">When</label>
-			<div class="col-md-9">{{ Form::dropdown('year', $years, null, 'Upcoming') }}</div>
+			<div class="col-md-9">{{ Form::dropdown('year', $years, Input::get('year'), 'Upcoming') }}</div>
 		</div>
 		<!--
 		<div class="form-group">

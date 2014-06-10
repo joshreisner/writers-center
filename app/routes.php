@@ -117,10 +117,16 @@ View::composer('template', function($view)
 
 Form::macro('dropdown', function($name, $list=array(), $selected=null, $default='Any')
 {
+	$selected_value = $default;
 	$options = array();
 	foreach ($list as $id=>$value) {
 		if (empty($value)) $value = '&nbsp;';
-		$options[] = '<li' . ($selected == $id ? ' class="active"' : '') . '><a data-id="' . $id . '">' . $value . '</a></li>';
+		if ($selected == $id) {
+			$selected_value = $value;
+			$options[] = '<li class="active"><a data-id="' . $id . '">' . $value . '</a></li>';
+		} else {
+			$options[] = '<li><a data-id="' . $id . '">' . $value . '</a></li>';
+		}
 	}
 	$options = (count($options)) ? '<ul class="dropdown-menu">
 		<li' . ($selected == null ? ' class="active"' : '') . '><a data-id="">' . $default . '</a></li>
@@ -131,7 +137,7 @@ Form::macro('dropdown', function($name, $list=array(), $selected=null, $default=
 		<div class="btn-group dropdown" data-name="' . $name . '">
 			<input type="hidden" name="' . $name . '" value="' . $selected . '">
 			<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-				<span class="selected">' . $default . '</span>
+				<span class="selected">' . $selected_value . '</span>
 				<span class="caret"></span>
 			</button>
 			' . $options . '
