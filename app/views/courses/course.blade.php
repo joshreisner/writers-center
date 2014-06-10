@@ -25,17 +25,13 @@
 			<dd>January 6&ndash;February 24 (No class on January 20 or February 17)</dd>
 			-->
 
-			<dt>Session 1</dt>
+			@foreach ($course->sessions as $session)
+			<dt>{{ $session->title }}</dt>
 			<dd>
-				<ul>
-					<li><span>August 7</span> 10:30 a.m.–12:30 p.m.</li>
-					<li><span>August 14</span> 10:30 a.m.–12:30 p.m.</li>
-					<li><span>August 21</span> 10:30 a.m.–12:30 p.m.</li>
-					<li><span>August 28</span> 10:30 a.m.–12:30 p.m.</li>
-					<li><span>September 4</span> 10:30 a.m.–12:30 p.m.</li>
-					<li><span>September 11</span> 10:30 a.m.–12:30 p.m.</li>
-				</ul>
+				{{ $session->days->title }}, {{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}<br>
+				{{ $session->start_date->format('n/d/Y') }}&ndash;{{ $session->end_date->format('n/d/Y') }}
 			</dd>
+			@endforeach
 
 			<dt>Tuition</dt>
 			<dd>${{ $course->tuition_member }} 

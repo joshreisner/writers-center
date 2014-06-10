@@ -43,4 +43,36 @@ class BaseController extends Controller {
 		return link_to(URL::action('InstanceController@edit', array($instance->object_id, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
+	/**
+	 * time range
+	 */
+	public static function formatTimeRange($start, $end, $separator='&ndash;') {
+
+		$start = self::parseTime($start);
+		$end = self::parseTime($end);
+
+		if ($start['ampm'] == $end['ampm']) {
+			if ($start['hour'] == $end['hour']) {
+				return $start['hour'] . ':' . $start['minute'] . $separator . $end['minute'] . ' ' . $start['ampm'];
+			} elseif ($start['minute'] == 00 && $end['minute'] == '00') {
+				return $start['hour'] . $separator . $end['hour'] . ' ' . $start['ampm'];
+			} else {
+				return $start['hour'] . ':' . $start['minute'] . $separator . $end['hour'] . ':' . $end['minute'] . ' ' . $start['ampm'];
+			}
+		} else {
+			return $start['hour'] . ':' . $start['minute'] . ' ' . $start['ampm'] . $separator . $end['hour'] . ':' . $end['minute'] . ' ' . $end['ampm'];
+		}
+	}
+
+	/**
+	 * time range helper
+	 */
+	private static function parseTime($time) {
+		list($hour, $minute, $second) = explode(':', $time);
+		$ampm = 'a.m.';
+		if ($hour > 11) $ampm = 'p.m.';
+		if ($hour > 12) $hour -= 12;
+		return compact('hour', 'minute', 'ampm');
+	}
+
 }
