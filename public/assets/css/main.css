@@ -140,7 +140,7 @@ body.home .carousel {
   height: 400px;
   margin: 15px 0 0 0;
   overflow-x: hidden;
-  visibility: none; }
+  visibility: hidden; }
   body.home .carousel button.slick-prev {
     left: 20px; }
   body.home .carousel button.slick-next {
@@ -454,8 +454,6 @@ body {
   body .row.banner {
     padding-top: 15px;
     height: 127px; }
-    body .row.banner a.logo {
-      margin-left: 17.5%; }
     body .row.banner nav#utility {
       float: right; }
       body .row.banner nav#utility a {
@@ -893,3 +891,10 @@ body {
         margin: 0 0 15px; }
       body.contact #map-canvas .infowindow a {
         text-decoration: none; }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  a.logo {
+    margin-left: 17.5%; } }
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */

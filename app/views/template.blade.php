@@ -17,7 +17,7 @@
 					<a href="/" class="logo"><img src="/assets/img/logo-{{ $class or 'default' }}.png" width="290" height="112" class="img-responsive"></a>
 				</div>
 				<div class="col-md-8">
-					<nav id="utility">
+					<nav id="utility" class="hidden-xs">
 						<!--
 						<a class="login">Log In</a>
 						<a href="/support">Support the Center</a>
