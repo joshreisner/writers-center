@@ -16,34 +16,39 @@
 
 		{{ $course->description }}
 
-		<dl>
-			<!--
-			<dt>When</dt>
-			<dd>Six Mondays, 1:30&ndash;3:30 p.m.</dd>
-
-			<dt>Dates</dt>
-			<dd>January 6&ndash;February 24 (No class on January 20 or February 17)</dd>
-			-->
-
-			@foreach ($course->sessions as $session)
-			<dt>{{ $session->title }}</dt>
+		<div class="row sessions">
+		@foreach ($course->sessions as $session)
+		<dl class="col-md-6">
+			<dt>
+				@if (count($course->sessions) == 1)
+				When
+				@else
+				{{ $session->title }}
+				@endif
+			</dt>
 			<dd>
-				{{ $session->days->title }}, {{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}<br>
+				@if ($session->classes == 1)
+				{{ $session->days->title }}, {{ $session->start_date->format('n/d/Y') }}<br>
+				{{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}				
+				@else
+				{{ $session->classes }} {{ $session->days->title }}s, {{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}<br>
 				{{ $session->start_date->format('n/d/Y') }}&ndash;{{ $session->end_date->format('n/d/Y') }}
-			</dd>
-			@endforeach
-
-			<dt>Tuition</dt>
-			<dd>${{ $course->tuition_member }} 
-				@if ($course->tuition_member != $course->tuition_outside)
-					members/${{ $course->tuition_outside }} non-members
 				@endif
 			</dd>
-		</dl>
 
-		@if (!empty($course->register_url))
-		<a class="btn btn-primary" href="{{ $course->register_url }}">Register</a>
-		@endif
+			<dt>Tuition</dt>
+			<dd>${{ $session->member_tuition }} 
+				@if ($session->member_tuition != $session->non_member_tuition)
+					members<br>${{ $session->non_member_tuition }} non-members
+				@endif
+			</dd>
+			
+			@if (!empty($course->register_url))
+				<dt><a class="btn btn-primary" href="{{ $course->register_url }}">Register</a></dt>
+			@endif
+		</dl>
+		@endforeach
+		</div>
 
 		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)

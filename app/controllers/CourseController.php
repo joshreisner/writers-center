@@ -8,7 +8,11 @@ class CourseController extends BaseController {
 	public function index() {
 
 		$genres = array();
-		$courses = Course::with('genres', 'instructors')->get();
+		$courses = Course::with(array('genres', 'instructors', 'sessions'))
+			->whereHas('sessions', function($query){
+				$query->where('start_date', '>', new DateTime());
+			})
+			->get();
 		foreach ($courses as $course) {
 			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
 			$genres[$course->genres->title][] = $course;
@@ -28,7 +32,11 @@ class CourseController extends BaseController {
 	 * show a single course
 	 */
 	public function show($slug) {
-		$course = Course::with('instructors')->where('slug', $slug)->first();
+		$course = Course::with(array('instructors', 'sessions'=>function($query){
+			$query->where('start_date', '>', new DateTime());
+			$query->orderBy('start_date', 'desc');
+		}))->where('slug', $slug)->first();
+
 		return View::make('courses.course', array(
 			'title'=>$course->title,
 			'course'=>$course,

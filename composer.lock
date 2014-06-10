@@ -876,12 +876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "8d2b69f0ce536871ee6f8c693c2de7f37e99cef7"
+                "reference": "b7f5b091248c82b0270c2386963e39d1f8bf85a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/8d2b69f0ce536871ee6f8c693c2de7f37e99cef7",
-                "reference": "8d2b69f0ce536871ee6f8c693c2de7f37e99cef7",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/b7f5b091248c82b0270c2386963e39d1f8bf85a4",
+                "reference": "b7f5b091248c82b0270c2386963e39d1f8bf85a4",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +908,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-06-10 04:50:23"
+            "time": "2014-06-10 18:24:03"
         },
         {
             "name": "laravel/framework",
@@ -1381,12 +1381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "1da827c0ae77c20997f3319a3c84fc7b6531c4bf"
+                "reference": "18853d1dbb7d35f7c60bcb161447b16c0753e2a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/1da827c0ae77c20997f3319a3c84fc7b6531c4bf",
-                "reference": "1da827c0ae77c20997f3319a3c84fc7b6531c4bf",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/18853d1dbb7d35f7c60bcb161447b16c0753e2a3",
+                "reference": "18853d1dbb7d35f7c60bcb161447b16c0753e2a3",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1423,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-06-09 15:42:33"
+            "time": "2014-06-10 08:58:02"
         },
         {
             "name": "psr/log",
