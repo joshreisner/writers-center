@@ -642,16 +642,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "8692a77fb684515303f2a1d5e07d7108aaf589c8"
+                "reference": "bbdb310dfaa76c9756509d90f6badaf157117c28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/8692a77fb684515303f2a1d5e07d7108aaf589c8",
-                "reference": "8692a77fb684515303f2a1d5e07d7108aaf589c8",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/bbdb310dfaa76c9756509d90f6badaf157117c28",
+                "reference": "bbdb310dfaa76c9756509d90f6badaf157117c28",
                 "shasum": ""
             },
             "require": {
@@ -696,7 +696,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-05-31 09:37:00"
+            "time": "2014-06-08 21:56:29"
         },
         {
             "name": "intouch/laravel-newrelic",
@@ -876,12 +876,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "df10338771f5e76ec64447797c3ad43640cee819"
+                "reference": "cbb133b46b2d0492fe714c7ef41139973fcfc2e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/df10338771f5e76ec64447797c3ad43640cee819",
-                "reference": "df10338771f5e76ec64447797c3ad43640cee819",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/cbb133b46b2d0492fe714c7ef41139973fcfc2e2",
+                "reference": "cbb133b46b2d0492fe714c7ef41139973fcfc2e2",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +908,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-06-07 01:38:33"
+            "time": "2014-06-10 04:18:05"
         },
         {
             "name": "laravel/framework",
@@ -916,12 +916,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "63cbae03d97253484bbefd6953cc0836208ec8c6"
+                "reference": "5c591f909bb5c47e1e9d2230b948445c4b572892"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/63cbae03d97253484bbefd6953cc0836208ec8c6",
-                "reference": "63cbae03d97253484bbefd6953cc0836208ec8c6",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5c591f909bb5c47e1e9d2230b948445c4b572892",
+                "reference": "5c591f909bb5c47e1e9d2230b948445c4b572892",
                 "shasum": ""
             },
             "require": {
@@ -1025,7 +1025,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-06-06 18:20:30"
+            "time": "2014-06-08 18:25:50"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1284,12 +1284,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "25d31e5867eff112d747a1f5e13d582b1a2392f8"
+                "reference": "6e796d091a31e391f59348188724a74d5802f1ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/25d31e5867eff112d747a1f5e13d582b1a2392f8",
-                "reference": "25d31e5867eff112d747a1f5e13d582b1a2392f8",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6e796d091a31e391f59348188724a74d5802f1ec",
+                "reference": "6e796d091a31e391f59348188724a74d5802f1ec",
                 "shasum": ""
             },
             "require": {
@@ -1373,7 +1373,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-06-05 14:56:34"
+            "time": "2014-06-09 18:19:33"
         },
         {
             "name": "predis/predis",
@@ -1381,12 +1381,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "a8862f0fdd716f0d99d6cce3b2eacbd1342b0132"
+                "reference": "1da827c0ae77c20997f3319a3c84fc7b6531c4bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/a8862f0fdd716f0d99d6cce3b2eacbd1342b0132",
-                "reference": "a8862f0fdd716f0d99d6cce3b2eacbd1342b0132",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/1da827c0ae77c20997f3319a3c84fc7b6531c4bf",
+                "reference": "1da827c0ae77c20997f3319a3c84fc7b6531c4bf",
                 "shasum": ""
             },
             "require": {
@@ -1423,7 +1423,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-06-03 14:57:22"
+            "time": "2014-06-09 15:42:33"
         },
         {
             "name": "psr/log",
