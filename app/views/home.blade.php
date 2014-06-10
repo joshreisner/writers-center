@@ -66,9 +66,7 @@
 								echo '<td>';
 								$format = date('Y-m-d', $start);
 								if (in_array($format, $event_dates)) {
-									echo '<a href="/events#' . $format . '">';
-									echo date('d', $start);
-									echo '</a>';
+									echo link_to('/events?date=' . $format, date('d', $start));
 								} else {
 									echo date('d', $start);
 								}

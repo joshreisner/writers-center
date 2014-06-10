@@ -8,7 +8,14 @@ class EventController extends BaseController {
 	public function index() {
 
 		# Build array of months
-		$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
+		if (Input::has('date')) {
+			list($year, $month, $day) = explode('-', Input::get('date'));
+			$events = Event::whereRaw('MONTH(start) = ?', array($month))
+						->whereRaw('DAY(start) = ?', array($day))
+						->whereRaw('YEAR(start) = ?', array($year))->get();
+		} else {
+			$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
+		}
 
 		return View::make('events.index', array(
 			'title'=>'Events',

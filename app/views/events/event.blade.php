@@ -24,7 +24,7 @@
 			<dd>${{ $event->price }}</dd>
 		</dl>
 
-		<a href="#" class="btn btn-primary">RSVP</a>
+		<!--<a href="#" class="btn btn-primary">RSVP</a>-->
 
 	</div>
 
