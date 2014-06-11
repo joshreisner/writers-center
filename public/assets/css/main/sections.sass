@@ -1,0 +1,23 @@
+//eg body.courses .switchboard or body.home promo.courses
+@each $section in $sections
+	$name:    nth($section, 1)
+	$color:   nth($section, 2)
+	$light:   nth($section, 3)
+	$lighter: nth($section, 4)
+	body.#{$name} form.switchboard, body.home .promo.#{$name}
+		input[type=text]
+			border-color: $color
+		.btn-group
+			&.dropdown
+				button
+					background-color: $light
+					color: $color
+				span.caret
+					color: $color
+				ul
+					background-color: $lighter
+					li.active a, li a:hover, li.divider
+						background-color: $light
+		.chkbox
+			background-color: $color
+			color: $lighter
