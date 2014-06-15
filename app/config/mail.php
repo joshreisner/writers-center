@@ -11,11 +11,11 @@ return array(
 	| sending of e-mail. You may specify which one you're using throughout
 	| your application here. By default, Laravel is setup for SMTP mail.
 	|
-	| Supported: "smtp", "mail", "sendmail"
+	| Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'mandrill',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,20 +28,20 @@ return array(
 	|
 	*/
 
-	'host' => $_ENV['MAIL_HOST'],
+	'host' => 'smtp.mailgun.org',
 
 	/*
 	|--------------------------------------------------------------------------
 	| SMTP Host Port
 	|--------------------------------------------------------------------------
 	|
-	| This is the SMTP port used by your application to delivery e-mails to
-	| users of your application. Like the host we have set this value to
-	| stay compatible with the Mailgun e-mail applications by default.
+	| This is the SMTP port used by your application to deliver e-mails to
+	| users of the application. Like the host we have set this value to
+	| stay compatible with the Mailgun e-mail application by default.
 	|
 	*/
 
-	'port' => $_ENV['MAIL_PORT'],
+	'port' => 587,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => $_ENV['MAIL_ENCY'],
+	'encryption' => 'tls',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => $_ENV['MAIL_USER'],
+	'username' => null,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => $_ENV['MAIL_PASS'],
+	'password' => null,
 
 	/*
 	|--------------------------------------------------------------------------

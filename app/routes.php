@@ -91,11 +91,27 @@ Route::get('/support', function()
 
 
 # Testing routes
-
-Route::get('/test/error', function() 
+Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 {
-	trigger_error('Test error');
+
+	Route::get('error', function() 
+	{
+		trigger_error('Test error');
+	});
+
+	Route::get('mail', function() 
+	{
+
+		Mail::send('emails.welcome', [], function($message)
+		{
+		    $message->to('josh@joshreisner.com', 'Josh Reisner')->subject('Email Test');
+		});
+
+		return 'Test email sent!';
+	});
+
 });
+
 
 
 # Global variables

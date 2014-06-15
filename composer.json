@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
 		"loic-sharma/profiler": "1.1.*",
-		"intouch/laravel-newrelic": "*",
+		"stripe/stripe-php": "1.15.0",
+		"guzzlehttp/guzzle": "~4.0",
 		"joshreisner/avalon": "*"
 	},
 	"autoload": {

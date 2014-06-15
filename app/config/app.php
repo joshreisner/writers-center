@@ -124,7 +124,6 @@ return array(
 
 		'Joshreisner\Avalon\AvalonServiceProvider',
 		'Profiler\ProfilerServiceProvider',
-		'Intouch\LaravelNewrelic\LaravelNewrelicServiceProvider',
 	),
 
 	/*
