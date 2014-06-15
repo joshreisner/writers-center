@@ -3,7 +3,7 @@
 @section('content')
 	<a class="label" href="/blog">Blog</a>
 
-	<div class="col-md-offset-1">
+	<div class="indent">
 		
 		<h1>
 			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>

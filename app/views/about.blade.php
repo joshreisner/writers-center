@@ -6,7 +6,7 @@
 	<div class="row page">
 		<div class="col-md-8 content">
 			<div class="inner">
-				<div class="col-md-offset-1">
+				<div class="indent">
 					<h1>
 						{{ $page->title }}
 						{{ AboutController::editLink($page) }}

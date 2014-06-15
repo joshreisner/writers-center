@@ -1,7 +1,7 @@
 @extends('page')
 
 @section('content')
-	<div class="col-md-offset-1">
+	<div class="indent">
 		<h1>{{ $title }}</h1>
 	</div>
 	<div class="row target">

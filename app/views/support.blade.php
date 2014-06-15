@@ -53,12 +53,11 @@
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-					<button type="submit" class="btn btn-default">Register</button>
+					<input type="submit" class="btn btn-primary" value="Register">
 				</div>
 			</div>
 		</fieldset>
 	</form>
-
 
 @endsection
 
@@ -66,4 +65,8 @@
 	<div class="wallpaper">
 		<p>Perhaps information goes here about the donation, such as the Center's 501(c)(3) status or what the donation supports.</p>
 	</div>
+@endsection
+
+@section('script')
+	<script src="https://js.stripe.com/v2/"></script>
 @endsection

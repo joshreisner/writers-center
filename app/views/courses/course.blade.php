@@ -4,7 +4,7 @@
 
 	<a class="label" href="/courses">Courses</a>
 	
-	<div class="col-md-offset-1">
+	<div class="indent">
 
 		<h1>
 			{{ $course->title }}

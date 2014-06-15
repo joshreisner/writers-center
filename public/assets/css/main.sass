@@ -235,10 +235,14 @@ body
 				+font(2.5)
 				margin: $margin * 2 0 0
 			.event
-				padding-top: $margin
+				padding: $margin 0 0 $indent
+				position: relative
+
 				div.date
 					+font("sm", "mono")
 					line-height: 2
+					left: 0
+					position: absolute
 				a.title
 					+font("md", "bold")
 
@@ -255,9 +259,6 @@ body
 				.inner
 					form
 						margin: 0 0 $margin * 2 0 //temporary, paypal
-					.praise, .about_the_author
-						clear: left
-						margin: $margin 0 $margin * 3
 					h3
 						border-bottom: $border-width solid $publications
 					.publication
@@ -306,20 +307,20 @@ body
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px)
 
-	a.logo
-		margin-left: 17.5%
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px)
 	a.logo
 		height: 93px
 
+	.indent
+		margin-left: $indent
+
 	body.home
 		.carousel
 			.item
 				h1
 					left: 60px
-
 
 				.description
 					display: block
