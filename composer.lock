@@ -760,16 +760,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "bbdb310dfaa76c9756509d90f6badaf157117c28"
+                "reference": "edd507dacfacab7fcfcee6c5fcfad3335d0ec85f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/bbdb310dfaa76c9756509d90f6badaf157117c28",
-                "reference": "bbdb310dfaa76c9756509d90f6badaf157117c28",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/edd507dacfacab7fcfcee6c5fcfad3335d0ec85f",
+                "reference": "edd507dacfacab7fcfcee6c5fcfad3335d0ec85f",
                 "shasum": ""
             },
             "require": {
@@ -814,7 +814,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-06-08 21:56:29"
+            "time": "2014-06-16 09:52:34"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -909,12 +909,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "957d99f9746c134b0817dee802f286a8f0357726"
+                "reference": "c3660d3c9dcdaa1f8c0f2ef59ab1dd0fc7e144da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/957d99f9746c134b0817dee802f286a8f0357726",
-                "reference": "957d99f9746c134b0817dee802f286a8f0357726",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/c3660d3c9dcdaa1f8c0f2ef59ab1dd0fc7e144da",
+                "reference": "c3660d3c9dcdaa1f8c0f2ef59ab1dd0fc7e144da",
                 "shasum": ""
             },
             "require": {
@@ -941,7 +941,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-06-15 05:18:28"
+            "time": "2014-06-16 17:06:58"
         },
         {
             "name": "laravel/framework",
@@ -1317,12 +1317,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "8e07ebfd51339ac0f3b90a327d5dc3132089bd4c"
+                "reference": "765154f54e9f0cd08e1e08a9562ad7754684305a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/8e07ebfd51339ac0f3b90a327d5dc3132089bd4c",
-                "reference": "8e07ebfd51339ac0f3b90a327d5dc3132089bd4c",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/765154f54e9f0cd08e1e08a9562ad7754684305a",
+                "reference": "765154f54e9f0cd08e1e08a9562ad7754684305a",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1406,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-06-13 21:49:53"
+            "time": "2014-06-16 15:03:51"
         },
         {
             "name": "predis/predis",
@@ -1827,12 +1827,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Debug.git",
-                "reference": "80fa7316f3c8ad8d8bfb707bd47be0358f5690b5"
+                "reference": "b24abbba9959f53645ebd79d4a74310c3fc248e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Debug/zipball/80fa7316f3c8ad8d8bfb707bd47be0358f5690b5",
-                "reference": "80fa7316f3c8ad8d8bfb707bd47be0358f5690b5",
+                "url": "https://api.github.com/repos/symfony/Debug/zipball/b24abbba9959f53645ebd79d4a74310c3fc248e1",
+                "reference": "b24abbba9959f53645ebd79d4a74310c3fc248e1",
                 "shasum": ""
             },
             "require": {
@@ -1875,7 +1875,7 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "http://symfony.com",
-            "time": "2014-06-11 10:05:25"
+            "time": "2014-06-11 18:54:02"
         },
         {
             "name": "symfony/dom-crawler",
@@ -2096,12 +2096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "ac7e28ccbdb00753c3a549524e0793d36bb106e2"
+                "reference": "bc23b721ae465a6bb73478e3b13a9eef5d06ef01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/ac7e28ccbdb00753c3a549524e0793d36bb106e2",
-                "reference": "ac7e28ccbdb00753c3a549524e0793d36bb106e2",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/bc23b721ae465a6bb73478e3b13a9eef5d06ef01",
+                "reference": "bc23b721ae465a6bb73478e3b13a9eef5d06ef01",
                 "shasum": ""
             },
             "require": {
@@ -2142,7 +2142,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-06-12 10:01:04"
+            "time": "2014-06-16 09:30:12"
         },
         {
             "name": "symfony/http-kernel",
@@ -2224,12 +2224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "315cc1478d35209f5a749dcff1b16968fe175045"
+                "reference": "66312573dde34dcfcbd6776719382affa06a629b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/315cc1478d35209f5a749dcff1b16968fe175045",
-                "reference": "315cc1478d35209f5a749dcff1b16968fe175045",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/66312573dde34dcfcbd6776719382affa06a629b",
+                "reference": "66312573dde34dcfcbd6776719382affa06a629b",
                 "shasum": ""
             },
             "require": {
@@ -2264,7 +2264,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2014-06-12 10:01:04"
+            "time": "2014-06-14 12:57:30"
         },
         {
             "name": "symfony/routing",

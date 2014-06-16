@@ -467,10 +467,16 @@ body {
     position: fixed;
     left: 0;
     right: 0;
-    height: 434px;
+    height: 100%;
     z-index: -10;
     opacity: 0.1;
-    top: 400px; }
+    top: 100%;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out; }
+  body.scrolled .background {
+    top: 0; }
   body .row.banner {
     padding-top: 15px; }
     body .row.banner nav#utility {

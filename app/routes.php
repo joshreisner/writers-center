@@ -110,6 +110,13 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		return 'Test email sent!';
 	});
 
+	Route::get('mutators', function() 
+	{
+		$days = Day::first();
+		echo $days->updated_at->format('n/j/Y');
+	});
+
+
 });
 
 

@@ -24,17 +24,21 @@ $(function(){
 	    var banner_opacity = (100 - height) / 100;
 	    if (banner_opacity < 0) banner_opacity = 0;
 	    $(".banner").css("opacity", banner_opacity);
-	    */
 
-	    /*
 		var background_opacity = height / 3000;
 		if (background_opacity > .1) background_opacity = .1;
 		$(".background").css("opacity", background_opacity);
-		*/
+
 		start_height = 400;
 	    var offset = start_height - (height / 1.75);
 	    $(".background").css("top", offset + 'px');
+		*/
 
+		if (height > 100) {
+			$("body").addClass("scrolled");
+		} else {
+			$("body").removeClass("scrolled");
+		}
 
 	});
 
