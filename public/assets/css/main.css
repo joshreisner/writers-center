@@ -36,6 +36,14 @@ form input {
     box-shadow: none; }
     form input[type=text]:focus, form input[type=email]:focus, form input[type=search]:focus, form input[type=password]:focus, form input[type=submit]:focus {
       box-shadow: none; }
+form select.form-control {
+  font-family: "Apercu Mono Pro Regular";
+  border-radius: 0;
+  box-shadow: none; }
+  form select.form-control:focus {
+    box-shadow: none; }
+form .row {
+  margin-bottom: 15px; }
 form select:focus, form option:focus {
   outline: none; }
 form label {
