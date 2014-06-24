@@ -239,16 +239,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0"
+                "reference": "bbe35735af4a826c1f86b04f2fd885ff5fc0f82b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
-                "reference": "77bc8cc35b33a2bcdaf5bc2c99fdcab8773f02a0",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/bbe35735af4a826c1f86b04f2fd885ff5fc0f82b",
+                "reference": "bbe35735af4a826c1f86b04f2fd885ff5fc0f82b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
             },
             "type": "library",
             "extra": {
@@ -299,7 +302,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2014-06-05 18:37:07"
+            "time": "2014-06-17 17:31:49"
         },
         {
             "name": "doctrine/common",
@@ -646,12 +649,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "c57f300af7b288306a3665c89b930ea9b70ba214"
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/c57f300af7b288306a3665c89b930ea9b70ba214",
-                "reference": "c57f300af7b288306a3665c89b930ea9b70ba214",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/095cf4db559bebc78d967890eb93280d8ceb5a08",
+                "reference": "095cf4db559bebc78d967890eb93280d8ceb5a08",
                 "shasum": ""
             },
             "require": {
@@ -703,7 +706,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-06-10 17:18:37"
+            "time": "2014-06-18 18:22:41"
         },
         {
             "name": "guzzlehttp/streams",
@@ -949,12 +952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "262c16e4897ac5d895fcb31002873d644dcaf229"
+                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/262c16e4897ac5d895fcb31002873d644dcaf229",
-                "reference": "262c16e4897ac5d895fcb31002873d644dcaf229",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ee370ac91ee0a51303765c870e139b1ecd1e222c",
+                "reference": "ee370ac91ee0a51303765c870e139b1ecd1e222c",
                 "shasum": ""
             },
             "require": {
@@ -1058,7 +1061,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-06-14 17:15:05"
+            "time": "2014-06-18 05:07:22"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1262,16 +1265,16 @@
         },
         {
             "name": "patchwork/utf8",
-            "version": "v1.1.23",
+            "version": "v1.1.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nicolas-grekas/Patchwork-UTF8.git",
-                "reference": "c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc"
+                "reference": "40f552c019956f446553b19f7de2da2f9c74d730"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc",
-                "reference": "c1edbc82aed49ff2bdef0a0f659bf69e3f7b14cc",
+                "url": "https://api.github.com/repos/nicolas-grekas/Patchwork-UTF8/zipball/40f552c019956f446553b19f7de2da2f9c74d730",
+                "reference": "40f552c019956f446553b19f7de2da2f9c74d730",
                 "shasum": ""
             },
             "require": {
@@ -1309,7 +1312,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2014-05-22 13:59:09"
+            "time": "2014-06-17 08:23:06"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -1317,12 +1320,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "765154f54e9f0cd08e1e08a9562ad7754684305a"
+                "reference": "9716d9b7e5db7a42275fbc09f9558240098f2f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/765154f54e9f0cd08e1e08a9562ad7754684305a",
-                "reference": "765154f54e9f0cd08e1e08a9562ad7754684305a",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/9716d9b7e5db7a42275fbc09f9558240098f2f18",
+                "reference": "9716d9b7e5db7a42275fbc09f9558240098f2f18",
                 "shasum": ""
             },
             "require": {
@@ -1406,7 +1409,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-06-16 15:03:51"
+            "time": "2014-06-17 09:37:36"
         },
         {
             "name": "predis/predis",
