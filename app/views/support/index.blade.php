@@ -4,6 +4,8 @@
 
 	<h1>{{ $title }}</h1>
 
+	@include('notifications')
+	
 	{{ Form::open() }}
 		<div class="row">
 			<div class="col-md-10">
