@@ -25,7 +25,8 @@ return array(
 
 	'stripe' => array(
 		'model'  => 'User',
-		'secret' => '',
+		'secret' => $_ENV['STRIPE_SECRET'],
+		'publishable_key' => $_ENV['STRIPE_PUB'],
 	),
 
 );

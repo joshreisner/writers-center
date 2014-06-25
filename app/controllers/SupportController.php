@@ -26,7 +26,11 @@ class SupportController extends BaseController {
 		);
 	}
 
+	/**
+	 * handle form submit
+	 */
 	public function submit() {
+		return 'stripeToken was ' . Input::get('stripeToken');
 		return Redirect::action('SupportController@index')->with(['message'=>'Thank you for your support!']);
 	}
 }

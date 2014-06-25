@@ -4,6 +4,7 @@
 		<meta charset="UTF-8">
 		<title>{{ $title or $default_title }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="stripe_key" content="{{ Config::get('services.stripe.publishable_key') }}">
 		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
 		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">

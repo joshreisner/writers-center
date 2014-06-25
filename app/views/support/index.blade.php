@@ -6,7 +6,8 @@
 
 	@include('notifications')
 	
-	{{ Form::open() }}
+	{{ Form::open(['id'=>'support']) }}
+	
 		<div class="row">
 			<div class="col-md-10">
 				{{ Form::text(null, null, ['class'=>'form-control', 'data-stripe'=>'number', 'placeholder'=>'Card #']) }}
@@ -18,7 +19,7 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				{{ Form::selectMonth(null, null, ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
+				{{ Form::selectMonth(null, date('m'), ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
 			</div>
 			<div class="col-md-6">
 				{{ Form::selectYear(null, date('Y'), date('Y') + 10, null, ['class'=>'form-control', 'data-stripe'=>'exp-year']) }}
@@ -39,4 +40,5 @@
 
 @section('script')
 	<script src="https://js.stripe.com/v2/"></script>
+	<script src="/assets/js/support.js"></script>
 @endsection

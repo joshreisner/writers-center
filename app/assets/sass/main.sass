@@ -168,36 +168,6 @@ body
 						bottom: 0
 						right: 0
 
-	@each $section in $sections
-		$name:    nth($section, 1)
-		$color:   nth($section, 2)
-		$light:   nth($section, 3)
-		$lighter: nth($section, 4)
-		&.#{$name}
-			.background
-				background: url(/assets/img/background-#{$name}.png) center center no-repeat
-			a, small
-				color: $color
-			.page
-				.inner
-					border-color: $color
-				.content
-					color: $color
-					a.btn.btn-primary, input[type=submit]
-						color: white
-						background-color: $color
-					figure, mark
-						background-color: $lighter
-					blockquote
-						border-left-color: $lighter
-				.side
-					form.switchboard
-						border-color: $color
-					.wallpaper
-						@include background-opacity($color, .2)
-					ul li.active a
-						color: $color
-
 	&.about
 		.wallpaper
 			text-transform: uppercase

@@ -23,6 +23,11 @@ a.btn, input[type=submit]
 	letter-spacing: 2px
 	border: 0
 	background-color: $default
+	&:hover, &:disabled
+		background-color: $default-light
+	&:active, &:focus
+		outline: 0
+		background-color: $default
 
 form
 	input

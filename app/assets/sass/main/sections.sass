@@ -21,3 +21,35 @@
 		.chkbox
 			background-color: $color
 			color: $lighter
+
+@each $section in $sections
+	$name:    nth($section, 1)
+	$color:   nth($section, 2)
+	$light:   nth($section, 3)
+	$lighter: nth($section, 4)
+	body.#{$name}
+		.background
+			background: url(/assets/img/background-#{$name}.png) center center no-repeat
+		a, small
+			color: $color
+		.page
+			.inner
+				border-color: $color
+			.content
+				color: $color
+				a.btn.btn-primary, input.btn.btn-primary
+					color: white
+					background-color: $color
+					&:disabled, &:hover
+						background-color: $light
+				figure, mark
+					background-color: $lighter
+				blockquote
+					border-left-color: $lighter
+			.side
+				form.switchboard
+					border-color: $color
+				.wallpaper
+					@include background-opacity($color, .2)
+				ul li.active a
+					color: $color
