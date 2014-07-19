@@ -20,8 +20,12 @@
 			<dt>Time</dt>
 			<dd>{{ $event->start->format('g:i a') }}</dd>
 
+			@if ($event->price !== null)
 			<dt>Price</dt>
-			<dd>${{ $event->price }}</dd>
+			<dd>
+				{{ BaseController::formatPrice($event->price) }}
+			</dd>
+			@endif
 		</dl>
 
 		<!--<a href="#" class="btn btn-primary">RSVP</a>-->

@@ -82,13 +82,4 @@ class EventController extends BaseController {
 		return $months;		
 	}
 
-	/**
-	 * format price
-	 */
-	public static function formatPrice(Event $event) {
-		if ($event->price === null) return 'Ticket price TBD';
-		if ($event->price === 0) return 'Free!';
-		return '$' . number_format($event->price);
-	}
-
 }

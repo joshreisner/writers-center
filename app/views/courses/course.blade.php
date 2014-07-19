@@ -36,9 +36,9 @@
 			</dd>
 
 			<dt>Tuition</dt>
-			<dd>${{ $session->member_tuition }} 
+			<dd>{{ BaseController::formatPrice($session->member_tuition) }} 
 				@if ($session->member_tuition != $session->non_member_tuition)
-					members<br>${{ $session->non_member_tuition }} non-members
+					members<br>{{ BaseController::formatPrice($session->non_member_tuition) }} non-members
 				@endif
 			</dd>
 			

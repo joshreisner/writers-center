@@ -3,9 +3,11 @@
 		<div class="inner" style="background-image:url({{ $publication->image->url }});">
 			<a href="/publications/{{ $publication->slug }}">
 				<div>
-					{{ $publication->title }}<br>
-					&ndash;<br>
-					${{ $publication->price}}
+					{{ $publication->title }}
+					@if ($publication->price !== null)
+						<br>&ndash;<br>
+						{{ BaseController::formatPrice($publication->price) }}
+					@endif
 				</div>
 			</a>
 		</div>

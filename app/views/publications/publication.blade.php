@@ -30,8 +30,10 @@
 			<dt>Year</dt>
 			<dd>{{ $publication->year }}</dd>
 
+			@if ($publication->price !== null)
 			<dt>Price</dt>
-			<dd>${{ $publication->price }}</dd>
+			<dd>{{ BaseController::formatPrice($publication->price) }}</dd>
+			@endif
 		</dl>
 
 		@if (!empty($publication->paypal_id))

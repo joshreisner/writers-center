@@ -75,4 +75,13 @@ class BaseController extends Controller {
 		return compact('hour', 'minute', 'ampm');
 	}
 
+	/**
+	 * price formatter
+	 */
+	public static function formatPrice($price) {
+		if ($price === null) return 'TBD';
+		if ($price === 0) return 'Free';
+		return '$' . number_format($price);
+	}
+
 }
