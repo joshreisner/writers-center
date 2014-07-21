@@ -216,7 +216,8 @@ body
 
 				div.date
 					+font("sm", "mono")
-					line-height: 2
+					line-height: 1.2
+					margin-top: 7px
 					left: 0
 					position: absolute
 				a.title
@@ -230,40 +231,51 @@ body
 						margin: $margin * 2 0 $margin * 4
 
 	&.publications
-		.page
-			.content
-				.inner
-					form
-						margin: 0 0 $margin * 2 0 //temporary, paypal
-					h3
-						border-bottom: $border-width solid $publications
-					.publication
-						margin-bottom: 20px
-						.inner
-							background-color: $publications-lighter
-							height: 300px
-							border: 0
-							background-size: contain
-							background-position: center
-							background-repeat: no-repeat
-							a
-								display: block
-								height: 300px
-								padding-top: 36%
-								background-color: $publications
-								opacity: 0
-								div
-									font-size: 80%
-									color: white
-									text-align: center
-									line-height: 1
-									font-style: italic
-									.separator
-										border-top: $border-width solid white
-										width: 20px
-										margin: 20px auto
-								&:hover
-									opacity: .8
+		.content
+			form
+				margin: 0 0 $margin * 2 0 //temporary, paypal
+			h3
+				border-bottom: $border-width solid $publications
+			.cover
+				width: 300px
+				float: left
+				margin: 0 $margin 0 0
+
+			.publication
+				margin-bottom: 20px
+				background-color: $publications-lighter
+				height: 0
+				padding-bottom: 100%
+				border: 0
+				background-size: contain
+				background-position: center
+				background-repeat: no-repeat
+				position: relative
+				a
+					display: table-cell
+					vertical-align: middle
+					position: absolute
+					top: 0
+					bottom: 0
+					right: 0
+					left: 0
+					padding-top: 50%
+					background-color: $publications
+					opacity: 0
+					div
+						font-size: 80%
+						color: white
+						text-align: center
+						line-height: 1
+						font-style: italic
+						margin: -20px auto 0
+						width: 80%
+						.separator
+							border-top: $border-width solid white
+							width: 20px
+							margin: 20px auto
+					&:hover
+						opacity: .8
 
 	&.contact
 		#map-canvas
@@ -300,6 +312,9 @@ body
 
 				.description
 					display: block
+
+	figure, body.publications .content .cover
+		margin-left: -#{$indent}
 
 
 

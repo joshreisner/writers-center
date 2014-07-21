@@ -42,7 +42,7 @@
 
 @section('side')
 	<div class="wallpaper">
-		<span>Recent posts</span>
+		<span class="label">Recent posts</span>
 		@foreach ($related as $post)
 		<h1>
 			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
