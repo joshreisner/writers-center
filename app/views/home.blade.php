@@ -91,7 +91,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="promo courses">
-					{{ Form::open(array('url'=>URL::action('CourseController@index'), 'method'=>'get', 'class'=>'form-horizontal')) }}
+					{{ Form::open(array('url'=>URL::action('CourseController@index'), 'method'=>'get', 'id'=>'find-a-class', 'class'=>'form-horizontal')) }}
 						<div class="form-group">
 							<label class="col-sm-3 control-label"></label>
 						    <div class="col-sm-9">

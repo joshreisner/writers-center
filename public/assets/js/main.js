@@ -1,5 +1,13 @@
 $(function(){
 
+	//home form, prevent empty vals
+	$("form#find-a-class").submit(function(){
+	    $(this).find('input').each(function() {
+			if (!$(this).val()) $(this).remove();
+	    });
+		return true;
+	});
+
 	//open external links in new tab
 	$('a').each(function() {
 		var a = new RegExp('/' + window.location.host + '/');
