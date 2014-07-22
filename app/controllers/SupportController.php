@@ -30,7 +30,80 @@ class SupportController extends BaseController {
 	 * handle form submit
 	 */
 	public function submit() {
-		return 'stripeToken was ' . Input::get('stripeToken');
+
+		//init
+		Stripe::setApiKey(Config::get('services.stripe.secret'));
+
+		$amount = Input::get('amount') * 100;
+
+		//create or get user
+		if (Auth::user()) {
+			$user = Auth::user();
+		} else {
+			//create user (but don't log in)
+			$user = User::firstOrNew(['email' => Input::get('email')]);
+			$user->name = Input::get('name');
+			$user->save();
+		}
+
+		//create or get customer
+		try {
+
+			if ($user->customer_id) {
+				$customer = Stripe_Customer::retrieve($user->customer_id);
+				$customer->card = Input::get('stripeToken');
+				$customer->email = $user->email;
+				$customer->description = $user->name;
+				$customer->save();
+			} else {
+				$customer = Stripe_Customer::create([
+					'card' => Input::get('stripeToken'),
+					'email' => $user->email,
+					'description' => $user->name,
+				]);
+				$user->customer_id = $customer->id;
+				$user->save();
+			}
+
+		} catch(Stripe_InvalidRequestError $e) {
+			$body = $e->getJsonBody();
+			//card was declined
+			return Redirect::action('SupportController@index')->with(['error'=>$body['error']['message']]);
+		}
+
+		//charge card
+		try {
+
+			$charge = Stripe_Charge::create([
+				'amount' => $amount,
+				'currency' => 'usd',
+				'customer' => $customer->id,
+			]);
+
+		} catch(Stripe_CardError $e) {
+
+			//card was declined
+			return Redirect::action('SupportController@index')->with(['error'=>'Credit card was declined.']);
+		}
+
+		//make a record
+		$transaction = $user->transactions()->save(new Transaction([
+			'amount' => $amount,
+			'charge_id' => $charge->id,
+			'paid' => $charge->paid,
+			'confirmation'=>strtoupper(str_random(6)),
+		]));
+
+		//send out confirmation
+		Mail::send('emails.support', [
+			'subject'=>'Thank you for your support!',
+			'user'=>$user, 
+			'transaction'=>$transaction
+		], function($message) use ($user) {
+		    $message->to($user->email, $user->name)->subject('Thank you for your support!');
+		});
+
+		//redirect user
 		return Redirect::action('SupportController@index')->with(['message'=>'Thank you for your support!']);
 	}
 }
