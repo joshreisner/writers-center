@@ -13,7 +13,7 @@ class Billing extends Migration {
 	public function up()
 	{
 		Schema::table('users', function($table) {
-			$table->string('customer_id');
+			$table->string('customer_id')->nullable();
 		});
 
 		Schema::create('transactions', function($table)
