@@ -647,12 +647,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "5ab8c29546e5669fc6ce8545b166c9f0ceda088b"
+                "reference": "5ae164dae6e65784286a698800190bc094407f7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/5ab8c29546e5669fc6ce8545b166c9f0ceda088b",
-                "reference": "5ab8c29546e5669fc6ce8545b166c9f0ceda088b",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/5ae164dae6e65784286a698800190bc094407f7c",
+                "reference": "5ae164dae6e65784286a698800190bc094407f7c",
                 "shasum": ""
             },
             "require": {
@@ -704,7 +704,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-07-19 19:17:17"
+            "time": "2014-07-23 00:52:39"
         },
         {
             "name": "guzzlehttp/streams",
@@ -910,12 +910,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "dfacd0381effbbef22e24b5d4f062006c8bcb1e6"
+                "reference": "c3e8f0d6c2f5f2d415b3e1bb648b91043004a610"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/dfacd0381effbbef22e24b5d4f062006c8bcb1e6",
-                "reference": "dfacd0381effbbef22e24b5d4f062006c8bcb1e6",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/c3e8f0d6c2f5f2d415b3e1bb648b91043004a610",
+                "reference": "c3e8f0d6c2f5f2d415b3e1bb648b91043004a610",
                 "shasum": ""
             },
             "require": {
@@ -942,7 +942,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-07-22 20:25:57"
+            "time": "2014-07-23 16:45:46"
         },
         {
             "name": "laravel/framework",
@@ -950,12 +950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "11c1b47b365be02beab3e5aca2306aaa08203d8e"
+                "reference": "a3a7bb308f4f0aab74bcd6952b7a194b2276fa33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/11c1b47b365be02beab3e5aca2306aaa08203d8e",
-                "reference": "11c1b47b365be02beab3e5aca2306aaa08203d8e",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/a3a7bb308f4f0aab74bcd6952b7a194b2276fa33",
+                "reference": "a3a7bb308f4f0aab74bcd6952b7a194b2276fa33",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-07-22 20:25:45"
+            "time": "2014-07-23 04:01:18"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1416,12 +1416,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nrk/predis.git",
-                "reference": "d5c650d51aa99f7d0c992c8a01c015b824d8ce46"
+                "reference": "8dd7f40d2110083724f6672035e04d85132eea9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nrk/predis/zipball/d5c650d51aa99f7d0c992c8a01c015b824d8ce46",
-                "reference": "d5c650d51aa99f7d0c992c8a01c015b824d8ce46",
+                "url": "https://api.github.com/repos/nrk/predis/zipball/8dd7f40d2110083724f6672035e04d85132eea9f",
+                "reference": "8dd7f40d2110083724f6672035e04d85132eea9f",
                 "shasum": ""
             },
             "require": {
@@ -1458,7 +1458,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2014-07-21 16:23:00"
+            "time": "2014-07-23 10:43:29"
         },
         {
             "name": "psr/log",
@@ -2151,12 +2151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "bc645cd0e83008b15586dc60b6acc39fd09bcce3"
+                "reference": "b92a20b7610b7d5403210afdb2519ff51ece2002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/bc645cd0e83008b15586dc60b6acc39fd09bcce3",
-                "reference": "bc645cd0e83008b15586dc60b6acc39fd09bcce3",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/b92a20b7610b7d5403210afdb2519ff51ece2002",
+                "reference": "b92a20b7610b7d5403210afdb2519ff51ece2002",
                 "shasum": ""
             },
             "require": {
@@ -2203,19 +2203,17 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
                     "name": "Symfony Community",
                     "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
                 }
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-07-15 15:39:46"
+            "time": "2014-07-15 20:52:32"
         },
         {
             "name": "symfony/process",

@@ -43,6 +43,7 @@ class SupportController extends BaseController {
 			//create user (but don't log in)
 			$user = User::firstOrNew(['email' => Input::get('email')]);
 			$user->name = Input::get('name');
+			$user->password = Hash::make(str_random(12)); //better than null?
 			$user->save();
 		}
 
