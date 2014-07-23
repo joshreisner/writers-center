@@ -11,6 +11,7 @@
 		</div>
 		<div class="col-md-4 side">
 			<div class="inner">
+				@include('cart')
 				@yield('side')
 			</div>
 		</div>

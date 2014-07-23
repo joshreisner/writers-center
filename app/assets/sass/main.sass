@@ -121,12 +121,25 @@ body
 							padding-top: 4px
 
 			.side
-				form.switchboard
+				form.switchboard, #cart
 					border-width: $border-width
 					border-style: solid
-					padding: 20px 20px 5px
+					padding: 20px
 					background-color: white
 					@include shadow()
+					margin-bottom: $margin
+
+				#cart
+					h1
+						margin-top: $margin
+
+					.label
+						color: inherit 
+						left: 30px
+						top: 20px
+
+					th.num, td.num
+						text-align: right
 
 				.label
 					left: $margin

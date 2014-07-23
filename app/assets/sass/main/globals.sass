@@ -15,19 +15,24 @@ a
 			text-decoration: none
 			opacity: 1
 
-a.btn, input[type=submit]
+.btn, input[type=submit]
 	border-radius: 0
 	padding: 3px 50px
 	text-transform: uppercase
 	text-decoration: none
 	letter-spacing: 2px
-	border: 0
-	background-color: $default
+	border: 1px solid white
+	&.btn-default
+		color: $default
+		border-color: $default-light
+	&.btn-primary
+		color: white
+		background-color: $default
 	&:hover, &:disabled
 		background-color: $default-light
 	&:active, &:focus
 		outline: 0
-		background-color: $default
+		background-color: $default-light
 
 form
 	input
