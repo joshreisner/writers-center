@@ -15,15 +15,15 @@
 				@foreach (Session::get('cart') as $type=>$item)
 				<tr>
 					<td><a class="{{ $type }}" href="{{ $item['url'] }}">{{ $item['name'] }}</a></td>
-					<td class="num">{{ number_format($item['amount']) }}</td>
+					<td class="numeric align-right">{{ number_format($item['amount']) }}</td>
 				</tr>
 				<?php $total += $item['amount']; ?>
 				@endforeach
 			</tbody>
 			<tfoot>
 				<tr>
-					<th></th>
-					<th class="num">${{ number_format($total) }}</th>
+					<td></td>
+					<td class="align-right">${{ number_format($total) }}</td>
 				</tr>
 			</tfoot>
 		</table>

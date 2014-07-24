@@ -14,25 +14,38 @@ a
 		&:hover
 			text-decoration: none
 			opacity: 1
+	&.glyphicon:hover
+		text-decoration: none
 
-.btn, input[type=submit]
-	border-radius: 0
-	padding: 3px 50px
-	text-transform: uppercase
-	text-decoration: none
-	letter-spacing: 2px
-	border: 1px solid white
-	&.btn-default
-		color: $default
-		border-color: $default-light
-	&.btn-primary
-		color: white
-		background-color: $default
-	&:hover, &:disabled
-		background-color: $default-light
-	&:active, &:focus
-		outline: 0
-		background-color: $default-light
+blockquote
+	+font("md", "italic")
+	border-width: $border-width 0
+	border-style: dashed
+	clear: left
+	margin: $margin * 2 0
+	padding: $margin * 2 $margin * 4
+	p:last-child
+		margin-bottom: 0
+
+dt
+	font-family: $font-mono
+					
+figure
+	margin: 5px $margin $margin 0
+	float: left 
+	+font("xs", "mono")
+	figcaption
+		padding: $margin / 2 $margin $margin * 1.5 $margin / 2
+	&.portrait
+		width: 220px
+		img
+			width: 100%
+			height: auto
+	&.landscape
+		width: 360px
+		img
+			width: 100%
+			height: auto
 
 form
 	input
@@ -71,12 +84,14 @@ form
 		&.dropdown
 			width: 100%
 			position: relative
-			button
+			button.btn
 				width: 100%
 				height: $control-height
 				border-radius: 0
 				text-align: left
 				line-height: 1
+				text-transform: none
+				padding: 6px 12px
 			span.caret
 				border-width: 9px 6px
 				position: absolute
@@ -111,27 +126,6 @@ form
 			&.active i
 				visibility: visible
 
-p
-	margin: 0 0 $margin 0
-	a
-		text-decoration: underline
-	img
-		margin-top: 7px !important
-
-dt
-	font-family: $font-mono
-					
-blockquote
-	+font("md", "italic")
-	border-width: $border-width 0
-	border-style: dashed
-	clear: left
-	margin: $margin * 2 0
-	padding: $margin * 2 $margin * 4
-	p:last-child
-		margin-bottom: 0
-
-
 h2
 	font-size: #{$font-md}rem
 	text-transform: uppercase
@@ -139,19 +133,42 @@ h2
 mark
 	color: inherit
 	
-figure
-	margin: 5px $margin $margin 0
-	float: left 
-	+font("xs", "mono")
-	figcaption
-		padding: $margin / 2 $margin $margin * 1.5 $margin / 2
-	&.portrait
-		width: 220px
-		img
-			width: 100%
-			height: auto
-	&.landscape
-		width: 360px
-		img
-			width: 100%
-			height: auto
+p
+	margin: 0 0 $margin 0
+	a
+		text-decoration: underline
+	img
+		margin-top: 7px !important
+
+table
+	th
+		font-family: $font-mono
+		font-size: 85%
+
+	.numeric
+		font-family: $font-mono
+
+.alert
+	margin: 15px 0 0
+	border-radius: 0
+
+.align-right
+	text-align: right
+
+.btn, input[type=submit]
+	border-radius: 0
+	padding: 3px 50px
+	text-transform: uppercase
+	text-decoration: none
+	letter-spacing: 2px
+	border: 1px solid white
+	&.btn-default
+		color: $default
+		border-color: $default-light
+	&.btn-primary
+		color: white
+		background-color: $default
+	&:hover, &:disabled, &:active, &:focus
+		outline: 0
+		border-color: $default-light
+		background-color: $default-light

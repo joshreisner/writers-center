@@ -26,7 +26,7 @@
 	$name:    nth($section, 1)
 	$color:   nth($section, 2)
 
-	a.#{$name}
+	.page a.#{$name}
 		color: $color !important
 
 @each $section in $sections
@@ -39,8 +39,10 @@
 
 		.background
 			background: url(/assets/img/background-#{$name}.png) center center no-repeat
+
 		a, small
 			color: $color
+
 		.page
 			.inner
 				border-color: $color

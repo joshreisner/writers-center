@@ -6,6 +6,8 @@
 	<div class="row page">
 		<div class="col-md-8 content">
 			<div class="inner">
+				@include('partials.notifications')
+
 				@yield('content')
 			</div>
 		</div>

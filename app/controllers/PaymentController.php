@@ -74,7 +74,7 @@ class PaymentController extends BaseController {
 		} catch(Stripe_InvalidRequestError $e) {
 			$body = $e->getJsonBody();
 			//card was declined
-			return Redirect::action('PaymentController@support_index')->with(['error'=>$body['error']['message']]);
+			return Redirect::action('PaymentController@support_index')->with('error', $body['error']['message']);
 		}
 
 		//charge card
@@ -90,7 +90,7 @@ class PaymentController extends BaseController {
 		} catch(Stripe_CardError $e) {
 
 			//card was declined
-			return Redirect::action('PaymentController@support_index')->with(['error'=>'Credit card was declined.']);
+			return Redirect::action('PaymentController@support_index')->with('error', 'Credit card was declined.');
 		}
 
 		//make a record
@@ -111,7 +111,7 @@ class PaymentController extends BaseController {
 		});
 
 		//redirect user
-		return Redirect::action('PaymentController@support_index')->with(['message'=>'Thank you for your support!']);
+		return Redirect::action('PaymentController@support_index')->with('message', 'Thank you for your support!');
 	}
 
 	public function add_course($course_id) {
@@ -131,7 +131,9 @@ class PaymentController extends BaseController {
 	}
 
 	public function add_publication($publication_id) {
-		return Redirect::action('PaymentController@checkout_index');
+		$publication = Publication::find($publication_id);
+		//return $publication->title;
+		return Redirect::action('PublicationController@show', $publication->slug)->with('message', 'Publication added to cart.');
 	}
 
 	public function remove_publication($publication_id) {

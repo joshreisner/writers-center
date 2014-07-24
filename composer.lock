@@ -950,12 +950,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "a3a7bb308f4f0aab74bcd6952b7a194b2276fa33"
+                "reference": "59c53026173151e373fbc4a19a2b9dd87ad504e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/a3a7bb308f4f0aab74bcd6952b7a194b2276fa33",
-                "reference": "a3a7bb308f4f0aab74bcd6952b7a194b2276fa33",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/59c53026173151e373fbc4a19a2b9dd87ad504e1",
+                "reference": "59c53026173151e373fbc4a19a2b9dd87ad504e1",
                 "shasum": ""
             },
             "require": {
@@ -1057,7 +1057,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-07-23 04:01:18"
+            "time": "2014-07-24 03:04:41"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1222,12 +1222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "5960ecfc105011b8d1bfedf7647b4b8989dbcb4c"
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5960ecfc105011b8d1bfedf7647b4b8989dbcb4c",
-                "reference": "5960ecfc105011b8d1bfedf7647b4b8989dbcb4c",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/ef70767475434bdb3615b43c327e2cae17ef12eb",
+                "reference": "ef70767475434bdb3615b43c327e2cae17ef12eb",
                 "shasum": ""
             },
             "require": {
@@ -1259,7 +1259,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-04-19 20:26:05"
+            "time": "2014-07-23 18:24:17"
         },
         {
             "name": "patchwork/utf8",
@@ -1318,12 +1318,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "a0a23cbaf105f104d24000d718d0d850cdf41c1f"
+                "reference": "880bc9d9e60a4817ca138b8f5377e313741bf7db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/a0a23cbaf105f104d24000d718d0d850cdf41c1f",
-                "reference": "a0a23cbaf105f104d24000d718d0d850cdf41c1f",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/880bc9d9e60a4817ca138b8f5377e313741bf7db",
+                "reference": "880bc9d9e60a4817ca138b8f5377e313741bf7db",
                 "shasum": ""
             },
             "require": {
@@ -1408,7 +1408,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-07-22 14:09:14"
+            "time": "2014-07-24 15:32:38"
         },
         {
             "name": "predis/predis",

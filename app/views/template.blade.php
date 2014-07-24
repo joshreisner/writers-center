@@ -45,8 +45,6 @@
 			</div>
 		</div>
 
-		@include('partials.notifications')
-
 		@yield('page')
 
 		<script src="/bower_components/jquery/dist/jquery.min.js"></script>

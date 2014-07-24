@@ -121,31 +121,7 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 View::composer('template', function($view)
 {
 
-	if (!Session::has('cart')) {
-		Session::put('cart', [
-			'events'=>
-				[
-					'url'=>'/events/2014/07/an-afternoon-of-original-playwriting-perspectives',
-					'name'=>'An Afternoon of Original Playwriting Perspectives',
-					'amount'=>5,
-					'id'=>123,
-				],
-			'courses'=>
-				[
-					'url'=>'/courses/page-turning-fiction',
-					'name'=>'Page Turning Fiction with Joanne Dobson',
-					'amount'=>270,
-					'id'=>123,
-				],
-			'publications'=>
-				[
-					'url'=>'/publications/seven-new-generation-african-poets',
-					'name'=>'Seven New Generation African Poets',
-					'amount'=>29,
-					'id'=>123,
-				],
-		]);
-	}
+	if (Session::has('cart')) Session::put('cart', []);
 
     $view->with('sections', array(
     	'about'=>'About',

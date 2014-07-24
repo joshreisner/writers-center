@@ -10,7 +10,8 @@
 		<thead>
 			<tr>
 				<th>Product</th>
-				<th>Price</th>
+				<th class="align-right">Price</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -18,7 +19,7 @@
 			@foreach (Session::get('cart') as $type=>$item)
 			<tr>
 				<td><a class="{{ $type }}" href="{{ $item['url'] }}">{{ $item['name'] }}</a></td>
-				<td class="num">{{ number_format($item['amount']) }}</td>
+				<td class="numeric align-right">{{ number_format($item['amount']) }}</td>
 				<td><a href="{{ URL::action('PaymentController@remove_' . Str::singular($type), $item['id']) }}" class="glyphicon glyphicon-remove-circle"></a></td>
 			</tr>
 			<?php $total += $item['amount']; ?>
@@ -26,14 +27,17 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<th></th>
-				<th class="num">${{ number_format($total) }}</th>
+				<td></td>
+				<td class="align-right">${{ number_format($total) }}</td>
+				<td></td>
 			</tr>
 		</tfoot>
 	</table>
 
 	{{ Form::open(['id'=>'checkout']) }}
 	
+		<legend>Payment Details</legend>
+		
 		<div class="row">
 			<div class="col-sm-6">
 				{{ Form::text('name', 'Josh Reisner', ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
