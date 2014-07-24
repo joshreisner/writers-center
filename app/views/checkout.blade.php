@@ -14,7 +14,7 @@
 		<thead>
 			<tr>
 				<th>Product</th>
-				<th class="align-right">Price</th>
+				<th class="align-right">Qty</th>
 				<th></th>
 			</tr>
 		</thead>
@@ -31,6 +31,7 @@
 				@endforeach
 			@endforeach
 		</tbody>
+		<!--
 		<tfoot>
 			<tr>
 				<td></td>
@@ -38,6 +39,7 @@
 				<td></td>
 			</tr>
 		</tfoot>
+		-->
 	</table>
 
 	{{ Form::open(['id'=>'checkout']) }}
