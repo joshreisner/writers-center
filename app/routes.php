@@ -55,23 +55,18 @@ Route::get('/publications/{slug}', 			'PublicationController@show');
 
 Route::get('/support',						'PaymentController@support_index');
 Route::post('/support', 					'PaymentController@support_submit');
-Route::get('/events/add/{id}',				'PaymentController@add_course');
-Route::get('/events/remove/{id}',			'PaymentController@remove_course');
-Route::get('/events/add/{id}',				'PaymentController@add_event');
-Route::get('/events/remove/{id}',			'PaymentController@remove_event');
-Route::get('/events/add/{id}',				'PaymentController@add_publication');
-Route::get('/events/remove/{id}',			'PaymentController@remove_publication');
 
-Route::group(array('before'=>'cart'), function(){
-	Route::get('/checkout',					'PaymentController@checkout_index');
-	Route::post('/checkout',				'PaymentController@checkout_submit');
+Route::group(array('prefix'=>'cart'), function(){
+	Route::get('/add/course/{id}',			'PaymentController@add_course');
+	Route::get('/remove/course/{id}',		'PaymentController@remove_course');
+	Route::get('/add/event/{id}',			'PaymentController@add_event');
+	Route::get('/remove/event/{id}',		'PaymentController@remove_event');
+	Route::get('/add/publication/{id}',		'PaymentController@add_publication');
+	Route::get('/remove/publication/{id}',	'PaymentController@remove_publication');
 });
 
-Route::filter('cart', function(){
-	if (!Session::has('cart')) {
-		return Redirect::to('/');
-	}
-});
+Route::get('/checkout',						'PaymentController@checkout_index');
+Route::post('/checkout',					'PaymentController@checkout_submit');
 
 
 # Contact
@@ -121,7 +116,7 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 View::composer('template', function($view)
 {
 
-	if (Session::has('cart')) Session::put('cart', []);
+	//if (Session::has('cart')) Session::put('cart', []);
 
     $view->with('sections', array(
     	'about'=>'About',

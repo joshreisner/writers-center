@@ -1,7 +1,7 @@
 @foreach ($publications as $publication)
 	<div class="col-md-6">
 		<div class="publication" style="background-image:url({{ $publication->image->url }});">
-			<a href="/publications/{{ $publication->slug }}">
+			<a href="{{ $publication->url }}">
 				<div>
 					{{ $publication->title }}
 					@if ($publication->price !== null)

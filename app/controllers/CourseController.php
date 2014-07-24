@@ -43,6 +43,13 @@ class CourseController extends BaseController {
 	}
 
 	/**
+	 * Get a URL to the show() method
+	 */
+	public static function url(Course $course) {
+		return URL::action('CourseController@show', $course->slug);
+	}
+
+	/**
 	 * provide json for the AJAX switchboard
 	 */
 	public function ajax() {
@@ -104,6 +111,7 @@ class CourseController extends BaseController {
 		$courses = BaseController::highlightResults($courses, array('title'));
 
 		foreach ($courses as $course) {
+			$course->url = self::url($course);
 			if (!isset($genres[$course->genres->title])) $genres[$course->genres->title] = array();
 			$genres[$course->genres->title][] = $course;
 		}

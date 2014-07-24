@@ -6,9 +6,15 @@ class PublicationController extends BaseController {
 	 * show home page
 	 */
 	function index() {
+		# Set publication URLs
+		$publications = Publication::orderBy('precedence')->get();
+		foreach ($publications as $publication) {
+			$publication->url = self::url($publication);
+		}
+
 		return View::make('publications.index', array(
 			'title'=>'Publications',
-			'publications'=>Publication::orderBy('precedence')->get(),
+			'publications'=>$publications,
 			'years'=>Publication::orderBy('year', 'desc')->distinct()->lists('year', 'year'),
 			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
 			'class'=>'publications',
@@ -35,6 +41,13 @@ class PublicationController extends BaseController {
 	}
 
 	/**
+	 * Get a URL to the show() method
+	 */
+	public static function url(Publication $publication) {
+		return URL::action('PublicationController@show', $publication->slug);
+	}
+
+	/**
 	 * ajax
 	 */
 	function ajax() {
@@ -57,6 +70,11 @@ class PublicationController extends BaseController {
 		}
 
 		$publications = $publications->get();
+
+		# Set publication URLs
+		foreach ($publications as $publication) {
+			$publication->url = self::url($publication);
+		}
 
 		# Return HTML view
 		return View::make('publications.publications', array('publications'=>$publications));

@@ -46,6 +46,13 @@ class EventController extends BaseController {
 	}
 
 	/**
+	 * Get a URL to the show() method
+	 */
+	public static function url(Event $event) {
+		return URL::action('EventController@show', array($event->start->format('Y'), $event->start->format('m'), $event->slug));
+	}
+
+	/**
 	 * ajax
 	 */
 	function ajax() {
@@ -80,6 +87,7 @@ class EventController extends BaseController {
 		$months = array();
 		foreach ($events as $event) {
 			$month = $event->start->format('F Y');
+			$event->url = self::url($event);
 			if (!isset($months[$month])) $months[$month] = array();
 			$months[$month][] = $event;
 		}

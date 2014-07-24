@@ -6,10 +6,17 @@ class BlogController extends BaseController {
 	 * show blog home page
 	 */
 	function index() {
+		
+		# Set URLs
+		$posts = Post::orderBy('publish_date', 'desc')->take(10)->get();
+		foreach ($posts as $post) {
+			$post->url = self::url($post);
+		}
+
 		return View::make('blog.index', array(
 			'title'=>'Blog',
 			'years'=>Post::orderBy('publish_date', 'desc')->distinct()->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)')),
-			'posts'=>Post::orderBy('publish_date', 'desc')->take(10)->get(),
+			'posts'=>$posts,
 			'tags'=>Tag::orderBy('title')->get(),
 			'class'=>'blog',
 		));
@@ -31,6 +38,13 @@ class BlogController extends BaseController {
 			'tags'=>Tag::orderBy('title')->get(),
 			'class'=>'blog',
 		));
+	}
+
+	/**
+	 * Get a URL to the show() method
+	 */
+	public static function url(Post $post) {
+		return URL::action('BlogController@show', $post->slug);
 	}
 
 	/**
@@ -62,6 +76,11 @@ class BlogController extends BaseController {
 
 		# Highlight search terms
 		$posts = BaseController::highlightResults($posts, array('title', 'excerpt'));
+
+		# Set URLs
+		foreach ($posts as $post) {
+			$post->url = self::url($post);
+		}
 
 		# Return HTML view
 		return View::make('blog.posts', array('posts'=>$posts));

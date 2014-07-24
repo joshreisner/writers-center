@@ -3,8 +3,12 @@
 @section('content')
 
 	<h1>Checkout</h1>
-
-	@include('partials.notifications')
+	
+	@if (!Session::get('quantity'))
+	
+	<p>Your cart is empty.
+	
+	@else
 	
 	<table class="table">
 		<thead>
@@ -16,19 +20,21 @@
 		</thead>
 		<tbody>
 			<?php $total = 0; ?>
-			@foreach (Session::get('cart') as $type=>$item)
+			@foreach (Session::get('cart') as $type=>$items)
+				@foreach ($items as $id=>$item)
 			<tr>
-				<td><a class="{{ $type }}" href="{{ $item['url'] }}">{{ $item['name'] }}</a></td>
-				<td class="numeric align-right">{{ number_format($item['amount']) }}</td>
-				<td><a href="{{ URL::action('PaymentController@remove_' . Str::singular($type), $item['id']) }}" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td><a class="{{ $type }}" href="$item['url']">{{ $item['name'] }}</a></td>
+				<td class="numeric align-right">{{ number_format($item['quantity']) }}</td>
+				<td><a href="{{ URL::action('PaymentController@remove_' . Str::singular($type), $id) }}" class="glyphicon glyphicon-remove-circle"></a></td>
 			</tr>
-			<?php $total += $item['amount']; ?>
+			<?php $total += $item['quantity']; ?>
+				@endforeach
 			@endforeach
 		</tbody>
 		<tfoot>
 			<tr>
 				<td></td>
-				<td class="align-right">${{ number_format($total) }}</td>
+				<td class="align-right">{{ number_format($total) }}</td>
 				<td></td>
 			</tr>
 		</tfoot>
@@ -68,6 +74,8 @@
 		{{ Form::submit('Submit Payment', ['class'=>'btn btn-primary']) }}
 
 	{{ Form::close() }}
+
+	@endif
 
 @endsection
 

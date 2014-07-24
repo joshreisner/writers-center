@@ -42,9 +42,14 @@
 				@endif
 			</dd>
 			
+			<!--
 			@if (!empty($session->register_url))
 				<dt><a class="btn btn-primary" href="{{ $session->register_url }}">Register</a></dt>
 			@endif
+			-->
+
+			<dt><a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $session->id) }}">Register</a></dt>
+
 		</dl>
 		@endforeach
 

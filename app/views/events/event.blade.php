@@ -28,7 +28,7 @@
 			@endif
 		</dl>
 
-		<!--<a href="#" class="btn btn-primary">RSVP</a>-->
+		<a href="{{ URL::action('PaymentController@add_event', $event->id) }}" class="btn btn-primary">Purchase Ticket</a>
 
 	</div>
 
