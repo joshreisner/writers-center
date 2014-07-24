@@ -20,6 +20,10 @@ class AboutController extends BaseController {
 	 */
 	public function show($slug) {
 		$page = Page::where('slug', $slug)->first();
+		
+		//404
+		if (!$page) return Redirect::action('AboutController@index');
+		
 		return View::make('about', array(
 			'title'=>$page->title,
 			'page'=>$page,

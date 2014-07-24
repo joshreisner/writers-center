@@ -52,8 +52,26 @@ Route::get('/blog/{slug}', 					'BlogController@show');
 Route::get('/publications',					'PublicationController@index');
 Route::get('/publications/ajax', 			'PublicationController@ajax');
 Route::get('/publications/{slug}', 			'PublicationController@show');
-Route::get('/support',						'SupportController@index');
-Route::post('/support', 					'SupportController@submit');
+
+Route::get('/support',						'PaymentController@support_index');
+Route::post('/support', 					'PaymentController@support_submit');
+Route::get('/events/add/{id}',				'PaymentController@add_course');
+Route::get('/events/remove/{id}',			'PaymentController@remove_course');
+Route::get('/events/add/{id}',				'PaymentController@add_event');
+Route::get('/events/remove/{id}',			'PaymentController@remove_event');
+Route::get('/events/add/{id}',				'PaymentController@add_publication');
+Route::get('/events/remove/{id}',			'PaymentController@remove_publication');
+
+Route::group(array('before'=>'cart'), function(){
+	Route::get('/checkout',					'PaymentController@checkout_index');
+	Route::post('/checkout',				'PaymentController@checkout_submit');
+});
+
+Route::filter('cart', function(){
+	if (!Session::has('cart')) {
+		return Redirect::to('/');
+	}
+});
 
 
 # Contact
@@ -68,6 +86,7 @@ Route::get('/contact', function()
 
 
 # Testing routes
+
 Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 {
 
@@ -97,11 +116,37 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 });
 
 
-
 # Global variables
 
 View::composer('template', function($view)
 {
+
+	if (!Session::has('cart')) {
+		Session::put('cart', [
+			'events'=>
+				[
+					'url'=>'/events/2014/07/an-afternoon-of-original-playwriting-perspectives',
+					'name'=>'An Afternoon of Original Playwriting Perspectives',
+					'amount'=>5,
+					'id'=>123,
+				],
+			'courses'=>
+				[
+					'url'=>'/courses/page-turning-fiction',
+					'name'=>'Page Turning Fiction with Joanne Dobson',
+					'amount'=>270,
+					'id'=>123,
+				],
+			'publications'=>
+				[
+					'url'=>'/publications/seven-new-generation-african-poets',
+					'name'=>'Seven New Generation African Poets',
+					'amount'=>29,
+					'id'=>123,
+				],
+		]);
+	}
+
     $view->with('sections', array(
     	'about'=>'About',
     	'courses'=>'Courses',
@@ -112,6 +157,7 @@ View::composer('template', function($view)
     ))
     ->with('default_title', 'Hudson Valley Writers Center');
 });
+
 
 # Form macros for styled controls in switchboards
 

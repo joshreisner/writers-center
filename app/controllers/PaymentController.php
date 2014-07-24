@@ -1,14 +1,8 @@
 <?php
 
-class SupportController extends BaseController {
+class PaymentController extends BaseController {
 
-	/**
-	 * show support page
-	 */
-	public function index() {
-		return View::make('support.index', [
-			'title'=>'Support the Center',
-			'states'=>[
+	private $states = [
 				'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
 				'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  
 				'DC'=>'District Of Columbia',  'FL'=>'Florida',  'GA'=>'Georgia',  'HI'=>'Hawaii',  
@@ -21,15 +15,26 @@ class SupportController extends BaseController {
 				'OR'=>'Oregon',  'PA'=>'Pennsylvania',  'RI'=>'Rhode Island',  'SC'=>'South Carolina',  
 				'SD'=>'South Dakota',	'TN'=>'Tennessee',  'TX'=>'Texas',  'UT'=>'Utah',  
 				'VT'=>'Vermont',  'VA'=>'Virginia',  'WA'=>'Washington',  'WV'=>'West Virginia',  
-				'WI'=>'Wisconsin',  'WY'=>'Wyoming']
-			]
-		);
+				'WI'=>'Wisconsin',  'WY'=>'Wyoming'
+			];
+	/**
+	 * show checkout page
+	 */
+	public function checkout_index() {
+		return View::make('checkout');
+	}
+
+	/**
+	 * show support page
+	 */
+	public function support_index() {
+		return View::make('support');
 	}
 
 	/**
 	 * handle form submit
 	 */
-	public function submit() {
+	public function support_submit() {
 
 		//init
 		Stripe::setApiKey(Config::get('services.stripe.secret'));
@@ -69,7 +74,7 @@ class SupportController extends BaseController {
 		} catch(Stripe_InvalidRequestError $e) {
 			$body = $e->getJsonBody();
 			//card was declined
-			return Redirect::action('SupportController@index')->with(['error'=>$body['error']['message']]);
+			return Redirect::action('PaymentController@support_index')->with(['error'=>$body['error']['message']]);
 		}
 
 		//charge card
@@ -85,7 +90,7 @@ class SupportController extends BaseController {
 		} catch(Stripe_CardError $e) {
 
 			//card was declined
-			return Redirect::action('SupportController@index')->with(['error'=>'Credit card was declined.']);
+			return Redirect::action('PaymentController@support_index')->with(['error'=>'Credit card was declined.']);
 		}
 
 		//make a record
@@ -106,6 +111,31 @@ class SupportController extends BaseController {
 		});
 
 		//redirect user
-		return Redirect::action('SupportController@index')->with(['message'=>'Thank you for your support!']);
+		return Redirect::action('PaymentController@support_index')->with(['message'=>'Thank you for your support!']);
 	}
+
+	public function add_course($course_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
+	public function remove_course($course_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
+	public function add_event($event_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
+	public function remove_event($event_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
+	public function add_publication($publication_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
+	public function remove_publication($publication_id) {
+		return Redirect::action('PaymentController@checkout_index');
+	}
+
 }

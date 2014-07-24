@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-md-4 side">
 			<div class="inner">
-				@include('cart')
+				@include('partials.cart')
 				@yield('side')
 			</div>
 		</div>

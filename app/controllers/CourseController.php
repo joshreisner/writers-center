@@ -28,6 +28,9 @@ class CourseController extends BaseController {
 			$query->orderBy('start_date', 'desc');
 		}))->where('slug', $slug)->first();
 
+		//404
+		if (!$course) return Redirect::action('CourseController@index');
+
 		return View::make('courses.course', array(
 			'title'=>$course->title,
 			'course'=>$course,

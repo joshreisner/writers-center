@@ -20,6 +20,10 @@ class PublicationController extends BaseController {
 	 */
 	function show($slug) {
 		$publication = Publication::where('slug', $slug)->first();
+
+		//404
+		if (!$publication) return Redirect::action('PublicationController@index');
+
 		return View::make('publications.publication', array(
 			'title'=>$publication->title,
 			'publications'=>Publication::orderBy('precedence')->get(),

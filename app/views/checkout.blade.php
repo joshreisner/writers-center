@@ -2,18 +2,38 @@
 
 @section('content')
 
-	<h1>{{ $title }}</h1>
+	<h1>Checkout</h1>
 
-	@include('notifications')
+	@include('partials.notifications')
 	
-	{{ Form::open(['id'=>'support']) }}
-	
-		<div class="row">
-			<div class="col-sm-2">
-				{{ Form::text('amount', '100', ['class'=>'form-control', 'placeholder'=>'AMT']) }}
-			</div>
-		</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php $total = 0; ?>
+			@foreach (Session::get('cart') as $type=>$item)
+			<tr>
+				<td><a class="{{ $type }}" href="{{ $item['url'] }}">{{ $item['name'] }}</a></td>
+				<td class="num">{{ number_format($item['amount']) }}</td>
+				<td><a href="{{ URL::action('PaymentController@remove_' . Str::singular($type), $item['id']) }}" class="glyphicon glyphicon-remove-circle"></a></td>
+			</tr>
+			<?php $total += $item['amount']; ?>
+			@endforeach
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th class="num">${{ number_format($total) }}</th>
+			</tr>
+		</tfoot>
+	</table>
 
+	{{ Form::open(['id'=>'checkout']) }}
+	
 		<div class="row">
 			<div class="col-sm-6">
 				{{ Form::text('name', 'Josh Reisner', ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
@@ -45,12 +65,6 @@
 
 	{{ Form::close() }}
 
-@endsection
-
-@section('side')
-	<div class="wallpaper">
-		<p>Perhaps information goes here about the donation, such as the Center's 501(c)(3) status or what the donation supports.</p>
-	</div>
 @endsection
 
 @section('script')

@@ -20,6 +20,10 @@ class BlogController extends BaseController {
 	 */
 	function show($slug) {
 		$post = Post::where('slug', $slug)->first();
+
+		//404
+		if (!$post) return Redirect::action('BlogController@index');
+
 		return View::make('blog.post', array(
 			'title'=>$post->title,
 			'post'=>$post,

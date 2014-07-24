@@ -25,9 +25,18 @@
 @each $section in $sections
 	$name:    nth($section, 1)
 	$color:   nth($section, 2)
+
+	a.#{$name}
+		color: $color !important
+
+@each $section in $sections
+	$name:    nth($section, 1)
+	$color:   nth($section, 2)
 	$light:   nth($section, 3)
 	$lighter: nth($section, 4)
+	
 	body.#{$name}
+
 		.background
 			background: url(/assets/img/background-#{$name}.png) center center no-repeat
 		a, small
@@ -37,11 +46,12 @@
 				border-color: $color
 			.content
 				color: $color
-				a.btn.btn-primary, input.btn.btn-primary
-					color: white
+				.btn.btn-primary
 					background-color: $color
 					&:disabled, &:hover
+						color: $color
 						background-color: $light
+						border-color: $light
 				figure, mark
 					background-color: $lighter
 				blockquote

@@ -33,6 +33,10 @@ class EventController extends BaseController {
 			->whereRaw('YEAR(start) = ?', array($year))
 			->where('slug', $slug)
 			->first();
+
+		//404
+		if (!$event) return Redirect::action('EventController@index');
+
 		return View::make('events.event', array(
 			'title'=>$event->title,
 			'event'=>$event,
