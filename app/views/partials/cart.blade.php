@@ -7,7 +7,7 @@
 			<thead>
 				<tr>
 					<th>Product</th>
-					<th>Qty</th>
+					<th class="align-right">Qty</th>
 				</tr>
 			</thead>
 			<tbody>
