@@ -16,8 +16,10 @@ $(function(){
 
 		stripeResponseHandler: function(status, response) {
 			if (response.error) {
-				if (!this.form.find(".alert").size()) $("<div>", { class: "alert alert-warning" }).prependTo(this.form);
-				this.form.find(".alert").text(response.error.message);
+				if (!$(".content .inner .alert").size()) {
+					$("<div>", { class: "alert alert-warning" }).prependTo(".content .inner");
+				}
+				$(".content .inner .alert").text(response.error.message);
 				return this.submitButton.prop("disabled", false);
 			}
 

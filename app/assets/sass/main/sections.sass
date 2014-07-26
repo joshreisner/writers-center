@@ -40,6 +40,13 @@
 		.background
 			background: url(/assets/img/background-#{$name}.png) center center no-repeat
 
+		.btn.btn-primary
+			background-color: $color
+		.btn
+			&:disabled, &:hover
+				color: $color
+				background-color: $light
+				border-color: $light
 		a, small
 			color: $color
 
@@ -54,12 +61,6 @@
 					background-color: $color
 			.content
 				color: $color
-				.btn.btn-primary
-					background-color: $color
-					&:disabled, &:hover
-						color: $color
-						background-color: $light
-						border-color: $light
 				figure, mark
 					background-color: $lighter
 				blockquote
