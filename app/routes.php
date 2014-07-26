@@ -85,13 +85,11 @@ Route::get('/contact', function()
 Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 {
 
-	Route::get('error', function() 
-	{
+	Route::get('error', function(){
 		trigger_error('Test error');
 	});
 
-	Route::get('mail', function() 
-	{
+	Route::get('mail', function(){
 
 		Mail::send('emails.welcome', [], function($message)
 		{
@@ -101,10 +99,15 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		return 'Test email sent!';
 	});
 
-	Route::get('mutators', function() 
-	{
+	Route::get('mutators', function(){
 		$days = Day::first();
 		echo $days->updated_at->format('n/j/Y');
+	});
+
+	Route::get('notifications', function(){
+		Session::flash('error', 'Test error!!!');
+		//Session::flash('message', 'Test message.');
+		return View::make('page');
 	});
 
 

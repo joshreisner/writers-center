@@ -43,9 +43,15 @@
 		a, small
 			color: $color
 
-		.page
+		.row.page
 			.inner
 				border-color: $color
+			.alert
+				border: 0
+				&.alert-info
+					background-color: $light
+				&.alert-warning
+					background-color: $color
 			.content
 				color: $color
 				.btn.btn-primary
@@ -61,6 +67,9 @@
 			.side
 				form.switchboard
 					border-color: $color
+				#cart
+					border-color: $color
+					color: $color
 				.wallpaper
 					@include background-opacity($color, .2)
 				ul li.active a

@@ -76,7 +76,17 @@ body
 				margin-top: $margin
 				&:hover
 					color: inherit
-					text-decoration: underline
+
+			a.label:hover
+				text-decoration: underline
+
+			.alert
+				border: 0
+				color: white
+				&.alert-info
+					background-color: $default-light
+				&.alert-warning
+					background-color: $default
 
 			.content
 				.inner
