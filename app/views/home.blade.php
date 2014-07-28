@@ -1,34 +1,5 @@
 @extends('template')
 
-@section('script')
-	<script src="/bower_components/slick-carousel/slick/slick.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.carousel').slick({
-        		arrows: true,
-        		centerMode: true,
-				centerPadding: '260px',
-    			slidesToShow: 1,
-    			infinite: true,
-    			responsive: [
-    				{
-    					breakpoint: 400,
-    					settings: {
-    						infinite: false,
-    						centerPadding: 0,
-    						arrows: false
-    					}
-    				}
-    			]
-			});
-        });
-    </script>	
-@endsection
-
-@section('style')
-	<link rel="stylesheet" type="text/css" href="/bower_components/slick-carousel/slick/slick.css">
-@endsection
-
 @section('page')
 
 	<div class="carousel">

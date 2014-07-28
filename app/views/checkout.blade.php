@@ -79,9 +79,5 @@
 
 	@endif
 
-@endsection
-
-@section('script')
 	<script src="https://js.stripe.com/v2/"></script>
-	<script src="/assets/js/support.js"></script>
 @endsection

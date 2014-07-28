@@ -11,11 +11,8 @@
 	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/icons/favicon-114.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/icons/favicon-72.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/icons/favicon-144.png" type="image/png">
-		<link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
-		<link rel="stylesheet" href="/bower_components/dashicons/css/dashicons.css">
-		@yield('style')
-		<link rel="stylesheet" href="/assets/css/main.css">
+		<link rel="stylesheet" href="/assets/css/main.min.css">
 	</head>
 	<body class="{{ $class or '' }}">
 		<div class="background"></div>
@@ -44,12 +41,7 @@
 				</div>
 			</div>
 		</div>
-
 		@yield('page')
-
-		<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-		<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-		@yield('script')
-		<script src="/assets/js/main.js"></script>
+		<script src="/assets/js/main.min.js"></script>
 	</body>
 </html>

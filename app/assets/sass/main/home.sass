@@ -135,3 +135,19 @@ body.home
 		padding-top: $margin * 2
 		img
 			margin-top: 4px
+
+	/* Medium devices (desktops, 992px and up) */
+	@media (min-width: 992px)
+		.carousel
+			.item
+				h1
+					left: 60px
+
+				.description
+					display: block
+
+	@media (min-width: 1200px)
+		.carousel
+			.item
+				h1
+					+font("xl")

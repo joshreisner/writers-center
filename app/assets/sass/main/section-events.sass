@@ -1,0 +1,18 @@
+body.events
+	.row.page .content .inner
+		h1.group
+			+font(2.5)
+			margin: $margin * 2 0 0
+		.event
+			padding: $margin 0 0 $indent
+			position: relative
+
+			div.date
+				+font("sm", "mono")
+				line-height: 1.2
+				margin-top: 7px
+				left: 0
+				position: absolute
+			a.title
+				+font("md", "bold")
+

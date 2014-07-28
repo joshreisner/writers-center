@@ -2,22 +2,22 @@
 
 @section('page')
 
-<div class="container">
-	<div class="row page">
-		<div class="col-md-8 content">
-			<div class="inner">
-				@include('partials.notifications')
+	<div class="container">
+		<div class="row page">
+			<div class="col-md-8 content">
+				<div class="inner">
+					@include('partials.notifications')
 
-				@yield('content')
+					@yield('content')
+				</div>
 			</div>
-		</div>
-		<div class="col-md-4 side">
-			<div class="inner">
-				@include('partials.cart')
-				@yield('side')
+			<div class="col-md-4 side">
+				<div class="inner">
+					@include('partials.cart')
+					@yield('side')
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 @endsection

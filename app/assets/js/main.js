@@ -1,3 +1,7 @@
+//= include ../../../bower_components/jquery/dist/jquery.js
+//= include ../../../bower_components/bootstrap-sass/dist/js/bootstrap.js
+//= include ../../../bower_components/slick-carousel/slick/slick.min.js
+
 $(function(){
 
 	//home form, prevent empty vals
@@ -6,6 +10,25 @@ $(function(){
 			if (!$(this).val()) $(this).remove();
 	    });
 		return true;
+	});
+
+	//home carousel
+    $('.carousel').slick({
+		arrows: true,
+		centerMode: true,
+		centerPadding: '260px',
+		slidesToShow: 1,
+		infinite: true,
+		responsive: [
+			{
+				breakpoint: 400,
+				settings: {
+					infinite: false,
+					centerPadding: 0,
+					arrows: false
+				}
+			}
+		]
 	});
 
 	//open external links in new tab
