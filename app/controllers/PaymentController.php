@@ -35,7 +35,7 @@ class PaymentController extends BaseController {
 	 * show support page
 	 */
 	public function support_index() {
-		return View::make('support');
+		return View::make('support')->with('preset_amounts', [25, 50, 100, 200, 500]);
 	}
 
 	/**
@@ -46,7 +46,13 @@ class PaymentController extends BaseController {
 		//init
 		Stripe::setApiKey(Config::get('services.stripe.secret'));
 
-		$amount = Input::get('amount') * 100;
+		$amount = (Input::has('amount')) ? Input::get('amount') : Input::get('amount-preset');
+
+		if (!is_numeric($amount)) {
+			return Redirect::action('PaymentController@support_index')->with('error', 'Amount (' . $amount . ') was not valid.');
+		}
+
+		$amount *= 100;
 
 		//create or get user
 		if (Auth::user()) {

@@ -30,7 +30,7 @@ blockquote
 body 
 	+font()
 	color: $default
-	padding-bottom: $margin * 4
+	padding-bottom: $margin
 
 figure
 	margin: 5px $margin $margin 0
@@ -78,6 +78,7 @@ form
 		border-color: $default
 		height: 37px
 		box-shadow: none
+		margin-bottom: $margin
 		&:focus
 			box-shadow: none
 			border-color: $default-light
@@ -97,9 +98,6 @@ form
 			top: 10px
 			font-size: 14px
 
-
-	.row
-		margin-bottom: $margin
 
 	select:focus, option:focus
 		outline: none
@@ -208,3 +206,8 @@ table
 		outline: 0
 		border-color: $default-light
 		background-color: $default-light
+
+.label
+	color: inherit
+	&:hover
+		color: inherit

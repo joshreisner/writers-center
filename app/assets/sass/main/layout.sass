@@ -67,10 +67,9 @@ body.scrolled .background
 		position: absolute
 		top: initial
 		margin-top: $margin
-		&:hover
-			color: inherit
 
 	a.label:hover
+		color: inherit
 		text-decoration: underline
 
 	.alert
@@ -83,6 +82,7 @@ body.scrolled .background
 			color: white
 
 	.content
+		margin-bottom: $margin
 		.inner
 			+font("md")
 			border-width: $border-width 0 0 0
@@ -91,7 +91,6 @@ body.scrolled .background
 
 			.label
 				left: 7.5px
-				opacity: .5
 
 			h1 
 				+font("lg")
@@ -110,6 +109,7 @@ body.scrolled .background
 
 			ul
 				clear: left
+			
 			dl
 				overflow: auto
 				margin: $margin 0
@@ -159,12 +159,9 @@ body.scrolled .background
 					list-style-type: none
 					&.active a
 						text-decoration: underline
-			p, .description, span
-				color: $default
 			h1
 				+font(2.2)
 				small
-					color: $default
 					display: block
 					+font(1.6, "mono")
 					margin-bottom: $margin / 2
@@ -186,8 +183,11 @@ body.scrolled .background
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px)
+	.row.banner
+		height: 98px
+
 	a.logo
-		height: 93px
+		width: 255px
 
 	.indent
 		margin-left: $indent
@@ -198,6 +198,8 @@ body.scrolled .background
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px)
+	.row.banner
+		height: 131px
 	a.logo
-		height: 112px
+		width: 340px
 

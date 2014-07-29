@@ -2,47 +2,60 @@
 
 @section('content')
 
-	<h1>Support the Center</h1>
+	<div class="indent">
 
-	{{ Form::open(['id'=>'support']) }}
+		<h1>Support the Center</h1>
 
-		<div class="row">
-			<div class="col-sm-12"><h3>I Wish to Donate:</h3></div>
-		</div>
-	
-		<div class="row">
-			<div class="col-sm-2">
-				{{ Form::text('amount', '100', ['class'=>'form-control', 'placeholder'=>'AMT']) }}
-			</div>
-		</div>
+		{{ Form::open(['id'=>'support']) }}
 
-		<div class="row">
-			<div class="col-sm-6">
-				{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
+			<div class="row">
+				<div class="col-sm-12"><h3>I Wish to Donate:</h3></div>
 			</div>
-			<div class="col-sm-6">
-				{{ Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email']) }}
-			</div>
-		</div>
+		
+			<div class="row">
+				<div class="col-sm-12">
+					@foreach ($preset_amounts as $amount)
+						<label class="choice form-control">
+							<input type="radio" name="amount-preset" value="{{ $amount }}"> ${{ number_format($amount) }}
+						</label>
+					@endforeach
 
-		<div class="row">
-			<div class="col-sm-6">
-				{{ Form::text(null, '4242424242424242', ['class'=>'form-control', 'data-stripe'=>'number', 'placeholder'=>'Card #']) }}
+					{{ Form::text('amount', null, ['id'=>'amount', 'class'=>'form-control', 'placeholder'=>'Other $']) }}
+				</div>
 			</div>
-			<div class="col-sm-2">
-				{{ Form::text(null, '123', ['class'=>'form-control', 'data-stripe'=>'cvc', 'placeholder'=>'CVC']) }}
-			</div>
-			<div class="col-sm-2 select">
-				{{ Form::selectMonth(null, date('m'), ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
-			</div>
-			<div class="col-sm-2 select">
-				{{ Form::selectYear(null, date('Y'), date('Y') + 10, null, ['class'=>'form-control', 'data-stripe'=>'exp-year']) }}
-			</div>
-		</div>
 
-		{{ Form::submit('Submit Payment', ['class'=>'btn btn-primary']) }}
+			<div class="row">
+				<div class="col-sm-12"><h3>Payment Details:</h3></div>
+			</div>
+		
+			<div class="row">
+				<div class="col-sm-6">
+					{{ Form::text('name', 'Josh Reisner', ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
+				</div>
+				<div class="col-sm-6">
+					{{ Form::text('email', 'josh@left-right.co', ['class'=>'form-control', 'placeholder'=>'Email Address']) }}
+				</div>
+			</div>
 
-	{{ Form::close() }}
+			<div class="row">
+				<div class="col-sm-6">
+					{{ Form::text(null, '4242424242424242', ['class'=>'form-control', 'data-stripe'=>'number', 'placeholder'=>'Card Number']) }}
+				</div>
+				<div class="col-sm-2">
+					{{ Form::text(null, '123', ['class'=>'form-control', 'data-stripe'=>'cvc', 'placeholder'=>'CVC']) }}
+				</div>
+				<div class="col-sm-2 select">
+					{{ Form::selectMonth(null, date('m'), ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
+				</div>
+				<div class="col-sm-2 select">
+					{{ Form::selectYear(null, date('Y'), date('Y') + 10, null, ['class'=>'form-control', 'data-stripe'=>'exp-year']) }}
+				</div>
+			</div>
+
+			{{ Form::submit('Submit Payment', ['class'=>'btn btn-primary']) }}
+
+		{{ Form::close() }}
+	</div>
 @endsection
 
 @section('side')

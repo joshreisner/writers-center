@@ -86,9 +86,20 @@ $(function(){
 	//update any switchboard
 	function updateSwitchboard(which) {
 		$.get("/" + which.attr("data-model") + "/ajax", which.serializeArray(), function(data){
-			console.log('updating switchboard with ' + which.serializeArray());
 			$(".page .content .inner div.target").html(data);
 		});
 	}
+
+	//support page
+	$("form#support").on("click", "label.choice", function(){
+		$("form#support label.choice").removeClass("active");
+		$("form#support #amount").val("");
+		$(this).addClass("active");
+	});
+
+	$("form#support #amount").change(function(){
+		$("form#support label.choice").removeClass("active");
+		$("form#support label.choice input").prop("checked", false);
+	});
 
 });
