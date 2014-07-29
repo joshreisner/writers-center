@@ -29,6 +29,7 @@ blockquote
 
 body 
 	+font()
+	color: $default
 	padding-bottom: $margin * 4
 
 figure
@@ -55,19 +56,47 @@ form
 			cursor: pointer
 			&:focus
 				outline: none
-		&[type=text], &[type=email], &[type=search], &[type=password], &[type=submit]
-			border-radius: 0
-			height: $control-height
-			box-shadow: none
-			&:focus
-				box-shadow: none
 
-	select.form-control
-		font-family: $font-mono
+		&::-webkit-input-placeholder
+			color: red
+			opacity: 1
+
+		&:-moz-placeholder
+			color: red
+			opacity: 1
+
+		&::-moz-placeholder
+			color: red
+			opacity: 1
+
+		&:-ms-input-placeholder
+			color: red
+			opacity: 1
+
+	.form-control
 		border-radius: 0
+		border-color: $default
+		height: 37px
 		box-shadow: none
 		&:focus
 			box-shadow: none
+			border-color: $default-light
+
+	select
+		font-family: $font-mono
+		-webkit-appearance: none
+		-moz-appearance:    none
+		appearance:         none
+
+	.select
+		position: relative
+		&:after
+			content: "\25BC"
+			position: absolute
+			right: 22px
+			top: 10px
+			font-size: 14px
+
 
 	.row
 		margin-bottom: $margin
@@ -90,7 +119,7 @@ form
 			position: relative
 			button.btn
 				width: 100%
-				height: $control-height
+				height: 26px
 				border-radius: 0
 				text-align: left
 				line-height: 1
@@ -129,6 +158,9 @@ form
 				visibility: hidden
 			&.active i
 				visibility: visible
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+	font-family: $font
 
 h2
 	font-size: #{$font-md}rem

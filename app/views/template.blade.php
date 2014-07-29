@@ -43,5 +43,6 @@
 		</div>
 		@yield('page')
 		<script src="/assets/js/main.min.js"></script>
+		@yield('script')
 	</body>
 </html>
