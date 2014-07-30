@@ -28,7 +28,11 @@
 			@endif
 		</dl>
 
-		<a href="{{ URL::action('PaymentController@add_event', $event->id) }}" class="btn btn-primary">Purchase Ticket</a>
+		@if (Session::has('cart.events') && array_key_exists($event->id, Session::get('cart.events')))
+			<a class="btn btn-disabled">Added to Cart</a>
+		@else
+			<a href="{{ URL::action('PaymentController@add_event', $event->id) }}" class="btn btn-primary">Purchase Ticket</a>
+		@endif
 
 	</div>
 

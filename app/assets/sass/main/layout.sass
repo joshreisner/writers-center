@@ -20,6 +20,14 @@ body.scrolled .background
 
 .banner
 	padding-top: $margin
+	height: 98px
+	a#logo
+		background-image: url(/assets/img/logo-default.png)
+		background-repeat: no-repeat
+		background-size: contain
+		display: block
+		width: 255px
+		height: 98px
 	nav#utility
 		float: right
 		a
@@ -61,17 +69,6 @@ body.scrolled .background
 	padding-top: $margin / 2
 	border-color: $default
 
-	.label
-		+font("xs", "mono")
-		text-transform: uppercase
-		position: absolute
-		top: initial
-		margin-top: $margin
-
-	a.label:hover
-		color: inherit
-		text-decoration: underline
-
 	.alert
 		border: 0
 		&.alert-info
@@ -83,6 +80,7 @@ body.scrolled .background
 
 	.content
 		margin-bottom: $margin
+
 		.inner
 			+font("md")
 			border-width: $border-width 0 0 0
@@ -90,7 +88,7 @@ body.scrolled .background
 			border-color: $default
 
 			.label
-				left: 7.5px
+				margin: $margin -#{$margin / 2}
 
 			h1 
 				+font("lg")
@@ -126,6 +124,10 @@ body.scrolled .background
 					padding-top: 4px
 
 	.side
+		.label
+			position: absolute
+			top: $margin
+
 		form.switchboard, #cart
 			border-width: $border-width
 			border-style: solid
@@ -136,22 +138,24 @@ body.scrolled .background
 
 		#cart
 			h1
-				margin-top: $margin
+				margin: $margin 0 0
 
 			.label
-				color: inherit 
-				left: 30px
-				top: 20px
+				left: $margin * 2
 
-		.label
-			left: $margin
-			margin-top: 0
+			ul
+				list-style-type: none
+				padding: $margin 0
+				+font(1.7)
 
 		.wallpaper
 			position: relative
 			padding: $margin * 2
 			min-height: 400px
 			+font(1.7)
+			.label
+				left: $margin
+				
 			ul
 				margin: 0
 				padding: 0
@@ -164,7 +168,7 @@ body.scrolled .background
 				small
 					display: block
 					+font(1.6, "mono")
-					margin-bottom: $margin / 2
+					margin: $margin / 2 0
 			&::after
 				content: ""
 				opacity: 0.3
@@ -177,18 +181,9 @@ body.scrolled .background
 				right: 0
 
 
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px)
+@media (min-width: $screen-sm)
 
-
-/* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px)
-	.row.banner
-		height: 98px
-
-	a.logo
-		width: 255px
-
+@media (min-width: $screen-md)
 	.indent
 		margin-left: $indent
 
@@ -196,10 +191,11 @@ body.scrolled .background
 		margin-left: -#{$indent}
 
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px)
+@media (min-width: $screen-lg)
 	.row.banner
-		height: 131px
-	a.logo
-		width: 340px
+		height: 141px
+		a#logo
+			width: 340px
+			height: 131px
+
 

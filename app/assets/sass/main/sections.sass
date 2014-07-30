@@ -39,17 +39,25 @@
 
 		color: $color
 
+		a#logo
+			background-image: url(/assets/img/logo-#{$name}.png)
+
 		.background
 			background: url(/assets/img/background-#{$name}.png) center center no-repeat
 
-		.btn.btn-primary
-			background-color: $color
-
 		.btn
-			&:disabled, &:hover
+			&.btn-primary
+				background-color: $color
+			&.btn-default
+				border-color: $color
+				color: $color
+			&:disabled, &.btn-disabled, &:hover
 				color: $color
 				background-color: $light
 				border-color: $light
+			&:active
+				box-shadow: none
+
 				
 		a, small
 			color: $color

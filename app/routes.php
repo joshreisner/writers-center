@@ -85,6 +85,12 @@ Route::get('/contact', function()
 Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 {
 
+	Route::get('cart', function(){
+		//clear cart
+		Session::forget('cart');
+		return 'cleared';
+	});
+
 	Route::get('error', function(){
 		trigger_error('Test error');
 	});

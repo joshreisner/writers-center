@@ -21,7 +21,7 @@ class PaymentController extends BaseController {
 	 * show checkout page
 	 */
 	public function checkout_index() {
-		return View::make('checkout');
+		return View::make('checkout')->with('class', 'checkout');
 	}
 
 	/**
@@ -52,7 +52,7 @@ class PaymentController extends BaseController {
 			return Redirect::action('PaymentController@support_index')->with('error', 'Amount (' . $amount . ') was not valid.');
 		}
 
-		$amount *= 100;
+		$amount *= 100; //stripe records amounts as integer
 
 		//create or get user
 		if (Auth::user()) {
@@ -128,7 +128,7 @@ class PaymentController extends BaseController {
 	}
 
 	/**
-	 * Add a course SESSION to the cart
+	 * Add a course session to the cart
 	 */
 	public function add_course($session_id) {
 		
@@ -146,15 +146,8 @@ class PaymentController extends BaseController {
 				'id' =>			$course->id,
 				'url' =>		$course->url,
 			];
-		} else {
-			$courses[$session_id]['quantity']++;
+			Session::put('cart.courses', $courses);
 		}
-		Session::put('cart.courses', $courses);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Save a copy to the database if logged in
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($course->url)->with('message', 'Course added to cart.');
@@ -164,17 +157,8 @@ class PaymentController extends BaseController {
 		
 		# Remove from cart
 		$courses = Session::get('cart.courses', []);
-		if ($courses[$course_id]['quantity'] == 1) {
-			unset($courses[$course_id]);
-		} else {
-			$courses[$course_id]['quantity']--;
-		}
+		unset($courses[$course_id]);
 		Session::put('cart.courses', $courses);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Update database if logged in
 
 		# Return from whence you came (the checkout page)
 		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
@@ -195,15 +179,8 @@ class PaymentController extends BaseController {
 				'id' =>			$event_id,
 				'url' =>		$event->url,
 			];
-		} else {
-			$events[$event_id]['quantity']++;
+			Session::put('cart.events', $events);
 		}
-		Session::put('cart.events', $events);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Save a copy to the database if logged in
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($event->url)->with('message', 'Event ticket added to cart.');
@@ -213,17 +190,8 @@ class PaymentController extends BaseController {
 
 		# Remove from cart
 		$events = Session::get('cart.events', []);
-		if ($events[$event_id]['quantity'] == 1) {
-			unset($events[$event_id]);
-		} else {
-			$events[$event_id]['quantity']--;
-		}
+		unset($events[$event_id]);
 		Session::put('cart.events', $events);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Update database if logged in
 
 		# Return from whence you came (the checkout page)
 		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
@@ -244,15 +212,8 @@ class PaymentController extends BaseController {
 				'id' =>			$publication_id,
 				'url' =>		$publication->url,
 			];
-		} else {
-			$publications[$publication_id]['quantity']++;
+			Session::put('cart.publications', $publications);
 		}
-		Session::put('cart.publications', $publications);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Save a copy to the database if logged in
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($publication->url)->with('message', 'Publication added to cart.');
@@ -262,30 +223,11 @@ class PaymentController extends BaseController {
 		
 		# Remove from cart
 		$publications = Session::get('cart.publications', []);
-		if ($publications[$publication_id]['quantity'] == 1) {
-			unset($publications[$publication_id]);
-		} else {
-			$publications[$publication_id]['quantity']--;
-		}
+		unset($publications[$publication_id]);
 		Session::put('cart.publications', $publications);
-
-		# Update session quantity
-		self::update_quantity();
-
-		# Update database if logged in
 
 		# Return from whence you came (the checkout page)
 		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
-	}
-
-	private function update_quantity() {
-		$quantity = 0;
-		foreach (Session::get('cart') as $type=>$items) {
-			foreach ($items as $item) {
-				$quantity += $item['quantity'];
-			}
-		}
-		Session::put('quantity', $quantity);
 	}
 
 }

@@ -34,7 +34,13 @@
 			@endif
 		</dl>
 
-		<p><a href="{{ URL::action('PaymentController@add_publication', $publication->id) }}" class="btn btn-primary">Add to Cart</a></p>
+		<p>
+			@if (Session::has('cart.publications') && array_key_exists($publication->id, Session::get('cart.publications')))
+				<a class="btn btn-disabled">Added to Cart</a>
+			@else
+				<a href="{{ URL::action('PaymentController@add_publication', $publication->id) }}" class="btn btn-primary">Add to Cart</a>
+			@endif
+		</p>
 
 		<?php /*
 		@if (!empty($publication->paypal_id))

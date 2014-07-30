@@ -16,6 +16,9 @@ a
 			opacity: 1
 	&.glyphicon:hover
 		text-decoration: none
+	&.label[href]:hover
+		color: inherit
+		text-decoration: underline
 
 blockquote
 	+font("md", "italic")
@@ -198,16 +201,19 @@ table
 	border: 1px solid white
 	&.btn-default
 		color: $default
-		border-color: $default-light
+		border-color: $default
 	&.btn-primary
 		color: white
 		background-color: $default
-	&:hover, &:disabled, &:active, &:focus
+	&:hover, &:disabled, &:active, &:focus, &.btn-disabled
 		outline: 0
 		border-color: $default-light
 		background-color: $default-light
+	&.btn-disabled
+		cursor: default
 
 .label
+	+font("xs", "mono")
+	text-transform: uppercase
+	margin: 0
 	color: inherit
-	&:hover
-		color: inherit
