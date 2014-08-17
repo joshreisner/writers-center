@@ -5,7 +5,7 @@ return array(
 	//specify custom stylesheets
 	'css'					=> array(
 		'//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/' . getenv('SERVER_NAME') . '/45521.css',
-		'/assets/css/avalon.css', 
+		'/assets/css/avalon.min.css', 
 	), 
 
 	//prefix all table names
