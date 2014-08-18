@@ -374,12 +374,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "83f92c3f28e927917ddcb7cf214ce99c0b72004b"
+                "reference": "f61840a697a6b0a83812caeddc7395e28995b530"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/83f92c3f28e927917ddcb7cf214ce99c0b72004b",
-                "reference": "83f92c3f28e927917ddcb7cf214ce99c0b72004b",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/f61840a697a6b0a83812caeddc7395e28995b530",
+                "reference": "f61840a697a6b0a83812caeddc7395e28995b530",
                 "shasum": ""
             },
             "require": {
@@ -437,7 +437,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-08-13 07:14:49"
+            "time": "2014-08-18 14:09:13"
         },
         {
             "name": "doctrine/inflector",
@@ -632,17 +632,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "d088d32801591e44f6ea6ba97d7f9604339d44ce"
+                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/d088d32801591e44f6ea6ba97d7f9604339d44ce",
-                "reference": "d088d32801591e44f6ea6ba97d7f9604339d44ce",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ef4e18545d76113b52043cfaa3cf9560f2fb3044",
+                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/streams": "~2.0",
+                "guzzlehttp/streams": "~2.1",
                 "php": ">=5.4.0"
             },
             "require-dev": {
@@ -656,7 +656,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -689,7 +689,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-17 03:29:57"
+            "time": "2014-08-18 05:38:05"
         },
         {
             "name": "guzzlehttp/streams",
@@ -697,12 +697,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef"
+                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef",
-                "reference": "3e194196d93a19dbc37bbd2f8a34f5c043d0d7ef",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
+                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
                 "shasum": ""
             },
             "require": {
@@ -714,7 +714,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -742,7 +742,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-08-17 03:20:59"
+            "time": "2014-08-17 21:29:00"
         },
         {
             "name": "intervention/image",
@@ -893,12 +893,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "f7d0d2a74ef911f5148461a05b5f324e50d4304f"
+                "reference": "7fc3737535cce9cd6bd1d26e4df47eeb4e39957b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/f7d0d2a74ef911f5148461a05b5f324e50d4304f",
-                "reference": "f7d0d2a74ef911f5148461a05b5f324e50d4304f",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/7fc3737535cce9cd6bd1d26e4df47eeb4e39957b",
+                "reference": "7fc3737535cce9cd6bd1d26e4df47eeb4e39957b",
                 "shasum": ""
             },
             "require": {
@@ -925,7 +925,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-08-17 19:02:20"
+            "time": "2014-08-17 22:37:32"
         },
         {
             "name": "laravel/framework",
@@ -933,12 +933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "3576e554d018f72b70eaa310a999563d868855d9"
+                "reference": "ec45dbc1720f8f53dcb23d3ffca5eed2e7f60f2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/3576e554d018f72b70eaa310a999563d868855d9",
-                "reference": "3576e554d018f72b70eaa310a999563d868855d9",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ec45dbc1720f8f53dcb23d3ffca5eed2e7f60f2c",
+                "reference": "ec45dbc1720f8f53dcb23d3ffca5eed2e7f60f2c",
                 "shasum": ""
             },
             "require": {
@@ -1040,7 +1040,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-14 19:52:27"
+            "time": "2014-08-18 21:11:51"
         },
         {
             "name": "loic-sharma/profiler",
@@ -2075,12 +2075,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpFoundation.git",
-                "reference": "2fcb28a7117e77b07a62e266ae82707513619b70"
+                "reference": "66996cff6d0de1168f99e460464cd3fb35c192f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/2fcb28a7117e77b07a62e266ae82707513619b70",
-                "reference": "2fcb28a7117e77b07a62e266ae82707513619b70",
+                "url": "https://api.github.com/repos/symfony/HttpFoundation/zipball/66996cff6d0de1168f99e460464cd3fb35c192f5",
+                "reference": "66996cff6d0de1168f99e460464cd3fb35c192f5",
                 "shasum": ""
             },
             "require": {
@@ -2119,7 +2119,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "http://symfony.com",
-            "time": "2014-08-14 16:10:54"
+            "time": "2014-08-18 09:01:49"
         },
         {
             "name": "symfony/http-kernel",

@@ -34,7 +34,8 @@
 
 @section('side')
 	<div class="wallpaper">
-		<p>Perhaps information goes here about the donation, such as the Center's 501(c)(3) status or what the donation supports.</p>
+		<h3>Donate today!</h3>
+		<p>Your gift to the Writers Center supports literary outreach programs to underserved young people, strengthens our offerings to adult authors at every stage of artistic development and professional growth, builds audiences for the publications and events of Slapering Hol Press, and keeps vibrant our community of playwrights, poets and writers.</p>
 	</div>
 @endsection
 
