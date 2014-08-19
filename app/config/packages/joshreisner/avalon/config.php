@@ -21,7 +21,7 @@ return array(
 	'image_default_height'	=> 100,
 	'image_max_width'		=> 701,
 	'image_max_height'		=> 240,
-	'image_max_area'		=> 168240, //701 * 240 = 168240
+	'image_max_area'		=> 60000, //701 * 240 = 168240
 
 	//specifies the path to find the cms at, eg http://example.com/login
 	'route_prefix'			=> 'login',
