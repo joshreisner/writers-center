@@ -8,7 +8,8 @@
 		"loic-sharma/profiler": "1.1.*",
 		"stripe/stripe-php": "1.15.0",
 		"guzzlehttp/guzzle": "~4.0",
-		"joshreisner/avalon": "*"
+		"joshreisner/avalon": "*",
+		"anlutro/l4-smart-errors": "2.*"
 	},
 	"autoload": {
 		"classmap": [

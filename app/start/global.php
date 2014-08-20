@@ -44,14 +44,14 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 | exceptions. If nothing is returned, the default error view is
 | shown, which includes a detailed stack trace during debug.
 |
-*/
+
 
 App::error(function(Exception $exception, $code)
 {
 	Log::error($exception);
 });
 
-/*
+
 |--------------------------------------------------------------------------
 | Maintenance Mode Handler
 |--------------------------------------------------------------------------

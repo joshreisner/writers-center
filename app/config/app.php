@@ -124,6 +124,7 @@ return array(
 
 		'Joshreisner\Avalon\AvalonServiceProvider',
 		'Profiler\ProfilerServiceProvider',
+		'anlutro\L4SmartErrors\L4SmartErrorsServiceProvider',
 	),
 
 	/*

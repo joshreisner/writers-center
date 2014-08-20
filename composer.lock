@@ -4,8 +4,56 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4cb8b446138d66cd32624fe9d81347c6",
+    "hash": "4def0e74ddcd4febc87746f2437a6a67",
     "packages": [
+        {
+            "name": "anlutro/l4-smart-errors",
+            "version": "2.4.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anlutro/laravel-4-smart-errors.git",
+                "reference": "7eed9a34ce7d7717994284a73646f1e663cc3442"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anlutro/laravel-4-smart-errors/zipball/7eed9a34ce7d7717994284a73646f1e663cc3442",
+                "reference": "7eed9a34ce7d7717994284a73646f1e663cc3442",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~4.1",
+                "php": ">=5.3.0",
+                "xethron/l4-to-string": "1.0.*"
+            },
+            "require-dev": {
+                "anlutro/l4-testing": "0.2.*",
+                "laravel/laravel": "~4.1",
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "anlutro\\L4SmartErrors": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Lutro",
+                    "email": "anlutro@gmail.com"
+                }
+            ],
+            "description": "Smart error reporting for Laravel 4.",
+            "homepage": "https://github.com/anlutro/laravel-4-smart-errors",
+            "keywords": [
+                "error",
+                "laravel"
+            ],
+            "time": "2014-07-22 06:49:59"
+        },
         {
             "name": "classpreloader/classpreloader",
             "version": "dev-master",
@@ -412,12 +460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "948af54a34dcab07376df489487292e6f189147b"
+                "reference": "58bcb948f57925301ffd7fc7af61904866cc5bdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/948af54a34dcab07376df489487292e6f189147b",
-                "reference": "948af54a34dcab07376df489487292e6f189147b",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/58bcb948f57925301ffd7fc7af61904866cc5bdb",
+                "reference": "58bcb948f57925301ffd7fc7af61904866cc5bdb",
                 "shasum": ""
             },
             "require": {
@@ -443,7 +491,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-08-20 06:46:43"
+            "time": "2014-08-20 19:10:40"
         },
         {
             "name": "laravel/framework",
@@ -1939,6 +1987,91 @@
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
             "time": "2014-07-28 13:20:46"
+        },
+        {
+            "name": "xethron/l4-to-string",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Xethron/l4-to-string.git",
+                "reference": "18540cb8c378e9bba01a831bcb706020ef116c09"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Xethron/l4-to-string/zipball/18540cb8c378e9bba01a831bcb706020ef116c09",
+                "reference": "18540cb8c378e9bba01a831bcb706020ef116c09",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0",
+                "xethron/to-string": "1.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Xethron": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL v3"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Breytenbach",
+                    "email": "bernhard@coffeecode.co.za"
+                }
+            ],
+            "description": "Laravel 4 version of xethron/to-string, which adds query and queryLog to string functions.",
+            "homepage": "http://github.com/Xethron/l4-to-string",
+            "keywords": [
+                "convert",
+                "print_r",
+                "string"
+            ],
+            "time": "2014-02-02 15:46:38"
+        },
+        {
+            "name": "xethron/to-string",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Xethron/to-string.git",
+                "reference": "295692ce05ac737df9f07b336157574b669bf09a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Xethron/to-string/zipball/295692ce05ac737df9f07b336157574b669bf09a",
+                "reference": "295692ce05ac737df9f07b336157574b669bf09a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Xethron": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL v3"
+            ],
+            "authors": [
+                {
+                    "name": "Bernhard Breytenbach",
+                    "email": "bernhard@coffeecode.co.za"
+                }
+            ],
+            "description": "Converts Variables to strings (like print_r) with limiting functions, and Exceptions to strings without cutting off important information.",
+            "homepage": "http://github.com/Xethron/to-string",
+            "keywords": [
+                "convert",
+                "print_r",
+                "string"
+            ],
+            "time": "2014-02-23 22:11:42"
         }
     ],
     "packages-dev": [
