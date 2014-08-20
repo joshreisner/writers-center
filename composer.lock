@@ -151,12 +151,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044"
+                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ef4e18545d76113b52043cfaa3cf9560f2fb3044",
-                "reference": "ef4e18545d76113b52043cfaa3cf9560f2fb3044",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/47ca212e985d962b3cbd67675eec54bb72d66062",
+                "reference": "47ca212e985d962b3cbd67675eec54bb72d66062",
                 "shasum": ""
             },
             "require": {
@@ -208,7 +208,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-08-18 05:38:05"
+            "time": "2014-08-20 05:30:12"
         },
         {
             "name": "guzzlehttp/streams",
@@ -412,12 +412,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "8b889b0bad1943f26cce36633f50183b73175842"
+                "reference": "948af54a34dcab07376df489487292e6f189147b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/8b889b0bad1943f26cce36633f50183b73175842",
-                "reference": "8b889b0bad1943f26cce36633f50183b73175842",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/948af54a34dcab07376df489487292e6f189147b",
+                "reference": "948af54a34dcab07376df489487292e6f189147b",
                 "shasum": ""
             },
             "require": {
@@ -443,7 +443,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-08-19 18:59:21"
+            "time": "2014-08-20 06:46:43"
         },
         {
             "name": "laravel/framework",
@@ -826,12 +826,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "0d7e9199ef9c2f1b37f6d2d8e8727bacd0a8d6ed"
+                "reference": "7696cbf8262684b438a3631e166cf0a949544e3f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/0d7e9199ef9c2f1b37f6d2d8e8727bacd0a8d6ed",
-                "reference": "0d7e9199ef9c2f1b37f6d2d8e8727bacd0a8d6ed",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7696cbf8262684b438a3631e166cf0a949544e3f",
+                "reference": "7696cbf8262684b438a3631e166cf0a949544e3f",
                 "shasum": ""
             },
             "require": {
@@ -916,7 +916,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-08-15 14:27:31"
+            "time": "2014-08-19 20:25:02"
         },
         {
             "name": "predis/predis",
