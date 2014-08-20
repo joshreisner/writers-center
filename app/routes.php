@@ -53,6 +53,7 @@ Route::get('/publications',					'PublicationController@index');
 Route::get('/publications/ajax', 			'PublicationController@ajax');
 Route::get('/publications/{slug}', 			'PublicationController@show');
 
+/*
 Route::get('/support',						'PaymentController@support_index');
 Route::post('/support', 					'PaymentController@support_submit');
 
@@ -67,6 +68,7 @@ Route::group(array('prefix'=>'cart'), function(){
 
 Route::get('/checkout',						'PaymentController@checkout_index');
 Route::post('/checkout',					'PaymentController@checkout_submit');
+*/
 
 
 # Contact

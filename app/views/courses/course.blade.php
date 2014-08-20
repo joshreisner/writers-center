@@ -42,12 +42,11 @@
 				@endif
 			</dd>
 			
-			<!--
 			@if (!empty($session->register_url))
 				<dt><a class="btn btn-primary" href="{{ $session->register_url }}">Register</a></dt>
 			@endif
-			-->
-			
+
+			{{--
 			<dt>
 			@if (Session::has('cart.courses') && array_key_exists($session->id, Session::get('cart.courses')))
 				<a class="btn btn-disabled">Added to Cart</a>
@@ -55,7 +54,7 @@
 				<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $session->id) }}">Register</a>
 			@endif
 			</dt>
-
+			--}}
 		</dl>
 		@endforeach
 

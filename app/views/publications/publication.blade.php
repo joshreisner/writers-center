@@ -34,6 +34,7 @@
 			@endif
 		</dl>
 
+		{{--
 		<p>
 			@if (Session::has('cart.publications') && array_key_exists($publication->id, Session::get('cart.publications')))
 				<a class="btn btn-disabled">Added to Cart</a>
@@ -41,8 +42,8 @@
 				<a href="{{ URL::action('PaymentController@add_publication', $publication->id) }}" class="btn btn-primary">Add to Cart</a>
 			@endif
 		</p>
+		--}}
 
-		<?php /*
 		@if (!empty($publication->paypal_id))
 		<form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post"> 
 			<input type="hidden" name="cmd" value="_s-xclick">
@@ -50,7 +51,6 @@
 			<input type="submit" name="submit" class="btn btn-primary" value="Add to Cart">
 		</form>	
 		@endif
-		*/ ?>
 
 		{{ $publication->description }}
 	
