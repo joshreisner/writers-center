@@ -40,7 +40,7 @@ class EventController extends BaseController {
 		return View::make('events.event', array(
 			'title'=>$event->title,
 			'event'=>$event,
-			'next'=>Event::orderBy('start', 'desc')->first(),
+			'next'=>Event::where('start', '>', new DateTime)->orderBy('start', 'asc')->first(),
 			'class'=>'events',
 		));
 	}

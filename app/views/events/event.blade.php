@@ -48,11 +48,11 @@
 	<div class="wallpaper">
 		<span class="label">Next Event</span>
 		<h1>
-			{{ $event->title }}
-			<small>{{ $event->start->format('M d, Y g:i a') }}</small>
+			{{ $next->title }}
+			<small>{{ $next->start->format('M d, Y g:i a') }}</small>
 		</h1>
 		<div class="description">
-			{{ $event->description }}
+			{{ $next->description }}
 		</div>
 	</div>
 @endsection
