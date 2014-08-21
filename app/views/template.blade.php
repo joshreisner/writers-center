@@ -5,6 +5,9 @@
 		<title>{{ $title or $default_title }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<meta name="stripe_key" content="{{ Config::get('services.stripe.publishable_key') }}">
+		<!--[if lt IE 9]>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 	    <link rel="icon" href="/assets/img/icons/favicon.ico" type="image/x-icon">
 	    <link rel="icon" sizes="128x128" href="/assets/img/icons/favicon-128.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/icons/favicon-57.png" type="image/png">
