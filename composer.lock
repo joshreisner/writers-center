@@ -264,12 +264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a"
+                "reference": "1a00b163e414b72b0155e35e81f3b116d6a1d07c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
-                "reference": "b7180d527a5098ddb4d5434fe44a08766c0a1e6a",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/1a00b163e414b72b0155e35e81f3b116d6a1d07c",
+                "reference": "1a00b163e414b72b0155e35e81f3b116d6a1d07c",
                 "shasum": ""
             },
             "require": {
@@ -309,7 +309,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-08-17 21:29:00"
+            "time": "2014-08-20 21:24:03"
         },
         {
             "name": "intervention/image",
@@ -460,12 +460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "58bcb948f57925301ffd7fc7af61904866cc5bdb"
+                "reference": "3af60c9ceccce59ad6f1cfc6a9cae3a4e21d5a4a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/58bcb948f57925301ffd7fc7af61904866cc5bdb",
-                "reference": "58bcb948f57925301ffd7fc7af61904866cc5bdb",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/3af60c9ceccce59ad6f1cfc6a9cae3a4e21d5a4a",
+                "reference": "3af60c9ceccce59ad6f1cfc6a9cae3a4e21d5a4a",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +491,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-08-20 19:10:40"
+            "time": "2014-08-21 02:43:45"
         },
         {
             "name": "laravel/framework",

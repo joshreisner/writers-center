@@ -130,17 +130,17 @@ class PaymentController extends BaseController {
 	/**
 	 * Add a course session to the cart
 	 */
-	public function add_course($session_id) {
+	public function add_course($section_id) {
 		
 		# Get event info
-		$session = AvSession::find($session_id);
-		$course = Course::find($session->course_id);
+		$section = Section::find($section_id);
+		$course = Course::find($section->course_id);
 		$course->url = CourseController::url($course);
 
 		# Add to cart
 		$courses = Session::get('cart.courses', []);
-		if (!isset($courses[$session_id])) {
-			$courses[$session_id] = [
+		if (!isset($courses[$section_id])) {
+			$courses[$section_id] = [
 				'name' =>		$course->title,
 				'quantity' =>	1,
 				'id' =>			$course->id,

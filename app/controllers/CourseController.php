@@ -23,10 +23,12 @@ class CourseController extends BaseController {
 	 * show a single course
 	 */
 	public function show($slug) {
-		$course = Course::with(array('instructors', 'sessions'=>function($query){
+		$course = Course::with(array('instructors', 'sections'=>function($query){
 			$query->where('start_date', '>', new DateTime());
 			$query->orderBy('start_date', 'desc');
 		}))->where('slug', $slug)->first();
+		
+		$course = Course::with(array('instructors', 'sections'))->where('slug', $slug)->first();
 
 		//404
 		if (!$course) return Redirect::action('CourseController@index');
@@ -71,13 +73,13 @@ class CourseController extends BaseController {
 		}
 
 		if (Input::has('day')) {
-			$courses->whereHas('sessions', function($query){
+			$courses->whereHas('sections', function($query){
 				$query->where('day_id', Input::get('day'));
 			});
 		}
 
 		if (Input::has('duration')) {
-			$courses->whereHas('sessions', function($query) {
+			$courses->whereHas('sections', function($query) {
 				if (Input::get('duration') == 'intensive') {
 				    $query->where('classes', 1);
 				} else {
@@ -97,11 +99,11 @@ class CourseController extends BaseController {
 		}
 
 		if (Input::has('year')) {
-			$courses->whereHas('sessions', function($query){
+			$courses->whereHas('sections', function($query){
 				$query->where(DB::raw('YEAR(start_date)'), '=', Input::get('year'));
 			});
 		} else {
-			$courses->whereHas('sessions', function($query){
+			$courses->whereHas('sections', function($query){
 				$query->where('start_date', '>', new DateTime());
 			});
 		}

@@ -16,42 +16,42 @@
 
 		{{ $course->description }}
 
-		@foreach ($course->sessions as $session)
+		@foreach ($course->sections as $section)
 		<dl>
 			<dt>
-				@if (count($course->sessions) == 1)
+				@if (count($course->sections) == 1)
 				When
 				@else
-				{{ $session->title }}
+				{{ $section->title }}
 				@endif
 			</dt>
 			<dd>
-				@if ($session->classes == 1)
-				{{ $session->days->title }}, {{ $session->start_date->format('n/d/Y') }}<br>
-				{{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}				
+				@if ($section->classes == 1)
+				{{ $section->days->title }}, {{ $section->start_date->format('n/d/Y') }}<br>
+				{{ BaseController::formatTimeRange($section->start_time, $section->end_time) }}				
 				@else
-				{{ $session->classes }} {{ $session->days->title }}s, {{ BaseController::formatTimeRange($session->start_time, $session->end_time) }}<br>
-				{{ $session->start_date->format('n/d/Y') }}&ndash;{{ $session->end_date->format('n/d/Y') }} <em>{{ $session->notes }}</em>
+				{{ $section->classes }} {{ $section->days->title }}s, {{ BaseController::formatTimeRange($section->start_time, $section->end_time) }}<br>
+				{{ $section->start_date->format('n/d/Y') }}&ndash;{{ $section->end_date->format('n/d/Y') }} <em>{{ $section->notes }}</em>
 				@endif
 			</dd>
 
 			<dt>Tuition</dt>
-			<dd>{{ BaseController::formatPrice($session->member_tuition) }} 
-				@if ($session->member_tuition != $session->non_member_tuition)
-					members<br>{{ BaseController::formatPrice($session->non_member_tuition) }} non-members
+			<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
+				@if ($section->member_tuition != $section->non_member_tuition)
+					members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
 				@endif
 			</dd>
 			
-			@if (!empty($session->register_url))
-				<dt><a class="btn btn-primary" href="{{ $session->register_url }}">Register</a></dt>
+			@if (!empty($section->register_url))
+				<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
 			@endif
 
 			{{--
 			<dt>
-			@if (Session::has('cart.courses') && array_key_exists($session->id, Session::get('cart.courses')))
+			@if (section::has('cart.courses') && array_key_exists($section->id, section::get('cart.courses')))
 				<a class="btn btn-disabled">Added to Cart</a>
 			@else
-				<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $session->id) }}">Register</a>
+				<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
 			@endif
 			</dt>
 			--}}

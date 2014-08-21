@@ -40,7 +40,7 @@ class BaseController extends Controller {
 	 */
 	public static function editLink($instance) {
 		if (!Auth::user()) return false;
-		return link_to(URL::action('InstanceController@edit', array($instance->object_id, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
+		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit dashicons dashicons-welcome-write-blog'));
 	}
 
 	/**
