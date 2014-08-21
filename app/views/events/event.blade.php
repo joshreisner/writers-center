@@ -26,6 +26,10 @@
 				{{ BaseController::formatPrice($event->price) }}
 			</dd>
 			@endif
+
+			@if (!empty($event->register_url))
+				<dt><a class="btn btn-primary" href="{{ $event->register_url }}">Purchase Ticket</a></dt>
+			@endif
 		</dl>
 
 		{{--
