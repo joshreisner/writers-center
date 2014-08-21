@@ -72,6 +72,7 @@ class BaseController extends Controller {
 		$ampm = 'a.m.';
 		if ($hour > 11) $ampm = 'p.m.';
 		if ($hour > 12) $hour -= 12;
+		$hour -= 0;
 		return compact('hour', 'minute', 'ampm');
 	}
 
