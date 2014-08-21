@@ -1,12 +1,12 @@
 body.contact
 
 	#map-canvas
-		height: 500px
+		height: 400px
 
 		.infowindow
-			+font("md")
-			height: 170px
-			width: 300px
+			+font("sm")
+			height: 156px
+			width: 200px
 
 			h3
 				+font("md", "bold")
@@ -18,3 +18,12 @@ body.contact
 			a
 				text-decoration: none
 
+	@media (min-width: $screen-md)
+
+		#map-canvas
+			height: 500px
+
+			.infowindow
+				+font("md")
+				width: 300px
+				height: 170px

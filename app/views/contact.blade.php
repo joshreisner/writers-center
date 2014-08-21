@@ -14,7 +14,7 @@
 				mapTypeControl: false,
 				streetViewControl: false,
 				zoomControlOptions: { style: google.maps.ZoomControlStyle.SMALL },
-				center: new google.maps.LatLng(41.096795,-73.8695105),
+				center: new google.maps.LatLng(41.097795,-73.8695105),
 			    mapTypeControlOptions: {
 			    	mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
 		    	}
