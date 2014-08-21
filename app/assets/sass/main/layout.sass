@@ -65,18 +65,22 @@ body.scrolled .background
 			display: inline-block
 			width: 100%
 
+.alert
+	border: 0
+	&.alert-info
+		background-color: $default-light
+		color: $default
+	&.alert-warning
+		background-color: $default
+		color: white
+		a
+			color: white
+			text-decoration: underline
+
+
 .page
 	padding-top: $margin / 2
 	border-color: $default
-
-	.alert
-		border: 0
-		&.alert-info
-			background-color: $default-light
-			color: $default
-		&.alert-warning
-			background-color: $default
-			color: white
 
 	.content
 		margin-bottom: $margin

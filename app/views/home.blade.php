@@ -1,6 +1,7 @@
 @extends('template')
 
 @section('page')
+	@include('partials.notifications')
 
 	<div class="carousel">
 		@foreach ($items as $item)
