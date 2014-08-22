@@ -460,12 +460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "5c01b9d9f5b29bb0a6af1a8f7224a19809ff78d2"
+                "reference": "43f1643ce667b950f93eb325c313708e6e64b27c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/5c01b9d9f5b29bb0a6af1a8f7224a19809ff78d2",
-                "reference": "5c01b9d9f5b29bb0a6af1a8f7224a19809ff78d2",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/43f1643ce667b950f93eb325c313708e6e64b27c",
+                "reference": "43f1643ce667b950f93eb325c313708e6e64b27c",
                 "shasum": ""
             },
             "require": {
@@ -491,7 +491,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-08-22 07:02:51"
+            "time": "2014-08-22 16:50:24"
         },
         {
             "name": "laravel/framework",
@@ -499,12 +499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "325115e4d8ac8392cd63d6cadf18b119c0422515"
+                "reference": "dbe372d622f361bc8efbfc22c34c7ae59aa333bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/325115e4d8ac8392cd63d6cadf18b119c0422515",
-                "reference": "325115e4d8ac8392cd63d6cadf18b119c0422515",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/dbe372d622f361bc8efbfc22c34c7ae59aa333bb",
+                "reference": "dbe372d622f361bc8efbfc22c34c7ae59aa333bb",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-21 17:55:34"
+            "time": "2014-08-22 14:14:27"
         },
         {
             "name": "loic-sharma/profiler",
