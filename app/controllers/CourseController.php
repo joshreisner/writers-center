@@ -24,8 +24,8 @@ class CourseController extends BaseController {
 	 */
 	public function show($slug) {
 		$course = Course::with(array('instructors', 'sections'=>function($query){
-			$query->where('start_date', '>', new DateTime());
-			$query->orderBy('start_date', 'desc');
+			$query->where('start', '>', new DateTime());
+			$query->orderBy('start', 'desc');
 		}))->where('slug', $slug)->first();
 		
 		//404
@@ -98,11 +98,11 @@ class CourseController extends BaseController {
 
 		if (Input::has('year')) {
 			$courses->whereHas('sections', function($query){
-				$query->where(DB::raw('YEAR(start_date)'), '=', Input::get('year'));
+				$query->where(DB::raw('YEAR(start)'), '=', Input::get('year'));
 			});
 		} else {
 			$courses->whereHas('sections', function($query){
-				$query->where('start_date', '>', new DateTime());
+				$query->where('start', '>', new DateTime());
 			});
 		}
 
