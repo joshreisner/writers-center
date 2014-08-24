@@ -68,6 +68,7 @@ class BaseController extends Controller {
 	 * time range helper
 	 */
 	private static function parseTime($time) {
+		if (stristr($time, ' ')) list($date, $time) = explode(' ', $time);
 		list($hour, $minute, $second) = explode(':', $time);
 		$ampm = 'a.m.';
 		if ($hour > 11) $ampm = 'p.m.';
