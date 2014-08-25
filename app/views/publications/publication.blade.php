@@ -78,5 +78,6 @@
 		@foreach ($related as $publication)
 			<h3><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></h3>
 		@endforeach
+		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
 @endsection

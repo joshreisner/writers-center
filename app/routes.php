@@ -122,8 +122,7 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 });
 
 
-# Global variables
-
+# Template variables
 View::composer('template', function($view)
 {
 
@@ -138,6 +137,32 @@ View::composer('template', function($view)
     	'contact'=>'Contact',
     ))
     ->with('default_title', 'Hudson Valley Writers Center');
+});
+
+# Wallpapers
+View::composer(['about', 'blog.post', 'checkout', 'contact', 'courses.course', 'events.event', 'publications.publication', 'support'], function($view)
+{    
+	$wallpapers = [
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-1.jpg',
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-2.jpg',
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-3.jpg',
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-4-cropped.jpg',
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-5.jpg',
+    	'grayscale-hvwc-area-by-ronnie-levine-july2014-6.jpg',
+    	'grayscale-hvwc-june13-1.jpg',
+    	'grayscale-hvwc-june13-2a-full-image.jpg',
+    	'grayscale-hvwc-june13-3.jpg',
+    	'grayscale-hvwc-june13-4.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-1.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-2.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-3.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-4.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-5.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-6.jpg',
+    	'sleepy-hollow-river-scene-by-ronnie-levine-7.jpg',
+    ];
+
+    $view->with('wallpaper', '/assets/img/wallpapers/' . $wallpapers[array_rand($wallpapers)]);
 });
 
 

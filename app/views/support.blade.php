@@ -36,6 +36,7 @@
 	<div class="wallpaper">
 		<h3>Donate today!</h3>
 		<p>Your gift to the Writers Center supports literary outreach programs to underserved young people, strengthens our offerings to adult authors at every stage of artistic development and professional growth, builds audiences for the publications and events of Slapering Hol Press, and keeps vibrant our community of playwrights, poets and writers.</p>
+		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
 @endsection
 

@@ -49,5 +49,6 @@
 			<a href="/blog/{{ $post->slug }}">{{ $post->title }}</a>
 		</h1>
 		@endforeach
+		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
 @endsection

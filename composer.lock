@@ -313,16 +313,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.0.7",
+            "version": "2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "2fb5e286e4210cd55151e8e8d2ce0ac2bd20fec2"
+                "reference": "28f156432e774b31a53c5fe08d164edd111f9482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/2fb5e286e4210cd55151e8e8d2ce0ac2bd20fec2",
-                "reference": "2fb5e286e4210cd55151e8e8d2ce0ac2bd20fec2",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/28f156432e774b31a53c5fe08d164edd111f9482",
+                "reference": "28f156432e774b31a53c5fe08d164edd111f9482",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +365,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-08-06 18:37:17"
+            "time": "2014-08-23 15:47:12"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -499,12 +499,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "dbe372d622f361bc8efbfc22c34c7ae59aa333bb"
+                "reference": "c57c8adab8a2db0939383b35c4249ec411deb928"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/dbe372d622f361bc8efbfc22c34c7ae59aa333bb",
-                "reference": "dbe372d622f361bc8efbfc22c34c7ae59aa333bb",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c57c8adab8a2db0939383b35c4249ec411deb928",
+                "reference": "c57c8adab8a2db0939383b35c4249ec411deb928",
                 "shasum": ""
             },
             "require": {
@@ -606,7 +606,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-08-22 14:14:27"
+            "time": "2014-08-24 14:50:37"
         },
         {
             "name": "loic-sharma/profiler",
@@ -874,12 +874,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "7696cbf8262684b438a3631e166cf0a949544e3f"
+                "reference": "e0868df0eca69b33b9d72fe5e2f361f0a41bf317"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7696cbf8262684b438a3631e166cf0a949544e3f",
-                "reference": "7696cbf8262684b438a3631e166cf0a949544e3f",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/e0868df0eca69b33b9d72fe5e2f361f0a41bf317",
+                "reference": "e0868df0eca69b33b9d72fe5e2f361f0a41bf317",
                 "shasum": ""
             },
             "require": {
@@ -964,7 +964,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-08-19 20:25:02"
+            "time": "2014-08-25 13:16:23"
         },
         {
             "name": "predis/predis",
