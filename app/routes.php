@@ -49,9 +49,9 @@ Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
 Route::get('/blog',							'BlogController@index');
 Route::get('/blog/ajax', 					'BlogController@ajax');
 Route::get('/blog/{slug}', 					'BlogController@show');
-Route::get('/publications',					'PublicationController@index');
-Route::get('/publications/ajax', 			'PublicationController@ajax');
-Route::get('/publications/{slug}', 			'PublicationController@show');
+Route::get('/shp',							'PublicationController@index');
+Route::get('/shp/ajax', 					'PublicationController@ajax');
+Route::get('/shp/{slug}', 					'PublicationController@show');
 
 /*
 Route::get('/support',						'PaymentController@support_index');
@@ -133,7 +133,7 @@ View::composer('template', function($view)
     	'courses'=>'Courses',
     	'events'=>'Events',
     	'blog'=>'Blog',
-    	'publications'=>'Slapering Hol Press',
+    	'shp'=>'Slapering Hol Press',
     	'contact'=>'Contact',
     ))
     ->with('default_title', 'Hudson Valley Writers Center');
