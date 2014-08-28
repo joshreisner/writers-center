@@ -29,6 +29,7 @@
 		</div>
 	</form>
 
+	{{-- 
 	<div class="wallpaper">
 		<span class="label">SHP Masthead</span>
 		<h3>Slapering Hol Press</h3>
@@ -52,4 +53,5 @@
 		</ul>
 		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
+	--}}
 @endsection
