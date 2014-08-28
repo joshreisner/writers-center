@@ -13,7 +13,7 @@ class PublicationController extends BaseController {
 		}
 
 		return View::make('publications.index', array(
-			'title'=>'Publications',
+			'title'=>'Slapering Hol Press',
 			'publications'=>$publications,
 			'years'=>Publication::orderBy('year', 'desc')->distinct()->lists('year', 'year'),
 			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
