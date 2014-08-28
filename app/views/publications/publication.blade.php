@@ -73,6 +73,7 @@
 @endsection
 
 @section('side')
+	{{--
 	<div class="wallpaper">
 		<span class="label">Latest Publications</span>
 		@foreach ($related as $publication)
@@ -80,4 +81,6 @@
 		@endforeach
 		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
+	--}}
+	@include('publications.masthead')
 @endsection
