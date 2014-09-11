@@ -435,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "c8b58d97e856abb5b9d08cca3997a265b0c254da"
+                "reference": "16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c8b58d97e856abb5b9d08cca3997a265b0c254da",
-                "reference": "c8b58d97e856abb5b9d08cca3997a265b0c254da",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8",
+                "reference": "16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8",
                 "shasum": ""
             },
             "require": {
@@ -498,7 +498,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-09-10 17:36:07"
+            "time": "2014-09-11 20:46:13"
         },
         {
             "name": "doctrine/inflector",
@@ -951,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "b54612741b1298ab92bde9756bb58f321bcbf2f0"
+                "reference": "0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/b54612741b1298ab92bde9756bb58f321bcbf2f0",
-                "reference": "b54612741b1298ab92bde9756bb58f321bcbf2f0",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9",
+                "reference": "0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +983,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-09-11 00:31:39"
+            "time": "2014-09-11 22:52:54"
         },
         {
             "name": "laravel/framework",
@@ -991,12 +991,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "d57b430c2531ca8dc6b75e18ef94003436a731de"
+                "reference": "619690d7f13d9faf85efd1fa29ec199bb15ff6a1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/d57b430c2531ca8dc6b75e18ef94003436a731de",
-                "reference": "d57b430c2531ca8dc6b75e18ef94003436a731de",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/619690d7f13d9faf85efd1fa29ec199bb15ff6a1",
+                "reference": "619690d7f13d9faf85efd1fa29ec199bb15ff6a1",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-09-11 01:18:00"
+            "time": "2014-09-11 14:10:29"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1265,12 +1265,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "7a3789f1a9a9b5588279ee29ec285770e2d14882"
+                "reference": "fd064dac6c15e1521cbe136ec32d0af260f92e1f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/7a3789f1a9a9b5588279ee29ec285770e2d14882",
-                "reference": "7a3789f1a9a9b5588279ee29ec285770e2d14882",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fd064dac6c15e1521cbe136ec32d0af260f92e1f",
+                "reference": "fd064dac6c15e1521cbe136ec32d0af260f92e1f",
                 "shasum": ""
             },
             "require": {
@@ -1302,7 +1302,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-08-31 15:05:11"
+            "time": "2014-09-11 22:39:59"
         },
         {
             "name": "patchwork/utf8",

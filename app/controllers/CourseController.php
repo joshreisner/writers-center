@@ -113,9 +113,7 @@ class CourseController extends BaseController {
 		} else {
 			$courses->whereHas('sections', function($query){
 				$query->where('start', '>', new DateTime());
-			})->orWhereHas('sections', function($query){
-				$query->whereNull('start');
-			});
+			})->orWhere('tutorial_available', 1);
 		}
 
 		$courses = $courses->get();

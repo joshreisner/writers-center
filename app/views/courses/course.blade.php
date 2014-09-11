@@ -12,7 +12,7 @@
 			<small>{{ CourseController::formatInstructors($course) }}</small>
 		</h1>
 
-		{{ $course->description }}
+		<div class="description">{{ nl2br($course->description) }}</div>
 
 		@foreach ($course->sections as $section)
 		<dl>
@@ -57,6 +57,13 @@
 			--}}
 		</dl>
 		@endforeach
+
+		@if ($course->tutorial_available)
+			<div class="tutorial">
+				<p>This course is also offered as a customized one-on-one tutorial, contact the office to find out more.</p>
+				<p><a class="btn btn-primary" href="mailto:info@writerscenter.org?subject={{ rawurlencode($course->title . ' Tutorial Inquiry') }}">Contact</a></p>
+			</div>
+		@endif
 
 		@if (count($course->instructors))
 			@if (count($course->instructors) == 1)
