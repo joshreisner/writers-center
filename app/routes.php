@@ -140,7 +140,7 @@ View::composer('template', function($view)
 });
 
 # Wallpapers
-View::composer(['about', 'blog.post', 'checkout', 'contact', 'courses.course', 'events.event', 'publications.masthead', 'publications.publication', 'support'], function($view)
+View::composer(['about', 'blog.post', 'checkout', 'contact', 'courses.index', 'courses.course', 'events.event', 'publications.masthead', 'publications.publication', 'support'], function($view)
 {    
 	$wallpapers = [
     	'grayscale-hvwc-area-by-ronnie-levine-july2014-1.jpg',

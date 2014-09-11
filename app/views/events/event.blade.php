@@ -15,10 +15,10 @@
 		
 		<dl>
 			<dt>Date</dt>
-			<dd>{{ $event->start->format('m/d/Y') }}</dd>
+			<dd>{{ EventController::formatDateRange($event->start, $event->end) }}</dd>
 
 			<dt>Time</dt>
-			<dd>{{ $event->start->format('g:i a') }}</dd>
+			<dd>{{ EventController::formatTimeRange($event->start, $event->end) }}</dd>
 
 			@if ($event->price !== null)
 			<dt>Price</dt>

@@ -9,9 +9,7 @@
 		<h1>
 			{{ $course->title }}
 			{{ BaseController:: editLink($course) }}
-			@if (count($course->instructors))
-				<small>{{ CourseController::formatInstructors($course) }}</small>
-			@endif
+			<small>{{ CourseController::formatInstructors($course) }}</small>
 		</h1>
 
 		{{ $course->description }}
@@ -26,12 +24,14 @@
 				@endif
 			</dt>
 			<dd>
-				@if ($section->classes == 1)
-				{{ $section->days->title }}, {{ $section->start->format('n/d/Y') }}<br>
-				{{ BaseController::formatTimeRange($section->start, $section->end) }}				
-				@else
-				{{ $section->classes }} {{ $section->days->title }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
-				{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }} <em>{{ $section->notes }}</em>
+				@if ($section->classes)
+					@if ($section->classes == 1)
+					{{ $section->days->title }}, {{ $section->start->format('n/d/Y') }}<br>
+					{{ BaseController::formatTimeRange($section->start, $section->end) }}				
+					@else
+					{{ $section->classes }} {{ $section->days->title }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
+					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }} <em>{{ $section->notes }}</em>
+					@endif
 				@endif
 			</dd>
 
@@ -80,6 +80,7 @@
 @endsection
 
 @section('side')
+	@if (!empty($related))
 	<div class="wallpaper">
 		<span class="label">You might also like</span>
 		<h1>
@@ -89,4 +90,5 @@
 		<div class="description">{{ $related->description }}</div>
 		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
+	@endif
 @endsection

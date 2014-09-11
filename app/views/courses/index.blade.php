@@ -62,4 +62,11 @@
 		</div>
 		-->
 	</form>
+
+	<div class="wallpaper">
+		<span class="label">Tutorials</span>
+		<h3>Tutorials are Available</h3>
+		<p>To arrange a tutorial with your instructor of choice please contact the Hudson Valley Writers Center's office by calling (914) 332-5953 or by emailing <a href="mailto:info@writerscenter.org">info@writerscenter.org</a>.</p>
+		<div class="image" style="background-image:url({{ $wallpaper}})">
+	</div>
 @endsection

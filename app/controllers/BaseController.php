@@ -65,7 +65,32 @@ class BaseController extends Controller {
 	}
 
 	/**
-	 * time range helper
+	 * date range
+	 */
+	public static function formatDateRange($start, $end, $separator='&ndash;') {
+
+		if ($start->format('Y') == $end->format('Y')) {
+			if ($start->format('m') == $end->format('m')) {
+				if ($start->format('d') == $end->format('d')) {
+					//same day
+					return $start->format('m/d/Y');					
+				} else {
+					//same month and year, different day
+					return $start->format('m/d') . $separator . $end->format('d/Y');
+				}
+			} else {
+				//same year, different months
+				return $start->format('m/d') . $separator . $end->format('m/d/Y');
+			}
+		}
+
+		//totally different dates, specify year
+		return $start->format('m/d/Y') . $separator . $end->format('m/d/Y');
+
+	}
+
+	/**
+	 * time range helper, (only useful with time fields, todo deprecate)
 	 */
 	private static function parseTime($time) {
 		if (stristr($time, ' ')) list($date, $time) = explode(' ', $time);

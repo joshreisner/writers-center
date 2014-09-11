@@ -31,14 +31,24 @@ class CourseController extends BaseController {
 		//404
 		if (!$course) return Redirect::action('CourseController@index');
 
+		//also get a related course
+		$related = Course::where('genre_id', $course->genre_id)
+				->where('id', '<>', $course->id)
+				->whereHas('sections', function($query){
+					$query->where('start', '>', new DateTime());
+					$query->orWhere(function($query){
+						$query->whereNotNull('id');
+						$query->whereNull('start');
+					});
+				})
+				->orderBy(DB::raw('RAND()'))
+				->first();
+
 		return View::make('courses.course', array(
 			'title'=>$course->title,
 			'course'=>$course,
 			'class'=>'courses',
-			'related'=>Course::where('genre_id', $course->genre_id)
-				->where('id', '<>', $course->id)
-				->orderBy(DB::raw('RAND()'))
-				->first(),
+			'related'=>$related,
 		));
 	}
 
@@ -103,6 +113,8 @@ class CourseController extends BaseController {
 		} else {
 			$courses->whereHas('sections', function($query){
 				$query->where('start', '>', new DateTime());
+			})->orWhereHas('sections', function($query){
+				$query->whereNull('start');
 			});
 		}
 
@@ -148,20 +160,23 @@ class CourseController extends BaseController {
 	}
 
 	/**
-	 * format a ordinal(?) list of instructors
+	 * format a serial string of instructors
 	 */
 	public static function formatInstructors(Course $course) {
+
+		//make a flat array of instructors (ok if empty)
 		$instructors = array();
 		foreach ($course->instructors as $instructor) {
 			$instructors[] = $instructor->name;
 		}
+
+		//return string
 		if (count($instructors) > 2) {
 			$last = array_pop($instructors);
-			$instructors = implode(', ', $instructors) . ' and ' . $last;
+			return implode(', ', $instructors) . ' and ' . $last;
 		} else {
-			$instructors = implode(' and ', $instructors);					
+			return implode(' and ', $instructors);					
 		}
-		return $instructors;
 	}
 
 }
