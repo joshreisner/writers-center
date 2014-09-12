@@ -1,10 +1,10 @@
 @if (count($genres))
-	@foreach ($genres as $genre=>$courses)
+	@foreach ($genres as $genre)
 		
-		<h1 class="group">{{ $genre }}</h1>
+		<h1 class="group">{{ $genre->title }}</h1>
 		
 		<ul class="courses">
-		@foreach ($courses as $course)
+		@foreach ($genre->courses as $course)
 			<li>
 				<a href="{{ $course->url }}">{{ $course->title }}</a>
 				{{ CourseController::formatInstructors($course) }}

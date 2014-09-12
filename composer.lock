@@ -435,12 +435,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8"
+                "reference": "0d99f152573c2da1a4884cc90a9fdfc038f47f7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8",
-                "reference": "16cafe13daa90bdb7cef1094c2f1e08a7ef1b1e8",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/0d99f152573c2da1a4884cc90a9fdfc038f47f7b",
+                "reference": "0d99f152573c2da1a4884cc90a9fdfc038f47f7b",
                 "shasum": ""
             },
             "require": {
@@ -498,7 +498,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-09-11 20:46:13"
+            "time": "2014-09-12 11:47:41"
         },
         {
             "name": "doctrine/inflector",
@@ -690,12 +690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d"
+                "reference": "4fb07f59e238d664a68dfb94863df42c08ffe8fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
-                "reference": "9c4fbbf6457768f5036fbd88f1229f3fca812a5d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/4fb07f59e238d664a68dfb94863df42c08ffe8fb",
+                "reference": "4fb07f59e238d664a68dfb94863df42c08ffe8fb",
                 "shasum": ""
             },
             "require": {
@@ -747,7 +747,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-09-08 22:11:58"
+            "time": "2014-09-12 00:05:08"
         },
         {
             "name": "guzzlehttp/streams",
@@ -951,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9"
+                "reference": "0a5bc881ed0816a863eead02c09ed77f82838e1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9",
-                "reference": "0a79e9b2f3d8d67c254bd778de3b42fe69bb80e9",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/0a5bc881ed0816a863eead02c09ed77f82838e1d",
+                "reference": "0a5bc881ed0816a863eead02c09ed77f82838e1d",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +983,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-09-11 22:52:54"
+            "time": "2014-09-12 09:19:24"
         },
         {
             "name": "laravel/framework",
@@ -991,12 +991,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "619690d7f13d9faf85efd1fa29ec199bb15ff6a1"
+                "reference": "81615c3c5abb20214579827b9a2e033baea5e260"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/619690d7f13d9faf85efd1fa29ec199bb15ff6a1",
-                "reference": "619690d7f13d9faf85efd1fa29ec199bb15ff6a1",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/81615c3c5abb20214579827b9a2e033baea5e260",
+                "reference": "81615c3c5abb20214579827b9a2e033baea5e260",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-09-11 14:10:29"
+            "time": "2014-09-12 18:09:50"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1265,12 +1265,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "fd064dac6c15e1521cbe136ec32d0af260f92e1f"
+                "reference": "2b96ab8edccd5a0d0e7a826a7dc53c421ae64f94"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/fd064dac6c15e1521cbe136ec32d0af260f92e1f",
-                "reference": "fd064dac6c15e1521cbe136ec32d0af260f92e1f",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2b96ab8edccd5a0d0e7a826a7dc53c421ae64f94",
+                "reference": "2b96ab8edccd5a0d0e7a826a7dc53c421ae64f94",
                 "shasum": ""
             },
             "require": {
@@ -1302,7 +1302,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2014-09-11 22:39:59"
+            "time": "2014-09-12 12:48:23"
         },
         {
             "name": "patchwork/utf8",
