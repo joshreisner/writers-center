@@ -60,16 +60,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/ClassPreloader.git",
-                "reference": "f4a1c082618343b6fb1f484e9830b92dbe90dcf2"
+                "reference": "5d3937a0de5bf3b27126ea5a2c163ccceef82596"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mtdowling/ClassPreloader/zipball/f4a1c082618343b6fb1f484e9830b92dbe90dcf2",
-                "reference": "f4a1c082618343b6fb1f484e9830b92dbe90dcf2",
+                "url": "https://api.github.com/repos/mtdowling/ClassPreloader/zipball/5d3937a0de5bf3b27126ea5a2c163ccceef82596",
+                "reference": "5d3937a0de5bf3b27126ea5a2c163ccceef82596",
                 "shasum": ""
             },
             "require": {
-                "nikic/php-parser": "~1.0@beta",
+                "nikic/php-parser": "~1.0",
                 "php": ">=5.3.3",
                 "symfony/console": "~2.1",
                 "symfony/filesystem": "~2.1",
@@ -112,7 +112,7 @@
                 "class",
                 "preload"
             ],
-            "time": "2014-09-07 10:18:59"
+            "time": "2014-09-12 19:10:55"
         },
         {
             "name": "d11wtq/boris",
@@ -755,12 +755,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "1a00b163e414b72b0155e35e81f3b116d6a1d07c"
+                "reference": "30d5c8e7646e004768054c4143a433c89bc9ece0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/1a00b163e414b72b0155e35e81f3b116d6a1d07c",
-                "reference": "1a00b163e414b72b0155e35e81f3b116d6a1d07c",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/30d5c8e7646e004768054c4143a433c89bc9ece0",
+                "reference": "30d5c8e7646e004768054c4143a433c89bc9ece0",
                 "shasum": ""
             },
             "require": {
@@ -800,7 +800,7 @@
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-08-20 21:24:03"
+            "time": "2014-09-15 01:45:40"
         },
         {
             "name": "intervention/image",
@@ -951,12 +951,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "0a5bc881ed0816a863eead02c09ed77f82838e1d"
+                "reference": "008296f2c0221b989e49b5b60d9c59e517d0c747"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/0a5bc881ed0816a863eead02c09ed77f82838e1d",
-                "reference": "0a5bc881ed0816a863eead02c09ed77f82838e1d",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/008296f2c0221b989e49b5b60d9c59e517d0c747",
+                "reference": "008296f2c0221b989e49b5b60d9c59e517d0c747",
                 "shasum": ""
             },
             "require": {
@@ -983,7 +983,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-09-12 09:19:24"
+            "time": "2014-09-15 21:56:40"
         },
         {
             "name": "laravel/framework",
@@ -991,12 +991,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "81615c3c5abb20214579827b9a2e033baea5e260"
+                "reference": "f9bc80211f5676e1ca7a0ba0712f1a21ebe0d0b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/81615c3c5abb20214579827b9a2e033baea5e260",
-                "reference": "81615c3c5abb20214579827b9a2e033baea5e260",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f9bc80211f5676e1ca7a0ba0712f1a21ebe0d0b0",
+                "reference": "f9bc80211f5676e1ca7a0ba0712f1a21ebe0d0b0",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1098,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-09-12 18:09:50"
+            "time": "2014-09-15 04:03:56"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1366,12 +1366,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "3f3b9b90fbfc691aa91122c4073f169f1ae7f19f"
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/3f3b9b90fbfc691aa91122c4073f169f1ae7f19f",
-                "reference": "3f3b9b90fbfc691aa91122c4073f169f1ae7f19f",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/5085202f1f37769aae59f9711c423f28159c9b29",
+                "reference": "5085202f1f37769aae59f9711c423f28159c9b29",
                 "shasum": ""
             },
             "require": {
@@ -1456,7 +1456,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-09-09 14:41:58"
+            "time": "2014-09-13 02:42:45"
         },
         {
             "name": "predis/predis",
