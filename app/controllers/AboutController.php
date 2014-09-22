@@ -7,7 +7,7 @@ class AboutController extends BaseController {
 	 */
 	public function index() {
 		$page = Page::whereNull('slug')->first();
-		return View::make('about', array(
+		return View::make('about.page', array(
 			'title'=>$page->title,
 			'page'=>$page,
 			'pages'=>Page::orderBy('precedence')->get(),
@@ -24,7 +24,7 @@ class AboutController extends BaseController {
 		//404
 		if (!$page) return Redirect::action('AboutController@index');
 		
-		return View::make('about', array(
+		return View::make('about.page', array(
 			'title'=>$page->title,
 			'page'=>$page,
 			'pages'=>Page::orderBy('precedence')->get(),

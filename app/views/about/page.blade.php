@@ -7,6 +7,9 @@
 			{{ AboutController::editLink($page) }}
 		</h1>
 		{{ $page->content }}
+		@if ($page->slug == 'who-we-are')
+			@include('about.who')
+		@endif
 	</div>
 @endsection
 

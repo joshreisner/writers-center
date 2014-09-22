@@ -140,7 +140,7 @@ View::composer('template', function($view)
 });
 
 # Wallpapers
-View::composer(['about', 'blog.post', 'checkout', 'contact', 'courses.index', 'courses.course', 'events.event', 'publications.masthead', 'publications.publication', 'support'], function($view)
+View::composer(['about.page', 'blog.post', 'checkout', 'contact', 'courses.index', 'courses.course', 'events.event', 'publications.masthead', 'publications.publication', 'support'], function($view)
 {    
 	$wallpapers = [
     	'grayscale-hvwc-area-by-ronnie-levine-july2014-1.jpg',
@@ -163,6 +163,13 @@ View::composer(['about', 'blog.post', 'checkout', 'contact', 'courses.index', 'c
     ];
 
     $view->with('wallpaper', '/assets/img/wallpapers/' . $wallpapers[array_rand($wallpapers)]);
+});
+
+# About Who We Are Page
+View::composer('about.who', function($view){
+	$view->with('groups', Group::with(array('roles'=>function($query){
+			$query->orderBy('precedence');
+		}))->orderBy('precedence')->get());
 });
 
 
