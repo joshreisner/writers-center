@@ -18,7 +18,6 @@ class PublicationController extends BaseController {
 			'years'=>Publication::orderBy('year', 'desc')->distinct()->lists('year', 'year'),
 			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
 			'class'=>'publications',
-			'groups'=>self::getMasthead(),
 		));		
 	}
 
@@ -79,15 +78,6 @@ class PublicationController extends BaseController {
 
 		# Return HTML view
 		return View::make('publications.publications', array('publications'=>$publications));
-	}
-
-	/**
-	 * get masthead for index and inside pages
-	 */
-	private function getMasthead() {
-		return Group::with(array('roles'=>function($query){
-			$query->orderBy('precedence');
-		}))->where('shp', 1)->orderBy('precedence')->get();
 	}
 
 }

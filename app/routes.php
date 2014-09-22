@@ -172,6 +172,13 @@ View::composer('about.who', function($view){
 		}))->orderBy('precedence')->get());
 });
 
+# About Who We Are Page
+View::composer('publications.masthead', function($view){
+	$view->with('groups', Group::with(array('roles'=>function($query){
+			$query->orderBy('precedence');
+		}))->where('shp', 1)->orderBy('precedence')->get());
+});
+
 
 # Form macros for styled controls in switchboards
 
