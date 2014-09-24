@@ -6,22 +6,22 @@
 
 <div class="row">
 	<div class="col-sm-6">
-		{{ Form::text('name', 'Josh Reisner', ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
+		{{ Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Your Name']) }}
 	</div>
 	<div class="col-sm-6">
-		{{ Form::text('email', 'josh@left-right.co', ['class'=>'form-control', 'placeholder'=>'Email Address']) }}
+		{{ Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email Address']) }}
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-sm-6">
-		{{ Form::text(null, '4242424242424242', ['class'=>'form-control', 'data-stripe'=>'number', 'placeholder'=>'Card Number']) }}
+		{{ Form::text(null, null, ['class'=>'form-control', 'data-stripe'=>'number', 'placeholder'=>'Card Number']) }}
 	</div>
 	<div class="col-sm-2">
-		{{ Form::text(null, '123', ['class'=>'form-control', 'data-stripe'=>'cvc', 'placeholder'=>'CVC']) }}
+		{{ Form::text(null, null, ['class'=>'form-control', 'data-stripe'=>'cvc', 'placeholder'=>'CVC']) }}
 	</div>
 	<div class="col-sm-2 select">
-		{{ Form::selectMonth(null, date('m'), ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
+		{{ Form::select(null, [1=>'Jan', 2=>'Feb', 3=>'Mar', 4=>'Apr', 5=>'May', 6=>'Jun', 7=>'Jul', 8=>'Aug', 9=>'Sep', 10=>'Oct', 11=>'Nov', 12=>'Dec'], date('m'), ['class'=>'form-control', 'data-stripe'=>'exp-month']) }}
 	</div>
 	<div class="col-sm-2 select">
 		{{ Form::selectYear(null, date('Y'), date('Y') + 10, null, ['class'=>'form-control', 'data-stripe'=>'exp-year']) }}

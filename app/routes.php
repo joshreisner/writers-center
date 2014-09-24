@@ -53,10 +53,10 @@ Route::get('/shp',							'PublicationController@index');
 Route::get('/shp/ajax', 					'PublicationController@ajax');
 Route::get('/shp/{slug}', 					'PublicationController@show');
 
-/*
 Route::get('/support',						'PaymentController@support_index');
 Route::post('/support', 					'PaymentController@support_submit');
 
+/*
 Route::group(array('prefix'=>'cart'), function(){
 	Route::get('/add/course/{id}',			'PaymentController@add_course');
 	Route::get('/remove/course/{id}',		'PaymentController@remove_course');
@@ -97,25 +97,35 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		trigger_error('Test error');
 	});
 
-	Route::get('mail', function(){
-
-		Mail::send('emails.welcome', [], function($message)
-		{
-		    $message->to('josh@joshreisner.com', 'Josh Reisner')->subject('Email Test');
-		});
-
-		return 'Test email sent!';
-	});
-
-	Route::get('mutators', function(){
-		$days = Day::first();
-		echo $days->updated_at->format('n/j/Y');
-	});
-
 	Route::get('notifications', function(){
 		Session::flash('error', 'Test error!!!');
 		//Session::flash('message', 'Test message.');
 		return View::make('page');
+	});
+
+	# Email formatting routes
+	Route::group(array('prefix'=>'email'), function(){
+
+		# Basic mail transport test, todo incorporate in tests below
+		Route::get('/', function(){
+
+			Mail::send('emails.welcome', [], function($message) {
+			    $message->to('josh@joshreisner.com', 'Josh Reisner')->subject('Email Test');
+			});
+
+			return 'Basic test email sent!';
+		});
+
+		# Support Us email
+		Route::get('support', function(){
+			$transaction = new Transaction;
+			$transaction->amount = 100000;
+			$transaction->confirmation = 'XYZ123';
+			return View::make('emails.support', [
+				'transaction'=>$transaction,
+				'subject'=>'Thank you for your support!',
+			]);
+		});
 	});
 
 
@@ -177,6 +187,12 @@ View::composer('publications.masthead', function($view){
 	$view->with('groups', Group::with(array('roles'=>function($query){
 			$query->orderBy('precedence');
 		}))->where('shp', 1)->orderBy('precedence')->get());
+});
+
+View::composer('emails.support', function($view){
+	$view->with('green', '#298c76');
+	$view->with('light_green', '#b3d2b6');
+	$view->with('lighter_green', '#c6eee5');
 });
 
 

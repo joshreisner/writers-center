@@ -116,8 +116,6 @@ class PaymentController extends BaseController {
 
 		//send out confirmation
 		Mail::send('emails.support', [
-			'subject'=>'Thank you for your support!',
-			'user'=>$user, 
 			'transaction'=>$transaction,
 		], function($message) use ($user) {
 		    $message->to($user->email, $user->name)->subject('Thank you for your support!');

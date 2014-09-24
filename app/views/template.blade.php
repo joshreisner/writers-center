@@ -34,8 +34,7 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						<!-- <a class="login">Log In</a> -->
-						<a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=133490748&amp;vlrStratCode=Eo7dz7SpHrnTsJ4CwRKKPORCH9aREJ%2fahCNeUqBvv6Q%2bATvddUaKcyEUsRyDmzz2">Support the Center</a>
-						<!-- <a href="/support">Support the Center</a> -->
+						<a href="/support">Support the Center</a>
 						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>
