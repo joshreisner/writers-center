@@ -1,88 +1,90 @@
 <?php
 
-# Home
-
-Route::get('/', function()
+Route::group(array('before' => 'public'), function()
 {
-	//set type slugs
-	$carouselItems = CarouselItem::take(7)->with('courses', 'events', 'publications', 'posts')->orderBy('precedence')->get();
-	foreach ($carouselItems as &$item) {
-		//dd($item);
-		if (isset($item->courses)) {
-			$item->type = 'courses';
-			$item->title = link_to('/courses/' . $item->courses->slug, $item->title);
-		} elseif (isset($item->events)) {
-			$item->type = 'events';
-			$item->title = link_to('/events/' . $item->events->start->format('Y/m/') . $item->events->slug, $item->title);
-		} elseif (isset($item->publications)) {
-			$item->type = 'publications';
-			$item->title = link_to('/publications/' . $item->publications->slug, $item->title);
-		} elseif (isset($item->posts)) {
-			$item->type = 'posts';
-			$item->title = link_to('/posts/' . $item->posts->slug, $item->title);
+
+	# Home
+	Route::get('/', function()
+	{
+		//set type slugs
+		$carouselItems = CarouselItem::take(7)->with('courses', 'events', 'publications', 'posts')->orderBy('precedence')->get();
+		foreach ($carouselItems as &$item) {
+			//dd($item);
+			if (isset($item->courses)) {
+				$item->type = 'courses';
+				$item->title = link_to('/courses/' . $item->courses->slug, $item->title);
+			} elseif (isset($item->events)) {
+				$item->type = 'events';
+				$item->title = link_to('/events/' . $item->events->start->format('Y/m/') . $item->events->slug, $item->title);
+			} elseif (isset($item->publications)) {
+				$item->type = 'publications';
+				$item->title = link_to('/publications/' . $item->publications->slug, $item->title);
+			} elseif (isset($item->posts)) {
+				$item->type = 'posts';
+				$item->title = link_to('/posts/' . $item->posts->slug, $item->title);
+			}
 		}
+
+		return View::make('home', array(
+			'items'				=>$carouselItems,
+			'class'				=>'home',
+			'event_dates'		=>DB::table('events')->distinct()->lists(DB::raw('DATE_FORMAT(start, "%Y-%m-%d")')),
+			'start'				=>strtotime('this week', time()),
+			'instructor_select'	=>CourseController::getInstructorList(),
+			'genre_select'		=>CourseController::getGenreList(),
+			'day_select'		=>CourseController::getDayList(),
+			'duration_select'	=>CourseController::getDurationList(),
+		));
+	});
+
+
+	# Main sections
+
+	Route::get('/about', 						'AboutController@index');
+	Route::get('/about/{slug}',					'AboutController@show');
+	Route::get('/courses', 						'CourseController@index');
+	Route::get('/courses/ajax', 				'CourseController@ajax');
+	Route::get('/courses/{slug}',				'CourseController@show');
+	Route::get('/events',						'EventController@index');
+	Route::get('/events/ajax',					'EventController@ajax');
+	Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
+	Route::get('/blog',							'BlogController@index');
+	Route::get('/blog/ajax', 					'BlogController@ajax');
+	Route::get('/blog/{slug}', 					'BlogController@show');
+	Route::get('/shp',							'PublicationController@index');
+	Route::get('/shp/ajax', 					'PublicationController@ajax');
+	Route::get('/shp/{slug}', 					'PublicationController@show');
+
+	if (App::environment('local', 'staging')) {
+		Route::get('/support',						'PaymentController@support_index');
+		Route::post('/support', 					'PaymentController@support_submit');
 	}
 
-	return View::make('home', array(
-		'items'				=>$carouselItems,
-		'class'				=>'home',
-		'event_dates'		=>DB::table('events')->distinct()->lists(DB::raw('DATE_FORMAT(start, "%Y-%m-%d")')),
-		'start'				=>strtotime('this week', time()),
-		'instructor_select'	=>CourseController::getInstructorList(),
-		'genre_select'		=>CourseController::getGenreList(),
-		'day_select'		=>CourseController::getDayList(),
-		'duration_select'	=>CourseController::getDurationList(),
-	));
+	/*
+	Route::group(array('prefix'=>'cart'), function(){
+		Route::get('/add/course/{id}',			'PaymentController@add_course');
+		Route::get('/remove/course/{id}',		'PaymentController@remove_course');
+		Route::get('/add/event/{id}',			'PaymentController@add_event');
+		Route::get('/remove/event/{id}',		'PaymentController@remove_event');
+		Route::get('/add/publication/{id}',		'PaymentController@add_publication');
+		Route::get('/remove/publication/{id}',	'PaymentController@remove_publication');
+	});
+
+	Route::get('/checkout',						'PaymentController@checkout_index');
+	Route::post('/checkout',					'PaymentController@checkout_submit');
+	*/
+
+
+	# Contact
+
+	Route::get('/contact', function()
+	{
+		return View::make('contact', array(
+			'title'=>'Contact',
+			'class'=>'contact',
+		));
+	});
 });
-
-
-# Main sections
-
-Route::get('/about', 						'AboutController@index');
-Route::get('/about/{slug}',					'AboutController@show');
-Route::get('/courses', 						'CourseController@index');
-Route::get('/courses/ajax', 				'CourseController@ajax');
-Route::get('/courses/{slug}',				'CourseController@show');
-Route::get('/events',						'EventController@index');
-Route::get('/events/ajax',					'EventController@ajax');
-Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
-Route::get('/blog',							'BlogController@index');
-Route::get('/blog/ajax', 					'BlogController@ajax');
-Route::get('/blog/{slug}', 					'BlogController@show');
-Route::get('/shp',							'PublicationController@index');
-Route::get('/shp/ajax', 					'PublicationController@ajax');
-Route::get('/shp/{slug}', 					'PublicationController@show');
-
-if (App::environment('local', 'staging')) {
-	Route::get('/support',						'PaymentController@support_index');
-	Route::post('/support', 					'PaymentController@support_submit');
-}
-
-/*
-Route::group(array('prefix'=>'cart'), function(){
-	Route::get('/add/course/{id}',			'PaymentController@add_course');
-	Route::get('/remove/course/{id}',		'PaymentController@remove_course');
-	Route::get('/add/event/{id}',			'PaymentController@add_event');
-	Route::get('/remove/event/{id}',		'PaymentController@remove_event');
-	Route::get('/add/publication/{id}',		'PaymentController@add_publication');
-	Route::get('/remove/publication/{id}',	'PaymentController@remove_publication');
-});
-
-Route::get('/checkout',						'PaymentController@checkout_index');
-Route::post('/checkout',					'PaymentController@checkout_submit');
-*/
-
-
-# Contact
-
-Route::get('/contact', function()
-{
-	return View::make('contact', array(
-		'title'=>'Contact',
-		'class'=>'contact',
-	));
-});
-
 
 # Testing routes
 

@@ -33,6 +33,13 @@ App::after(function($request, $response)
 |
 */
 
+Route::filter('public', function()
+{
+	//restrict staging to cms users
+	if (App::environment('staging') && Auth::guest()) return Redirect::guest('login');
+});
+
+
 Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::guest('login');

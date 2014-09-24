@@ -28,7 +28,7 @@ return array(
 	'error-view' => 'smarterror::generic',
 
 	// The view for 404 errors. Set to null for same reason as above
-	'missing-view' => 'smarterror::missing',
+	'missing-view' => null,
 
 	// The view for CSRF errors. Set to null for same reason as above
 	'csrf-view' => 'smarterror::csrf',
