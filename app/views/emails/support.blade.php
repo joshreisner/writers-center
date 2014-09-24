@@ -2,10 +2,11 @@
 	<head>
 		<title>{{ $subject }}</title>
 	</head>
-	<body style="background-color: {{ $lighter_green }}">
-		<div style="background-color: white; border: 1px solid {{ $light_green }}; width: 600px; margin: 0 auto;">
+	<body>
+		<div style="background-color: white; border: 1px solid {{ $green }}; width: 600px; margin: 0 auto;">
 			<div style="color: {{ $green }}; padding: 40px; font-family: Arial, sans-serif; font-size: 16px; line-height: 22px">
-<h1 style="margin: 0 0 20px 0;">{{ $subject }}</h1>
+
+<h1 style="margin: 0 0 30px 0; font-size: 30px; font-weight: normal;">{{ $subject }}</h1>
 
 <p style="margin: 0 0 20px 0;">Please accept my gratitude for your generous gift of 
 	<strong>${{ number_format($transaction->amount / 100) }}</strong>
@@ -18,11 +19,14 @@
 	ideas about shaping the Center’s future. With such input and support as you give to the 
 	Writers Center, that future is bright indeed. 
 
-<p style="margin: 0 0 20px 0;">Jo Ann Clark, Executive Director</p>
+<p style="margin: 0 0 20px 0;">Jo Ann Clark<br><em>Executive Director</em></p>
 
 <p style="margin: 0 0 20px 0;">* As no goods or services were provided, your contribution is deductible for income tax purposes to the extent allowed by law.</p>
 
-<p style="color: {{ $light_green }}; margin: 0; font-size: 14px;">Your payment confirmation is {{ $transaction->confirmation }}.</p>
+<p style="margin: 0 0 30px 0; color: {{ $light_green }}; font-size: 14px;">Your payment confirmation is {{ $transaction->confirmation }}.</p>
+
+<img src="http://writerscenter.org/assets/img/logo-default.png" width="340" height="131">
+
 			</div>
 		</div>
 	</body>
