@@ -34,7 +34,11 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						<!-- <a class="login">Log In</a> -->
+					@if (App::environment('production'))
+						<a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=133490748&vlrStratCode=cpjEVhsA7qIjsiivCHnbL%2fX96F%2f5Hros%2fMsDm%2fJgIHLgGem6KaNhuu%2bZqlPVNr4%2f">Support the Center</a>
+					@else
 						<a href="/support">Support the Center</a>
+					@endif
 						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
 					</nav>

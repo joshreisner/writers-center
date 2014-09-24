@@ -53,8 +53,10 @@ Route::get('/shp',							'PublicationController@index');
 Route::get('/shp/ajax', 					'PublicationController@ajax');
 Route::get('/shp/{slug}', 					'PublicationController@show');
 
-Route::get('/support',						'PaymentController@support_index');
-Route::post('/support', 					'PaymentController@support_submit');
+if (App::environment('local', 'staging')) {
+	Route::get('/support',						'PaymentController@support_index');
+	Route::post('/support', 					'PaymentController@support_submit');
+}
 
 /*
 Route::group(array('prefix'=>'cart'), function(){
@@ -91,6 +93,10 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		//clear cart
 		Session::forget('cart');
 		return 'cleared';
+	});
+
+	Route::get('environment', function(){
+		return  App::environment();
 	});
 
 	Route::get('error', function(){
