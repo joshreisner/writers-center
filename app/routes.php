@@ -55,6 +55,16 @@ Route::group(array('before' => 'public'), function()
 	Route::get('/shp/ajax', 					'PublicationController@ajax');
 	Route::get('/shp/{slug}', 					'PublicationController@show');
 
+	# Contact
+	Route::get('/contact', function()
+	{
+		return View::make('contact', array(
+			'title'=>'Contact',
+			'class'=>'contact',
+		));
+	});
+
+
 	if (App::environment('local', 'staging')) {
 		Route::get('/support',						'PaymentController@support_index');
 		Route::post('/support', 					'PaymentController@support_submit');
@@ -74,16 +84,6 @@ Route::group(array('before' => 'public'), function()
 	Route::post('/checkout',					'PaymentController@checkout_submit');
 	*/
 
-
-	# Contact
-
-	Route::get('/contact', function()
-	{
-		return View::make('contact', array(
-			'title'=>'Contact',
-			'class'=>'contact',
-		));
-	});
 });
 
 # Testing routes
@@ -114,22 +114,23 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 	# Email formatting routes
 	Route::group(array('prefix'=>'email'), function(){
 
-		# Basic mail transport test, todo incorporate in tests below
-		Route::get('/', function(){
-
-			Mail::send('emails.welcome', [], function($message) {
-			    $message->to('josh@joshreisner.com', 'Josh Reisner')->subject('Email Test');
-			});
-
-			return 'Basic test email sent!';
-		});
-
 		# Support Us email
 		Route::get('support', function(){
 			$transaction = new Transaction;
 			$transaction->amount = 100000;
 			$transaction->confirmation = 'XYZ123';
 			return View::make('emails.support', [
+				'transaction'=>$transaction,
+				'subject'=>'Thank you for your support!',
+			]);
+		});
+
+		# Support Us email
+		Route::get('receipt', function(){
+			$transaction = new Transaction;
+			$transaction->amount = 100000;
+			$transaction->confirmation = 'XYZ123';
+			return View::make('emails.receipt', [
 				'transaction'=>$transaction,
 				'subject'=>'Thank you for your support!',
 			]);
@@ -197,7 +198,7 @@ View::composer('publications.masthead', function($view){
 		}))->where('shp', 1)->orderBy('precedence')->get());
 });
 
-View::composer('emails.support', function($view){
+View::composer(['emails.support', 'emails.receipt'], function($view){
 	$view->with('green', '#298c76');
 	$view->with('light_green', '#b3d2b6');
 	$view->with('lighter_green', '#c6eee5');
