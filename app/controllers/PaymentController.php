@@ -43,16 +43,28 @@ class PaymentController extends BaseController {
 	 */
 	public function support_submit() {
 
+		//validate form
+		$validator = Validator::make(
+			Input::all(),
+			array(
+				'name' => 'required',
+				'amount' => 'required|numeric',
+				'email' => 'required|email'
+			)
+		);
+
+		if ($validator->fails()) {
+			return Redirect::action('PaymentController@support_index')
+				->withInput()
+				->withErrors($validator)
+				->with('error', 'The form did not go through!');
+		}
+
 		//init
 		Stripe::setApiKey(Config::get('services.stripe.secret'));
 
-		$amount = (Input::has('amount')) ? Input::get('amount') : Input::get('amount-preset');
-
-		if (!is_numeric($amount)) {
-			return Redirect::action('PaymentController@support_index')->with('error', 'Amount (' . $amount . ') was not valid.');
-		}
-
-		$amount *= 100; //stripe records amounts as integer
+		//stripe records amounts as integer
+		$amount = Input::get('amount') * 100; 
 
 		//create or get user
 		if (Auth::user()) {

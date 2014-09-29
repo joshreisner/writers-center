@@ -63,22 +63,6 @@ form
 			&:focus
 				outline: none
 
-		&::-webkit-input-placeholder
-			color: red
-			opacity: 1
-
-		&:-moz-placeholder
-			color: red
-			opacity: 1
-
-		&::-moz-placeholder
-			color: red
-			opacity: 1
-
-		&:-ms-input-placeholder
-			color: red
-			opacity: 1
-
 	.form-control
 		border-radius: 0
 		border-color: $default
@@ -88,6 +72,8 @@ form
 		&:focus
 			box-shadow: none
 			border-color: $default-light
+		&.error
+			border-color: red
 
 	select
 		font-family: $font-mono

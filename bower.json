@@ -17,6 +17,7 @@
     "bootstrap-sass": "~3.0.2",
     "foundation": "~5.2.2",
     "dashicons": "~3.9.1",
-    "slick-carousel": "~1.3.6"
+    "slick-carousel": "~1.3.6",
+    "jquery.payment": "~1.1.4"
   }
 }

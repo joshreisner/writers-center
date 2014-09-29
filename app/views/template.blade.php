@@ -4,7 +4,6 @@
 		<meta charset="UTF-8">
 		<title>{{ $title or $default_title }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<meta name="stripe_key" content="{{ Config::get('services.stripe.publishable_key') }}">
 	    <link rel="icon" href="/assets/img/icons/favicon.ico" type="image/x-icon">
 	    <link rel="icon" sizes="128x128" href="/assets/img/icons/favicon-128.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/icons/favicon-57.png" type="image/png">
