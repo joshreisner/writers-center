@@ -57,7 +57,7 @@ class PaymentController extends BaseController {
 			return Redirect::action('PaymentController@support_index')
 				->withInput()
 				->withErrors($validator)
-				->with('error', 'The form did not go through!');
+				->with('error', 'The form did not go through. Please correct the highlighted errors before continuing.');
 		}
 
 		//init
