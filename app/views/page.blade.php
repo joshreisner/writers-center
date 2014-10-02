@@ -12,7 +12,9 @@
 			</div>
 			<div class="col-md-4 side">
 				<div class="inner">
-					{{-- @include('partials.cart') --}}
+					@if (!App::environment('production'))
+						@include('partials.cart')
+					@endif
 					@yield('side')
 				</div>
 			</div>

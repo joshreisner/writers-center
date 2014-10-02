@@ -42,19 +42,20 @@
 				@endif
 			</dd>
 			
-			@if (!empty($section->register_url))
-				<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
-			@endif
 
-			{{--
-			<dt>
-			@if (section::has('cart.courses') && array_key_exists($section->id, section::get('cart.courses')))
-				<a class="btn btn-disabled">Added to Cart</a>
+			@if (App::environment('production'))
+				@if (!empty($section->register_url))
+					<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
+				@endif
 			@else
-				<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
+				<dt>
+				@if (Session::has('cart.courses') && array_key_exists($section->id, Session::get('cart.courses')))
+					<a class="btn btn-disabled">Added to Cart</a>
+				@else
+					<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
+				@endif
+				</dt>
 			@endif
-			</dt>
-			--}}
 		</dl>
 		@endforeach
 

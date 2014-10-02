@@ -27,18 +27,20 @@
 			</dd>
 			@endif
 
-			@if (!empty($event->register_url))
-				<dt><a class="btn btn-primary" href="{{ $event->register_url }}">Purchase Ticket</a></dt>
+			@if (App::environment('production'))
+				@if (!empty($event->register_url))
+					<dt><a class="btn btn-primary" href="{{ $event->register_url }}">Purchase Ticket</a></dt>
+				@endif
+			@else
+				<dt>
+				@if (Session::has('cart.events') && array_key_exists($event->id, Session::get('cart.events')))
+					<a class="btn btn-disabled">Added to Cart</a>
+				@else
+					<a href="{{ URL::action('PaymentController@add_event', $event->id) }}" class="btn btn-primary">Purchase Ticket</a>
+				@endif
+				</dt>
 			@endif
 		</dl>
-
-		{{--
-		@if (Session::has('cart.events') && array_key_exists($event->id, Session::get('cart.events')))
-			<a class="btn btn-disabled">Added to Cart</a>
-		@else
-			<a href="{{ URL::action('PaymentController@add_event', $event->id) }}" class="btn btn-primary">Purchase Ticket</a>
-		@endif
-		--}}
 
 	</div>
 
