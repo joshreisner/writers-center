@@ -4,7 +4,7 @@
 
 	<div id="cart">
 		<span class="label">Your Cart</span>
-		<h1>{{ Session::get('quantity') }} @choice('messages.items', Session::get('quantity'))</h1>
+		<h1>{{ count(Session::get('cart')) }} @choice('messages.items', count(Session::get('cart')))</h1>
 		<ul>
 		@foreach (Session::get('cart') as $type=>$items)
 			@foreach ($items as $item)

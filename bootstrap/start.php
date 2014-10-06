@@ -24,9 +24,11 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
+//die(gethostname());
+
 $env = $app->detectEnvironment(function(){
 
-	if (in_array(gethostname(), ['Joshs-Laptop.local', 'joshs-laptop'])) return 'local';
+	if (in_array(gethostname(), ['Joshs-Laptop.local', 'joshs-laptop', 'Joshs-Laptop-2.local'])) return 'local';
 
 	if ($_SERVER['HTTP_HOST'] == 'writerscenter.left-right.co') return 'staging';
 

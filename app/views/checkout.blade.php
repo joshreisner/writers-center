@@ -4,7 +4,7 @@
 
 	<h1>Checkout</h1>
 	
-	@if (!Session::get('quantity'))
+	@if (!count(Session::get('cart')))
 	
 	<p>Your cart is empty.
 	
@@ -14,8 +14,8 @@
 		<thead>
 			<tr>
 				<th>Product</th>
-				<th class="align-right">Qty</th>
-				<th></th>
+				<th class="numeric">Qty</th>
+				<th class="numeric align-right">Price $</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -24,22 +24,35 @@
 				@foreach ($items as $id=>$item)
 			<tr>
 				<td><a class="{{ $type }}" href="$item['url']">{{ $item['name'] }}</a></td>
-				<td class="numeric align-right">{{ number_format($item['quantity']) }}</td>
-				<td><a href="{{ URL::action('PaymentController@remove_' . Str::singular($type), $id) }}" class="glyphicon glyphicon-remove-circle"></a></td>
+				<td class="numeric">{{ Form::integer('item_' . $id, $item['quantity'], ['class'=>'form-control', 'data-numeric'=>'data-numeric', 'max'=>100]) }}</td>
+				<td class="numeric align-right">{{ number_format(123) }}</td>
 			</tr>
 			<?php $total += $item['quantity']; ?>
 				@endforeach
 			@endforeach
 		</tbody>
-		<!--
 		<tfoot>
+			<tr class="subtotal">
+				<td></td>
+				<td class="key">Subtotal</td>
+				<td class="value align-right">{{ number_format(1234) }}</td>
+			</tr>
 			<tr>
 				<td></td>
-				<td class="align-right">{{ number_format($total) }}</td>
+				<td class="key">Tax (??)</td>
+				<td class="value align-right">5.56</td>
+			</tr>
+			<tr>
 				<td></td>
+				<td class="key">Shipping</td>
+				<td class="value align-right">10.00</td>
+			</tr>
+			<tr class="total">
+				<td></td>
+				<td class="key">Total</td>
+				<td class="value align-right">{{ number_format(1234) }}</td>
 			</tr>
 		</tfoot>
-		-->
 	</table>
 
 	{{ Form::open(['id'=>'checkout']) }}

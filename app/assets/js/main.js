@@ -109,6 +109,7 @@ $(function(){
 	//support page: set up input masks
 	$("input[data-stripe=number]").payment('formatCardNumber');
 	$("input[data-stripe=cvc]").payment('formatCardCVC');
+	$("input[data-numeric]").payment('restrictNumeric');
 
 	//support page form handler
 	$('form#support').submit(function(event) {
