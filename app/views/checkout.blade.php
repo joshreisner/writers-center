@@ -24,10 +24,10 @@
 				<?php $total = $publications = 0; ?>
 				@foreach (Session::get('cart') as $type=>$items)
 					@foreach ($items as $id=>$item)
-				<tr>
+				<tr data-price="{{ $item['price'] }}" data-type="{{ $type }}">
 					<td><a class="{{ $type }}" href="$item['url']">{{ $item['name'] }}</a></td>
 					<td class="numeric">{{ Form::integer('item_' . $id, $item['quantity'], ['class'=>'form-control', 'data-numeric'=>'data-numeric', 'max'=>100]) }}</td>
-					<td class="numeric align-right">{{ number_format($item['price'] * $item['quantity']) }}</td>
+					<td class="numeric align-right total">{{ number_format($item['price'] * $item['quantity']) }}</td>
 				</tr>
 				<?php 
 				$total += $item['price'] * $item['quantity']; 
