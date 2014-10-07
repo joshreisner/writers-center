@@ -24,19 +24,13 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-//die(gethostname());
-
 $env = $app->detectEnvironment(function(){
 
-	if (in_array(gethostname(), ['Joshs-Laptop.local', 'joshs-laptop', 'Joshs-Laptop-2.local', 'Joshs-Laptop-3.local'])) return 'local';
-
-	if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == 'writerscenter.left-right.co')) return 'staging';
+	if (!empty(getenv('ENVIRONMENT'))) return getenv('ENVIRONMENT');
 
 	return 'production';
 
 });
-
-//die($env);
 
 /*
 |--------------------------------------------------------------------------
