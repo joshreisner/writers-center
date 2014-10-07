@@ -30,7 +30,7 @@ $env = $app->detectEnvironment(function(){
 
 	if (in_array(gethostname(), ['Joshs-Laptop.local', 'joshs-laptop', 'Joshs-Laptop-2.local'])) return 'local';
 
-	if ($_SERVER['HTTP_HOST'] == 'writerscenter.left-right.co') return 'staging';
+	if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == 'writerscenter.left-right.co')) return 'staging';
 
 	return 'production';
 

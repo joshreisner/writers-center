@@ -71,11 +71,8 @@ Route::group(array('before' => 'public'), function()
 
 		Route::group(array('prefix'=>'cart'), function(){
 			Route::get('/add/course/{id}',			'PaymentController@add_course');
-			Route::get('/remove/course/{id}',		'PaymentController@remove_course');
 			Route::get('/add/event/{id}',			'PaymentController@add_event');
-			Route::get('/remove/event/{id}',		'PaymentController@remove_event');
 			Route::get('/add/publication/{id}',		'PaymentController@add_publication');
-			Route::get('/remove/publication/{id}',	'PaymentController@remove_publication');
 		});
 
 		Route::get('/checkout',						'PaymentController@checkout_index');

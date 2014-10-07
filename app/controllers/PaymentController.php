@@ -156,23 +156,13 @@ class PaymentController extends BaseController {
 				'quantity' =>	1,
 				'id' =>			$course->id,
 				'url' =>		$course->url,
+				'price' =>		$section->non_member_tuition,
 			];
 			Session::put('cart.courses', $courses);
 		}
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($course->url)->with('message', 'Course added to cart.');
-	}
-
-	public function remove_course($course_id) {
-		
-		# Remove from cart
-		$courses = Session::get('cart.courses', []);
-		unset($courses[$course_id]);
-		Session::put('cart.courses', $courses);
-
-		# Return from whence you came (the checkout page)
-		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
 	}
 
 	public function add_event($event_id) {
@@ -189,23 +179,13 @@ class PaymentController extends BaseController {
 				'quantity' =>	1,
 				'id' =>			$event_id,
 				'url' =>		$event->url,
+				'price'=>		$event->price,
 			];
 			Session::put('cart.events', $events);
 		}
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($event->url)->with('message', 'Event ticket added to cart.');
-	}
-
-	public function remove_event($event_id) {
-
-		# Remove from cart
-		$events = Session::get('cart.events', []);
-		unset($events[$event_id]);
-		Session::put('cart.events', $events);
-
-		# Return from whence you came (the checkout page)
-		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
 	}
 
 	public function add_publication($publication_id) {
@@ -222,23 +202,13 @@ class PaymentController extends BaseController {
 				'quantity' =>	1,
 				'id' =>			$publication_id,
 				'url' =>		$publication->url,
+				'price'=>		$publication->price,
 			];
 			Session::put('cart.publications', $publications);
 		}
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($publication->url)->with('message', 'Publication added to cart.');
-	}
-
-	public function remove_publication($publication_id) {
-		
-		# Remove from cart
-		$publications = Session::get('cart.publications', []);
-		unset($publications[$publication_id]);
-		Session::put('cart.publications', $publications);
-
-		# Return from whence you came (the checkout page)
-		return Redirect::action('PaymentController@checkout_index')->with('message', 'Cart updated.');
 	}
 
 }

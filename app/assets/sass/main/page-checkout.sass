@@ -1,0 +1,22 @@
+body.checkout
+	.table
+		tr.subtotal, tr.total
+			td.key, td.value
+				border-top: 1px solid $default
+		td.key
+			font-family: $font-mono
+			text-transform: uppercase
+			font-size: 80%
+
+		tfoot
+			tr.subtotal, tr.shipping
+				display: none
+			&.shipping
+				tr.subtotal, tr.shipping
+					display: table-row
+
+		.numeric
+			width: 140px
+
+		input
+			width: 70px
