@@ -28,39 +28,6 @@
 			<label for="duration" class="col-md-3">Duration</label>
 			<div class="col-md-9">{{ Form::dropdown('duration', $duration_select, Input::get('duration')) }}</div>
 		</div>
-		<div class="form-group">
-			<label for="year" class="col-md-3">When</label>
-			<div class="col-md-9">{{ Form::dropdown('year', $years, Input::get('year'), 'Upcoming') }}</div>
-		</div>
-		<!--
-		<div class="form-group">
-			<label for="types" class="col-md-3">Scope</label>
-			<div class="col-md-9">
-				<div class="checkbox">
-					<label>
-						{{ Form::chkbox('scope', 'current') }}
-						Currently Offered
-					</label>
-				</div>
-				<div class="checkbox">
-					<label>
-						{{ Form::chkbox('scope', 'all') }}
-						All Courses
-					</label>
-				</div>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="btn-group btn-group-justified col-md-12">
-				<div class="btn-group">
-					<button type="button" class="btn btn-default active">Current Courses</button>							
-				</div>
-				<div class="btn-group">
-					<button type="button" class="btn btn-default">Past Courses</button>							
-				</div>
-			</div>
-		</div>
-		-->
 	</form>
 
 	<div class="wallpaper">

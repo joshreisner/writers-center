@@ -1,17 +1,19 @@
 @if (count($genres))
-	@foreach ($genres as $genre)
-		
-		<h1 class="group">{{ $genre->title }}</h1>
-		
-		<ul class="courses">
-		@foreach ($genre->courses as $course)
-			<li>
-				<a href="{{ $course->url }}">{{ $course->title }}</a>
-				{{ CourseController::formatInstructors($course) }}
-			</li>
+	@foreach ($genres as $title=>$statuses)
+		<h1 class="group">{{ $title }}</h1>
+		@foreach (['open', 'closed'] as $status)
+			@if (count($statuses[$status]))
+				<ul class="courses">
+				<h4>@lang('messages.course_status_' . $status)</h4>
+				@foreach ($statuses[$status] as $course)
+					<li>
+						<a href="{{ $course->url }}">{{ $course->title }}</a>
+						{{ CourseController::formatInstructors($course) }}
+					</li>
+				@endforeach
+				</ul>
+			@endif
 		@endforeach
-		</ul>
-
 	@endforeach
 @else
 	<div class="alert alert-info">

@@ -15,7 +15,6 @@ class CourseController extends BaseController {
 			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
 			'class'				=>'courses',
-			'years'				=>array(2014=>2014),
 		));		
 	}
 
@@ -101,15 +100,10 @@ class CourseController extends BaseController {
 					$query->where('title', 'like', '%' . Input::get('search') . '%');
 				}
 
-				if (Input::has('year')) {
-					$query->whereHas('sections', function($query){
-						$query->where(DB::raw('YEAR(start)'), '=', Input::get('year'));
-					});
-				} else {
-					$query->whereHas('sections', function($query){
-						$query->where('start', '>', new DateTime());
-					})->orWhere('tutorial_available', 1);
-				}
+				//always order by title
+				$query->select('title', 'tutorial_available', 'genre_id'
+					//, DB::raw('(COUNT(*) FROM `sections` WHERE `sections`.`course_id` = `courses`.`id` AND `sections`.`end_date` > \'2014-08-14\')')
+					)->orderBy('title', 'asc');
 			}, 
 			'courses.instructors'=>function($query){
 
@@ -119,62 +113,61 @@ class CourseController extends BaseController {
 		if (Input::has('genre')) {
 			$genres->where('id', Input::get('genre'));
 		}
+
 		$genres->whereHas('courses', function($query){
-				if (Input::has('day')) {
-					$query->whereHas('sections', function($query){
-						$query->where('day_id', Input::get('day'));
-					});
-				}
+			if (Input::has('day')) {
+				$query->whereHas('sections', function($query){
+					$query->where('day_id', Input::get('day'));
+				});
+			}
 
-				if (Input::has('duration')) {
-					$query->whereHas('sections', function($query) {
-						if (Input::get('duration') == 'intensive') {
-						    $query->where('classes', 1);
-						} else {
-						    $query->where('classes', '>', 1);
-						}
-					});
-				}
+			if (Input::has('duration')) {
+				$query->whereHas('sections', function($query) {
+					if (Input::get('duration') == 'intensive') {
+					    $query->where('classes', 1);
+					} else {
+					    $query->where('classes', '>', 1);
+					}
+				});
+			}
 
-				if (Input::has('instructor')) {
-					$query->whereHas('instructors', function($query) {
-					    $query->where('id', Input::get('instructor'));
-					});
-				}
+			if (Input::has('instructor')) {
+				$query->whereHas('instructors', function($query) {
+				    $query->where('id', Input::get('instructor'));
+				});
+			}
 
-				if (Input::has('search')) {
-					$query->where('title', 'like', '%' . Input::get('search') . '%');
-				}
-
-				if (Input::has('year')) {
-					$query->whereHas('sections', function($query){
-						$query->where(DB::raw('YEAR(start)'), '=', Input::get('year'));
-					});
-				} else {
-					$query->whereHas('sections', function($query){
-						$query->where('start', '>', new DateTime());
-					})->orWhere('tutorial_available', 1);
-				}
-			
+			if (Input::has('search')) {
+				$query->where('title', 'like', '%' . Input::get('search') . '%');
+			}
 		});
 
 		$genres = $genres->orderBy('precedence')->get();
 
-		foreach ($genres as &$genre) {
-			if (count($genre->courses)) {
-				$genre->courses = BaseController::highlightResults($genre->courses, array('title'));
+		$return = array();
 
-				foreach ($genre->courses as $course) {
-					$course->url = self::url($course);
-				}			
-			} else {
-				unset($genre);
-			}
+		foreach ($genres as $genre) {
+
+			$genre->courses = BaseController::highlightResults($genre->courses, array('title'));
+
+			$return_genre = array('open'=>[], 'closed'=>[]);
+
+			foreach ($genre->courses as $course) {
+				$course->url = self::url($course);
+				if ($course->tutorial_available) {
+					$return_genre['open'][] = $course;
+				} else {
+					$return_genre['closed'][] = $course;
+				}
+			}			
+
+			$return[$genre->title] = $return_genre;
 		}
 
 		//dd(DB::getQueryLog());
 
-		return $genres;
+		//dd($return);
+		return $return;
 	}
 
 	/**
