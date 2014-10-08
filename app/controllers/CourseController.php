@@ -104,6 +104,7 @@ class CourseController extends BaseController {
 				$query->select('id', 'title', 'tutorial_available', 'genre_id', 'slug', DB::raw('
 					(SELECT COUNT(*) FROM sections 
 						WHERE sections.course_id = courses.id AND
+						sections.deleted_at IS NULL AND
 						sections.start > \'' . date('Y-m-d H:i:s') . '\'
 						) AS open_sections')
 					)->orderBy('title', 'asc');

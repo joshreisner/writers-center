@@ -17,11 +17,7 @@
 		@foreach ($course->sections as $section)
 		<dl>
 			<dt>
-				@if (count($course->sections) == 1)
-				When
-				@else
 				{{ $section->title }}
-				@endif
 			</dt>
 			<dd>
 				@if ($section->classes)
