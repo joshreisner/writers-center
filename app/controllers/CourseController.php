@@ -101,8 +101,11 @@ class CourseController extends BaseController {
 				}
 
 				//always order by title
-				$query->select('title', 'tutorial_available', 'genre_id'
-					//, DB::raw('(COUNT(*) FROM `sections` WHERE `sections`.`course_id` = `courses`.`id` AND `sections`.`end_date` > \'2014-08-14\')')
+				$query->select('title', 'tutorial_available', 'genre_id', 'slug', DB::raw('
+					(SELECT COUNT(*) FROM sections 
+						WHERE sections.course_id = courses.id AND
+						sections.start > \'2014-10-08 12:17:00\'
+						) AS open_sections')
 					)->orderBy('title', 'asc');
 			}, 
 			'courses.instructors'=>function($query){
@@ -154,7 +157,7 @@ class CourseController extends BaseController {
 
 			foreach ($genre->courses as $course) {
 				$course->url = self::url($course);
-				if ($course->tutorial_available) {
+				if ($course->tutorial_available || $course->open_sections) {
 					$return_genre['open'][] = $course;
 				} else {
 					$return_genre['closed'][] = $course;
