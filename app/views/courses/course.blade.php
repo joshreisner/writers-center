@@ -35,19 +35,26 @@
 				@endif
 			</dd>
 
-			<dt>Tuition</dt>
-			<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
-				@if ($section->member_tuition != $section->non_member_tuition)
-					members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
-				@endif
-			</dd>
-			
-
 			@if (App::environment('production'))
-				@if (!empty($section->register_url))
+				@if (!empty($section->register_url) && ($section->end > new DateTime))
+					<dt>Tuition</dt>
+					<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
+						@if ($section->member_tuition != $section->non_member_tuition)
+							members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
+						@endif
+					</dd>
+					
 					<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
 				@endif
 			@else
+				@if ($section->start > new DateTime)
+				<dt>Tuition</dt>
+				<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
+					@if ($section->member_tuition != $section->non_member_tuition)
+						members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
+					@endif
+				</dd>
+				
 				<dt>
 				@if (Session::has('cart.courses') && array_key_exists($section->id, Session::get('cart.courses')))
 					<a class="btn btn-disabled">Added to Cart</a>
@@ -55,6 +62,7 @@
 					<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
 				@endif
 				</dt>
+				@endif
 			@endif
 		</dl>
 		@endforeach

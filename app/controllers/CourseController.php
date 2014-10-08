@@ -23,7 +23,7 @@ class CourseController extends BaseController {
 	 */
 	public function show($slug) {
 		$course = Course::with(array('instructors', 'sections'=>function($query){
-			$query->where('start', '>', new DateTime());
+			//$query->where('start', '>', new DateTime());
 			$query->orderBy('start', 'desc');
 		}))->where('slug', $slug)->first();
 		
@@ -101,10 +101,10 @@ class CourseController extends BaseController {
 				}
 
 				//always order by title
-				$query->select('title', 'tutorial_available', 'genre_id', 'slug', DB::raw('
+				$query->select('id', 'title', 'tutorial_available', 'genre_id', 'slug', DB::raw('
 					(SELECT COUNT(*) FROM sections 
 						WHERE sections.course_id = courses.id AND
-						sections.start > \'2014-10-08 12:17:00\'
+						sections.start > \'' . date('Y-m-d H:i:s') . '\'
 						) AS open_sections')
 					)->orderBy('title', 'asc');
 			}, 
