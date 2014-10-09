@@ -79,22 +79,18 @@
 		@endif
 
 		@if (count($course->instructors))
-			@if (count($course->instructors) == 1)
-				<h2>About the Instructor</h2>
-			@else
-				<h2>About the Instructors</h2>
-			@endif
+			<h2>@choice('messages.course_instructor', count($course->instructors))</h2>
 
-		<ul class="instructors">
-			@foreach ($course->instructors as $instructor)
-			<li>
-				@if (!empty($instructor->image->url))
-				<img src="{{ $instructor->image->url }}" width="{{ $instructor->image->width }}" height="{{ $instructor->image->height }}" alt="{{ $instructor->name }}">
-				@endif
-				{{ $instructor->bio }}
-			</li>
-			@endforeach
-		</ul>
+			<ul class="instructors">
+				@foreach ($course->instructors as $instructor)
+				<li>
+					@if (!empty($instructor->image->url))
+					<img src="{{ $instructor->image->url }}" width="{{ $instructor->image->width }}" height="{{ $instructor->image->height }}" alt="{{ $instructor->name }}">
+					@endif
+					{{ $instructor->bio }}
+				</li>
+				@endforeach
+			</ul>
 		@endif
 	</div>
 @endsection

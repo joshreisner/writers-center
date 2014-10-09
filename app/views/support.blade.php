@@ -6,7 +6,7 @@
 
 		<h1>Support the Center</h1>
 
-		{{ Form::open(['id'=>'support', 'novalidate']) }}
+		{{ Form::open(['id'=>'support', 'novalidate'=>'']) }}
 
 			<div class="row">
 				<div class="col-sm-12"><h3>I Wish to Donate:</h3></div>
