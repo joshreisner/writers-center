@@ -14,6 +14,8 @@
 
 		<div class="description">{{ nl2br($course->description) }}</div>
 
+		<?php $open_courses = 0; ?>
+
 		@foreach ($course->sections as $section)
 		<dl>
 			<dt>
@@ -32,7 +34,8 @@
 			</dd>
 
 			@if (App::environment('production'))
-				@if (!empty($section->register_url) && ($section->end > new DateTime))
+				@if (!empty($section->register_url) && ($section->start > new DateTime))
+					<?php $open_courses++; ?>
 					<dt>Tuition</dt>
 					<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
 						@if ($section->member_tuition != $section->non_member_tuition)
@@ -44,20 +47,21 @@
 				@endif
 			@else
 				@if ($section->start > new DateTime)
-				<dt>Tuition</dt>
-				<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
-					@if ($section->member_tuition != $section->non_member_tuition)
-						members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
+					<?php $open_courses++; ?>
+					<dt>Tuition</dt>
+					<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
+						@if ($section->member_tuition != $section->non_member_tuition)
+							members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
+						@endif
+					</dd>
+					
+					<dt>
+					@if (Session::has('cart.courses') && array_key_exists($section->id, Session::get('cart.courses')))
+						<a class="btn btn-disabled">Added to Cart</a>
+					@else
+						<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
 					@endif
-				</dd>
-				
-				<dt>
-				@if (Session::has('cart.courses') && array_key_exists($section->id, Session::get('cart.courses')))
-					<a class="btn btn-disabled">Added to Cart</a>
-				@else
-					<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
-				@endif
-				</dt>
+					</dt>
 				@endif
 			@endif
 		</dl>
@@ -65,8 +69,12 @@
 
 		@if ($course->tutorial_available)
 			<div class="tutorial">
-				<p>This course is also offered as a customized one-on-one tutorial, contact the office to find out more.</p>
+				<p>@lang('messages.course_tutorial_available')</p>
 				<p><a class="btn btn-primary" href="mailto:info@writerscenter.org?subject={{ rawurlencode($course->title . ' Tutorial Inquiry') }}">Contact</a></p>
+			</div>
+		@elseif (!$open_courses)
+			<div class="tutorial">
+				<p>@lang('messages.course_enrollment_closed')</p>
 			</div>
 		@endif
 

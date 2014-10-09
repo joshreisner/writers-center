@@ -968,12 +968,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d"
+                "reference": "42b71bec344f817b4ccc090f11446c56e167ca95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
-                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/42b71bec344f817b4ccc090f11446c56e167ca95",
+                "reference": "42b71bec344f817b4ccc090f11446c56e167ca95",
                 "shasum": ""
             },
             "require": {
@@ -1075,7 +1075,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-04 18:48:27"
+            "time": "2014-10-08 22:36:11"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1343,12 +1343,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "c2be2b5a3b9be8ac512e2f2c01832bc5cde840a5"
+                "reference": "3826ef608a5c92a9008ccdd3d7e3329492523c45"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/c2be2b5a3b9be8ac512e2f2c01832bc5cde840a5",
-                "reference": "c2be2b5a3b9be8ac512e2f2c01832bc5cde840a5",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/3826ef608a5c92a9008ccdd3d7e3329492523c45",
+                "reference": "3826ef608a5c92a9008ccdd3d7e3329492523c45",
                 "shasum": ""
             },
             "require": {
@@ -1433,7 +1433,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-09-28 10:43:49"
+            "time": "2014-10-09 21:19:15"
         },
         {
             "name": "predis/predis",
@@ -1794,12 +1794,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/CssSelector.git",
-                "reference": "12fd0ca37da4816d4bfca7870b85ed16bb8fc032"
+                "reference": "7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/12fd0ca37da4816d4bfca7870b85ed16bb8fc032",
-                "reference": "12fd0ca37da4816d4bfca7870b85ed16bb8fc032",
+                "url": "https://api.github.com/repos/symfony/CssSelector/zipball/7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc",
+                "reference": "7cdf543a3f31935aae58de4e6e607d4bdeb3f5dc",
                 "shasum": ""
             },
             "require": {
@@ -1836,7 +1836,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "http://symfony.com",
-            "time": "2014-10-01 05:50:18"
+            "time": "2014-10-09 16:00:03"
         },
         {
             "name": "symfony/debug",
@@ -2277,12 +2277,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Routing.git",
-                "reference": "e7913afef5d809b25b78c2bc23ecff132784a90b"
+                "reference": "dbc92bceefe69b9de84d2ef1148436dcf82e1c03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Routing/zipball/e7913afef5d809b25b78c2bc23ecff132784a90b",
-                "reference": "e7913afef5d809b25b78c2bc23ecff132784a90b",
+                "url": "https://api.github.com/repos/symfony/Routing/zipball/dbc92bceefe69b9de84d2ef1148436dcf82e1c03",
+                "reference": "dbc92bceefe69b9de84d2ef1148436dcf82e1c03",
                 "shasum": ""
             },
             "require": {
@@ -2335,7 +2335,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2014-10-01 05:50:18"
+            "time": "2014-10-09 16:00:03"
         },
         {
             "name": "symfony/security-core",
