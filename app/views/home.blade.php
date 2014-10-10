@@ -109,8 +109,12 @@
 				</div>
 			</div>
 			<div class="col-md-4">
-				<div class="promo publications">
-					<a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=133490748&amp;vlrStratCode=Eo7dz7SpHrnTsJ4CwRKKPORCH9aREJ%2fahCNeUqBvv6Q%2bATvddUaKcyEUsRyDmzz2">Support the Center</a>
+				<div class="promo support">
+					@if (App::environment('production'))
+						<a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=133490748&vlrStratCode=cpjEVhsA7qIjsiivCHnbL%2fX96F%2f5Hros%2fMsDm%2fJgIHLgGem6KaNhuu%2bZqlPVNr4%2f">Support the Center</a>
+					@else
+						<a href="/support">Support the Center</a>
+					@endif
 				</div>
 			</div>
 		</div>

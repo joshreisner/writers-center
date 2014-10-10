@@ -74,15 +74,8 @@ body.home
 			margin-bottom: $margin
 			@include shadow()
 
-			@each $section in $sections
-				$name:  nth($section, 1)
-				$color: nth($section, 2)
-				&.#{$name}
-					border-color: $color
-					a
-						color: $color
-
 			&.events
+				border-color: $events
 				padding: $margin 20px
 				+font("sm")
 				table
@@ -90,6 +83,7 @@ body.home
 					color: $about
 					th, a
 						+font("sm", "bold")
+						color: $events
 					th, td
 						text-align: center
 						height: 29px
@@ -100,6 +94,9 @@ body.home
 						width: 0
 
 			&.courses
+				border-color: $courses
+				a
+					color: $courses
 				form
 					padding: $margin / 2 $margin
 					label
@@ -123,9 +120,11 @@ body.home
 						padding-left: 0
 						padding-right: 0
 
-			&.publications
+			&.support
+				border-color: $publications
 				padding-top: $promo-height / 4
 				a
+					color: $publications
 					+font("xl")
 					display: block
 					line-height: 1
