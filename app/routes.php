@@ -85,6 +85,7 @@ Route::group(array('before' => 'public'), function()
 Route::group(array('before' => 'auth', 'prefix'=>'store'), function()
 {
 	Route::get('transactions', 'PaymentController@transactions');
+	Route::get('transactions/export', 'PaymentController@export');
 });
 
 # Testing routes

@@ -215,7 +215,29 @@ class PaymentController extends BaseController {
 	 * page to display transactions for Scott
 	 */
 	public function transactions() {
-		return View::make('transactions')->with(['transactions'=>Transaction::with('user')->get()]);
+		return View::make('transactions')->with([
+			'months'=>Transaction::orderBy('created_at', 'desc')->distinct()->lists(DB::raw('CONCAT_WS(" ", MONTHNAME(created_at), YEAR(created_at))'), DB::raw('CONCAT_WS("-", MONTH(created_at), YEAR(created_at))')),
+			'transactions'=>Transaction::with('user')->orderBy('created_at', 'desc')->get(),
+		]);
 	}
 
+	/**
+	 * export transactions
+	 */
+	public function export() {
+		Excel::create('Transactions', function($excel) {
+
+		    $excel->setTitle('Transactions Export')
+				->setCreator('Website')
+				->setCompany('Hudson Valley Writers Center')
+				->setDescription('Generated from the website')
+				->sheet('Transactions', function($sheet) {
+					$sheet->fromArray(array(
+						array('data1', 'data2'),
+						array('data3', 'data4')
+					));
+				});
+
+		})->download('xlsx');
+	}
 }

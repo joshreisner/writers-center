@@ -82,12 +82,17 @@ select
 
 .select
 	position: relative
+	select
+		padding-right: 30px
 	&:after
 		content: "\25BC"
 		position: absolute
-		right: 22px
+		right: 11px
 		top: 10px
 		font-size: 14px
+	&.col-sm-2
+		&:after
+			right: 22px
 
 
 select:focus, option:focus
