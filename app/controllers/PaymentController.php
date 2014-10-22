@@ -35,7 +35,7 @@ class PaymentController extends BaseController {
 	 * show support page
 	 */
 	public function support_index() {
-		return View::make('support')->with('preset_amounts', [25, 50, 100, 200, 500]);
+		return View::make('support')->with('preset_amounts', [50, 100, 200, 500, 1000]);
 	}
 
 	/**
@@ -209,6 +209,13 @@ class PaymentController extends BaseController {
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($publication->url)->with('message', 'Publication added to cart.');
+	}
+
+	/**
+	 * page to display transactions for Scott
+	 */
+	public function transactions() {
+		return View::make('transactions')->with(['transactions'=>Transaction::with('user')->get()]);
 	}
 
 }

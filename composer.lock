@@ -209,12 +209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "f7a1d660c521461b835dc31af0f6c9836769e917"
+                "reference": "912e8a11ce3c75a630b225dd82aed83e00943ed5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/f7a1d660c521461b835dc31af0f6c9836769e917",
-                "reference": "f7a1d660c521461b835dc31af0f6c9836769e917",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/912e8a11ce3c75a630b225dd82aed83e00943ed5",
+                "reference": "912e8a11ce3c75a630b225dd82aed83e00943ed5",
                 "shasum": ""
             },
             "require": {
@@ -270,7 +270,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-09-29 13:28:56"
+            "time": "2014-10-20 19:28:25"
         },
         {
             "name": "doctrine/collections",
@@ -417,12 +417,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "93af9aabc5622f7d357907a6f0889669ba906191"
+                "reference": "6f346ad0cb6f13df8b8c5163ff3cbe0eb4dfa138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/93af9aabc5622f7d357907a6f0889669ba906191",
-                "reference": "93af9aabc5622f7d357907a6f0889669ba906191",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/6f346ad0cb6f13df8b8c5163ff3cbe0eb4dfa138",
+                "reference": "6f346ad0cb6f13df8b8c5163ff3cbe0eb4dfa138",
                 "shasum": ""
             },
             "require": {
@@ -480,7 +480,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2014-10-08 01:36:57"
+            "time": "2014-10-22 00:32:40"
         },
         {
             "name": "doctrine/inflector",
@@ -663,7 +663,7 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "dev-master",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
@@ -732,12 +732,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/streams.git",
-                "reference": "30d5c8e7646e004768054c4143a433c89bc9ece0"
+                "reference": "48be63a56ea8a98ec620eb59ef76bcab77feba55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/streams/zipball/30d5c8e7646e004768054c4143a433c89bc9ece0",
-                "reference": "30d5c8e7646e004768054c4143a433c89bc9ece0",
+                "url": "https://api.github.com/repos/guzzle/streams/zipball/48be63a56ea8a98ec620eb59ef76bcab77feba55",
+                "reference": "48be63a56ea8a98ec620eb59ef76bcab77feba55",
                 "shasum": ""
             },
             "require": {
@@ -749,16 +749,13 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.1-dev"
+                    "dev-master": "3.0-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
                     "GuzzleHttp\\Stream\\": "src/"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -771,26 +768,26 @@
                     "homepage": "https://github.com/mtdowling"
                 }
             ],
-            "description": "Provides a simple abstraction over streams of data (Guzzle 4+)",
+            "description": "Provides a simple abstraction over streams of data",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "Guzzle",
                 "stream"
             ],
-            "time": "2014-09-15 01:45:40"
+            "time": "2014-10-12 19:45:36"
         },
         {
             "name": "intervention/image",
-            "version": "2.0.11",
+            "version": "2.0.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "da8477b9cc59499ffebc148bf95d8e680ae1726f"
+                "reference": "38dfffeb09e6a7b170dbbb525e925c88c9cab2fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/da8477b9cc59499ffebc148bf95d8e680ae1726f",
-                "reference": "da8477b9cc59499ffebc148bf95d8e680ae1726f",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/38dfffeb09e6a7b170dbbb525e925c88c9cab2fb",
+                "reference": "38dfffeb09e6a7b170dbbb525e925c88c9cab2fb",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +830,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2014-09-25 16:51:21"
+            "time": "2014-10-18 09:53:09"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -968,12 +965,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "42b71bec344f817b4ccc090f11446c56e167ca95"
+                "reference": "c76db1bb223b09c6950788eeb71e3a79260b9785"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/42b71bec344f817b4ccc090f11446c56e167ca95",
-                "reference": "42b71bec344f817b4ccc090f11446c56e167ca95",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/c76db1bb223b09c6950788eeb71e3a79260b9785",
+                "reference": "c76db1bb223b09c6950788eeb71e3a79260b9785",
                 "shasum": ""
             },
             "require": {
@@ -1075,7 +1072,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-10-08 22:36:11"
+            "time": "2014-10-20 20:22:00"
         },
         {
             "name": "loic-sharma/profiler",
@@ -1124,12 +1121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "940cbe15abe36924e5693abb585215bb322686a7"
+                "reference": "d0a9acbad0643726453e901d9d49c14e13de9f86"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/940cbe15abe36924e5693abb585215bb322686a7",
-                "reference": "940cbe15abe36924e5693abb585215bb322686a7",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/d0a9acbad0643726453e901d9d49c14e13de9f86",
+                "reference": "d0a9acbad0643726453e901d9d49c14e13de9f86",
                 "shasum": ""
             },
             "require": {
@@ -1188,7 +1185,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-10-04 15:43:06"
+            "time": "2014-10-21 20:10:18"
         },
         {
             "name": "nesbot/carbon",
@@ -1343,12 +1340,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "564c678df5492c6cde2be2884563525f47e42a60"
+                "reference": "e63fe3fbdfd53431c2483f7714f2615dae685198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/564c678df5492c6cde2be2884563525f47e42a60",
-                "reference": "564c678df5492c6cde2be2884563525f47e42a60",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/e63fe3fbdfd53431c2483f7714f2615dae685198",
+                "reference": "e63fe3fbdfd53431c2483f7714f2615dae685198",
                 "shasum": ""
             },
             "require": {
@@ -1433,7 +1430,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-10-09 21:51:28"
+            "time": "2014-10-19 19:32:18"
         },
         {
             "name": "predis/predis",
