@@ -26,7 +26,7 @@
 			<dd>{{ $publication->pages }} pages</dd>
 
 			<dt>Year</dt>
-			<dd>{{ $publication->year }}</dd>
+			<dd>{{ $publication->publish_date->format('Y') }}</dd>
 
 			@if ($publication->price !== null)
 			<dt>Price</dt>

@@ -7,7 +7,7 @@ class PublicationController extends BaseController {
 	 */
 	function index() {
 		# Set publication URLs
-		$publications = Publication::orderBy('precedence')->get();
+		$publications = Publication::orderBy('publish_date', 'desc')->get();
 		foreach ($publications as $publication) {
 			$publication->url = self::url($publication);
 		}
@@ -15,7 +15,7 @@ class PublicationController extends BaseController {
 		return View::make('publications.index', array(
 			'title'=>'Slapering Hol Press',
 			'publications'=>$publications,
-			'years'=>Publication::orderBy('year', 'desc')->distinct()->lists('year', 'year'),
+			'years'=>Publication::orderBy('publish_date', 'desc')->distinct()->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)')),
 			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
 			'class'=>'publications',
 		));		
@@ -32,7 +32,6 @@ class PublicationController extends BaseController {
 
 		return View::make('publications.publication', array(
 			'title'=>$publication->title,
-			'publications'=>Publication::orderBy('precedence')->get(),
 			'types'=>PublicationType::orderBy('title')->get(),
 			'publication'=>$publication,
 			'class'=>'publications',
@@ -53,7 +52,7 @@ class PublicationController extends BaseController {
 	function ajax() {
 
 		# Construct chained Eloquent statement based on input
-		$publications = Publication::orderBy('year', 'desc');
+		$publications = Publication::orderBy('publish_date', 'desc');
 
 		if (Input::has('search')) {
 			$publications
@@ -62,7 +61,7 @@ class PublicationController extends BaseController {
 		}
 		
 		if (Input::has('year')) {
-			$publications->where('year', Input::get('year'));
+			$publications->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
 		}
 
 		if (Input::has('type_id')) {
