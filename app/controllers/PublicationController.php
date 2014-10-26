@@ -36,8 +36,14 @@ class PublicationController extends BaseController {
 		//404
 		if (!$publication) return Redirect::action('PublicationController@index');
 
+		# Getting latest SHP blog post
+		$post = Post::whereHas('tags', function($query){
+			$query->where('id', 1);
+		})->orderBy('publish_date', 'desc')->first();
+
 		return View::make('publications.publication', array(
 			'title'=>strip_tags($publication->title),
+			'post'=>$post,
 			'types'=>PublicationType::orderBy('title')->get(),
 			'publication'=>$publication,
 			'class'=>'publications',
