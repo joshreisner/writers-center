@@ -56,6 +56,6 @@
 		<div class="description">
 			{{ $next->description }}
 		</div>
-		<div class="image" style="background-image:url({{ $wallpaper}})">
+		<div class="image" style="background-image:url({{ $wallpaper}})"></div>
 	</div>
 @endsection

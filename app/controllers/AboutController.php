@@ -25,7 +25,7 @@ class AboutController extends BaseController {
 		if (!$page) return Redirect::action('AboutController@index');
 		
 		return View::make('about.page', array(
-			'title'=>$page->title,
+			'title'=>strip_tags($page->title),
 			'page'=>$page,
 			'pages'=>Page::orderBy('precedence')->get(),
 			'class'=>'about',

@@ -104,7 +104,7 @@
 			<small>with {{ CourseController::formatInstructors($related) }}</small>
 		</h1>
 		<div class="description">{{ $related->description }}</div>
-		<div class="image" style="background-image:url({{ $wallpaper}})">
+		<div class="image" style="background-image:url({{ $wallpaper}})"></div>
 	</div>
 	@endif
 @endsection

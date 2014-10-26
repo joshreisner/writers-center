@@ -44,7 +44,7 @@ class CourseController extends BaseController {
 				->first();
 
 		return View::make('courses.course', array(
-			'title'=>$course->title,
+			'title'=>strip_tags($course->title),
 			'course'=>$course,
 			'class'=>'courses',
 			'related'=>$related,

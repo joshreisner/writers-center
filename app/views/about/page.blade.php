@@ -20,6 +20,6 @@
 			<li class="{{ Request::is('about' . (empty($p->slug) ? '' : '/' . $p->slug)) ? 'active' : '' }}"><a href="/about/{{ $p->slug }}">{{ $p->title }}</a></li>
 			@endforeach
 		</ul>
-		<div class="image" style="background-image:url({{ $wallpaper}})">
+		<div class="image" style="background-image:url({{ $wallpaper}})"></div>
 	</div>
 @endsection

@@ -38,7 +38,7 @@ class EventController extends BaseController {
 		if (!$event) return Redirect::action('EventController@index');
 
 		return View::make('events.event', array(
-			'title'=>$event->title,
+			'title'=>strip_tags($event->title),
 			'event'=>$event,
 			'next'=>Event::where('start', '>', new DateTime)->orderBy('start', 'asc')->first(),
 			'class'=>'events',

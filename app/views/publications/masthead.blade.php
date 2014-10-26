@@ -1,4 +1,10 @@
 <div class="wallpaper">
+	<span class="label">Latest News</span>
+	<h3><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h3>
+	<div class="image" style="background-image:url({{ $wallpaper}})"></div>
+</div>	
+
+<div class="wallpaper">
 	<span class="label">SHP Masthead</span>
 
 	@foreach ($groups as $group)
@@ -9,5 +15,5 @@
 		@endforeach
 	</ul>
 	@endforeach
-	<div class="image" style="background-image:url({{ $wallpaper}})">
+	<div class="image" style="background-image:url({{ $wallpaper}})"></div>
 </div>

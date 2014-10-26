@@ -32,7 +32,7 @@ class BlogController extends BaseController {
 		if (!$post) return Redirect::action('BlogController@index');
 
 		return View::make('blog.post', array(
-			'title'=>$post->title,
+			'title'=>strip_tags($post->title),
 			'post'=>$post,
 			'related'=>Post::where('id', '<>', $post->id)->orderBy('publish_date', 'desc')->take(5)->get(),
 			'tags'=>Tag::orderBy('title')->get(),
