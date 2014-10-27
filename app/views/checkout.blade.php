@@ -70,6 +70,5 @@
 	<div class="wallpaper">
 		<span class="label">Our Policies</span>
 		<p>We usually process orders in 36 hours, etc.</p>
-		<div class="image" style="background-image:url({{ $wallpaper}})">
 	</div>
 @endsection

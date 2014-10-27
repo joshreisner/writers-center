@@ -29,5 +29,5 @@
 		</div>
 	</form>
 
-	@include('publications.masthead') 
+	@include('publications.side') 
 @endsection

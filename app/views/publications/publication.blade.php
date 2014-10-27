@@ -73,14 +73,5 @@
 @endsection
 
 @section('side')
-	{{--
-	<div class="wallpaper">
-		<span class="label">Latest Publications</span>
-		@foreach ($related as $publication)
-			<h3><a href="/publications/{{ $publication->slug }}">{{ $publication->title }}</a></h3>
-		@endforeach
-		<div class="image" style="background-image:url({{ $wallpaper}})"></div>
-	</div>
-	--}}
-	@include('publications.masthead')
+	@include('publications.side')
 @endsection

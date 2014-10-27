@@ -1,8 +1,22 @@
+<div class="wallpaper">
+	<h3 style="margin:0;"><a href="/about/shp">About Slapering Hol Press</a></h3>
+</div>	
+
 @if (!empty($post))
 <div class="wallpaper">
 	<span class="label">Latest News</span>
 	<h3><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h3>
-	<div class="image" style="background-image:url({{ $wallpaper}})"></div>
+</div>	
+@endif
+
+@if ($events)
+<div class="wallpaper">
+	<span class="label">Upcoming Events</span>
+	<ul class="events">
+		@foreach ($events as $event)
+		<li><span>{{ $event->start->format('m/d') }}</span> {{ link_to(EventController::url($event), $event->title) }}</li>
+		@endforeach
+	</ul>
 </div>	
 @endif
 
@@ -17,5 +31,4 @@
 		@endforeach
 	</ul>
 	@endforeach
-	<div class="image" style="background-image:url({{ $wallpaper}})"></div>
 </div>

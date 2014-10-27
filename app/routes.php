@@ -160,32 +160,6 @@ View::composer('template', function($view)
     ->with('default_title', 'Hudson Valley Writers Center');
 });
 
-# Wallpapers
-View::composer(['about.page', 'blog.post', 'checkout', 'contact', 'courses.index', 'courses.course', 'events.event', 'publications.masthead', 'publications.publication', 'support'], function($view)
-{    
-	$wallpapers = [
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-1.jpg',
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-2.jpg',
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-3.jpg',
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-4-cropped.jpg',
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-5.jpg',
-    	'grayscale-hvwc-area-by-ronnie-levine-july2014-6.jpg',
-    	'grayscale-hvwc-june13-1.jpg',
-    	'grayscale-hvwc-june13-2a-full-image.jpg',
-    	'grayscale-hvwc-june13-3.jpg',
-    	'grayscale-hvwc-june13-4.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-1.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-2.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-3.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-4.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-5.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-6.jpg',
-    	'sleepy-hollow-river-scene-by-ronnie-levine-7.jpg',
-    ];
-
-    $view->with('wallpaper', '/assets/img/wallpapers/' . $wallpapers[array_rand($wallpapers)]);
-});
-
 # About Who We Are Page
 View::composer('about.who', function($view){
 	$view->with('groups', Group::with(array('roles'=>function($query){
@@ -193,11 +167,19 @@ View::composer('about.who', function($view){
 		}))->orderBy('precedence')->get());
 });
 
-# About Who We Are Page
-View::composer('publications.masthead', function($view){
+# Publication sidebar (masthead, blog & upcoming events)
+View::composer('publications.side', function($view){
 	$view->with('groups', Group::with(array('roles'=>function($query){
 			$query->orderBy('precedence');
 		}))->where('shp', 1)->orderBy('precedence')->get());
+
+	$view->with('events', Event::whereHas('tags', function($query){
+			$query->where('id', 1);
+		})->where('end', '>', new DateTime())->orderBy('start', 'asc')->get());
+
+	$view->with('post', Post::whereHas('tags', function($query){
+			$query->where('id', 1);
+		})->orderBy('publish_date', 'desc')->first());
 });
 
 View::composer(['emails.support', 'emails.receipt'], function($view){
