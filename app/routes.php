@@ -12,16 +12,16 @@ Route::group(array('before' => 'public'), function()
 			//dd($item);
 			if (isset($item->courses)) {
 				$item->type = 'courses';
-				$item->title = link_to('/courses/' . $item->courses->slug, $item->title);
+				$item->title = link_to(CourseController::url($item->courses), $item->title);
 			} elseif (isset($item->events)) {
 				$item->type = 'events';
-				$item->title = link_to('/events/' . $item->events->start->format('Y/m/') . $item->events->slug, $item->title);
+				$item->title = link_to(EventController::url($item->events), $item->title);
 			} elseif (isset($item->publications)) {
 				$item->type = 'publications';
-				$item->title = link_to('/publications/' . $item->publications->slug, $item->title);
+				$item->title = link_to(PublicationController::url($item->publications), $item->title);
 			} elseif (isset($item->posts)) {
 				$item->type = 'posts';
-				$item->title = link_to('/posts/' . $item->posts->slug, $item->title);
+				$item->title = link_to(BlogController::url($item->posts), $item->title);
 			}
 		}
 
