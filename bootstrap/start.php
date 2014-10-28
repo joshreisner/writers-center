@@ -24,9 +24,15 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = getenv('ENVIRONMENT') ?: $app->detectEnvironment([
-    'local' => array('.local', 'homestead'), 
-]);
+if (getenv('ENVIRONMENT')) {
+    $env = $app->detectEnvironment(function(){
+		return getenv('ENVIRONMENT');
+    });
+} else {
+    $env = $app->detectEnvironment([
+		'local' => ['*.local', 'homestead'],
+    ]);
+}
 
 /*
 |--------------------------------------------------------------------------
