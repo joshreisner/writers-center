@@ -8,6 +8,7 @@ $(function(){
 	//= include page-home.js
 	//= include page-support.js
 	//= include page-checkout.js
+	//= include page-transactions.js
 
 	//open external links in new tab
 	$('a').each(function() {

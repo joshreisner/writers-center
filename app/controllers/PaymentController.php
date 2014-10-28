@@ -2,7 +2,7 @@
 
 class PaymentController extends BaseController {
 
-	private $states = [
+	private static $states = [
 		'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
 		'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  
 		'DC'=>'District Of Columbia',  'FL'=>'Florida',  'GA'=>'Georgia',  'HI'=>'Hawaii',  
@@ -18,7 +18,10 @@ class PaymentController extends BaseController {
 		'WI'=>'Wisconsin',  'WY'=>'Wyoming'
 	];
 
-	private $types = [
+	private static $types = [
+		'publication' => 'Book Purchase',
+		'course' =>	'Course Tuition',
+		'event' => 'Event Registration',
 		'support' => 'Support the Center',
 	];
 
@@ -227,9 +230,22 @@ class PaymentController extends BaseController {
 	 * page to display transactions for Scott
 	 */
 	public function transactions() {
+		$transactions = Transaction::with('user')->orderBy('created_at', 'desc');
+
+		if (Input::has('month')) {
+			$transactions->whereRaw('MONTH(created_at) = ? AND YEAR(created_at) = ?', explode('-', Input::get('month')));
+		}
+
+		if (Input::has('type')) {
+			$transactions->where('type', Input::get('type'));
+		}
+
+		$transactions = $transactions->get();
+
 		return View::make('transactions')->with([
+			'types'=>self::$types,
 			'months'=>Transaction::orderBy('created_at', 'desc')->distinct()->lists(DB::raw('CONCAT_WS(" ", MONTHNAME(created_at), YEAR(created_at))'), DB::raw('CONCAT_WS("-", MONTH(created_at), YEAR(created_at))')),
-			'transactions'=>Transaction::with('user')->orderBy('created_at', 'desc')->get(),
+			'transactions'=>$transactions,
 		]);
 	}
 
