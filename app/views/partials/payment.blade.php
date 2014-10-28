@@ -6,10 +6,10 @@
 
 <div class="row">
 	<div class="col-sm-6">
-		{{ Form::text('name', null, ['class'=>'form-control' . ($errors->has('name') ? ' error' : ''), 'placeholder'=>'Your Name', 'title'=>$errors->first('name')]) }}
+		{{ Form::text('name', @Auth::user()->name, ['class'=>'form-control' . ($errors->has('name') ? ' error' : ''), 'placeholder'=>'Your Name', 'title'=>$errors->first('name')]) }}
 	</div>
 	<div class="col-sm-6">
-		{{ Form::text('email', null, ['class'=>'form-control' . ($errors->has('email') ? ' error' : ''), 'placeholder'=>'Email Address', 'title'=>$errors->first('email')]) }}
+		{{ Form::text('email', @Auth::user()->email, ['class'=>'form-control' . ($errors->has('email') ? ' error' : ''), 'placeholder'=>'Email Address', 'title'=>$errors->first('email')]) }}
 	</div>
 </div>
 

@@ -64,11 +64,11 @@ Route::group(array('before' => 'public'), function()
 		));
 	});
 
+	# Support tha Center
+	Route::get('/support',						'PaymentController@support_index');
+	Route::post('/support', 					'PaymentController@support_submit');
 
 	if (!App::environment('production')) {
-		Route::get('/support',						'PaymentController@support_index');
-		Route::post('/support', 					'PaymentController@support_submit');
-
 		Route::group(array('prefix'=>'cart'), function(){
 			Route::get('/add/course/{id}',			'PaymentController@add_course');
 			Route::get('/add/event/{id}',			'PaymentController@add_event');
@@ -100,7 +100,7 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 	});
 
 	Route::get('environment', function(){
-		return  App::environment();
+		return App::environment();
 	});
 
 	Route::get('error', function(){
@@ -124,6 +124,19 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 			return View::make('emails.support', [
 				'transaction'=>$transaction,
 				'subject'=>'Thank you for your support!',
+			]);
+		});
+
+		# Notify email
+		Route::get('notify', function(){
+			$transaction = new Transaction;
+			$transaction->amount = 100000;
+			$transaction->confirmation = 'XYZ123';
+			return View::make('emails.notify', [
+				'transaction'=>$transaction,
+				'subject'=>'Website Transaction',
+				'type'=>'Support the Center',
+				'user_name'=>Auth::user()->name,
 			]);
 		});
 
@@ -182,7 +195,7 @@ View::composer('publications.side', function($view){
 		})->orderBy('publish_date', 'desc')->first());
 });
 
-View::composer(['emails.support', 'emails.receipt'], function($view){
+View::composer(['emails.support', 'emails.receipt', 'emails.notify'], function($view){
 	$view->with('green', '#298c76');
 	$view->with('light_green', '#b3d2b6');
 	$view->with('lighter_green', '#c6eee5');

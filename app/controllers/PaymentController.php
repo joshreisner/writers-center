@@ -3,20 +3,25 @@
 class PaymentController extends BaseController {
 
 	private $states = [
-				'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
-				'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  
-				'DC'=>'District Of Columbia',  'FL'=>'Florida',  'GA'=>'Georgia',  'HI'=>'Hawaii',  
-				'ID'=>'Idaho',  'IL'=>'Illinois',  'IN'=>'Indiana',  'IA'=>'Iowa',  'KS'=>'Kansas',  
-				'KY'=>'Kentucky',  'LA'=>'Louisiana',  'ME'=>'Maine',  'MD'=>'Maryland',  
-				'MA'=>'Massachusetts',  'MI'=>'Michigan',  'MN'=>'Minnesota',  'MS'=>'Mississippi',  
-				'MO'=>'Missouri',  'MT'=>'Montana',	'NE'=>'Nebraska','NV'=>'Nevada',
-				'NH'=>'New Hampshire',	'NJ'=>'New Jersey',	'NM'=>'New Mexico',	'NY'=>'New York',
-				'NC'=>'North Carolina',	'ND'=>'North Dakota',	'OH'=>'Ohio',  'OK'=>'Oklahoma',  
-				'OR'=>'Oregon',  'PA'=>'Pennsylvania',  'RI'=>'Rhode Island',  'SC'=>'South Carolina',  
-				'SD'=>'South Dakota',	'TN'=>'Tennessee',  'TX'=>'Texas',  'UT'=>'Utah',  
-				'VT'=>'Vermont',  'VA'=>'Virginia',  'WA'=>'Washington',  'WV'=>'West Virginia',  
-				'WI'=>'Wisconsin',  'WY'=>'Wyoming'
-			];
+		'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
+		'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  
+		'DC'=>'District Of Columbia',  'FL'=>'Florida',  'GA'=>'Georgia',  'HI'=>'Hawaii',  
+		'ID'=>'Idaho',  'IL'=>'Illinois',  'IN'=>'Indiana',  'IA'=>'Iowa',  'KS'=>'Kansas',  
+		'KY'=>'Kentucky',  'LA'=>'Louisiana',  'ME'=>'Maine',  'MD'=>'Maryland',  
+		'MA'=>'Massachusetts',  'MI'=>'Michigan',  'MN'=>'Minnesota',  'MS'=>'Mississippi',  
+		'MO'=>'Missouri',  'MT'=>'Montana',	'NE'=>'Nebraska','NV'=>'Nevada',
+		'NH'=>'New Hampshire',	'NJ'=>'New Jersey',	'NM'=>'New Mexico',	'NY'=>'New York',
+		'NC'=>'North Carolina',	'ND'=>'North Dakota',	'OH'=>'Ohio',  'OK'=>'Oklahoma',  
+		'OR'=>'Oregon',  'PA'=>'Pennsylvania',  'RI'=>'Rhode Island',  'SC'=>'South Carolina',  
+		'SD'=>'South Dakota',	'TN'=>'Tennessee',  'TX'=>'Texas',  'UT'=>'Utah',  
+		'VT'=>'Vermont',  'VA'=>'Virginia',  'WA'=>'Washington',  'WV'=>'West Virginia',  
+		'WI'=>'Wisconsin',  'WY'=>'Wyoming'
+	];
+
+	private $types = [
+		'support' => 'Support the Center',
+	];
+
 	/**
 	 * show checkout page
 	 */
@@ -46,11 +51,11 @@ class PaymentController extends BaseController {
 		//validate form
 		$validator = Validator::make(
 			Input::all(),
-			array(
+			[
 				'name' => 'required',
 				'amount' => 'required|numeric',
 				'email' => 'required|email'
-			)
+			]
 		);
 
 		if ($validator->fails()) {
@@ -96,15 +101,6 @@ class PaymentController extends BaseController {
 				$user->save();
 			}
 
-		} catch(Stripe_InvalidRequestError $e) {
-			$body = $e->getJsonBody();
-			//card was declined
-			return Redirect::action('PaymentController@support_index')->with('error', $body['error']['message']);
-		}
-
-		//charge card
-		try {
-
 			$charge = Stripe_Charge::create([
 				'amount' => $amount,
 				'currency' => 'usd',
@@ -112,10 +108,11 @@ class PaymentController extends BaseController {
 				'description' => 'Support the Center',
 			]);
 
-		} catch(Stripe_CardError $e) {
-
-			//card was declined
-			return Redirect::action('PaymentController@support_index')->with('error', 'Credit card was declined.');
+		} catch(Exception $e) {
+			$body = $e->getJsonBody();
+			
+			//customer had a problem
+			return Redirect::action('PaymentController@support_index')->with('error', $body['error']['message']);
 		}
 
 		//make a record
@@ -123,15 +120,30 @@ class PaymentController extends BaseController {
 			'amount' => $amount,
 			'charge_id' => $charge->id,
 			'paid' => $charge->paid,
+			'type' => 'support',
 			'confirmation'=>strtoupper(str_random(6)),
 		]));
 
-		//send out confirmation
+		//send out confirmation to user
 		Mail::send('emails.support', [
 			'subject'=>'Thank you for your support!',
 			'transaction'=>$transaction,
 		], function($message) use ($user) {
 		    $message->to($user->email, $user->name)->subject('Thank you for your support!');
+		});
+
+		//send out notification to Scott
+		Mail::send('emails.notify', [
+			'subject'=>'Website Transaction',
+			'type'=>'Support the Center',
+			'transaction'=>$transaction,
+			'user_name'=>$user->name,
+		], function($message) use ($user) {
+			if (App::environment('production')) {
+				$message->to('scott@writerscenter.org', 'Scott Dievendorf')->subject('Website Transaction');
+			} else {
+				$message->to($user->email, $user->name)->subject('Website Transaction');				
+			}
 		});
 
 		//redirect user
