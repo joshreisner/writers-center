@@ -25,7 +25,7 @@ return array(
 	// The view for generic errors (uncaught exceptions). Set to null and the
 	// error handler will not return a view, letting you use your own App::error
 	// handler to return the appropriate view with the appropriate data.
-	'error-view' => 'smarterror::generic',
+	'error-view' => null,
 
 	// The view for 404 errors. Set to null for same reason as above
 	'missing-view' => null,

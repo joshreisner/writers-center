@@ -38,6 +38,11 @@ App::missing(function($exception)
     return Response::view('errors.missing', array(), 404);
 });
 
+App::pushError(function() {
+    if (App::runningInConsole() || Config::get('app.debug')) return;
+    return Response::view('errors.error', array(), 500);
+});
+
 
 /*
 |--------------------------------------------------------------------------
