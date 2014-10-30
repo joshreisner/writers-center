@@ -71,8 +71,13 @@ input
 	&:focus
 		box-shadow: none
 		border-color: $default-light
-	&.error
-		border-color: red
+
+.has-error .form-control
+	border-color: $publications
+	box-shadow: none
+	&:focus
+		box-shadow: none
+		border-color: $publications-light
 
 select
 	font-family: $font-mono
@@ -90,9 +95,7 @@ select
 		right: 11px
 		top: 10px
 		font-size: 14px
-	&.col-sm-2
-		&:after
-			right: 22px
+		right: 22px
 
 
 select:focus, option:focus

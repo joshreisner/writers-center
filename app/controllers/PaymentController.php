@@ -2,22 +2,6 @@
 
 class PaymentController extends BaseController {
 
-	private static $states = [
-		'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
-		'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  
-		'DC'=>'District Of Columbia',  'FL'=>'Florida',  'GA'=>'Georgia',  'HI'=>'Hawaii',  
-		'ID'=>'Idaho',  'IL'=>'Illinois',  'IN'=>'Indiana',  'IA'=>'Iowa',  'KS'=>'Kansas',  
-		'KY'=>'Kentucky',  'LA'=>'Louisiana',  'ME'=>'Maine',  'MD'=>'Maryland',  
-		'MA'=>'Massachusetts',  'MI'=>'Michigan',  'MN'=>'Minnesota',  'MS'=>'Mississippi',  
-		'MO'=>'Missouri',  'MT'=>'Montana',	'NE'=>'Nebraska','NV'=>'Nevada',
-		'NH'=>'New Hampshire',	'NJ'=>'New Jersey',	'NM'=>'New Mexico',	'NY'=>'New York',
-		'NC'=>'North Carolina',	'ND'=>'North Dakota',	'OH'=>'Ohio',  'OK'=>'Oklahoma',  
-		'OR'=>'Oregon',  'PA'=>'Pennsylvania',  'RI'=>'Rhode Island',  'SC'=>'South Carolina',  
-		'SD'=>'South Dakota',	'TN'=>'Tennessee',  'TX'=>'Texas',  'UT'=>'Utah',  
-		'VT'=>'Vermont',  'VA'=>'Virginia',  'WA'=>'Washington',  'WV'=>'West Virginia',  
-		'WI'=>'Wisconsin',  'WY'=>'Wyoming'
-	];
-
 	private static $types = [
 		'publication' => 'Book Purchase',
 		'course' =>	'Course Tuition',
@@ -52,14 +36,17 @@ class PaymentController extends BaseController {
 	public function support_submit() {
 
 		//validate form
-		$validator = Validator::make(
-			Input::all(),
-			[
-				'name' => 'required',
-				'amount' => 'required|numeric',
-				'email' => 'required|email'
-			]
-		);
+		$validator = Validator::make(Input::all(), [
+			'name' => 'required',
+			'amount' => 'required|numeric',
+			'email' => 'required|email',
+			'address' => 'required',
+			'city' => 'required',
+			'phone' => 'numeric',
+			'state' => 'required',
+			'zip' => 'required|numeric',
+			'stripeToken' => 'required',
+		]);
 
 		if ($validator->fails()) {
 			return Redirect::action('PaymentController@support_index')
@@ -80,10 +67,15 @@ class PaymentController extends BaseController {
 		} else {
 			//create user (but don't log in)
 			$user = User::firstOrNew(['email' => Input::get('email')]);
-			$user->name = Input::get('name');
-			$user->password = Hash::make(str_random(12)); //better than null?
-			$user->save();
+			if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
 		}
+		$user->name = Input::get('name');
+		$user->address = Input::get('address');
+		$user->city = Input::get('city');
+		$user->state = Input::get('state');
+		if (Input::has('phone')) $user->phone = Input::get('phone');
+		$user->zip = Input::get('zip');
+		$user->save();
 
 		//create or get customer
 		try {

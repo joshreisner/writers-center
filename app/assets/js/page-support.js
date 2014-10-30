@@ -15,56 +15,24 @@ $("form#support input[name=amount-manual]").change(function(){
 
 //support page form handler
 $('form#support').submit(function(event) {
-	var $form = $(this);
-	var $amount = $form.find('input[name=amount]');
-	var $name = $form.find('input[name=name]');
-	var $email = $form.find('input[name=email]');
-	var $number = $form.find('input[data-stripe=number]');
-	var $cvc = $form.find('input[data-stripe=cvc]');
-
-	//first, check easy inputs
+	
+	//loop through to check required field values
 	var hasError = false;
-	if ($amount.val().length) {
-		$amount.closest(".row").removeClass("error");
-	} else {
-		$amount.closest(".row").addClass("error");
-		hasError = true;
-	}
-
-	if ($name.val().length) {
-		$name.removeClass("error");
-	} else {
-		$name.addClass("error");
-		hasError = true;
-	}
-
-	if ($email.val().length) {
-		$email.removeClass("error");
-	} else {
-		$email.addClass("error");
-		hasError = true;
-	}
-
-	if ($number.val().length) {
-		$number.removeClass("error");
-	} else {
-		$number.addClass("error");
-		hasError = true;
-	}
-
-	if ($cvc.val().length) {
-		$cvc.removeClass("error");
-	} else {
-		$cvc.addClass("error");
-		hasError = true;
-	}
-
+	$(this).find('.required').each(function(){
+		if ($(this).val().length) {
+			$(this).parent().removeClass("has-error");
+		} else {
+			$(this).parent().addClass("has-error");
+			hasError = true;
+		}
+	});
 	if (hasError) return false;
-
+	
 	//disable the submit button to prevent repeated clicks
-	$form.find('input[type=submit]').prop('disabled', true);
+	$(this).find('input[type=submit]').prop('disabled', true);
 
-	Stripe.card.createToken($form, stripeResponseHandler);
+	//start stripe request
+	Stripe.card.createToken($(this), stripeResponseHandler);
 
 	//prevent the form from submitting with the default action
 	return false;

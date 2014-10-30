@@ -23,7 +23,7 @@
 
 					{{ Form::text('amount-manual', null, ['class'=>'form-control', 'placeholder'=>'Other $']) }}
 
-					{{ Form::hidden('amount') }}
+					{{ Form::hidden('amount', null, ['class'=>'required']) }}
 				</div>
 			</div>
 
