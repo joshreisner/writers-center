@@ -37,10 +37,9 @@
 				@if (!empty($section->register_url) && ($section->start > new DateTime))
 					<?php $open_courses++; ?>
 					<dt>Tuition</dt>
-					<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
-						@if ($section->member_tuition != $section->non_member_tuition)
-							members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
-						@endif
+					<dd>
+						<div>{{ BaseController::formatPrice($section->price) }} members</div>
+						<div>{{ BaseController::formatPrice($section->price + 25) }} non-members</div>
 					</dd>
 					
 					<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
@@ -49,10 +48,9 @@
 				@if ($section->start > new DateTime)
 					<?php $open_courses++; ?>
 					<dt>Tuition</dt>
-					<dd>{{ BaseController::formatPrice($section->member_tuition) }} 
-						@if ($section->member_tuition != $section->non_member_tuition)
-							members<br>{{ BaseController::formatPrice($section->non_member_tuition) }} non-members
-						@endif
+					<dd>
+						<div>{{ BaseController::formatPrice($section->price) }} members</div>
+						<div>{{ BaseController::formatPrice($section->price + 25) }} non-members</div>
 					</dd>
 					
 					<dt>
