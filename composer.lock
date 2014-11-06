@@ -928,12 +928,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "17c5bfa21364c94fdeca47769cfec8dd158c4894"
+                "reference": "4ebb4ab0ec13c0ce11e88bb1c33862ce96305b11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/17c5bfa21364c94fdeca47769cfec8dd158c4894",
-                "reference": "17c5bfa21364c94fdeca47769cfec8dd158c4894",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/4ebb4ab0ec13c0ce11e88bb1c33862ce96305b11",
+                "reference": "4ebb4ab0ec13c0ce11e88bb1c33862ce96305b11",
                 "shasum": ""
             },
             "require": {
@@ -960,7 +960,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2014-11-01 09:16:19"
+            "time": "2014-11-06 17:04:07"
         },
         {
             "name": "laravel/framework",
@@ -1124,12 +1124,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "7ae26418215013d6008886fdfb161c7130035759"
+                "reference": "4faf6f9d03eefd85eb7fd8aa1b46cd87420c8805"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/7ae26418215013d6008886fdfb161c7130035759",
-                "reference": "7ae26418215013d6008886fdfb161c7130035759",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/4faf6f9d03eefd85eb7fd8aa1b46cd87420c8805",
+                "reference": "4faf6f9d03eefd85eb7fd8aa1b46cd87420c8805",
                 "shasum": ""
             },
             "require": {
@@ -1181,7 +1181,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2014-10-17 18:57:53"
+            "time": "2014-11-06 17:12:19"
         },
         {
             "name": "monolog/monolog",
