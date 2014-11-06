@@ -173,11 +173,16 @@ View::composer('template', function($view)
     ->with('default_title', 'Hudson Valley Writers Center');
 });
 
-# About Who We Are Page
-View::composer('about.who', function($view){
+# About > Who We Are Page
+View::composer('about.who-we-are', function($view){
 	$view->with('groups', Group::with(array('roles'=>function($query){
 			$query->orderBy('precedence');
 		}))->orderBy('precedence')->get());
+});
+
+# About > Policies Page
+View::composer('about.policies', function($view){
+	$view->with('policies', Policy::orderBy('precedence')->get());
 });
 
 # Publication sidebar (masthead, blog & upcoming events)

@@ -7,8 +7,8 @@
 			{{ AboutController::editLink($page) }}
 		</h1>
 		{{ $page->content }}
-		@if ($page->slug == 'who-we-are')
-			@include('about.who')
+		@if (View::exists('about.' . $page->slug))
+			@include('about.' . $page->slug)
 		@endif
 	</div>
 @endsection
