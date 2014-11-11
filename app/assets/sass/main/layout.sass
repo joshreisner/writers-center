@@ -169,10 +169,13 @@ nav.filter
 		.wallpaper
 			position: relative
 			padding: $margin * 2
-			//min-height: 400px
 			margin-bottom: $margin
-			
+			overflow: hidden
 			+font(1.7)
+			
+			table
+				display: none
+
 			.label
 				left: $margin
 				
@@ -198,6 +201,9 @@ nav.filter
 				left: 0
 				bottom: 0
 				right: 0
+			
+			p:last-child
+				margin-bottom: 0
 
 
 @media (min-width: $screen-sm)
