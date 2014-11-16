@@ -17,7 +17,7 @@
 			</div>
 			<div class="description">
 				<a class="title" href="{{ $event->url }}">{{ $event->title }}, {{ $event->start->format('g:i a') }}</a>
-				{{ $event->description }}
+				<p>{{ $event->excerpt }}</p>
 			</div>
 		</div>
 		@endforeach
