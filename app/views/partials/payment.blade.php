@@ -5,15 +5,6 @@
 </div>
 
 <div class="row">
-	<div class="col-sm-6 @if ($errors->has('name')) has-error @endif">
-		{{ Form::text('name', @Auth::user()->name, ['class'=>'form-control required', 'placeholder'=>'Your Name', 'title'=>$errors->first('name')]) }}
-	</div>
-	<div class="col-sm-6 @if ($errors->has('email')) has-error @endif">
-		{{ Form::text('email', @Auth::user()->email, ['class'=>'form-control required', 'placeholder'=>'Email Address', 'title'=>$errors->first('email')]) }}
-	</div>
-</div>
-
-<div class="row">
 	<div class="col-sm-6">
 		{{ Form::text(null, null, ['class'=>'form-control required', 'data-stripe'=>'number', 'placeholder'=>'Card Number', 'pattern'=>'\d*']) }}
 	</div>
@@ -30,6 +21,15 @@
 
 <div class="row">
 	<div class="col-sm-12"><h3>Contact Info:</h3></div>
+</div>
+
+<div class="row">
+	<div class="col-sm-6 @if ($errors->has('name')) has-error @endif">
+		{{ Form::text('name', @Auth::user()->name, ['class'=>'form-control required', 'placeholder'=>'Your Name', 'title'=>$errors->first('name')]) }}
+	</div>
+	<div class="col-sm-6 @if ($errors->has('email')) has-error @endif">
+		{{ Form::text('email', @Auth::user()->email, ['class'=>'form-control required', 'placeholder'=>'Email Address', 'title'=>$errors->first('email')]) }}
+	</div>
 </div>
 
 <div class="row">
