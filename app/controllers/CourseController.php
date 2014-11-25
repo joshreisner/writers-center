@@ -24,7 +24,7 @@ class CourseController extends BaseController {
 	public function show($slug) {
 		$course = Course::with(array('instructors', 'sections'=>function($query){
 			//$query->where('start', '>', new DateTime());
-			$query->orderBy('start', 'desc');
+			$query->orderBy('start', 'asc');
 		}))->where('slug', $slug)->first();
 		
 		//404
