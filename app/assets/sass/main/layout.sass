@@ -94,9 +94,11 @@ nav.filter
 
 		.inner
 			+font("md")
+			+font(1.65)
 			border-width: $border-width 0 0 0
 			border-style: solid
 			border-color: $default
+
 
 			.label
 				margin: $margin -#{$margin / 2}
@@ -109,9 +111,13 @@ nav.filter
 				small
 					color: inherit
 					display: block
-					+font(1.8, "mono")
+					+font(1.6, "mono")
 					line-height: 1.3
 					margin-bottom: $margin
+					
+			h3
+				+font(1.6, "mono")
+				margin-left: -90px
 
 			button span.caret
 				top: 14px
@@ -164,7 +170,6 @@ nav.filter
 			ul
 				list-style-type: none
 				padding: $margin 0
-				+font(1.7)
 
 		.wallpaper
 			position: relative

@@ -21,14 +21,21 @@ a
 		text-decoration: underline
 
 blockquote
-	+font("md", "italic")
+	+font(1.5)
 	border-width: $border-width 0
 	border-style: dashed
 	clear: left
+	line-height: 1.4
 	margin: $margin * 2 0
 	padding: $margin * 2 $margin * 4
-	p:last-child
-		margin-bottom: 0
+	h2
+		&:first-child
+			margin-top: 0
+	p
+		+font(1.5, "italic")
+		line-height: 1.4
+		&:last-child
+			margin-bottom: 0
 
 body 
 	+font()

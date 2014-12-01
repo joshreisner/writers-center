@@ -7,10 +7,10 @@
 		@foreach ($items as $item)
 		<div class="item {{ Str::slug($item->type) }}">
 			<div class="inner">
-				<img src="{{ $item->backing->url }}" width="{{ $item->backing->width }}" height="{{ $item->backing->height }}">
 				<h1>{{ nl2br($item->title) }}</h1>
 				<div class="description">{{ nl2br($item->content) }}</div>
 				<div class="type">{{ $item->type }}</div>
+				<div class="image" style="background-image:url({{ $item->backing->url }})"></div>
 			</div>
 		</div>
 		@endforeach
@@ -110,7 +110,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="promo support">
-					<a href="/support">Support the Center</a>
+					<a href="/support">Support<br>the Center</a>
 				</div>
 			</div>
 		</div>
