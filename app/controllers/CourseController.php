@@ -15,6 +15,7 @@ class CourseController extends BaseController {
 			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
 			'class'				=>'courses',
+			'year_of_your_book'	=>Course::where('title', 'like', 'The Year of Your Book%')->orderBy('title')->get(),
 		));		
 	}
 
@@ -157,7 +158,6 @@ class CourseController extends BaseController {
 			$return_genre = array('open'=>[], 'closed'=>[]);
 
 			foreach ($genre->courses as $course) {
-				$course->url = self::url($course);
 				if ($course->tutorial_available || $course->open_sections) {
 					$return_genre['open'][] = $course;
 				} else {

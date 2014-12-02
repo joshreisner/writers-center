@@ -35,4 +35,15 @@
 		<h3>Tutorials are Available</h3>
 		<p>To arrange a tutorial with your instructor of choice please contact the Hudson Valley Writers Center's office by calling (914) 332-5953 or by emailing <a href="mailto:info@writerscenter.org">info@writerscenter.org</a>.</p>
 	</div>
+
+	<div class="wallpaper">
+		<span class="label">Special Series</span>
+		<h3>The Year of Your Book</h3>
+		<p>How long have you been saying that you want to write a book? How much longer do you have to wait? This series of classes (fiction, poetry, and mystery) begins at the start of 2015, when the New Year inspires serious resolutions. With emphasis on deadlines, how to structure and revise a manuscript and, most of all, mutual support—the goal is a solid draft (and a reading at HVWC to celebrate your accomplishment) by the end of the year.</p>
+		<ul>
+		@foreach ($year_of_your_book as $course)
+			<li><a href="{{ CourseController::url($course) }}">{{ $course->title }}</a></li>
+		@endforeach
+		</ul>
+	</div>
 @endsection

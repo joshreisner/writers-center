@@ -15,7 +15,7 @@
 
 @section('side')
 	<div class="inner wallpaper">
-		<ul>
+		<ul class="navigation">
 			@foreach ($pages as $p)
 			<li class="{{ Request::is('about' . (empty($p->slug) ? '' : '/' . $p->slug)) ? 'active' : '' }}"><a href="/about/{{ $p->slug }}">{{ $p->title }}</a></li>
 			@endforeach
