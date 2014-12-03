@@ -20,7 +20,7 @@ Route::group(array('before' => 'public'), function()
 				$item->type = 'publications';
 				$item->title = link_to(PublicationController::url($item->publications), $item->title);
 			} elseif (isset($item->posts)) {
-				$item->type = 'posts';
+				$item->type = 'blog';
 				$item->title = link_to(BlogController::url($item->posts), $item->title);
 			}
 		}
