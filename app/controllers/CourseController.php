@@ -28,6 +28,11 @@ class CourseController extends BaseController {
 			$query->orderBy('start', 'asc');
 		}))->where('slug', $slug)->first();
 		
+		$past_sections = Section::where('course_id', $course->id)
+				->where('start', '<', new DateTime())
+				->orderBy('start', 'asc')
+				->get();
+		
 		//404
 		if (!$course) return Redirect::action('CourseController@index');
 
@@ -49,6 +54,7 @@ class CourseController extends BaseController {
 			'course'=>$course,
 			'class'=>'courses',
 			'related'=>$related,
+			'past_sections'=>$past_sections,
 		));
 	}
 

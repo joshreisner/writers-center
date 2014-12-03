@@ -23,7 +23,7 @@
 			@if ($section->classes)
 				@if ($section->classes == 1)
 				{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
-				{{ BaseController::formatTimeRange($section->start, $section->end) }}				
+				{{ BaseController::formatTimeRange($section->start, $section->end) }}
 				@else
 				{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
 				{{ $section->notes }}
@@ -62,6 +62,15 @@
 					{{ $instructor->bio }}
 				</li>
 				@endforeach
+			</ul>
+		@endif
+		
+		@if (count($past_sections) > 0)
+			<h3>Past Sections</h3>
+			<ul class="past_sections">
+			@foreach ($past_sections as $section)
+			<li>{{ $section->title }} <em>{{ BaseController::formatDateRange($section->start, $section->end) }}</em></li>
+			@endforeach
 			</ul>
 		@endif
 	</div>
