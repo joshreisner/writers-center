@@ -17,52 +17,26 @@
 		<?php $open_courses = 0; ?>
 
 		@foreach ($course->sections as $section)
-		<dl>
-			<dt>
-				{{ $section->title }}
-			</dt>
-			<dd>
-				@if ($section->classes)
-					@if ($section->classes == 1)
-					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
-					{{ BaseController::formatTimeRange($section->start, $section->end) }}				
-					@else
-					{{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
-					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }} <em>{{ $section->notes }}</em>
-					@endif
-				@endif
-			</dd>
+			<h3>{{ $section->title }}</h3>
 
-			@if (App::environment('production'))
-				@if (!empty($section->register_url) && ($section->start > new DateTime))
-					<?php $open_courses++; ?>
-					<dt>Tuition</dt>
-					<dd>
-						<div>{{ BaseController::formatPrice($section->price) }} members</div>
-						<div>{{ BaseController::formatPrice($section->price + 25) }} non-members</div>
-					</dd>
-					
-					<dt><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></dt>
-				@endif
-			@else
-				@if ($section->start > new DateTime)
-					<?php $open_courses++; ?>
-					<dt>Tuition</dt>
-					<dd>
-						<div>{{ BaseController::formatPrice($section->price) }} members</div>
-						<div>{{ BaseController::formatPrice($section->price + 25) }} non-members</div>
-					</dd>
-					
-					<dt>
-					@if (Session::has('cart.courses') && array_key_exists($section->id, Session::get('cart.courses')))
-						<a class="btn btn-disabled">Added to Cart</a>
-					@else
-						<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
-					@endif
-					</dt>
+			<div>
+			@if ($section->classes)
+				@if ($section->classes == 1)
+				{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
+				{{ BaseController::formatTimeRange($section->start, $section->end) }}				
+				@else
+				{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
+				{{ $section->notes }}
 				@endif
 			@endif
-		</dl>
+			</div>
+
+			@if (!empty($section->register_url) && ($section->start > new DateTime))
+				<?php $open_courses++; ?>
+				<div>{{ BaseController::formatPrice($section->price) }} members / {{ BaseController::formatPrice($section->price, true) }} non-members</div>
+				<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+			@endif
+
 		@endforeach
 
 		@if ($course->tutorial_available)
@@ -77,7 +51,7 @@
 		@endif
 
 		@if (count($course->instructors))
-			<h2>@choice('messages.course_instructor', count($course->instructors))</h2>
+			<h3>@choice('messages.course_instructor', count($course->instructors))</h3>
 
 			<ul class="instructors">
 				@foreach ($course->instructors as $instructor)

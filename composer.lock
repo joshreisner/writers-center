@@ -209,12 +209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/cache.git",
-                "reference": "85ff6118558d7b2501cd85b31bdc1ffc0cab731a"
+                "reference": "9354b720cc97db4a914ab5aa28dbaa822cb3d300"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/cache/zipball/85ff6118558d7b2501cd85b31bdc1ffc0cab731a",
-                "reference": "85ff6118558d7b2501cd85b31bdc1ffc0cab731a",
+                "url": "https://api.github.com/repos/doctrine/cache/zipball/9354b720cc97db4a914ab5aa28dbaa822cb3d300",
+                "reference": "9354b720cc97db4a914ab5aa28dbaa822cb3d300",
                 "shasum": ""
             },
             "require": {
@@ -271,7 +271,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2014-11-27 00:22:12"
+            "time": "2014-12-03 01:17:20"
         },
         {
             "name": "doctrine/collections",
@@ -1471,22 +1471,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "6445e58bc07677365c8ff2d6c8808bcd1221f448"
+                "reference": "bce3c02126b8b20512432781e8ff48b33fab90ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/6445e58bc07677365c8ff2d6c8808bcd1221f448",
-                "reference": "6445e58bc07677365c8ff2d6c8808bcd1221f448",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/bce3c02126b8b20512432781e8ff48b33fab90ba",
+                "reference": "bce3c02126b8b20512432781e8ff48b33fab90ba",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.0.0"
             },
             "require-dev": {
-                "phing/phing": "2.7.*",
-                "phpunit/phpunit": "4.3.*",
-                "sami/sami": "2.*",
-                "squizlabs/php_codesniffer": "1.*"
+                "phing/phing": "~2.7",
+                "phpunit/phpunit": "~4.0",
+                "sami/sami": "~2.0",
+                "squizlabs/php_codesniffer": "~1.5"
             },
             "suggest": {
                 "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
@@ -1561,7 +1561,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2014-12-02 20:39:41"
+            "time": "2014-12-03 11:30:12"
         },
         {
             "name": "predis/predis",
@@ -2286,12 +2286,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/HttpKernel.git",
-                "reference": "a0d678c7b2df33f34bfde0fa3c8a0e90ad3b5326"
+                "reference": "f1a62677a6a37824177f7fab455d907355480c0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/a0d678c7b2df33f34bfde0fa3c8a0e90ad3b5326",
-                "reference": "a0d678c7b2df33f34bfde0fa3c8a0e90ad3b5326",
+                "url": "https://api.github.com/repos/symfony/HttpKernel/zipball/f1a62677a6a37824177f7fab455d907355480c0e",
+                "reference": "f1a62677a6a37824177f7fab455d907355480c0e",
                 "shasum": ""
             },
             "require": {
@@ -2349,7 +2349,7 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "http://symfony.com",
-            "time": "2014-12-02 20:15:53"
+            "time": "2014-12-03 16:34:22"
         },
         {
             "name": "symfony/process",

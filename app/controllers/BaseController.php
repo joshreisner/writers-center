@@ -105,8 +105,9 @@ class BaseController extends Controller {
 	/**
 	 * price formatter
 	 */
-	public static function formatPrice($price) {
+	public static function formatPrice($price, $non_member=false) {
 		if ($price === null) return 'TBD';
+		if ($non_member) $price += 25;
 		if ($price === 0) return 'Free';
 		return '$' . number_format($price);
 	}

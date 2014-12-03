@@ -2,25 +2,23 @@ body.courses
 	.row.page
 		.content .inner 
 			.target
-				h1.group
-					+font(2.8)
 
-				ul 
-					+font(1.6)
-					list-style-type: none
-					&.courses
-						a
-							+font(2.5)
-			dl
-				ul
-					list-style-type: none
+				ul.courses
 					padding: 0
-					li
-						overflow: auto
-					span
-						width: 150px
-						float: left
+					list-style-type: none
+					
+					h4
+						margin-top: $margin * 1.5
+						
+					em
+						font-family: $font-mono
+						font-style: normal
+						font-size: 1.6rem
+						margin-left: 10px						
 
+			div.register
+				margin-top: $margin / 2
+				
 			ul.instructors
 				+font(1.6)
 				list-style-type: none

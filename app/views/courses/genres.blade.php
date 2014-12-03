@@ -1,6 +1,6 @@
 @if (count($genres))
 	@foreach ($genres as $title=>$statuses)
-		<h1 class="group">{{ $title }}</h1>
+		<h3>{{ $title }}</h3>
 		@foreach (['open', 'closed'] as $status)
 			@if (count($statuses[$status]))
 				<ul class="courses">
@@ -8,7 +8,7 @@
 				@foreach ($statuses[$status] as $course)
 					<li>
 						<a href="{{ CourseController::url($course) }}">{{ $course->title }}</a>
-						{{ CourseController::formatInstructors($course) }}
+						<em>{{ CourseController::formatInstructors($course) }}</em>
 					</li>
 				@endforeach
 				</ul>
