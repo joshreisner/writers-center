@@ -12,40 +12,56 @@
 			<small>{{ CourseController::formatInstructors($course) }}</small>
 		</h1>
 
-		<div class="description">{{ nl2br($course->description) }}</div>
+		@if (!empty($course->description))
+			<div class="description">{{ nl2br($course->description) }}</div>
+		@endif
 
-		<?php $open_courses = 0; ?>
+		@if (!empty($course->price))
+			<h3>Tuition</h3>
+			<div class="price">{{ BaseController::formatPrice($course->price) }} members / {{ BaseController::formatPrice($course->price, true) }} non-members</div>
+		@endif
 
-		@foreach ($course->sections as $section)
-			<h3>{{ $section->title }}</h3>
-
-			<div>
-			@if ($section->classes)
-				@if ($section->classes == 1)
-				{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
-				{{ BaseController::formatTimeRange($section->start, $section->end) }}
-				@else
-				{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}<br>
-				{{ $section->notes }}
+		@if (count($course->sections))
+			@foreach ($course->sections as $section)
+				<h3>{{ $section->title }}</h3>
+	
+				<div>
+				@if ($section->classes)
+					@if ($section->classes == 1)
+					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
+					{{ BaseController::formatTimeRange($section->start, $section->end) }}
+					@else
+					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}
+					@endif
 				@endif
+				</div>
+	
+				@if (!empty($section->notes))
+					<div class="notes">{{ $section->notes }}</div>
+				@endif
+	
+				@if (!empty($section->price) && ($section->price != $course->price))
+					<div class="price">{{ BaseController::formatPrice($section->price) }} members / {{ BaseController::formatPrice($section->price, true) }} non-members</div>
+				@endif
+				
+				@if (!empty($section->register_url))
+					<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+				@endif
+	
+			@endforeach
+			@if ($course->tutorial_available)
+				<div class="tutorial">
+					<p>@lang('messages.course_tutorial_also_available')</p>
+					<p><a class="btn btn-primary" href="mailto:info@writerscenter.org?subject={{ rawurlencode($course->title . ' Tutorial Inquiry') }}">Contact</a></p>
+				</div>
 			@endif
-			</div>
-
-			@if (!empty($section->register_url) && ($section->start > new DateTime))
-				<?php $open_courses++; ?>
-				<div>{{ BaseController::formatPrice($section->price) }} members / {{ BaseController::formatPrice($section->price, true) }} non-members</div>
-				<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
-			@endif
-
-		@endforeach
-
-		@if ($course->tutorial_available)
+		@elseif ($course->tutorial_available)
 			<div class="tutorial">
 				<p>@lang('messages.course_tutorial_available')</p>
 				<p><a class="btn btn-primary" href="mailto:info@writerscenter.org?subject={{ rawurlencode($course->title . ' Tutorial Inquiry') }}">Contact</a></p>
 			</div>
-		@elseif (!$open_courses)
-			<div class="tutorial">
+		@else
+			<div class="closed">
 				<p>@lang('messages.course_enrollment_closed')</p>
 			</div>
 		@endif
@@ -65,7 +81,7 @@
 			</ul>
 		@endif
 		
-		@if (count($past_sections) > 0)
+		@if (count($past_sections))
 			<h3>Past Sections</h3>
 			<ul class="past_sections">
 			@foreach ($past_sections as $section)
