@@ -2,6 +2,7 @@
 
 @section('content')
 	<div class="indent target">
+		<h1>Courses</h1>
 		@include('courses.genres')
 	</div>
 @endsection

@@ -65,12 +65,6 @@
 				<div class="promo courses">
 					{{ Form::open(array('url'=>URL::action('CourseController@index'), 'method'=>'get', 'id'=>'find-a-class', 'class'=>'form-horizontal')) }}
 						<div class="form-group">
-							<label class="col-sm-3 control-label"></label>
-						    <div class="col-sm-9">
-								<legend>Find a class</legend>
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="col-sm-3 control-label" for="genre">
 								Genre
 							</label>
@@ -101,8 +95,10 @@
 						    <div class="col-sm-7">
 						    	{{ Form::dropdown('duration', $duration_select) }}
 						    </div>
-						    <div class="col-sm-2">
-						    	{{ Form::submit('Go') }}
+						</div>
+						<div class="form-group">
+						    <div class="col-sm-7 col-sm-offset-3">
+						    	{{ Form::submit('Find a class') }}
 						    </div>
 						</div>
 					{{ Form::close() }}

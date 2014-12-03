@@ -102,6 +102,7 @@ nav.filter
 
 			.label
 				margin: $margin -#{$margin / 2}
+				
 
 			h1 
 				+font("lg")
@@ -117,7 +118,6 @@ nav.filter
 					
 			h3
 				+font(1.6, "mono")
-				margin-left: -90px
 
 			button span.caret
 				top: 14px
@@ -156,9 +156,6 @@ nav.filter
 			background-color: white
 			@include shadow()
 			margin-bottom: $margin
-
-			input
-				margin-bottom: 5px
 
 		#cart
 			h1
@@ -199,6 +196,7 @@ nav.filter
 					display: block
 					+font(1.6, "mono")
 					margin: $margin / 2 0
+					
 			.image
 				opacity: 0.3
 				z-index: -1
@@ -219,8 +217,8 @@ nav.filter
 	.indent
 		margin-left: $indent
 
-	figure, body.publications .content .cover
-		margin-left: -#{$indent}
+		h3, figure, div.cover
+			margin-left: -#{$indent}
 
 
 @media (min-width: $screen-lg)

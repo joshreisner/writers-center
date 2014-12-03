@@ -2,12 +2,14 @@ body.publications
 	.content
 		form
 			margin: 0 0 $margin * 2 0 //temporary, paypal
+
 		h3
 			border-bottom: $border-width solid $publications
+
 		.cover
 			width: 300px
 			float: left
-			margin: 0 $margin 0 0
+			margin-right: $margin
 
 		.publication
 			margin-bottom: 20px
@@ -19,6 +21,7 @@ body.publications
 			background-position: center
 			background-repeat: no-repeat
 			position: relative
+			
 			a
 				display: table-cell
 				vertical-align: middle
@@ -30,6 +33,7 @@ body.publications
 				padding-top: 50%
 				background-color: $publications
 				opacity: 0
+				
 				div
 					font-size: 80%
 					color: white
@@ -42,9 +46,9 @@ body.publications
 						border-top: $border-width solid white
 						width: 20px
 						margin: 20px auto
+				
 				&:hover
 					opacity: .8
-
 
 	.side
 		ul.events
