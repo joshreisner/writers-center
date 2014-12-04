@@ -2,8 +2,8 @@
 
 @section('content')
 
-	<div class="target">
-		<h1 class="col-indent-2">Events</h1>
+	<div class="indent target">
+		<h1>Events</h1>
 		@include('events.events')
 	</div>
 	

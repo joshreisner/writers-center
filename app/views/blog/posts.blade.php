@@ -2,14 +2,10 @@
 	@foreach ($posts as $post)
 
 		<div class="post">
-			<h1>
-				<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
-				{{ link_to($post->url, $post->title) }}
-			</h1>
-			<div class="col-md-offset-1">
-				<p>{{ $post->excerpt }}</p>
-				<p class="more">{{ link_to($post->url, 'Read more&hellip;') }}</p>
-			</div>
+			<h1>{{ link_to($post->url, $post->title) }}</h1>
+			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
+			<p>{{ $post->excerpt }}</p>
+			<p class="more">{{ link_to($post->url, 'Read more&hellip;') }}</p>
 		</div>
 
 	@endforeach

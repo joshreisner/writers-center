@@ -1,27 +1,24 @@
 @if (count($months))
 	@foreach ($months as $month=>$events)
 		
-		<h1 class="group">{{ $month }}</h1>
+		<h3>{{ $month }}</h3>
 		
+		<ul class="events">
 		@foreach ($events as $event)
-		<div class="event">
-			<div class="date">
+			<li>
+				<a class="title" href="{{ $event->url }}">{{ $event->title }}</a>
 				@if ($event->start->format('m/d') == $event->end->format('m/d'))
-					{{ $event->start->format('m/d') }}<br>
-					{{ $event->start->format('D') }}
+					{{-- single day --}}
+					<em>{{ $event->start->format('D') }} {{ $event->start->format('m/d') }}, {{ $event->start->format('g:i a') }}</em>
 				@else
-					{{ $event->start->format('m/d') }}<br>
-					through<br>
-					{{ $event->end->format('m/d') }}
+					{{-- multi day --}}
+					<em>{{ $event->start->format('m/d') }} through {{ $event->end->format('m/d') }}</em>
 				@endif
-			</div>
-			<div class="description">
-				<a class="title" href="{{ $event->url }}">{{ $event->title }}, {{ $event->start->format('g:i a') }}</a>
 				<p>{{ $event->excerpt }}</p>
-			</div>
-		</div>
+			</li>
 		@endforeach
-
+		</ul>
+		
 	@endforeach
 
 @else

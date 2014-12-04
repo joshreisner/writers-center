@@ -3,16 +3,14 @@ body.events
 		h1.group
 			+font(2.5)
 			margin: $margin * 2 0 0
-		.event
-			padding: $margin 0 0 $indent
-			position: relative
-			overflow: auto
 
-			div.date
-				+font("sm", "mono")
-				line-height: 1.2
-				margin-top: 7px
-				left: 0
-				position: absolute
-			a.title
-				+font("md", "bold")
+		ul.events
+			padding: 0
+			list-style-type: none
+			li
+				margin-bottom: $margin * 2
+				em
+					font-family: $font-mono
+					font-style: normal
+					font-size: 1.6rem
+					margin-left: 10px						

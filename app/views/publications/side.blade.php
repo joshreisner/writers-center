@@ -9,7 +9,7 @@
 </div>	
 @endif
 
-@if ($events)
+@if (count($events))
 <div class="wallpaper">
 	<span class="label">Upcoming Events</span>
 	<ul class="events">
