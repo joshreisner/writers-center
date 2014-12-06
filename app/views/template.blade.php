@@ -25,8 +25,10 @@
 						<!-- <a class="login">Log In</a> -->
 						<!--<a href="https://www.networkforgood.org/donation/ExpressDonation.aspx?ORGID2=133490748&vlrStratCode=cpjEVhsA7qIjsiivCHnbL%2fX96F%2f5Hros%2fMsDm%2fJgIHLgGem6KaNhuu%2bZqlPVNr4%2f">Support the Center</a>-->
 						<a href="/support">Support the Center</a>
-						<a href="https://www.facebook.com/hvwriterscenter" class="dashicons dashicons-facebook"></a>
-						<a href="https://twitter.com/HVWritersCenter" class="dashicons dashicons-twitter"></a>
+						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>
+						<a href="https://twitter.com/HVWritersCenter" class="fa fa-twitter"></a>
+						<a href="http://instagram.com/hudson_valley_writers_center" class="fa fa-instagram"></a>
+						<!--<a href="" class="fa fa-youtube"></a>-->
 					</nav>
 				</div>
 			</div>
