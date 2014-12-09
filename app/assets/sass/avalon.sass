@@ -35,7 +35,6 @@ body
 		font-size: 1.7rem !important
 		p
 			font-family: "Apercu Pro Regular" !important
-			font-size: 1.7rem !important
 			margin-top: 0 !important
 			margin-bottom: $margin !important
 			img
@@ -44,6 +43,7 @@ body
 		p, ul, ol, h2, blockquote
 			line-height: 1.42857143 !important
 			color: inherit
+			font-size: inherit !important
 
 		b, strong
 			font-family: "Apercu Pro Bold" !important
@@ -78,8 +78,8 @@ body
 	$color:   nth($section, 2)
 
 	form.#{$name}
-		.form-group.html
-			.redactor_editor
+		.form-group.field-html
+			.redactor-editor
 				color: $color
 				blockquote
 					border-color: $color

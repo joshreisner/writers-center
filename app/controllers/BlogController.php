@@ -18,7 +18,7 @@ class BlogController extends BaseController {
 			'years'=>Post::orderBy('publish_date', 'desc')->distinct()->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)')),
 			'posts'=>$posts,
 			'tags'=>Tag::orderBy('title')->get(),
-			'class'=>'blog',
+			'class'=>'posts',
 		));
 	}
 
@@ -36,7 +36,7 @@ class BlogController extends BaseController {
 			'post'=>$post,
 			'related'=>Post::where('id', '<>', $post->id)->orderBy('publish_date', 'desc')->take(5)->get(),
 			'tags'=>Tag::orderBy('title')->get(),
-			'class'=>'blog',
+			'class'=>'posts',
 		));
 	}
 

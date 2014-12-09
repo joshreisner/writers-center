@@ -11,16 +11,16 @@ Route::group(array('before' => 'public'), function()
 		foreach ($carouselItems as &$item) {
 			//dd($item);
 			if (isset($item->courses)) {
-				$item->type = 'courses';
+				$item->type = ['Course', 'courses'];
 				$item->title = link_to(CourseController::url($item->courses), $item->title);
 			} elseif (isset($item->events)) {
-				$item->type = 'events';
+				$item->type = ['Event', 'events'];
 				$item->title = link_to(EventController::url($item->events), $item->title);
 			} elseif (isset($item->publications)) {
-				$item->type = 'publications';
+				$item->type = ['Publication', 'publications'];
 				$item->title = link_to(PublicationController::url($item->publications), $item->title);
 			} elseif (isset($item->posts)) {
-				$item->type = 'blog';
+				$item->type = ['Blog', 'posts'];
 				$item->title = link_to(BlogController::url($item->posts), $item->title);
 			}
 		}

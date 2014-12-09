@@ -5,11 +5,11 @@
 
 	<div class="carousel">
 		@foreach ($items as $item)
-		<div class="item {{ Str::slug($item->type) }}">
+		<div class="item {{ $item->type[1] }}">
 			<div class="inner">
 				<h1>{{ nl2br($item->title) }}</h1>
 				<div class="description">{{ nl2br($item->content) }}</div>
-				<div class="type">{{ $item->type }}</div>
+				<div class="type">{{ $item->type[0] }}</div>
 				<div class="image" style="background-image:url({{ $item->backing->url }})"></div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="promo courses">
-					{{ Form::open(array('url'=>URL::action('CourseController@index'), 'method'=>'get', 'id'=>'find-a-class', 'class'=>'form-horizontal')) }}
+					{{ Form::open(['url'=>URL::action('CourseController@index'), 'method'=>'get', 'id'=>'find-a-class', 'class'=>'form-horizontal']) }}
 						<div class="form-group">
 							<label class="col-sm-3 control-label" for="genre">
 								Genre
