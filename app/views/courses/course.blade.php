@@ -50,6 +50,7 @@
 	
 			@endforeach
 			@if ($course->tutorial_available)
+				<h3>Tutorial</h3>
 				<div class="tutorial">
 					<p>@lang('messages.course_tutorial_also_available')</p>
 					<p><a class="btn btn-primary" href="mailto:info@writerscenter.org?subject={{ rawurlencode($course->title . ' Tutorial Inquiry') }}">Contact</a></p>

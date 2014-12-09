@@ -1,6 +1,10 @@
 @extends('page')
 
 @section('content')
+	<div class="indent">
+		<h1>Contact</h1>
+	</div>
+
 	<div id="map-canvas"></div>
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 	<script>
