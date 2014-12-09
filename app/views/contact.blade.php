@@ -72,10 +72,18 @@
 
 @section('side')
 	<div class="wallpaper">
-		<ul>
-			<li><a href="tel:9143325953"><i class="glyphicon glyphicon-earphone"></i> (914) 332-5953</a></li>
-			<li><a href="tel:9143324825"><i class="glyphicon glyphicon-print"></i> (914) 332-4825</a></li>
-			<li><a href="mailto:info@writerscenter.org"><i class="glyphicon glyphicon-envelope"></i> info@writerscenter.org</a></li>
+		<h4>Contact Information</h4>
+		<ul class="navigation">
+			<li><a href="tel:9143325953"><i class="fa fa-phone"></i> (914) 332-5953</a></li>
+			<li><a href="tel:9143324825"><i class="fa fa-print"></i> (914) 332-4825</a></li>
+			<li><a href="mailto:info@writerscenter.org"><i class="fa fa-envelope"></i> info@writerscenter.org</a></li>
+		</ul>
+		<h4>Social Media</h4>
+		<ul class="navigation">
+			<li><a href="https://www.facebook.com/hvwriterscenter"><i class="fa fa-facebook"></i> Facebook</a></li>
+			<li><a href="https://twitter.com/HVWritersCenter"><i class="fa fa-twitter"></i> Twitter</a></li>
+			<li><a href="http://instagram.com/hudson_valley_writers_center"><i class="fa fa-instagram"></i> Instagram</a></li>
+			<li><a href="https://www.youtube.com/channel/UCMyCsXkxuNPK-A0mT8MA8LQ"><i class="fa fa-youtube"></i> YouTube</a></li>
 		</ul>
 	</div>
 @endsection
