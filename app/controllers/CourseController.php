@@ -28,14 +28,15 @@ class CourseController extends BaseController {
 			$query->orderBy('start', 'asc');
 		}))->where('slug', $slug)->first();
 		
+		//404
+		if (!$course) return Redirect::action('CourseController@index');
+
+		//past sections
 		$past_sections = Section::where('course_id', $course->id)
 				->where('start', '<', new DateTime())
 				->orderBy('start', 'asc')
 				->get();
 		
-		//404
-		if (!$course) return Redirect::action('CourseController@index');
-
 		//also get a related course
 		$related = Course::where('genre_id', $course->genre_id)
 				->where('id', '<>', $course->id)
