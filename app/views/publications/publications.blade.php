@@ -1,7 +1,8 @@
 @if (count($publications))
 	@foreach ($publications as $publication)
 		<div class="col-md-6">
-			<div class="publication" style="background-image:url({{ $publication->image->url }});">
+			<div class="publication">
+				<div class="image" style="background-image:url({{ $publication->image->url }});"></div>
 				<a href="{{ $publication->url }}">
 					<div>
 						{{ $publication->title }}
