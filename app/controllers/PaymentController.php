@@ -13,7 +13,7 @@ class PaymentController extends BaseController {
 	 * show checkout page
 	 */
 	public function checkout_index() {
-		return View::make('checkout')->with('class', 'checkout');
+		return View::make('checkout')->with('class', 'checkout')->with('policies', Policy::get());
 	}
 
 	/**
@@ -170,6 +170,11 @@ class PaymentController extends BaseController {
 
 		# Return from whence you came (the publication page)
 		return Redirect::to($course->url)->with('message', 'Course added to cart.');
+	}
+
+	public static function has_course($section_id) {
+		$courses = Session::get('cart.courses', []);
+		return isset($courses[$section_id]);
 	}
 
 	public function add_event($event_id) {

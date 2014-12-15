@@ -25,16 +25,15 @@
 			@foreach ($course->sections as $section)
 				<h3>{{ $section->title }}</h3>
 	
-				<div>
 				@if ($section->classes)
+				<div>
 					@if ($section->classes == 1)
-					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}<br>
-					{{ BaseController::formatTimeRange($section->start, $section->end) }}
+					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}, {{ BaseController::formatTimeRange($section->start, $section->end) }}
 					@else
 					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}
 					@endif
-				@endif
 				</div>
+				@endif
 	
 				@if (!empty($section->notes))
 					<div class="notes">{{ $section->notes }}</div>
@@ -44,8 +43,16 @@
 					<div class="price">{{ BaseController::formatPrice($section->price) }} members / {{ BaseController::formatPrice($section->price, true) }} non-members</div>
 				@endif
 				
-				@if (!empty($section->register_url))
+				@if (App::environment('production') && !empty($section->register_url))
 					<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+				@elseif ($section->open)
+					<div class="register">
+						@if (PaymentController::has_course($section->id))
+						<a class="btn btn-disabled">Course Added</a>
+						@else
+						<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
+						@endif
+					</div>
 				@endif
 	
 			@endforeach

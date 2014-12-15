@@ -26,7 +26,13 @@
 					@foreach ($items as $id=>$item)
 				<tr data-price="{{ $item['price'] }}" data-type="{{ $type }}">
 					<td><a class="{{ $type }}" href="$item['url']">{{ $item['name'] }}</a></td>
-					<td class="numeric">{{ Form::integer('item_' . $id, $item['quantity'], ['class'=>'form-control', 'data-numeric'=>'data-numeric', 'max'=>100]) }}</td>
+					<td class="numeric">
+						@if ($type == 'courses')
+							{{ Form::integer('item_' . $id, $item['quantity'], ['class'=>'form-control', 'disabled'=>'disabled']) }}</td>
+						@else
+							{{ Form::integer('item_' . $id, $item['quantity'], ['class'=>'form-control', 'data-numeric'=>'data-numeric', 'max'=>100]) }}</td>
+						@endif
+
 					<td class="numeric align-right total">{{ number_format($item['price'] * $item['quantity']) }}</td>
 				</tr>
 				<?php 
@@ -68,7 +74,12 @@
 
 @section('side')
 	<div class="wallpaper">
-		<span class="label">Our Policies</span>
-		<p>We usually process orders in 36 hours, etc.</p>
+		<span class="label">Policies</span>
+		@foreach ($policies as $policy)
+		<div class="policy">
+			<h3>{{ $policy->title }}</h3>
+			{{ $policy->content }}
+		</div>
+		@endforeach
 	</div>
 @endsection

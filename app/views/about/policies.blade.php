@@ -1,4 +1,4 @@
 @foreach ($policies as $policy)
-	<h4>{{ $policy->title }}</h4>
+	<h3>{{ $policy->title }}</h3>
 	{{ $policy->content }}
 @endforeach
