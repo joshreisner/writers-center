@@ -39,7 +39,7 @@ class BaseController extends Controller {
 	 * generate avalon link
 	 */
 	public static function editLink($instance) {
-		if (!Auth::user()) return false;
+		if (!Auth::user() || !Auth::user()->role) return false;
 		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)), '', array('class'=>'edit fa fa-edit'));
 		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit fa fa-edit'));
 	}
@@ -88,6 +88,14 @@ class BaseController extends Controller {
 		//totally different dates, specify year
 		return $start->format('m/d/Y') . $separator . $end->format('m/d/Y');
 
+	}
+
+	public static function insertIntoHtml($html, $insert) {
+		if ($pos = strrpos($html, '</p>')) {
+			return substr($html, 0, $pos) . ' ' . $insert . substr($html, $pos);
+		} else {
+			return $html . $insert;
+		}
 	}
 
 	/**

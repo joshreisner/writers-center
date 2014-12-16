@@ -23,7 +23,7 @@
 
 		@if (count($course->sections))
 			@foreach ($course->sections as $section)
-				<h3>{{ $section->title }}</h3>
+				<h3>{{ $section->title }} {{ BaseController:: editLink($section) }}</h3>
 	
 				@if ($section->classes)
 				<div>
@@ -83,7 +83,7 @@
 					@if (!empty($instructor->image->url))
 					<img src="{{ $instructor->image->url }}" width="{{ $instructor->image->width }}" height="{{ $instructor->image->height }}" alt="{{ $instructor->name }}">
 					@endif
-					{{ $instructor->bio }}
+					{{ BaseController::insertIntoHtml($instructor->bio, BaseController:: editLink($instructor)) }}
 				</li>
 				@endforeach
 			</ul>

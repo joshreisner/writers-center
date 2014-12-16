@@ -7,6 +7,7 @@
 		@foreach ($items as $item)
 		<div class="item {{ $item->type[1] }}">
 			<div class="inner">
+				{{ BaseController::editLink($item) }}
 				<h1>{{ nl2br($item->title) }}</h1>
 				<div class="description">{{ nl2br($item->content) }}</div>
 				<div class="type">{{ $item->type[0] }}</div>
