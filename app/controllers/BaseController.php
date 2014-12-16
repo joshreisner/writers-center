@@ -40,6 +40,7 @@ class BaseController extends Controller {
 	 */
 	public static function editLink($instance) {
 		if (!Auth::user()) return false;
+		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)), '', array('class'=>'edit fa fa-edit'));
 		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit fa fa-edit'));
 	}
 

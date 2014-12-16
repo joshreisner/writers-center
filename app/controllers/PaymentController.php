@@ -163,7 +163,7 @@ class PaymentController extends BaseController {
 				'quantity' =>	1,
 				'id' =>			$course->id,
 				'url' =>		$course->url,
-				'price' =>		$section->non_member_tuition,
+				'price' =>		$section->price,
 			];
 			Session::put('cart.courses', $courses);
 		}
