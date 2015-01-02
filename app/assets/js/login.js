@@ -14,7 +14,7 @@ $('#login')
 //handle either login or reset password
 $('#login form').submit(function(){
 	if ($(this).hasClass('login')) {
-		$.post('/login', $(this).serialize(), function(data) {
+		$.post('/public-login', $(this).serialize(), function(data) {
 			//console.log(data);
 			if (data.status == 'success') {
 				$('#login').modal('hide');

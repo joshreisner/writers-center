@@ -78,7 +78,7 @@ Route::group(array('before' => 'public'), function()
 		Route::get('/checkout',						'PaymentController@checkout_index');
 		Route::post('/checkout',					'PaymentController@checkout_submit');
 
-		Route::post('/login', function(){
+		Route::post('/public-login', function(){
 			if (Auth::attempt(['email'=>Input::get('email'), 'password'=>Input::get('password')], true)) {
 				$user = Auth::user();
 				$user->last_login = new DateTime;
