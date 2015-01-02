@@ -418,12 +418,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "608d2a281b58209b8e2f69e5286c0108e254350e"
+                "reference": "89d4f06fb4ff6e7b8f3c29a7307bf66203e09922"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/608d2a281b58209b8e2f69e5286c0108e254350e",
-                "reference": "608d2a281b58209b8e2f69e5286c0108e254350e",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/89d4f06fb4ff6e7b8f3c29a7307bf66203e09922",
+                "reference": "89d4f06fb4ff6e7b8f3c29a7307bf66203e09922",
                 "shasum": ""
             },
             "require": {
@@ -481,7 +481,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2015-01-01 16:43:32"
+            "time": "2015-01-02 08:47:57"
         },
         {
             "name": "doctrine/inflector",
@@ -972,12 +972,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "926fda74db2b26fa8617bc1ace252aa2f98d0122"
+                "reference": "eb6e16f655ab7639f1e86b769b6721dccc46cb8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/926fda74db2b26fa8617bc1ace252aa2f98d0122",
-                "reference": "926fda74db2b26fa8617bc1ace252aa2f98d0122",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/eb6e16f655ab7639f1e86b769b6721dccc46cb8c",
+                "reference": "eb6e16f655ab7639f1e86b769b6721dccc46cb8c",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1079,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-12-31 22:46:15"
+            "time": "2015-01-02 16:59:58"
         },
         {
             "name": "loic-sharma/profiler",
@@ -2471,12 +2471,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/security-core.git",
-                "reference": "4dcfc7b24f3f02f1723b16f05b240a0c9b43b1d9"
+                "reference": "dccfd85d10c70861276908db0e2cb664195bbe89"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/security-core/zipball/4dcfc7b24f3f02f1723b16f05b240a0c9b43b1d9",
-                "reference": "4dcfc7b24f3f02f1723b16f05b240a0c9b43b1d9",
+                "url": "https://api.github.com/repos/symfony/security-core/zipball/dccfd85d10c70861276908db0e2cb664195bbe89",
+                "reference": "dccfd85d10c70861276908db0e2cb664195bbe89",
                 "shasum": ""
             },
             "require": {
@@ -2525,7 +2525,7 @@
             ],
             "description": "Symfony Security Component - Core Library",
             "homepage": "http://symfony.com",
-            "time": "2014-12-30 13:32:44"
+            "time": "2015-01-01 13:13:41"
         },
         {
             "name": "symfony/translation",

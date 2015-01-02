@@ -64,7 +64,7 @@ Route::group(array('before' => 'public'), function()
 		));
 	});
 
-	# Support tha Center
+	# Support the Center
 	Route::get('/support',						'PaymentController@support_index');
 	Route::post('/support', 					'PaymentController@support_submit');
 
@@ -77,6 +77,27 @@ Route::group(array('before' => 'public'), function()
 
 		Route::get('/checkout',						'PaymentController@checkout_index');
 		Route::post('/checkout',					'PaymentController@checkout_submit');
+
+		Route::post('/login', function(){
+			if (Auth::attempt(['email'=>Input::get('email'), 'password'=>Input::get('password')], true)) {
+				$user = Auth::user();
+				$user->last_login = new DateTime;
+				$user->save();
+				return Response::json(['status'=>'success', 'name'=>$user->name]);
+			} else {
+				return Response::json(['status'=>'error', 'message'=>'That username / password combination was not found.']);
+			}
+		});
+
+		Route::post('/reset', function(){
+			return json_encode(['status'=>'hi']);
+		});
+
+		Route::get('/logout', function(){
+			Auth::logout();
+			return Redirect::back()->with('message', 'You are now logged out.');
+		});
+
 	}
 
 });
