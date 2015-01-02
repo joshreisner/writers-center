@@ -22,6 +22,7 @@
 				</div>
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
+						<a href="#login">Log In</a>
 						<a href="/support">Support the Center</a>
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="fa fa-twitter"></a>
@@ -41,6 +42,7 @@
 			</div>
 		</div>
 		@yield('page')
+		@include('partials.login')
 		<script src="/assets/js/main.min.js"></script>
 		@yield('script')
 		<script>

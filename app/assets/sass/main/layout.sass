@@ -218,6 +218,30 @@ nav.filter
 			p:last-child
 				margin-bottom: 0
 
+.modal
+	.modal-header, .modal-footer
+		border: 0
+	.modal-header
+		h1
+			line-height: 1
+		.close
+			color: $default
+	.modal-footer
+		margin-top: 0
+	.modal-content
+		border-radius: 0
+		border: 0
+		//border: $border-width solid $default
+	.alert
+		margin: -20px -20px 20px -20px
+		padding: 15px 20px
+		a
+			text-decoration: underline
+			&:hover
+				color: inherit
+
+.modal-backdrop
+	background-color: #fff
 
 @media (min-width: $screen-sm)
 

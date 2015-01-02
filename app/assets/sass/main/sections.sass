@@ -4,9 +4,11 @@
 	$color:   nth($section, 2)
 	$light:   nth($section, 3)
 	$lighter: nth($section, 4)
-	body.#{$name} form.switchboard, body.home .promo.#{$name}
-		input[type=text]
+	body.#{$name}, body.home .promo.#{$name}
+
+		.form-control
 			border-color: $color
+
 		.btn-group
 			&.dropdown
 				button
@@ -19,6 +21,7 @@
 					background-color: $lighter
 					li.active a, li a:hover, li.divider
 						background-color: $light
+
 		.chkbox
 			background-color: $color
 			color: $lighter
@@ -43,6 +46,14 @@
 		a#logo
 			background-image: url(/assets/img/logo-#{$name}.png)
 
+		.alert
+			border: 0
+			&.alert-info
+				background-color: $light
+				color: $color
+			&.alert-warning
+				background-color: $color
+
 		.background
 			background: url(/assets/img/background-#{$name}.png) center center no-repeat
 
@@ -66,13 +77,6 @@
 		.row.page
 			.inner
 				border-color: $color
-			.alert
-				border: 0
-				&.alert-info
-					background-color: $light
-					color: $color
-				&.alert-warning
-					background-color: $color
 			.content
 				figure, mark
 					background-color: $lighter
@@ -88,3 +92,7 @@
 					@include background-opacity($color, .2)
 				ul li.active a
 					color: $color
+
+		.modal
+			.close
+				color: $color

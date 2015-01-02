@@ -5,6 +5,7 @@
 
 $(function(){
 
+	//= include login.js
 	//= include page-home.js
 	//= include page-support.js
 	//= include page-checkout.js
@@ -100,6 +101,5 @@ $(function(){
 	$('input[data-stripe=number]').payment('formatCardNumber');
 	$('input[data-stripe=cvc]').payment('formatCardCVC');
 	$('input[data-numeric]').payment('restrictNumeric');
-
 
 });
