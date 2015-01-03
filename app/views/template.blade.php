@@ -30,11 +30,11 @@
 									<a href="#" data-toggle="dropdown"><span class="name">Josh Reisner</span><span class="caret"></span></a>
 									<ul class="dropdown-menu" role="menu">
 										<li><a href="#">News Feed</a></li>
-										<li><a href="#">Subscriptions</a></li>
+										<li><a href="#">Membership</a></li>
 										<li><a href="#">Support</a></li>
 										<li><a href="#">Settings</a></li>
 										<li class="divider"></li>
-										<li><a href="/logout">Log out</a></li>
+										<li><a href="/logout">Log Out</a></li>
 									</ul>
 								</div>
 							@endif

@@ -32,17 +32,26 @@ body.scrolled .background
 		float: right
 		.dropdown
 			float: left
-			.name
+			span.name
 				margin-right: 4px
+			span.caret
+				border-top-color: $default
 			ul
 				border-radius: 0
 				border: 0
 				margin-left: -15px
+				li.divider
+					background-color: $default-light
+					margin: 6px 0
 				a
 					padding-left: 15px
 					float: none
 					margin: 0
 					line-height: 1.4
+					&:hover
+						background-color: inherit
+						text-decoration: underline
+						color: inherit
 		a
 			margin-right: $margin * 2
 			float: left

@@ -56,12 +56,10 @@ $('#login form a').click(function(e){
 });
 
 function alertLoginModal(message) {
-	console.log('alerting ' + message);
 	$modal_body = $('#login .modal-body');
 	if ($modal_body.find('.alert').size()) {
-		console.log('exists');
 		$modal_body.find('.alert').first().html(message);
-		//maybe find some way to ding the alert
+		//todo ding the alert somehow if it's a repeat
 	} else {
 		$('<div class="alert alert-info" style="display:none;">' + message + '</div>').prependTo($modal_body).slideDown('fast');
 	}

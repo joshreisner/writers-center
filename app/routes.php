@@ -90,7 +90,7 @@ Route::group(array('before' => 'public'), function()
 		});
 
 		Route::post('/reset', function(){
-			return json_encode(['status'=>'hi']);
+			return Response::json(['message'=>'This feature has not yet been implemented, sorry!']);
 		});
 
 		Route::get('/logout', function(){

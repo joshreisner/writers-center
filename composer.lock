@@ -972,12 +972,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "eb6e16f655ab7639f1e86b769b6721dccc46cb8c"
+                "reference": "5f680b25c683e90eaa8e1fff353c243f76c6d20c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/eb6e16f655ab7639f1e86b769b6721dccc46cb8c",
-                "reference": "eb6e16f655ab7639f1e86b769b6721dccc46cb8c",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/5f680b25c683e90eaa8e1fff353c243f76c6d20c",
+                "reference": "5f680b25c683e90eaa8e1fff353c243f76c6d20c",
                 "shasum": ""
             },
             "require": {
@@ -1079,7 +1079,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-02 16:59:58"
+            "time": "2015-01-02 21:34:22"
         },
         {
             "name": "loic-sharma/profiler",
@@ -2721,6 +2721,7 @@
     "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": false,
+    "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
 }
