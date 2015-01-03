@@ -98,6 +98,10 @@ Route::group(array('before' => 'public'), function()
 			return Redirect::back()->with('message', 'You are now logged out.');
 		});
 
+		Route::get('/my-hvwc', function(){
+			return View::make('my');
+		});
+
 	}
 
 });

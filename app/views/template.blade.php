@@ -23,21 +23,7 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						@if (!App::environment('production'))
-							@if (Auth::guest())
-								<a href="#login">Log In</a>
-							@else
-								<div class="dropdown">
-									<a href="#" data-toggle="dropdown"><span class="name">Josh Reisner</span><span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">News Feed</a></li>
-										<li><a href="#">Membership</a></li>
-										<li><a href="#">Support</a></li>
-										<li><a href="#">Settings</a></li>
-										<li class="divider"></li>
-										<li><a href="/logout">Log Out</a></li>
-									</ul>
-								</div>
-							@endif
+							<a href="/my-hvwc">My HVWC</a>
 						@endif
 						<a href="/support">Support the Center</a>
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>

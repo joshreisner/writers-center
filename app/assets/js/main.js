@@ -46,7 +46,7 @@ $(function(){
 
 	$('.wallpaper').each(function(){
 		var random = Math.floor(Math.random() * wallpapers.length);
-		$(this).append('<div class="image" style="background-image:url(/assets/img/wallpapers/' + wallpapers[random] + ')"/>');
+		$(this).prepend('<div class="image" style="background-image:url(/assets/img/wallpapers/' + wallpapers[random] + ')"/>');
 		wallpapers.splice(random, 1);
 	})
 
