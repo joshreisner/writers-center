@@ -23,9 +23,9 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						@if (!App::environment('production'))
-							<a href="/my-hvwc">My HVWC</a>
+							{{ link_to_action('MyController@index', 'My HVWC') }}
 						@endif
-						<a href="/support">Support the Center</a>
+						{{ link_to_action('PaymentController@support_index', 'Support the Center') }}
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="fa fa-twitter"></a>
 						<a href="http://instagram.com/hudson_valley_writers_center" class="fa fa-instagram"></a>

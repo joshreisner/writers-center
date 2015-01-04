@@ -78,30 +78,26 @@ Route::group(array('before' => 'public'), function()
 		Route::get('/checkout',						'PaymentController@checkout_index');
 		Route::post('/checkout',					'PaymentController@checkout_submit');
 
-		Route::post('/public-login', function(){
-			if (Auth::attempt(['email'=>Input::get('email'), 'password'=>Input::get('password')], true)) {
-				$user = Auth::user();
-				$user->last_login = new DateTime;
-				$user->save();
-				return Response::json(['status'=>'success', 'name'=>$user->name]);
+		# My HVWC and all associated login stuff
+		Route::group(['prefix'=>'my-hvwc'], function(){
+
+			Route::get('/', 'MyController@index');
+
+			if (Auth::guest()) {
+
+				Route::post('login', 'MyController@login');
+
+				Route::post('reset', 'MyController@reset');
+
 			} else {
-				return Response::json(['status'=>'error', 'message'=>'That username / password combination was not found.']);
+
+				Route::get('logout', 'MyController@logout');
+
+				Route::get('settings', 'MyController@settings');
+
 			}
-		});
 
-		Route::post('/reset', function(){
-			return Response::json(['message'=>'This feature has not yet been implemented, sorry!']);
 		});
-
-		Route::get('/logout', function(){
-			Auth::logout();
-			return Redirect::back()->with('message', 'You are now logged out.');
-		});
-
-		Route::get('/my-hvwc', function(){
-			return View::make('my');
-		});
-
 	}
 
 });

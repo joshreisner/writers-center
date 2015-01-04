@@ -14,7 +14,7 @@ $('#login')
 //handle either login or reset password
 $('#login form').submit(function(){
 	if ($(this).hasClass('login')) {
-		$.post('/public-login', $(this).serialize(), function(data) {
+		$.post('/my-hvwc/login', $(this).serialize(), function(data) {
 			//console.log(data);
 			if (data.status == 'success') {
 				$('#login').modal('hide');
@@ -25,7 +25,7 @@ $('#login form').submit(function(){
 			}
 		});
 	} else {
-		$.post('/reset', $(this).serialize(), function(data) {
+		$.post('/my-hvwc/reset', $(this).serialize(), function(data) {
 			alertLoginModal(data.message);
 		});
 	}
@@ -67,7 +67,7 @@ function alertLoginModal(message) {
 
 //vertically center the login modal
 function centerModal() {
-	$('#login').css('display', 'block');
+	//$('#login').css('display', 'block');
 	var $dialog = $('#login .modal-dialog').first();
 	var offset = ($('#login').height() - $dialog.height()) / 3;
 	$dialog.css('margin-top', offset);

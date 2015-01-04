@@ -4,6 +4,7 @@
 	$color:   nth($section, 2)
 	$light:   nth($section, 3)
 	$lighter: nth($section, 4)
+
 	body.#{$name}, body.home .promo.#{$name}
 
 		.form-control
@@ -28,19 +29,6 @@
 			background-color: $color
 			color: $lighter
 
-@each $section in $sections
-	$name:    nth($section, 1)
-	$color:   nth($section, 2)
-
-	.page a.#{$name}
-		color: $color !important
-
-@each $section in $sections
-	$name:    nth($section, 1)
-	$color:   nth($section, 2)
-	$light:   nth($section, 3)
-	$lighter: nth($section, 4)
-	
 	body.#{$name}
 
 		color: $color
@@ -102,3 +90,8 @@
 		.modal
 			.close
 				color: $color
+
+	body
+		.nav a:hover.#{$name}
+			color: $color
+

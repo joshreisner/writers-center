@@ -1,8 +1,14 @@
 .my-hvwc
-	article, form
+	article
 		position: relative
 		padding-left: 90px
 		margin-bottom: 50px
+
+		h2
+			text-transform: none
+			font-family: $font-bold
+			span, small
+				font-family: $font
 
 		img
 			width: 80px
@@ -15,7 +21,32 @@
 			width: auto
 			margin-top: -5px
 			button
+				padding-left: 6px
 				padding-right: 20px
 
 		textarea
-			height: 100px
+			height: 48px
+			&:focus
+				height: 160px
+
+		ul
+			list-style-type: none
+			padding: 0
+
+			li
+				position: relative
+				padding-left: 70px
+
+				img
+					width: 60px
+					height: 60px
+
+				textarea
+					height: 30px
+					&:focus
+						height: 130px
+
+
+
+.wallpaper p span
+	font-family: $font-bold
