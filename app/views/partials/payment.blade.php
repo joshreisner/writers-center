@@ -2,11 +2,11 @@
 
 <div class="payment">
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-12"><h3>Payment Details:</h3></div>
 	</div>
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-6">
 			{{ Form::text(null, null, ['class'=>'form-control required', 'data-stripe'=>'number', 'placeholder'=>'Card Number', 'pattern'=>'\d*']) }}
 		</div>
@@ -21,11 +21,11 @@
 		</div>
 	</div>
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-12"><h3>Contact Info:</h3></div>
 	</div>
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-6 @if ($errors->has('name')) has-error @endif">
 			{{ Form::text('name', @Auth::user()->name, ['class'=>'form-control required', 'placeholder'=>'Your Name', 'title'=>$errors->first('name')]) }}
 		</div>
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-6 @if ($errors->has('address')) has-error @endif">
 			{{ Form::text('address', @Auth::user()->address, ['class'=>'form-control required' . ($errors->has('address') ? ' error' : ''), 'placeholder'=>'Address', 'title'=>$errors->first('address')]) }}
 		</div>
@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	
-	<div class="row">
+	<div class="row form-group">
 		<div class="col-sm-6 @if ($errors->has('city')) has-error @endif">
 			{{ Form::text('city', @Auth::user()->city, ['class'=>'form-control required', 'placeholder'=>'City', 'title'=>$errors->first('city')]) }}
 		</div>

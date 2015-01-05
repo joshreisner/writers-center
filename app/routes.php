@@ -227,7 +227,7 @@ View::composer(['emails.support', 'emails.receipt', 'emails.notify'], function($
 	$view->with('lighter_green', '#c6eee5');
 });
 
-View::composer(['partials.payment'], function($view){
+View::composer(['partials.payment', 'my.settings'], function($view){
 	$view->with('states', [
 		'AL'=>'Alabama',  'AK'=>'Alaska',  'AZ'=>'Arizona',  'AR'=>'Arkansas',  
 		'CA'=>'California',  'CO'=>'Colorado',  'CT'=>'Connecticut',  'DE'=>'Delaware',  

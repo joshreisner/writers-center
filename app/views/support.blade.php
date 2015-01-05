@@ -8,11 +8,11 @@
 
 		{{ Form::open(['id'=>'support', 'novalidate'=>'']) }}
 
-			<div class="row">
+			<div class="row form-group">
 				<div class="col-sm-12"><h3>I Wish to Donate:</h3></div>
 			</div>
 		
-			<div class="row">
+			<div class="row form-group">
 				<div class="col-sm-12 @if ($errors->has('amount')) error @endif ">
 					@foreach ($preset_amounts as $amount)
 						<label class="choice form-control @if (Input::old('amount') == $amount) active @endif ">
@@ -29,7 +29,11 @@
 
 			@include('partials.payment')
 
-			{{ Form::submit('Submit Payment', ['class'=>'btn btn-primary']) }}
+			<div class="row form-group">
+				<div class="col-sm-12">
+					{{ Form::submit('Submit Payment', ['class'=>'btn btn-primary']) }}
+				</div>
+			</div>
 
 		{{ Form::close() }}
 	</div>
