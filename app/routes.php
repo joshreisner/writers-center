@@ -125,6 +125,13 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		trigger_error('Test error');
 	});
 
+	Route::get('lists', function(){
+		dd(Post::orderBy('publish_date', 'desc')
+			->distinct()
+			->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)'))
+		);
+	});
+
 	Route::get('notifications', function(){
 		Session::flash('error', 'Test error!!!');
 		//Session::flash('message', 'Test message.');
