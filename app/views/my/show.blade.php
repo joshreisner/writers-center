@@ -7,27 +7,7 @@
 	</div>
 
 	<div class="my-hvwc">
-
-		<article>
-			{{ Form::open(['action'=>'MyController@message', 'class'=>'message']) }}
-				<img src="/assets/img/avatar-josh.jpg" width="200" height="200">
-				<h2>
-					<div class="prefix">Josh Reisner <span>to</span></div>
-					<div class="select">{{ Form::select('to', $targets, null, ['class'=>'form-control ']) }}</div>
-				</h2>
-				<div class="form-group">
-						{{ Form::textarea('content', false, array('class'=>'form-control', 'placeholder'=>'Make your voice heard')) }}
-				</div>
-				<div class="form-group buttons">
-					{{ Form::submit('Publish', ['class'=>'btn btn-primary']) }}
-					<a href="#cancel" class="btn btn-default">Cancel</a>
-				</div>
-			{{ Form::close() }}
-		</article>
-
-		<div class="messages">
-			@include('my.messages')
-		</div>
+		@include('my.message')
 	</div>
 
 @endsection

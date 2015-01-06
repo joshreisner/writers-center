@@ -1,37 +1,46 @@
 
 //posts!
-$('form#post textarea').focus(function(){
-	$(this).closest('form').addClass('active');
+$('form.message textarea').focus(function(){
+	$(this).closest('form.message').addClass('active');
 	$(this).animate({ height: '250px' });
 });
 
-$('form#post a[href=#cancel]').click(function(e){
+$('form.message a[href=#cancel]').click(function(e){
 	e.preventDefault();
-	$(this).closest('form#post').removeClass('active').find('textarea').val('').animate({ height: '48px' });
+	closeForm($(this).closest('form#message'));
 });
 
-$('form#post').submit(function(){
+$('form.message').submit(function(){
+	var $form = $(this);
 	$.post($(this).attr('action'), $(this).serialize(), function(data){
-		alert(data);
+		closeForm($form);
+		$('.my-hvwc .messages').html(data);
 	});
 	return false;
 });
 
 //comments!
-$('form#comment textarea').focus(function(){
-	$(this).closest('form').addClass('active');
+$('form.reply textarea').focus(function(){
+	$(this).closest('form.reply').addClass('active');
 	$(this).animate({ height: '250px' });
 });
 
-$('form#comment a[href=#cancel]').click(function(e){
+$('form.reply a[href=#cancel]').click(function(e){
 	e.preventDefault();
-	$(this).closest('form#post').removeClass('active').find('textarea').val('').animate({ height: '48px' });
+	closeForm($(this).closest('form#reply'));
 });
 
-$('form#comment').submit(function(){
+$('form.reply').submit(function(){
+	var $form = $(this);
 	$.post($(this).attr('action'), $(this).serialize(), function(data){
-		alert(data);
-	});
+		closeForm($form);
+		$form.siblings('ul.replies').html(data);
+	}).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+		console.log(XMLHttpRequest.responseJSON.error);
+ 	});
 	return false;
 });
 
+function closeForm($form) {
+	$form.removeClass('active').find('textarea').val('').animate({ height: '48px' });	
+}

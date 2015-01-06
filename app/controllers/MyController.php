@@ -20,7 +20,11 @@ class MyController extends BaseController {
 					2=>'Get Unblocked',
 				],
 			],
-			'posts'=>MyHvwcPost::all(),
+			'messages'=>Message::with(['creator', 'replies'=>function($query){
+						$query->orderBy('created_at', 'asc');
+					}])
+					->orderBy('created_at', 'desc')
+					->get(),
 		]);
 	}
 
@@ -53,21 +57,40 @@ class MyController extends BaseController {
 	}
 
 	# Add new post
-	public function post() {
-		$post = new MyHvwcPost;
-		$post->content = Input::get('content');
-		$post->created_by = Auth::id();
-		$post->save();
+	public function message() {
+		$message = new Message;
+		$message->content = Input::get('content');
+		$message->save();
+
+		# Get all posts again, return html
+		return View::make('my.messages', [
+			'messages'=>Message::with(['creator', 'replies'=>function($query){
+					$query->orderBy('created_at', 'asc');
+				}])
+				->orderBy('created_at', 'desc')
+				->get(),
+		]);
 	}
 
 	# Add new comment
-	public function comment($post_id) {
-		return 'comment posted';
+	public function reply($message_id) {
+		$reply = new Reply;
+		$reply->message_id = Input::get('message_id');
+		$reply->content = Input::get('content');
+		$reply->save();
+
+		# Get all replies again, return html
+		return View::make('my.replies', [
+			'message'=>Message::with(['creator', 'replies'=>function($query){
+					$query->orderBy('created_at', 'asc');
+				}])
+				->find($reply->message_id),
+		]);
 	}
 
 	# Show single post
-	public function show($post_id) {
-		return 'show shown ' . $post_id;
+	public function show($message_id) {
+		return View::make('my.show', ['message'=>Message::find($message_id)]);
 	}
 
 }

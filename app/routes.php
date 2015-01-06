@@ -84,14 +84,14 @@ Route::group(array('before' => 'public'), function()
 			Route::get('/', 'MyController@index');
 
 			if (Auth::guest()) {
-				Route::post('login', 'MyController@login');
-				Route::post('reset', 'MyController@reset');
+				Route::post('login',		'MyController@login');
+				Route::post('reset',		'MyController@reset');
 			} else {
-				Route::get('logout', 'MyController@logout');
-				Route::get('settings', 'MyController@settings');
-				Route::post('post', 'MyController@post');
-				Route::post('{post_id}', 'MyController@comment');
-				Route::get('{post_id}', 'MyController@show');
+				Route::get('logout',		'MyController@logout');
+				Route::get('settings',		'MyController@settings');
+				Route::post('message',		'MyController@message');
+				Route::post('{message_id}',	'MyController@reply');
+				Route::get('{message_id}',	'MyController@show');
 			}
 
 		});
