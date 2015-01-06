@@ -10,6 +10,7 @@ $(function(){
 	//= include page-support.js
 	//= include page-checkout.js
 	//= include page-transactions.js
+	//= include page-my-hvwc.js
 
 	//open external links in new tab
 	$('a').each(function() {
@@ -97,7 +98,7 @@ $(function(){
 		});
 	}
 
-	//support page: set up input masks
+	//set up input masks
 	$('input[data-stripe=number]').payment('formatCardNumber');
 	$('input[data-stripe=cvc]').payment('formatCardCVC');
 	$('input[data-numeric]').payment('restrictNumeric');

@@ -5,7 +5,7 @@
 	<div class="indent">
 		<h1>Settings</h1>
 
-		<form>
+		{{ Form::open() }}
 
 			<div class="row form-group">
 				<div class="col-sm-12"><h3>Contact Info:</h3></div>
@@ -41,7 +41,71 @@
 				</div>
 			</div>
 
-		<form>
+			<div class="row form-group">
+				<div class="col-sm-12"><h3>Image:</h3></div>
+			</div>
+			
+			<div class="row form-group">
+				<div class="col-sm-12">
+					{{ Form::hidden('image_id', @Auth::user()->image_id) }}
+					<img src="/assets/img/avatar-josh.jpg" width="80" height="80">
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col-sm-12"><h3>New Password (Optional):</h3></div>
+			</div>
+			
+			<div class="row form-group">
+				<div class="col-sm-6">
+					{{ Form::password('password', ['class'=>'form-control', 'placeholder'=>'Password']) }}
+				</div>
+				<div class="col-sm-6">
+					{{ Form::password('password_confirm', ['class'=>'form-control', 'placeholder'=>'Again']) }}
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col-sm-12"><h3>Communications Preferences:</h3></div>
+			</div>
+			
+			<div class="row form-group">
+				<div class="col-sm-12">
+					<div class="radio">
+						<label>
+							<input type="radio" name="communications" value="immediate" checked>
+							Immediate updates
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="communications" value="immediate">
+							No more than once per day
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="communications" value="immediate">
+							No more than once per week
+						</label>
+					</div>
+					<div class="radio">
+						<label>
+							<input type="radio" name="communications" value="immediate">
+							Never
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row form-group">
+				<div class="col-sm-12">
+					{{ Form::submit('Save Changes', ['class'=>'btn btn-primary']) }}
+					{{ link_to_action('MyController@index', 'Cancel', null, ['class'=>'btn btn-default']) }}
+				</div>
+			</div>
+
+		{{ Form::close() }}
 	</div>
 
 @endsection
@@ -49,6 +113,7 @@
 @section('side')
 
 	<div class="wallpaper">
+		<p>Some encouraging and informative text here, perhaps.</p>
 	</div>
 
 @endsection

@@ -1,8 +1,38 @@
 .my-hvwc
+	form
+		.prefix
+			float: left
+
+		.select
+			float: left
+			margin: -6px 0 7px 6px
+			select
+				padding: 6px 6px 6px 7px
+				height: 31px
+			&:after
+				right: 7px
+
+		.buttons 
+			display: none
+
+		&.active
+			.buttons 
+				display: block
+
+
 	article
 		position: relative
 		padding-left: 90px
 		margin-bottom: 50px
+
+		.tools
+			position: absolute
+			right: 0
+			display: none
+
+		&:hover
+			.tools
+				display: block
 
 		h2
 			text-transform: none
@@ -26,8 +56,6 @@
 
 		textarea
 			height: 48px
-			&:focus
-				height: 160px
 
 		ul
 			list-style-type: none
@@ -41,10 +69,8 @@
 					width: 60px
 					height: 60px
 
-				textarea
-					height: 30px
-					&:focus
-						height: 130px
+				//textarea
+					//height: 30px
 
 
 
