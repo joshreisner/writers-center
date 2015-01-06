@@ -126,10 +126,12 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 	});
 
 	Route::get('lists', function(){
-		dd(Post::orderBy('publish_date', 'desc')
+		$years = Post::orderBy('publish_date', 'desc')
 			->distinct()
-			->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)'))
-		);
+			->lists(DB::raw('YEAR(publish_date)'));
+		dd($years);
+		dd(DB::getQueryLog());
+
 	});
 
 	Route::get('notifications', function(){
