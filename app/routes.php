@@ -40,8 +40,7 @@ Route::group(array('before' => 'public'), function()
 
 	# Main sections
 
-	Route::get('/about', 						'AboutController@index');
-	Route::get('/about/{slug}',					'AboutController@show');
+	Route::get('/about/{slug?}',				'AboutController@show');
 	Route::get('/courses', 						'CourseController@index');
 	Route::get('/courses/ajax', 				'CourseController@ajax');
 	Route::get('/courses/{slug}',				'CourseController@show');
@@ -128,7 +127,7 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 	Route::get('lists', function(){
 		$years = Post::orderBy('publish_date', 'desc')
 			->distinct()
-			->lists(DB::raw('YEAR(publish_date)'));
+			->lists(DB::raw('publish_date', 'id'));
 		dd($years);
 		dd(DB::getQueryLog());
 
