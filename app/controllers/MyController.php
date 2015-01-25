@@ -114,7 +114,7 @@ class MyController extends BaseController {
 				'paragraphs'=>[
 					'Sorry, your message could not be posted because ' . $inbound->msg->from_email . ' does not belong to a current user of the system.'
 				],
-			], function($message) use $inbound {
+			], function($message) use ($inbound) {
 			    $message->to($inbound->msg->from_email)->subject('Re: ' . $inbound->msg->subject);
 			});
 		}
