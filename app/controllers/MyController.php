@@ -97,24 +97,27 @@ class MyController extends BaseController {
 	public function inbound_message() {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
+		$inbound = json_decode(Input::get('mandrill_events'))[0];
 
-		$data['original'] = Input::get('mandrill_events');
-		$data['decoded'] = json_decode($data['original']);
-		if (isset($data['decoded'][0])) {
-			$data['zero'] = $data['decoded'][0];
+		# Log in user (is this really safe?) todo check if user is active
+		if ($user = User::where('email', $inbound->msg->from_email)->first()) {
+			Auth::loginUsingId($user->id);
+			$message = new Message;
+			$message->slug = Slug::make($inbound->msg->text, 'messages');
+			$message->content = $inbound->msg->text;
+			//todo use $inbound->ts?
+			$message->save();
+		} else {
+			//bounce
+			Mail::send('emails.simple', [
+				'subject'=>'Message Posting Failed',
+				'paragraphs'=>[
+					'Sorry, your message could not be posted because ' . $inbound->msg->from_email . ' does not belong to a current user of the system.'
+				],
+			], function($message) use $inbound {
+			    $message->to($inbound->msg->from_email)->subject('Message Posting Failed');
+			});
 		}
-		if (isset($data['decoded']['zero']['ts'])) {
-			$data['ts'] = $data['decoded']['zero']['ts'];
-		}
-		//$email = json_decode(str_replace("\n", "\\n", ));
-
-		Mail::send('emails.test', [
-			'subject'=>'Inbound Message',
-			'data'=>$data,
-		], function($message) {
-		    $message->to('josh@joshreisner.com')->subject('Inbound Message');
-		});
-
 
 	}
 
