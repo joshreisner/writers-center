@@ -99,6 +99,9 @@ class MyController extends BaseController {
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 
 		$email = json_decode(Input::get('mandrill_events'));
+
+		$email = $email[0];
+
 		Mail::send('emails.message', [
 			'subject'=>'Inbound Message',
 			'timestamp'=>$email['ts'],
