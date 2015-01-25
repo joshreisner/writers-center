@@ -100,9 +100,9 @@ class MyController extends BaseController {
 
 		Mail::send('emails.message', [
 			'subject'=>'Inbound Message',
-			'timestamp'=>Request::json('ts'),
-			'text'=>Request::json('msg.text'),
-			'from_email'=>Request::json('msg.from_email'),
+			'timestamp'=>Request::json('mandrill_events.ts'),
+			'text'=>Request::json('mandrill_events.msg.text'),
+			'from_email'=>Request::json('mandrill_events.msg.from_email'),
 		], function($message) {
 		    $message->to('josh@joshreisner.com')->subject('Inbound Message');
 		});
