@@ -98,7 +98,7 @@ class MyController extends BaseController {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 
-		$email = json_decode(Input::get('mandrill_events'));
+		$email = json_decode(str_replace("\n", "\\n", Input::get('mandrill_events')));
 
 		$email = $email[0];
 
