@@ -93,4 +93,14 @@ class MyController extends BaseController {
 		return View::make('my.show', ['message'=>Message::find($message_id)]);
 	}
 
+	# Inbound message
+	public function inbound_message() {
+		return 'hi';
+	}
+
+	# Inbound reply
+	public function inbound_reply() {
+		return 'hi';
+	}
+
 }

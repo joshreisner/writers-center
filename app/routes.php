@@ -105,6 +105,12 @@ Route::group(array('before' => 'auth', 'prefix'=>'store'), function()
 	Route::get('transactions/export', 'PaymentController@export');
 });
 
+# Inbound email routes
+Route::group(array('prefix'=>'inbound'), function(){
+	Route::get('message', 'MyController@inbound_message');
+	Route::get('reply', 'MyController@inbound_reply');
+});
+
 # Testing routes
 
 Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
