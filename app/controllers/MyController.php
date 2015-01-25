@@ -95,7 +95,13 @@ class MyController extends BaseController {
 
 	# Inbound message
 	public function inbound_message() {
-		return 'hi';
+
+		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
+		$timestamp = Request::json('ts');
+		$message = Request::json('msg.text');
+		$from = Request::json('msg.from_email');
+
+		return 'from was ' . $from;
 	}
 
 	# Inbound reply
