@@ -104,7 +104,7 @@ class MyController extends BaseController {
 			//'text'=>Request::json('mandrill_events.msg.text'),
 			'text'=>Input::get('msg.text'),
 			//'from_email'=>Request::json('mandrill_events.msg.from_email'),
-			'from_email'=>Input::get('mandrill_events.msg.from_email'),
+			'from_email'=>Input::get('mandrill_events'),
 		], function($message) {
 		    $message->to('josh@joshreisner.com')->subject('Inbound Message');
 		});
