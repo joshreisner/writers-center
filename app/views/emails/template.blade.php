@@ -10,9 +10,8 @@
 
 				@yield('content')
 
-				<p style="margin-top: 0; margin-bottom: 10px;"><img src="http://writerscenter.org/assets/img/logo-default.png" width="340" height="131" style="max-width: 100%; height: auto;"></p>
-				
-				<p style="margin: 0; color:#eeeeee;">Message sent on {{ date(DATE_ATOM) }}</p>
+				<p style="margin: 0;"><img src="http://writerscenter.org/assets/img/logo-default.png" width="340" height="131" alt="{{ date(DATE_ATOM) }}" style="max-width: 100%; height: auto;"></p>
+
 			</div>
 		</div>
 	</body>
