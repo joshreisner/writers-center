@@ -98,15 +98,19 @@ class MyController extends BaseController {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 
-		$email = json_decode(str_replace("\n", "\\n", Input::get('mandrill_events')));
+		$data['original'] = Input::get('mandrill_events');
+		$data['decoded'] = json_decode($data['original']);
+		if (isset($data['decoded'][0])) {
+			$data['zero'] = $data['decoded'][0];
+		}
+		if (isset($data['decoded']['zero']['ts'])) {
+			$data['ts'] = $data['decoded']['zero']['ts'];
+		}
+		//$email = json_decode(str_replace("\n", "\\n", ));
 
-		$email = $email[0];
-
-		Mail::send('emails.message', [
+		Mail::send('emails.test', [
 			'subject'=>'Inbound Message',
-			'timestamp'=>$email['ts'],
-			'text'=>$email['msg']['text'],
-			'from_email'=>$email['msg']['from_email'],
+			'data'=>$data,
 		], function($message) {
 		    $message->to('josh@joshreisner.com')->subject('Inbound Message');
 		});

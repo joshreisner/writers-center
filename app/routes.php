@@ -232,7 +232,7 @@ View::composer('publications.side', function($view){
 		})->orderBy('publish_date', 'desc')->first());
 });
 
-View::composer(['emails.support', 'emails.receipt', 'emails.notify', 'emails.message'], function($view){
+View::composer(['emails.support', 'emails.receipt', 'emails.notify', 'emails.test'], function($view){
 	$view->with('green', '#298c76');
 	$view->with('light_green', '#b3d2b6');
 	$view->with('lighter_green', '#c6eee5');
