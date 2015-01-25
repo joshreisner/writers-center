@@ -2,11 +2,11 @@
 
 @section('content')
 	<p style="color: {{ $green }}; margin: 0 0 20px 0;">
-		From Email: {{ $from }}
+		From Email: {{ $from_email }}
 	</p>
 
 	<p style="color: {{ $green }}; margin: 0 0 20px 0;">
-		Message: {{ $message }}
+		Message: {{ $text }}
 	</p>
 
 	<p style="color: {{ $green }}; margin: 0 0 20px 0;">

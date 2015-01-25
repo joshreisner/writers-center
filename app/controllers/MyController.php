@@ -98,10 +98,10 @@ class MyController extends BaseController {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 
-		Mail::send('emails.support', [
+		Mail::send('emails.message', [
 			'subject'=>'Inbound Message',
 			'timestamp'=>Request::json('ts'),
-			'message'=>Request::json('msg.text'),
+			'text'=>Request::json('msg.text'),
 			'from_email'=>Request::json('msg.from_email'),
 		], function($message) {
 		    $message->to('josh@joshreisner.com')->subject('Inbound Message');
