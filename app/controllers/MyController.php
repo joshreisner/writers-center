@@ -94,7 +94,7 @@ class MyController extends BaseController {
 	}
 
 	# Inbound message
-	public function inbound_message() {
+	public function inbound_everyone() {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
 		$inbound = json_decode(Input::get('mandrill_events'))[0];
@@ -119,6 +119,11 @@ class MyController extends BaseController {
 			});
 		}
 
+	}
+
+	# Inbound admin
+	public function inbound_admin() {
+		return 'hi';
 	}
 
 	# Inbound reply

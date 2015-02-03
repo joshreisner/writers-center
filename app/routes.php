@@ -107,7 +107,8 @@ Route::group(array('before' => 'auth', 'prefix'=>'store'), function()
 
 # Inbound email routes
 Route::group(array('prefix'=>'inbound'), function(){
-	Route::any('message', 'MyController@inbound_message');
+	Route::any('everyone', 'MyController@inbound_everyone');
+	Route::any('admin', 'MyController@inbound_admin');
 	Route::any('reply', 'MyController@inbound_reply');
 });
 
