@@ -194,16 +194,31 @@ View::composer('template', function($view)
 
 	//if (Session::has('cart')) Session::put('cart', []);
 
-    $view->with('sections', array(
-    	'about'=>'About',
-    	'courses'=>'Courses',
-    	'events'=>'Events',
-    	'blog'=>'Blog',
-    	'shp'=>'Slapering Hol Press',
-    	'contact'=>'Contact',
-    ))
-    ->with('default_title', 'Hudson Valley Writers Center');
+	//define sections (the keys must match the SASS keys)
+	$sections = [
+		'about'=>'About',
+		'courses'=>'Courses',
+		'events'=>'Events',
+		'blog'=>'Blog',
+		'shp'=>'Slapering Hol Press',
+		'contact'=>'Contact',
+	];
+
+	//body class
+	$body_class = null;
+	if (Request::is('/')) {
+		$body_class = 'home';	
+	} else {
+		foreach ($sections as $section=>$name) {
+			if (Request::is($section . '*')) {
+				$body_class = $section;
+			}
+		}
+	}
+
+	$view->with('sections', $sections)->with('body_class', $body_class);
 });
+
 
 # About > Who We Are Page
 View::composer('about.who-we-are', function($view){

@@ -7,6 +7,7 @@ class AboutController extends BaseController {
 	 */
 	public function show($slug='') {
 		$page = Page::where('slug', $slug)->first();
+		
 		//404
 		if (!$page) return Redirect::action('AboutController@index');
 		
@@ -14,7 +15,6 @@ class AboutController extends BaseController {
 			'title'=>strip_tags($page->title),
 			'page'=>$page,
 			'pages'=>Page::orderBy('precedence')->get(),
-			'class'=>'about',
 		));
 	}
 

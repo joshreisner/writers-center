@@ -15,9 +15,8 @@ class PublicationController extends BaseController {
 		return View::make('publications.index', array(
 			'title'=>'Slapering Hol Press',
 			'publications'=>$publications,
-			'years'=>Publication::orderBy('publish_date', 'desc')->distinct()->lists(DB::raw('YEAR(publish_date)'), DB::raw('YEAR(publish_date)')),
+			'years'=>Publication::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date'),
 			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
-			'class'=>'publications',
 		));		
 	}
 
@@ -34,7 +33,6 @@ class PublicationController extends BaseController {
 			'title'=>strip_tags($publication->title),
 			'types'=>PublicationType::orderBy('title')->get(),
 			'publication'=>$publication,
-			'class'=>'publications',
 			'related'=>Publication::where('id', '<>', $publication->id)->orderBy('precedence')->take(5)->get(),
 		));
 	}

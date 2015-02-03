@@ -1,9 +1,11 @@
 @extends('page')
 
 @section('content')
-	<div class="indent target">
+	<div class="indent">
 		<h1>Courses</h1>
-		@include('courses.genres')
+		<div class="target">
+			@include('courses.genres')
+		</div>
 	</div>
 @endsection
 

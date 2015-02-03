@@ -19,9 +19,8 @@ class EventController extends BaseController {
 
 		return View::make('events.index', array(
 			'title'=>'Events',
-			'years'=>Event::orderBy('start', 'desc')->distinct()->lists(DB::raw('YEAR(start)'), DB::raw('YEAR(start)')),
+			'years'=>Event::orderBy('start', 'desc')->select(DB::raw('YEAR(start) as start'))->distinct()->lists('start', 'start'),
 			'months'=>self::groupByMonth($events),
-			'class'=>'events',
 		));
 	}
 
@@ -41,7 +40,6 @@ class EventController extends BaseController {
 			'title'=>strip_tags($event->title),
 			'event'=>$event,
 			'next'=>Event::where('start', '>', new DateTime)->orderBy('start', 'asc')->first(),
-			'class'=>'events',
 		));
 	}
 

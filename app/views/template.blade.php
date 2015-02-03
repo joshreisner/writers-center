@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>{{ $title or $default_title }}</title>
+		<title>{{ $title or 'Hudson Valley Writers Center' }}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	    <link rel="icon" href="/assets/img/icons/favicon.ico" type="image/x-icon">
 	    <link rel="icon" sizes="128x128" href="/assets/img/icons/favicon-128.png" type="image/png">
@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
 		<link rel="stylesheet" href="/assets/css/main.min.css">
 	</head>
-	<body class="{{ $class or '' }}">
+	<body class="{{ $body_class or '' }}">
 		<div class="background"></div>
 		<div class="container">
 			<div class="row banner">
@@ -37,7 +37,7 @@
 				<div class="col-md-12">
 					<ul>
 					@foreach ($sections as $url=>$section)
-						<li class="{{ Request::is($url . '*') ? 'active' : '' }}"><a href="/{{ $url }}" class="{{ $url }}">{{ $section }}</a></li>
+						<li class="{{ ($url == $body_class) ? 'active' : '' }}"><a href="/{{ $url }}" class="{{ $url }}">{{ $section }}</a></li>
 					@endforeach
 					</ul>
 				</div>
