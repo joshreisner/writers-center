@@ -14,7 +14,6 @@ class CourseController extends BaseController {
 			'instructor_select'	=>self::getInstructorList(),
 			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
-			'class'				=>'courses',
 			'year_of_your_book'	=>Course::where('title', 'like', 'The Year of Your Book%')->orderBy('title')->get(),
 		));		
 	}
@@ -53,7 +52,6 @@ class CourseController extends BaseController {
 		return View::make('courses.course', array(
 			'title'=>strip_tags($course->title),
 			'course'=>$course,
-			'class'=>'courses',
 			'related'=>$related,
 			'past_sections'=>$past_sections,
 		));
