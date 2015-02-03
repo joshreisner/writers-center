@@ -27,10 +27,9 @@ class EventController extends BaseController {
 	/**
 	 * show individual event
 	 */
-	public function show($year, $month, $slug) {
-		$event = Event::whereRaw('MONTH(start) = ?', array($month))
-			->whereRaw('YEAR(start) = ?', array($year))
-			->where('slug', $slug)
+	public function show($slug) {
+		$event = Event::
+			where('slug', $slug)
 			->first();
 
 		//404
@@ -47,7 +46,7 @@ class EventController extends BaseController {
 	 * Get a URL to the show() method
 	 */
 	public static function url(Event $event) {
-		return URL::action('EventController@show', array($event->start->format('Y'), $event->start->format('m'), $event->slug));
+		return URL::action('EventController@show', $event->slug);
 	}
 
 	/**

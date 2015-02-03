@@ -46,7 +46,7 @@ Route::group(array('before' => 'public'), function()
 	Route::get('/courses/{slug}',				'CourseController@show');
 	Route::get('/events',						'EventController@index');
 	Route::get('/events/ajax',					'EventController@ajax');
-	Route::get('/events/{year}/{month}/{slug}',	'EventController@show');
+	Route::get('/events/{slug}',				'EventController@show');
 	Route::get('/blog',							'BlogController@index');
 	Route::get('/blog/ajax', 					'BlogController@ajax');
 	Route::get('/blog/{slug}', 					'BlogController@show');
