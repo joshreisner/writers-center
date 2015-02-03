@@ -5,7 +5,7 @@
 
 	<div class="carousel">
 		@foreach ($items as $item)
-		<div class="item {{ $item->type[1] }}">
+		<div class="item {{ $item->type[1] }} {{ $item->slug }}">
 			<div class="inner">
 				{{ BaseController::editLink($item) }}
 				<h1>{{ nl2br($item->title) }}</h1>
