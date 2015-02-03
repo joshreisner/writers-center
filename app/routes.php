@@ -17,10 +17,10 @@ Route::group(array('before' => 'public'), function()
 				$item->type = ['Event', 'events'];
 				$item->title = link_to(EventController::url($item->events), $item->title);
 			} elseif (isset($item->publications)) {
-				$item->type = ['Publication', 'publications'];
+				$item->type = ['Publication', 'shp'];
 				$item->title = link_to(PublicationController::url($item->publications), $item->title);
 			} elseif (isset($item->posts)) {
-				$item->type = ['Blog', 'posts'];
+				$item->type = ['Blog', 'blog'];
 				$item->title = link_to(BlogController::url($item->posts), $item->title);
 			}
 		}
