@@ -933,12 +933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "e1a16931897f4fbf19fb81e6b317dd12b515ba5d"
+                "reference": "011736c83365c1b69ed92253d2586ecddffb8c1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/e1a16931897f4fbf19fb81e6b317dd12b515ba5d",
-                "reference": "e1a16931897f4fbf19fb81e6b317dd12b515ba5d",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/011736c83365c1b69ed92253d2586ecddffb8c1d",
+                "reference": "011736c83365c1b69ed92253d2586ecddffb8c1d",
                 "shasum": ""
             },
             "require": {
@@ -965,7 +965,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2015-02-17 05:10:53"
+            "time": "2015-03-13 07:00:01"
         },
         {
             "name": "laravel/framework",
@@ -1470,20 +1470,20 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "dev-master",
+            "version": "0.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "f7c0354db2c6adb9eff5451937fb4d3f1f7ba779"
+                "reference": "d15bba1edcc7c89e09cc74c5d961317a8b947bf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/f7c0354db2c6adb9eff5451937fb4d3f1f7ba779",
-                "reference": "f7c0354db2c6adb9eff5451937fb4d3f1f7ba779",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/d15bba1edcc7c89e09cc74c5d961317a8b947bf4",
+                "reference": "d15bba1edcc7c89e09cc74c5d961317a8b947bf4",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "php": ">=5.0.0"
             },
             "require-dev": {
                 "phing/phing": "~2.7",
@@ -1493,13 +1493,26 @@
             },
             "suggest": {
                 "ext-gmp": "Install the GMP (GNU Multiple Precision) extension in order to speed up arbitrary precision integer arithmetic operations.",
-                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a wide variety of cryptographic operations."
+                "ext-mcrypt": "Install the Mcrypt extension in order to speed up a wide variety of cryptographic operations.",
+                "pear-pear/PHP_Compat": "Install PHP_Compat to get phpseclib working on PHP < 4.3.3."
             },
             "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "phpseclib\\": "phpseclib/"
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
                 }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Crypt": "phpseclib/",
+                    "File": "phpseclib/",
+                    "Math": "phpseclib/",
+                    "Net": "phpseclib/",
+                    "System": "phpseclib/"
+                },
+                "files": [
+                    "phpseclib/Crypt/Random.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "include-path": [
@@ -1551,7 +1564,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2015-03-10 12:46:37"
+            "time": "2015-01-28 21:50:33"
         },
         {
             "name": "predis/predis",
