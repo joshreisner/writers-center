@@ -241,7 +241,10 @@ class PaymentController extends BaseController {
 
 		return View::make('transactions')->with([
 			'types'=>self::$types,
-			'months'=>Transaction::orderBy('created_at', 'desc')->distinct()->lists(DB::raw('CONCAT_WS(" ", MONTHNAME(created_at), YEAR(created_at))'), DB::raw('CONCAT_WS("-", MONTH(created_at), YEAR(created_at))')),
+			'months'=>Transaction::orderBy('created_at', 'desc')->distinct()->select(
+				DB::raw('CONCAT_WS(" ", MONTHNAME(created_at), YEAR(created_at)) AS month_name'), 
+				DB::raw('CONCAT_WS("-", MONTH(created_at), YEAR(created_at)) AS month_code')
+			)->lists('month_name', 'month_code'),
 			'transactions'=>$transactions,
 		]);
 	}
