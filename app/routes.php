@@ -98,13 +98,6 @@ Route::group(array('before' => 'public'), function()
 
 });
 
-# Store routes
-Route::group(array('before' => 'auth', 'prefix'=>'store'), function()
-{
-	Route::get('transactions', 'PaymentController@transactions');
-	Route::get('transactions/export', 'PaymentController@export');
-});
-
 # Inbound email routes
 Route::group(array('prefix'=>'inbound'), function(){
 	Route::any('everyone', 'MyController@inbound_everyone');
