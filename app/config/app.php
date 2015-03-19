@@ -125,7 +125,6 @@ return array(
 		'Joshreisner\Avalon\AvalonServiceProvider',
 		'Profiler\ProfilerServiceProvider',
 		'anlutro\L4SmartErrors\L4SmartErrorsServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider',
 	),
 
 	/*
@@ -193,8 +192,6 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 		'Profiler'        => 'Profiler\Facades\Profiler',
-		'Newrelic'        => 'Intouch\LaravelNewrelic\Facades\Newrelic',
-		'Excel'			  => 'Maatwebsite\Excel\Facades\Excel',
 	),
 
 );

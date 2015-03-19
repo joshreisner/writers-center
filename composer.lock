@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b8a4017f16d3606a763854942ef0bd5",
+    "hash": "da2c8eb8621b3595cd0a7f8152dccd64",
     "packages": [
         {
             "name": "anlutro/l4-smart-errors",
@@ -933,18 +933,19 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "bfe10710459664a137ebbb882df4a03a6350f782"
+                "reference": "b8957b9968524908c4e13101d69b64a790084826"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/bfe10710459664a137ebbb882df4a03a6350f782",
-                "reference": "bfe10710459664a137ebbb882df4a03a6350f782",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/b8957b9968524908c4e13101d69b64a790084826",
+                "reference": "b8957b9968524908c4e13101d69b64a790084826",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "2.*",
                 "illuminate/support": "4.*",
                 "intervention/image": "2.*",
+                "maatwebsite/excel": "~1.2.1",
                 "php": ">=5.4.0"
             },
             "type": "library",
@@ -965,7 +966,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2015-03-18 18:53:08"
+            "time": "2015-03-19 08:13:56"
         },
         {
             "name": "laravel/framework",

@@ -9,8 +9,7 @@
 		"stripe/stripe-php": "1.15.0",
 		"guzzlehttp/guzzle": "~4.0",
 		"joshreisner/avalon": "*",
-		"anlutro/l4-smart-errors": "2.*",
-		"maatwebsite/excel": "~1.2.1"
+		"anlutro/l4-smart-errors": "2.*"
 	},
 	"autoload": {
 		"classmap": [
