@@ -69,12 +69,15 @@ class PaymentController extends BaseController {
 		if (Input::has('phone')) $user->phone = Input::get('phone');
 		$user->zip = Input::get('zip');
 		$user->save();
+		
+		//stripe customer ids differ depending on which environment you're in
+		$customer_id = (App::environment('production')) ? 'customer_id' : 'customer_test_id';
 
 		//create or get customer
 		try {
 
-			if ($user->customer_id) {
-				$customer = Stripe_Customer::retrieve($user->customer_id);
+			if ($user->{$customer_id}) {
+				$customer = Stripe_Customer::retrieve($user->{$customer_id});
 				$customer->card = Input::get('stripeToken');
 				$customer->email = $user->email;
 				$customer->description = $user->name;
@@ -85,7 +88,7 @@ class PaymentController extends BaseController {
 					'email' => $user->email,
 					'description' => $user->name,
 				]);
-				$user->customer_id = $customer->id;
+				$user->{$customer_id} = $customer->id;
 				$user->save();
 			}
 
