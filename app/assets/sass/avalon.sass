@@ -2,6 +2,7 @@
 @import "main/mixins.sass"
 
 body
+	font-family: "Apercu Pro Regular"
 
 	&.login
 		div.modal
@@ -20,15 +21,25 @@ body
 			width: 259px
 			height: 100px
 
-	a
+	a, a:hover, a:visited, a:active
 		color: $default
-
+		&.btn-default
+			color: inherit
+		
 	.btn-primary
 		background-color: $default
 		border: 0
 		&:hover, &:active, &:focus
 			background-color: $default-light
 			color: $default
+	
+	.btn
+		font-family: "Apercu Mono Pro Regular"
+
+	h2
+		font-weight: normal
+		font-family: "Apercu Pro Bold"
+	
 
 	.redactor-editor
 		font-family: "Apercu Pro Regular" !important
@@ -73,6 +84,20 @@ body
 			p:last-child
 				margin-bottom: 0 !important
 
+	table.table
+		tr.group
+			td
+				font-weight: normal
+				font-family: "Apercu Mono Pro Regular"
+		thead th		
+			font-weight: normal
+			font-family: "Apercu Mono Pro Regular"
+			
+	form
+		label
+			font-weight: normal
+			font-family: "Apercu Mono Pro Regular"
+			
 @each $section in $sections
 	$name:    nth($section, 1)
 	$color:   nth($section, 2)

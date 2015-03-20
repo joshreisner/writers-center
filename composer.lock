@@ -933,12 +933,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/joshreisner/avalon.git",
-                "reference": "b8957b9968524908c4e13101d69b64a790084826"
+                "reference": "4db93474e0a180f42e9b61de411e68f555942e10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/b8957b9968524908c4e13101d69b64a790084826",
-                "reference": "b8957b9968524908c4e13101d69b64a790084826",
+                "url": "https://api.github.com/repos/joshreisner/avalon/zipball/4db93474e0a180f42e9b61de411e68f555942e10",
+                "reference": "4db93474e0a180f42e9b61de411e68f555942e10",
                 "shasum": ""
             },
             "require": {
@@ -966,7 +966,7 @@
                     "email": "josh@joshreisner.com"
                 }
             ],
-            "time": "2015-03-19 08:13:56"
+            "time": "2015-03-20 00:30:35"
         },
         {
             "name": "laravel/framework",
@@ -1361,12 +1361,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tchwork/utf8.git",
-                "reference": "01f0ed1628db7794e2d4e336f55a09daef4248a5"
+                "reference": "985a62a053f95da18917c6945fe1316e907e016d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tchwork/utf8/zipball/01f0ed1628db7794e2d4e336f55a09daef4248a5",
-                "reference": "01f0ed1628db7794e2d4e336f55a09daef4248a5",
+                "url": "https://api.github.com/repos/tchwork/utf8/zipball/985a62a053f95da18917c6945fe1316e907e016d",
+                "reference": "985a62a053f95da18917c6945fe1316e907e016d",
                 "shasum": ""
             },
             "require": {
@@ -1410,7 +1410,7 @@
                 "utf-8",
                 "utf8"
             ],
-            "time": "2015-01-29 08:36:50"
+            "time": "2015-03-19 14:18:56"
         },
         {
             "name": "phpoffice/phpexcel",
