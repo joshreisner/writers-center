@@ -1,9 +1,9 @@
 {
   "name": "writers-center",
   "version": "0.0.0",
-  "homepage": "https://github.com/joshreisner/writers-center",
+  "homepage": "https://github.com/left-right/writers-center",
   "authors": [
-    "Josh Reisner <josh@joshreisner.com>"
+    "Josh Reisner <josh@left-right.co>"
   ],
   "license": "MIT",
   "ignore": [
