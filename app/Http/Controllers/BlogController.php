@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+use LeftRight\Center\Models\Post;
+use LeftRight\Center\Models\Tag;
+use URL;
+use View;
+
 class BlogController extends Controller {
 
 	/**
@@ -12,13 +18,14 @@ class BlogController extends Controller {
 		foreach ($posts as $post) {
 			$post->url = self::url($post);
 		}
+		
+		$title = 'Blog';
+		
+		$years = Post::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date');
 
-		return View::make('blog.index', array(
-			'title'=>'Blog',
-			'years'=>Post::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date'),
-			'posts'=>$posts,
-			'tags'=>Tag::orderBy('title')->get(),
-		));
+		$tags = Tag::orderBy('title')->get();
+		
+		return View::make('blog.index', compact('title', 'years', 'posts', 'tags'));
 	}
 
 	/**
@@ -53,27 +60,27 @@ class BlogController extends Controller {
 		# Construct chained Eloquent statement based on input
 		$posts = Post::orderBy('publish_date', 'desc');
 
-		if (Input::has('search')) {
+		if (Request::has('search')) {
 			$posts
-				->where('title', 'like', '%' . Input::get('search') . '%')
-				->orWhere('excerpt', 'like', '%' . Input::get('search') . '%')
-				->orWhere('content', 'like', '%' . Input::get('search') . '%');
+				->where('title', 'like', '%' . Request::input('search') . '%')
+				->orWhere('excerpt', 'like', '%' . Request::input('search') . '%')
+				->orWhere('content', 'like', '%' . Request::input('search') . '%');
 		}
 		
-		if (Input::has('year')) {
-			$posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
+		if (Request::has('year')) {
+			$posts->where(DB::raw('YEAR(publish_date)'), Request::input('year'));
 		}
 
-		if (Input::has('tags')) {
+		if (Request::has('tags')) {
 		    $posts->whereHas('tags', function($query) {
-				$query->whereIn('id', Input::get('tags'));
+				$query->whereIn('id', Request::input('tags'));
 			});
 		}
 
 		$posts = $posts->take(10)->get();
 
 		# Highlight search terms
-		$posts = BaseController::highlightResults($posts, array('title', 'excerpt'));
+		$posts = App\Http\Controllers\Controller::highlightResults($posts, array('title', 'excerpt'));
 
 		# Set URLs
 		foreach ($posts as $post) {

@@ -30,7 +30,7 @@ class MyController extends Controller {
 
 	# Log in via post
 	public function login() {
-		if (Auth::attempt(['email'=>Input::get('email'), 'password'=>Input::get('password')], true)) {
+		if (Auth::attempt(['email'=>Request::input('email'), 'password'=>Request::input('password')], true)) {
 			$user = Auth::user();
 			$user->last_login = new DateTime;
 			$user->save();
@@ -59,7 +59,7 @@ class MyController extends Controller {
 	# Add new post
 	public function message() {
 		$message = new Message;
-		$message->content = Input::get('content');
+		$message->content = Request::input('content');
 		$message->save();
 
 		# Get all posts again, return html
@@ -75,8 +75,8 @@ class MyController extends Controller {
 	# Add new comment
 	public function reply($message_id) {
 		$reply = new Reply;
-		$reply->message_id = Input::get('message_id');
-		$reply->content = Input::get('content');
+		$reply->message_id = Request::input('message_id');
+		$reply->content = Request::input('content');
 		$reply->save();
 
 		# Get all replies again, return html
@@ -97,7 +97,7 @@ class MyController extends Controller {
 	public function inbound_everyone() {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
-		$inbound = json_decode(Input::get('mandrill_events'))[0];
+		$inbound = json_decode(Request::input('mandrill_events'))[0];
 
 		# Log in user (is this really safe?) todo check if user is active
 		if ($user = User::where('email', $inbound->msg->from_email)->first()) {

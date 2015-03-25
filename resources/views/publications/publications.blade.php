@@ -8,7 +8,7 @@
 						{{ $publication->title }}
 						@if ($publication->price !== null)
 							<br>&ndash;<br>
-							{{ BaseController::formatPrice($publication->price) }}
+							{{ App\Http\Controllers\Controller::formatPrice($publication->price) }}
 						@endif
 					</div>
 				</a>

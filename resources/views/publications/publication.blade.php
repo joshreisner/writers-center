@@ -8,7 +8,7 @@
 		
 		<h1>
 			{{ $publication->title }}
-			{{ BaseController::editLink($publication) }}
+			{{ App\Http\Controllers\Controller::editLink($publication) }}
 			@if (!empty($publication->author))
 				<small>by {{ $publication->author }}</small>
 			@endif
@@ -30,7 +30,7 @@
 
 			@if ($publication->price !== null)
 			<dt>Price</dt>
-			<dd>{{ BaseController::formatPrice($publication->price) }}</dd>
+			<dd>{{ App\Http\Controllers\Controller::formatPrice($publication->price) }}</dd>
 			@endif
 		</dl>
 

@@ -8,22 +8,22 @@
 		
 		<h1>
 			{{ $event->title }}
-			{{ BaseController::editLink($event) }}
+			{{ App\Http\Controllers\Controller::editLink($event) }}
 		</h1>
 		
-		{{ $event->description }}
+		{!! $event->description !!}
 		
 		<dl>
 			<dt>Date</dt>
-			<dd>{{ EventController::formatDateRange($event->start, $event->end) }}</dd>
+			<dd>{{ App\Http\Controllers\EventController::formatDateRange($event->start, $event->end) }}</dd>
 
 			<dt>Time</dt>
-			<dd>{{ EventController::formatTimeRange($event->start, $event->end) }}</dd>
+			<dd>{{ App\Http\Controllers\EventController::formatTimeRange($event->start, $event->end) }}</dd>
 
 			@if ($event->price !== null)
 			<dt>Price</dt>
 			<dd>
-				{{ BaseController::formatPrice($event->price) }}
+				{{ App\Http\Controllers\Controller::formatPrice($event->price) }}
 			</dd>
 			@endif
 
@@ -54,7 +54,7 @@
 			<small>{{ $next->start->format('M d, Y g:i a') }}</small>
 		</h1>
 		<div class="description">
-			{{ $next->description }}
+			{!! $next->description !!}
 		</div>
 	</div>
 @endsection

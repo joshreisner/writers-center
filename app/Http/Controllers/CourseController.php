@@ -1,10 +1,15 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
+use DB;
 use LeftRight\Center\Models\Course;
 use LeftRight\Center\Models\Day;
 use LeftRight\Center\Models\Genre;
 use LeftRight\Center\Models\Instructor;
+use LeftRight\Center\Models\Section;
+use Request;
 use URL;
+use View;
 
 class CourseController extends Controller {
 
@@ -86,15 +91,15 @@ class CourseController extends Controller {
 
 		$genres = Genre::with(array(
 			'courses'=>function($query){
-				if (Input::has('day')) {
+				if (Request::has('day')) {
 					$query->whereHas('sections', function($query){
-						$query->where('day_id', Input::get('day'));
+						$query->where('day_id', Request::input('day'));
 					});
 				}
 
-				if (Input::has('duration')) {
+				if (Request::has('duration')) {
 					$query->whereHas('sections', function($query) {
-						if (Input::get('duration') == 'intensive') {
+						if (Request::input('duration') == 'intensive') {
 						    $query->where('classes', 1);
 						} else {
 						    $query->where('classes', '>', 1);
@@ -102,14 +107,14 @@ class CourseController extends Controller {
 					});
 				}
 
-				if (Input::has('instructor')) {
+				if (Request::has('instructor')) {
 					$query->whereHas('instructors', function($query) {
-					    $query->where('id', Input::get('instructor'));
+					    $query->where('id', Request::input('instructor'));
 					});
 				}
 
-				if (Input::has('search')) {
-					$query->where('title', 'like', '%' . Input::get('search') . '%');
+				if (Request::has('search')) {
+					$query->where('title', 'like', '%' . Request::input('search') . '%');
 				}
 
 				//always order by title
@@ -126,20 +131,20 @@ class CourseController extends Controller {
 			})
 		);
 
-		if (Input::has('genre')) {
-			$genres->where('id', Input::get('genre'));
+		if (Request::has('genre')) {
+			$genres->where('id', Request::input('genre'));
 		}
 
 		$genres->whereHas('courses', function($query){
-			if (Input::has('day')) {
+			if (Request::has('day')) {
 				$query->whereHas('sections', function($query){
-					$query->where('day_id', Input::get('day'));
+					$query->where('day_id', Request::input('day'));
 				});
 			}
 
-			if (Input::has('duration')) {
+			if (Request::has('duration')) {
 				$query->whereHas('sections', function($query) {
-					if (Input::get('duration') == 'intensive') {
+					if (Request::input('duration') == 'intensive') {
 					    $query->where('classes', 1);
 					} else {
 					    $query->where('classes', '>', 1);
@@ -147,14 +152,14 @@ class CourseController extends Controller {
 				});
 			}
 
-			if (Input::has('instructor')) {
+			if (Request::has('instructor')) {
 				$query->whereHas('instructors', function($query) {
-				    $query->where('id', Input::get('instructor'));
+				    $query->where('id', Request::input('instructor'));
 				});
 			}
 
-			if (Input::has('search')) {
-				$query->where('title', 'like', '%' . Input::get('search') . '%');
+			if (Request::has('search')) {
+				$query->where('title', 'like', '%' . Request::input('search') . '%');
 			}
 		});
 
@@ -164,7 +169,7 @@ class CourseController extends Controller {
 
 		foreach ($genres as $genre) {
 
-			$genre->courses = BaseController::highlightResults($genre->courses, array('title'));
+			$genre->courses = Controller::highlightResults($genre->courses, array('title'));
 
 			$return_genre = array('open'=>[], 'closed'=>[]);
 

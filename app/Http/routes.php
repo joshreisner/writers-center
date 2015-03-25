@@ -5,6 +5,8 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\BlogController;
 use LeftRight\Center\Models\CarouselItem;
 use LeftRight\Center\Models\Course;
+use LeftRight\Center\Models\Group;
+use LeftRight\Center\Models\Policy;
 	
 Route::group(array('before' => 'public'), function()
 {

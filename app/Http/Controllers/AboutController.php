@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use LeftRight\Center\Models\Page;
+use View;
+
 class AboutController extends Controller {
 	
 	/**

@@ -8,8 +8,8 @@
 
 		<h1>
 			{{ $course->title }}
-			{{ BaseController:: editLink($course) }}
-			<small>{{ CourseController::formatInstructors($course) }}</small>
+			{{ App\Http\Controllers\Controller:: editLink($course) }}
+			<small>{{ App\Http\Controllers\CourseController::formatInstructors($course) }}</small>
 		</h1>
 
 		@if (!empty($course->description))
@@ -18,19 +18,19 @@
 
 		@if (!empty($course->price))
 			<h3>Tuition</h3>
-			<div class="price">{{ BaseController::formatPrice($course->price) }} members / {{ BaseController::formatPrice($course->price, true) }} non-members</div>
+			<div class="price">{{ App\Http\Controllers\Controller::formatPrice($course->price) }} members / {{ App\Http\Controllers\Controller::formatPrice($course->price, true) }} non-members</div>
 		@endif
 
 		@if (count($course->sections))
 			@foreach ($course->sections as $section)
-				<h3>{{ $section->title }} {{ BaseController:: editLink($section) }}</h3>
+				<h3>{{ $section->title }} {{ App\Http\Controllers\Controller:: editLink($section) }}</h3>
 	
 				@if ($section->classes)
 				<div>
 					@if ($section->classes == 1)
-					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}, {{ BaseController::formatTimeRange($section->start, $section->end) }}
+					{{ !empty($section->days->title) ? $section->days->title . ', ' : '' }}{{ $section->start->format('n/d/Y') }}, {{ App\Http\Controllers\Controller::formatTimeRange($section->start, $section->end) }}
 					@else
-					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ BaseController::formatTimeRange($section->start, $section->end) }}
+					{{ $section->start->format('n/d/Y') }}&ndash;{{ $section->end->format('n/d/Y') }}, {{ $section->classes }} {{ !empty($section->days->title) ? $section->days->title : 'day' }}s, {{ App\Http\Controllers\Controller::formatTimeRange($section->start, $section->end) }}
 					@endif
 				</div>
 				@endif
@@ -40,7 +40,7 @@
 				@endif
 	
 				@if (!empty($section->price) && ($section->price != $course->price))
-					<div class="price">{{ BaseController::formatPrice($section->price) }} members / {{ BaseController::formatPrice($section->price, true) }} non-members</div>
+					<div class="price">{{ App\Http\Controllers\Controller::formatPrice($section->price) }} members / {{ App\Http\Controllers\Controller::formatPrice($section->price, true) }} non-members</div>
 				@endif
 				
 				@if (App::environment('production') && !empty($section->register_url))
@@ -83,7 +83,7 @@
 					@if (!empty($instructor->image->url))
 					<img src="{{ $instructor->image->url }}" width="{{ $instructor->image->width }}" height="{{ $instructor->image->height }}" alt="{{ $instructor->name }}">
 					@endif
-					{{ BaseController::insertIntoHtml($instructor->bio, BaseController:: editLink($instructor)) }}
+					{!! App\Http\Controllers\Controller::insertIntoHtml($instructor->bio, App\Http\Controllers\Controller:: editLink($instructor)) !!}
 				</li>
 				@endforeach
 			</ul>
@@ -93,7 +93,7 @@
 			<h3>Past Sections</h3>
 			<ul class="past_sections">
 			@foreach ($past_sections as $section)
-			<li>{{ $section->title }} <em>{{ BaseController::formatDateRange($section->start, $section->end) }}</em></li>
+			<li>{{ $section->title }} <em>{{ App\Http\Controllers\Controller::formatDateRange($section->start, $section->end) }}</em></li>
 			@endforeach
 			</ul>
 		@endif
@@ -106,7 +106,7 @@
 		<span class="label">You might also like</span>
 		<h1>
 			<a href="/courses/{{ $related->slug }}">{{ $related->title }}</a>
-			<small>with {{ CourseController::formatInstructors($related) }}</small>
+			<small>with {{ App\Http\Controllers\CourseController::formatInstructors($related) }}</small>
 		</h1>
 		<div class="description">{{ $related->description }}</div>
 	</div>

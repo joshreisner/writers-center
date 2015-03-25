@@ -17,19 +17,19 @@
 		</div>
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Genre</label>
-			<div class="col-md-9">{!! Form::dropdown('genre', $genre_select, Input::get('genre')) !!}</div>
+			<div class="col-md-9">{!! Form::dropdown('genre', $genre_select, Request::input('genre')) !!}</div>
 		</div>
 		<div class="form-group">
 			<label for="day" class="col-md-3">Day</label>
-			<div class="col-md-9">{!! Form::dropdown('day', $day_select, Input::get('day')) !!}</div>
+			<div class="col-md-9">{!! Form::dropdown('day', $day_select, Request::input('day')) !!}</div>
 		</div>
 		<div class="form-group">
 			<label for="instructor" class="col-md-3">Teacher</label>
-			<div class="col-md-9">{!! Form::dropdown('instructor', $instructor_select, Input::get('instructor')) !!}</div>
+			<div class="col-md-9">{!! Form::dropdown('instructor', $instructor_select, Request::input('instructor')) !!}</div>
 		</div>
 		<div class="form-group">
 			<label for="duration" class="col-md-3">Duration</label>
-			<div class="col-md-9">{!! Form::dropdown('duration', $duration_select, Input::get('duration')) !!}</div>
+			<div class="col-md-9">{!! Form::dropdown('duration', $duration_select, Request::input('duration')) !!}</div>
 		</div>
 	</form>
 
@@ -45,7 +45,7 @@
 		<p>How long have you been saying that you want to write a book? How much longer do you have to wait? This series of classes (fiction, poetry, and mystery) begins at the start of 2015, when the New Year inspires serious resolutions. With emphasis on deadlines, how to structure and revise a manuscript and, most of all, mutual support—the goal is a solid draft (and a reading at HVWC to celebrate your accomplishment) by the end of the year.</p>
 		<ul>
 		@foreach ($year_of_your_book as $course)
-			<li><a href="{{ CourseController::url($course) }}">{{ $course->title }}</a></li>
+			<li><a href="{{ App\Http\Controllers\CourseController::url($course) }}">{{ $course->title }}</a></li>
 		@endforeach
 		</ul>
 	</div>

@@ -4,9 +4,9 @@
 	<div class="indent">
 		<h1>
 			{{ $page->title }}
-			{{ AboutController::editLink($page) }}
+			{!! App\Http\Controllers\AboutController::editLink($page) !!}
 		</h1>
-		{{ $page->content }}
+		{!! $page->content !!}
 		@if (View::exists('about.' . $page->slug))
 			@include('about.' . $page->slug)
 		@endif

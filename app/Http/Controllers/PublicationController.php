@@ -1,5 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use DB;
+use LeftRight\Center\Models\Publication;
+use LeftRight\Center\Models\PublicationType;
+use URL;
+use View;
+
 class PublicationController extends Controller {
 	
 	/**
@@ -12,12 +18,11 @@ class PublicationController extends Controller {
 			$publication->url = self::url($publication);
 		}
 
-		return View::make('publications.index', array(
-			'title'=>'Slapering Hol Press',
-			'publications'=>$publications,
-			'years'=>Publication::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date'),
-			'types'=>PublicationType::orderBy('title')->lists('title', 'id'),
-		));		
+		$title = 'Slapering Hol Press';
+		$years = Publication::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date');
+		$types = PublicationType::orderBy('title')->lists('title', 'id');
+
+		return View::make('publications.index', compact('title', 'publications', 'years', 'types'));		
 	}
 
 	/**
@@ -52,18 +57,18 @@ class PublicationController extends Controller {
 		# Construct chained Eloquent statement based on input
 		$publications = Publication::orderBy('publish_date', 'desc');
 
-		if (Input::has('search')) {
+		if (Request::has('search')) {
 			$publications
-				->where('title', 'like', '%' . Input::get('search') . '%')
-				->orWhere('description', 'like', '%' . Input::get('search') . '%');
+				->where('title', 'like', '%' . Request::input('search') . '%')
+				->orWhere('description', 'like', '%' . Request::input('search') . '%');
 		}
 		
-		if (Input::has('year')) {
-			$publications->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
+		if (Request::has('year')) {
+			$publications->where(DB::raw('YEAR(publish_date)'), Request::input('year'));
 		}
 
-		if (Input::has('type_id')) {
-			$publications->where('type_id', Input::get('type_id'));
+		if (Request::has('type_id')) {
+			$publications->where('type_id', Request::input('type_id'));
 		}
 
 		$publications = $publications->get();

@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use View;
+
 class PaymentController extends Controller {
 
 	/**
@@ -52,22 +54,22 @@ class PaymentController extends Controller {
 		Stripe::setApiKey(Config::get('services.stripe.secret'));
 
 		//stripe records amounts as integer
-		$amount = Input::get('amount') * 100; 
+		$amount = Request::input('amount') * 100; 
 
 		//create or get user
 		if (Auth::user()) {
 			$user = Auth::user();
 		} else {
 			//create user (but don't log in)
-			$user = User::firstOrNew(['email' => Input::get('email')]);
+			$user = User::firstOrNew(['email' => Request::input('email')]);
 			if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
 		}
-		$user->name = Input::get('name');
-		$user->address = Input::get('address');
-		$user->city = Input::get('city');
-		$user->state = Input::get('state');
-		if (Input::has('phone')) $user->phone = Input::get('phone');
-		$user->zip = Input::get('zip');
+		$user->name = Request::input('name');
+		$user->address = Request::input('address');
+		$user->city = Request::input('city');
+		$user->state = Request::input('state');
+		if (Request::has('phone')) $user->phone = Request::input('phone');
+		$user->zip = Request::input('zip');
 		$user->save();
 		
 		//stripe customer ids differ depending on which environment you're in
@@ -78,13 +80,13 @@ class PaymentController extends Controller {
 
 			if ($user->{$customer_id}) {
 				$customer = Stripe_Customer::retrieve($user->{$customer_id});
-				$customer->card = Input::get('stripeToken');
+				$customer->card = Request::input('stripeToken');
 				$customer->email = $user->email;
 				$customer->description = $user->name;
 				$customer->save();
 			} else {
 				$customer = Stripe_Customer::create([
-					'card' => Input::get('stripeToken'),
+					'card' => Request::input('stripeToken'),
 					'email' => $user->email,
 					'description' => $user->name,
 				]);

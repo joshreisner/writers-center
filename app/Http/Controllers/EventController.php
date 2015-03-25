@@ -1,7 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use DateTime;
+use DB;
 use LeftRight\Center\Models\Event;
+use Request;
 use URL;
+use View;
 
 class EventController extends Controller {
 
@@ -11,8 +15,8 @@ class EventController extends Controller {
 	public function index() {
 
 		# Build array of months
-		if (Input::has('date')) {
-			list($year, $month, $day) = explode('-', Input::get('date'));
+		if (Request::has('date')) {
+			list($year, $month, $day) = explode('-', Request::input('date'));
 			$events = Event::whereRaw('MONTH(start) = ?', array($month))
 						->whereRaw('DAY(start) = ?', array($day))
 						->whereRaw('YEAR(start) = ?', array($year))->get();
@@ -59,16 +63,16 @@ class EventController extends Controller {
 
 		# Construct chained Eloquent statement based on input
 		$events = Event::orderBy('start', 'asc');
-		if (Input::has('search') or Input::has('year')) {
+		if (Request::has('search') or Request::has('year')) {
 
-			if (Input::has('search')) {
+			if (Request::has('search')) {
 				$events
-					->where('title', 'like', '%' . Input::get('search') . '%')
-					->orWhere('description', 'like', '%' . Input::get('search') . '%');
+					->where('title', 'like', '%' . Request::input('search') . '%')
+					->orWhere('description', 'like', '%' . Request::input('search') . '%');
 			}
 			
-			if (Input::has('year')) {
-				$events->where(DB::raw('YEAR(start)'), Input::get('year'));
+			if (Request::has('year')) {
+				$events->where(DB::raw('YEAR(start)'), Request::input('year'));
 			}			
 		} else {
 			$events->where('end', '>', new DateTime());
@@ -77,7 +81,7 @@ class EventController extends Controller {
 		$events = $events->get();
 
 		# Highlight search terms
-		$events = BaseController::highlightResults($events, array('title', 'description'));
+		$events = App\Http\Controllers\Controller::highlightResults($events, array('title', 'description'));
 
 		# Return HTML view
 		return View::make('events.events', array('months'=>self::groupByMonth($events)));

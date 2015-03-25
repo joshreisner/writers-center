@@ -4,6 +4,7 @@ use Auth;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Request;
 
 abstract class Controller extends BaseController {
 
@@ -15,12 +16,12 @@ abstract class Controller extends BaseController {
 	public static function highlightResults($results, $keys)
 	{
 
-		if (!Input::has('search')) return $results;
+		if (!Request::has('search')) return $results;
 
 		foreach ($results as &$result) {
 			foreach ($keys as $key) {
 				$result->{$key} = preg_replace(
-					'/(?<=^|[> ])(' . Input::get('search') . ')(?=$|[^a-z])/is', 
+					'/(?<=^|[> ])(' . Request::input('search') . ')(?=$|[^a-z])/is', 
 					'<mark>\\0</mark>', 
 					$result->{$key});
 			}

@@ -14,7 +14,7 @@
 	<span class="label">Upcoming Events</span>
 	<ul class="events">
 		@foreach ($events as $event)
-		<li><span>{{ $event->start->format('m/d') }}</span> {!! link_to(EventController::url($event), $event->title) !!}</li>
+		<li><span>{{ $event->start->format('m/d') }}</span> {!! link_to(App\Http\Controllers\EventController::url($event), $event->title) !!}</li>
 		@endforeach
 	</ul>
 </div>	

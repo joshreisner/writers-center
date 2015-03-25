@@ -8,7 +8,7 @@
 		<h1>
 			<small>{{ $post->publish_date->format(Config::get('config.date_format')) }}</small>
 			{{ $post->title }}
-			{{ BaseController::editLink($post) }}
+			{!! App\Http\Controllers\Controller::editLink($post) !!}
 		</h1>
 		
 		@if (!empty($post->image->url))
@@ -20,7 +20,7 @@
 		</figure>
 		@endif
 
-		{{ $post->content }}
+		{!! $post->content !!}
 		
 		@if (!empty($post->action_url))
 		<a class="btn btn-primary" href="{{ $post->action_url }}">{{ $post->action or 'Click here' }}</a>
