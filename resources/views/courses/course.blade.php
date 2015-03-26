@@ -8,7 +8,7 @@
 
 		<h1>
 			{{ $course->title }}
-			{{ App\Http\Controllers\Controller:: editLink($course) }}
+			{!! App\Http\Controllers\Controller:: editLink($course) !!}
 			<small>{{ App\Http\Controllers\CourseController::formatInstructors($course) }}</small>
 		</h1>
 
@@ -23,7 +23,7 @@
 
 		@if (count($course->sections))
 			@foreach ($course->sections as $section)
-				<h3>{{ $section->title }} {{ App\Http\Controllers\Controller:: editLink($section) }}</h3>
+				<h3>{{ $section->title }} {!! App\Http\Controllers\Controller:: editLink($section) !!}</h3>
 	
 				@if ($section->classes)
 				<div>

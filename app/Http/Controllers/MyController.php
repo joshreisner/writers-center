@@ -1,5 +1,13 @@
 <?php namespace App\Http\Controllers;
 
+use Auth;
+use DateTime;
+use LeftRight\Center\Models\Message;
+use Redirect;
+use Request;
+use Response;
+use View;
+
 class MyController extends Controller {
 
 	# Home page

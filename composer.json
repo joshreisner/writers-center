@@ -8,7 +8,8 @@
 		"laravel/framework": "5.0.*",
 		"left-right/center": "dev-master",
 		"illuminate/html": "dev-master",
-		"filp/whoops": "~1.0"
+		"filp/whoops": "~1.0",
+		"guzzlehttp/guzzle": "~4.0"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "~4.0",

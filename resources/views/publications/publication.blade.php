@@ -8,7 +8,7 @@
 		
 		<h1>
 			{{ $publication->title }}
-			{{ App\Http\Controllers\Controller::editLink($publication) }}
+			{!! App\Http\Controllers\Controller::editLink($publication) !!}
 			@if (!empty($publication->author))
 				<small>by {{ $publication->author }}</small>
 			@endif
@@ -52,7 +52,7 @@
 			</p>
 		@endif
 
-		{{ $publication->description }}
+		{!! $publication->description !!}
 	
 		@if (!empty($publication->praise))
 		<div class="praise">

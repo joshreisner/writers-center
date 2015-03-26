@@ -5,10 +5,12 @@ use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\BlogController;
 use LeftRight\Center\Models\CarouselItem;
 use LeftRight\Center\Models\Course;
+use LeftRight\Center\Models\Event;
 use LeftRight\Center\Models\Group;
 use LeftRight\Center\Models\Policy;
+use LeftRight\Center\Models\Post;
 	
-Route::group(array('before' => 'public'), function()
+Route::group(['before' => 'public'], function()
 {
 
 	# Home
@@ -90,7 +92,7 @@ Route::group(array('before' => 'public'), function()
 
 			Route::get('/', 'MyController@index');
 
-			if (Auth::guest()) {
+			if (!Auth::check()) {
 				Route::post('login',		'MyController@login');
 				Route::post('reset',		'MyController@reset');
 			} else {
@@ -236,9 +238,9 @@ View::composer('about.policies', function($view){
 
 # Publication sidebar (masthead, blog & upcoming events)
 View::composer('publications.side', function($view){
-	$view->with('groups', Group::with(array('roles'=>function($query){
+	$view->with('groups', Group::with(['roles'=>function($query){
 			$query->orderBy('precedence');
-		}))->where('shp', 1)->orderBy('precedence')->get());
+		}])->where('shp', 1)->orderBy('precedence')->get());
 
 	$view->with('events', Event::whereHas('tags', function($query){
 			$query->where('id', 1);

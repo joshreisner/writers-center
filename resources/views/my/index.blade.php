@@ -9,7 +9,7 @@
 	<div class="my-hvwc">
 
 		<article>
-			{!! Form::open(['action'=>'MyController@message', 'class'=>'message']) !!}
+			{!! Form::open(['action'=>'\App\Http\Controllers\MyController@message', 'class'=>'message']) !!}
 				<img src="/assets/img/avatar-josh.jpg" width="200" height="200">
 				<h2>
 					<div class="prefix">Josh Reisner <span>to</span></div>

@@ -7,7 +7,7 @@
 				<h4>@lang('messages.course_status_' . $status)</h4>
 				@foreach ($statuses[$status] as $course)
 					<li>
-						<a href="{{ App\Http\Controllers\CourseController::url($course) }}">{{ $course->title }}</a>
+						<a href="{{ App\Http\Controllers\CourseController::url($course) }}">{!! $course->title !!}</a>
 						<em>{{ App\Http\Controllers\CourseController::formatInstructors($course) }}</em>
 					</li>
 				@endforeach

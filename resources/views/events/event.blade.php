@@ -8,7 +8,7 @@
 		
 		<h1>
 			{{ $event->title }}
-			{{ App\Http\Controllers\Controller::editLink($event) }}
+			{!! App\Http\Controllers\Controller::editLink($event) !!}
 		</h1>
 		
 		{!! $event->description !!}

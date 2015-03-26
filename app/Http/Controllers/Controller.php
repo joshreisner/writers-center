@@ -5,6 +5,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Request;
+use URL;
 
 abstract class Controller extends BaseController {
 
@@ -35,8 +36,8 @@ abstract class Controller extends BaseController {
 	 */
 	public static function editLink($instance) {
 		if (!Auth::user() || !Auth::user()->role) return false;
-		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)), '', array('class'=>'edit fa fa-edit'));
-		return link_to(URL::action('InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit fa fa-edit'));
+		return link_to(URL::action('\LeftRight\Center\Controllers\InstanceController@edit', array($instance->table, $instance->id)), '', array('class'=>'edit fa fa-edit'));
+		return link_to(URL::action('\LeftRight\Center\Controllers\InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit fa fa-edit'));
 	}
 
 	/**
