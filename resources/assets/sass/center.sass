@@ -6,13 +6,21 @@ body
 
 	&.login
 		div.modal
+			.modal-content
+				margin-top: 15%
 			.modal-header
 				background-color: $default
 				color: white
-			/*div.modal-content
-				border-radius: 0 0 0 0
-				div.modal-header, div.modal-footer
-					border-radius: 0 0 0 0*/
+				.modal-title
+					line-height: 1
+		h1
+			font-weight: normal
+			font-family: "Apercu Pro Bold"
+		
+		.alert
+			padding: 20px
+			font-size: 1.5rem
+			
 		a.github
 			display: none
 	.header
@@ -40,20 +48,16 @@ body
 	.btn
 		font-family: "Apercu Mono Pro Regular"
 
-	h2
-		font-weight: normal
-		font-family: "Apercu Pro Bold"
-	
 	.alert
 		border-radius: 0
 		text-align: center
 		padding: 80px 20px
+		font-size: 1.7rem
 
 		&.alert-warning
 			background-color: $default-lighter
 			border: 0
 			color: $default
-			font-size: 1.8rem
 			
 		
 		

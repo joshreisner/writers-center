@@ -1,13 +1,18 @@
 body {
   font-family: "Apercu Pro Regular"; }
-  body.login div.modal {
-    /*div.modal-content
-     * border-radius: 0 0 0 0
-     * div.modal-header, div.modal-footer
-     * 	border-radius: 0 0 0 0 */ }
-    body.login div.modal .modal-header {
-      background-color: #298c76;
-      color: white; }
+  body.login div.modal .modal-content {
+    margin-top: 15%; }
+  body.login div.modal .modal-header {
+    background-color: #298c76;
+    color: white; }
+    body.login div.modal .modal-header .modal-title {
+      line-height: 1; }
+  body.login h1 {
+    font-weight: normal;
+    font-family: "Apercu Pro Bold"; }
+  body.login .alert {
+    padding: 20px;
+    font-size: 1.5rem; }
   body.login a.github {
     display: none; }
   body .header a {
@@ -29,18 +34,15 @@ body {
       color: #298c76; }
   body .btn {
     font-family: "Apercu Mono Pro Regular"; }
-  body h2 {
-    font-weight: normal;
-    font-family: "Apercu Pro Bold"; }
   body .alert {
     border-radius: 0;
     text-align: center;
-    padding: 80px 20px; }
+    padding: 80px 20px;
+    font-size: 1.7rem; }
     body .alert.alert-warning {
       background-color: #edfaf7;
       border: 0;
-      color: #298c76;
-      font-size: 1.8rem; }
+      color: #298c76; }
   body .redactor-editor {
     font-family: "Apercu Pro Regular" !important;
     font-size: 1.7rem !important; }

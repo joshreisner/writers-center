@@ -36,8 +36,7 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-        if (env('APP_ENV') == 'local')
-        {
+        if (!$app->environment('production')) {
             return $this->renderExceptionWithWhoops($e);
         }
 
