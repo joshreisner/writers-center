@@ -83,7 +83,8 @@ body {
     font-family: "Apercu Mono Pro Regular"; }
   body table.table thead th {
     font-weight: normal;
-    font-family: "Apercu Mono Pro Regular"; }
+    font-family: "Apercu Mono Pro Regular";
+    font-size: 11px; }
   body form label {
     font-weight: normal;
     font-family: "Apercu Mono Pro Regular"; }
