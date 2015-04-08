@@ -16,6 +16,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
 		'App\Http\Middleware\VerifyCsrfToken',
+		'LeftRight\Center\Middleware\Permissions',
 	];
 
 	/**
@@ -25,8 +26,6 @@ class Kernel extends HttpKernel {
 	 */
 	protected $routeMiddleware = [
 		'user' => 'LeftRight\Center\Middleware\User',
-		'admin' => 'LeftRight\Center\Middleware\Admin',
-		'programmer' => 'LeftRight\Center\Middleware\Programmer',
 	];
 
 }

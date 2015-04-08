@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use LeftRight\Center\Models\Page;
+use Redirect;
 use View;
 
 class AboutController extends Controller {
@@ -8,17 +9,19 @@ class AboutController extends Controller {
 	/**
 	 * about inside page
 	 */
-	public function show($slug='') {
-		$page = Page::where('slug', $slug)->first();
-		
+	public function show($slug=null) {
+
 		//404
-		if (!$page) return Redirect::action('AboutController@index');
+		if (!$page = Page::where('slug', $slug)->first()) {
+			$page = Page::orderBy('precedence')->first();
+			return Redirect::action('AboutController@show', $page->slug);
+		}
 		
-		return View::make('about.page', array(
-			'title'=>strip_tags($page->title),
-			'page'=>$page,
-			'pages'=>Page::orderBy('precedence')->get(),
-		));
+		return View::make('about.page', [
+			'title' => strip_tags($page->title),
+			'page' => $page,
+			'pages' => Page::orderBy('precedence')->get(),
+		]);
 	}
 
 }

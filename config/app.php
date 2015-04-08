@@ -146,7 +146,8 @@ return [
 		'App\Providers\RouteServiceProvider',
 		
 		'LeftRight\Center\CenterServiceProvider',
-		'Illuminate\Html\HtmlServiceProvider',
+	    'Illuminate\Html\HtmlServiceProvider',
+	    'Maatwebsite\Excel\ExcelServiceProvider',
 
 	],
 
@@ -196,9 +197,9 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 
-		'Form'=> 'Illuminate\Html\FormFacade', 
-		'HTML'=> 'Illuminate\Html\HtmlFacade',
-
+	    'Form'      => 'Illuminate\Html\FormFacade',
+	    'HTML'      => 'Illuminate\Html\HtmlFacade',
+	    'Excel'     => 'Maatwebsite\Excel\Facades\Excel',
 	],
 
 ];
