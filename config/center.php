@@ -35,6 +35,58 @@ return [
 				'precedence',
 			],
 		],
+		'carousel_items' => [
+			'keep_clean',
+			'list_grouping' => 'Main Objects',
+			'list' => ['backing_id', 'title', 'updated_at'],
+			'order_by' => 'precedence',
+			'fields' => [
+				'backing_id' => [
+					'type' => 'image',
+					'width' => 654,
+					'height' => 400,
+				],
+				'title' => [
+					'type' => 'text',
+					'required',	
+				],
+				'course_id' => [
+					'type' => 'select',
+					'source' => 'courses'
+				],
+				'event_id' => [
+					'type' => 'select',
+					'source' => 'events'
+				],
+				'post_id' => [
+					'type' => 'select',
+					'source' => 'posts'
+				],
+				'publication_id' => [
+					'type' => 'select',
+					'source' => 'publications',	
+				],
+				'content' => 'text',
+				'updated_at',
+				'updated_by',
+				'deleted_at',
+				'precedence',
+			],
+		],
+		'contexts' => [
+			'keep_clean',
+			'hidden',
+			'list' => ['title', 'updated_at'],
+			'order_by' => 'title',
+			'fields' => [
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'updated_at',
+				'updated_by',
+			],
+		],
 		'courses' => [
 			'keep_clean',
 			'list_grouping' => 'Main Objects',
@@ -60,7 +112,38 @@ return [
 				'updated_at',
 				'updated_by',
 				'deleted_at',
-					
+			],
+		],
+		'events' => [
+			'keep_clean',
+			'list_grouping' => 'Main Objects',
+			'list' => ['title', 'start', 'updated_at'],
+			'url' => '/events',
+			'order_by' => ['start'=>'desc'],
+			'fields' => [
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'start' => [
+					'type' => 'datetime',
+					'required',
+				],
+				'end' => [
+					'type' => 'datetime',
+					'required',
+				],
+				'excerpt' => 'text',
+				'description' => 'html',
+				'slug' => [
+					'type' => 'slug',
+					'source' => 'title',
+				],
+				'price' => 'integer',
+				'register_url' => 'url',
+				'updated_at',
+				'updated_by',
+				'deleted_at',
 			],
 		],
 		'genres' => [
@@ -98,6 +181,24 @@ return [
 				'precedence',
 			],
 		],
+		'policies' => [
+			'keep_clean',
+			'list_grouping' => 'Supporting Objects',
+			'list' => ['title', 'context_policy', 'updated_at'],
+			'order_by' => 'precedence',
+			'fields' => [
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'content' => 'html',
+				'contexts' => 'checkboxes',
+				'updated_at',
+				'updated_by',
+				'deleted_at',
+				'precedence',
+			],
+		],
 		'posts' => [
 			'keep_clean',
 			'list_grouping' => 'Main Objects',
@@ -128,6 +229,49 @@ return [
 				'updated_at',
 				'updated_by',
 				'deleted_at',
+			],
+		],
+		'publications' => [
+			'keep_clean',
+			'list' => ['image_id', 'title', 'publish_date', 'updated_at'],
+			'list_grouping' => 'Main Objects',
+			'order_by' => ['publish_date' => 'desc'],
+			'fields' => [
+				'image_id' => [
+					'type' => 'image',
+					'width' => 400,
+				],
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'author' => 'string',
+				'publish_date' => 'date',
+				'price' => 'integer',
+				'type' => [
+					'type' => 'select',
+					'source' => 'publication_types',
+				],
+				'pages' => 'integer',
+				'description' => 'html',
+				'paypal_id' => 'string',
+				'updated_at',
+				'updated_by',
+				'deleted_at',
+			],
+		],
+		'publication_types' => [
+			'list' => ['title', 'updated_at'],
+			'list_grouping' => 'Supporting Objects',
+			'order_by' => 'precedence',
+			'fields'=> [
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'updated_at',
+				'updated_by',
+				'precedence',
 			],
 		],
 		'tags' => [

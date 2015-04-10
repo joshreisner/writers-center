@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fb0e83d0d329399ad73a8da76eb91030",
+    "hash": "b12180cfc889a965ec57b6e46abf9c51",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1305,12 +1305,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/left-right/center.git",
-                "reference": "ab1d9643278e60ea77dfa0114a8476470a68a1f3"
+                "reference": "b72230ff2869a8153d432a126f731930abd8855d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/left-right/center/zipball/ab1d9643278e60ea77dfa0114a8476470a68a1f3",
-                "reference": "ab1d9643278e60ea77dfa0114a8476470a68a1f3",
+                "url": "https://api.github.com/repos/left-right/center/zipball/b72230ff2869a8153d432a126f731930abd8855d",
+                "reference": "b72230ff2869a8153d432a126f731930abd8855d",
                 "shasum": ""
             },
             "require": {
@@ -1346,7 +1346,7 @@
                 "laravel",
                 "laravel5"
             ],
-            "time": "2015-04-08 07:50:40"
+            "time": "2015-04-09 23:32:03"
         },
         {
             "name": "maatwebsite/excel",
