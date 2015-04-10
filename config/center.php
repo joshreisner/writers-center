@@ -161,6 +161,22 @@ return [
 				'precedence',
 			],
 		],
+		'groups' => [
+			'keep_clean',
+			'list_grouping' => 'Supporting Objects',
+			'list' => ['title', 'updated_at'],
+			'order_by' => 'precedence',
+			'fields' => [
+				'title' => [
+					'type' => 'string',
+					'required',
+				],
+				'shp' => 'checkbox',
+				'updated_at',
+				'updated_by',
+				'precedence',				
+			]
+		],
 		'instructors' => [
 			'keep_clean',
 			'list_grouping' => 'Main Objects',
@@ -271,6 +287,29 @@ return [
 				],
 				'updated_at',
 				'updated_by',
+				'precedence',
+			],
+		],
+		'roles' => [
+			'list' => ['name', 'role', 'updated_at'],
+			'list_grouping' => 'Main Objects',
+			'order_by' => 'precedence',
+			'group_by' => 'group_id',
+			'fields'=> [
+				'group_id' => [
+					'type' => 'select',
+					'source' => 'groups',
+					'required',	
+				],
+				'name' => [
+					'type' => 'string',
+					'required',
+				],
+				'role' => 'string',
+				'bio' => 'html',
+				'updated_at',
+				'updated_by',
+				'deleted_at',
 				'precedence',
 			],
 		],
