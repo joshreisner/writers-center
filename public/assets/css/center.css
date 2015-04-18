@@ -37,7 +37,6 @@ body {
   body .alert {
     border-radius: 0;
     text-align: center;
-    padding: 80px 20px;
     font-size: 1.7rem; }
     body .alert.alert-warning {
       background-color: #edfaf7;

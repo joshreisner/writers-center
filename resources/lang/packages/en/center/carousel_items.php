@@ -1,7 +1,7 @@
 <?php
 
 return [	
-	'title' => 'Carousel Items',
+	'title' => 'Home Carousel',
 	'help' => [
 		'index' => '',
 		'create' => '',

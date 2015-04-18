@@ -26,7 +26,11 @@ class MoveFiles extends Migration {
 			->update([
 				'table' => DB::raw('avalon_objects.name'),
 				'field' => DB::raw('avalon_fields.name'),
-				'url'   => DB::raw('REPLACE(files.url, \'/packages/joshreisner/avalon/files\', \'/vendor/center/files\''),
+			]);
+			
+		DB::table('files')
+			->update([
+				'url'   => DB::raw('REPLACE(files.url, \'/packages/joshreisner/avalon/files\', \'/vendor/center/files\')'),
 			]);
 
 		Schema::table('files', function(Blueprint $table)
@@ -47,6 +51,10 @@ class MoveFiles extends Migration {
 		Schema::drop('avalon_object_links');
 		Schema::drop('avalon_object_user');
 		Schema::drop('avalon_objects');
+
+		Schema::table('transactions', function($table){
+			$table->renameColumn('type', 'type_id');
+		});
 	}
 
 	/**

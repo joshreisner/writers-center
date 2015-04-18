@@ -1,7 +1,7 @@
 <?php
 
 return [	
-	'title' => 'Blog Tags',
+	'title' => 'Tags',
 	'help' => [
 		'index' => '',
 		'create' => '',

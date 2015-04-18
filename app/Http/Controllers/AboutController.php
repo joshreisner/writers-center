@@ -9,7 +9,7 @@ class AboutController extends Controller {
 	/**
 	 * about inside page
 	 */
-	public function show($slug=null) {
+	public function show($slug='') {
 
 		//404
 		if (!$page = Page::where('slug', $slug)->first()) {

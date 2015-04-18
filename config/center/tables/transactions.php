@@ -1,0 +1,25 @@
+<?php
+
+return [
+	'keep_clean',
+	'list_grouping' => 'Store',
+	'list' => ['confirmation', 'type_id', 'amount', 'created_at'],
+	'fields' => [
+		'user_id' => [
+			'type' => 'user',
+			'required',
+		],
+		'confirmation' => 'string',
+		'paid' => 'checkbox',
+		'charge_id' => 'string',
+		'type_id' => [
+			'type' => 'select',
+			'source' => 'transaction_types',
+			'required',
+		],
+		'amount' => 'integer',
+		'created_at',
+		'updated_at',
+		'updated_by',
+	],
+];

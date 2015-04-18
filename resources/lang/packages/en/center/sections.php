@@ -1,7 +1,7 @@
 <?php
 
 return [	
-	'title' => 'Events',
+	'title' => 'Sections',
 	'help' => [
 		'index' => '',
 		'create' => '',
@@ -9,14 +9,14 @@ return [
 	],
 	'fields' => [
 		'title' => 'Title',
+		'course_id' => 'Course',
+		'updated_at' => 'Updated',
+		'classes' => 'Classes',
+		'day_id' => 'Day',
 		'start' => 'Start',
 		'end' => 'End',
-		'excerpt' => 'Excerpt',
-		'description' => 'Description',
-		'slug' => 'Location',
-		'price' => 'Price',
+		'notes' => 'Notes',
+		'price' => 'Member Tuition',
 		'register_url' => 'Register URL',
-		'tags' => 'Tags',
-		'updated_at' => 'Updated',
 	],
 ];	
