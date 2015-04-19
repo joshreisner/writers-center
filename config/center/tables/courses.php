@@ -28,7 +28,7 @@ return [
 		'updated_by',
 		'deleted_at',
 	],
-	'linked' => [
+	'links' => [
 		'sections' => 'course_id',	
 	],
 ];

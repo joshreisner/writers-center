@@ -87,6 +87,8 @@ body {
   body form label {
     font-weight: normal;
     font-family: "Apercu Mono Pro Regular", "Helvetica Neue", sans-serif; }
+  body form .form-group .checkbox-inline {
+    font-size: 11px; }
 
 form.default .form-group.field-html .redactor-editor {
   color: #298c76; }

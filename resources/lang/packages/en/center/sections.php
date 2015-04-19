@@ -1,6 +1,8 @@
 <?php
 
-return [	
+return [
+	'create' => 'Create Section',
+	'edit' => 'Edit Section',
 	'title' => 'Sections',
 	'help' => [
 		'index' => '',

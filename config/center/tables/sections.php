@@ -5,7 +5,8 @@ return [
 	'list_grouping' => 'Supporting Objects',
 	'order_by' => ['start' => 'desc'],
 	'list' => ['title', 'start', 'updated_at'],
-	'group_by' => 'course_id',
+	//'group_by' => 'course_id',
+	'hidden',
 	'fields' => [
 		'title' => [
 			'type' => 'string',
