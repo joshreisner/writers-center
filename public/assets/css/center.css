@@ -7,6 +7,8 @@ body {
     color: white; }
     body.login div.modal .modal-header .modal-title {
       line-height: 1; }
+  body.login div.modal .modal-body {
+    padding: 25px 15px; }
   body.login h1 {
     font-weight: normal;
     font-family: "Apercu Pro Bold", "Helvetica Neue", sans-serif; }

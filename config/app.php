@@ -148,6 +148,7 @@ return [
 		'LeftRight\Center\CenterServiceProvider',
 	    'Illuminate\Html\HtmlServiceProvider',
 	    'Maatwebsite\Excel\ExcelServiceProvider',
+	    'Laravel\Cashier\CashierServiceProvider',
 
 	],
 

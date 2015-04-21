@@ -7,10 +7,7 @@ return [
 	'list' => ['title', 'publish_date', 'updated_at'],
 	'order_by' => ['publish_date' => 'desc'],
 	'fields' => [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'slug' => [
 			'type' => 'slug',
 			'source' => 'title',
@@ -22,10 +19,7 @@ return [
 		],
 		'caption' => 'string',
 		'content' => 'html',
-		'publish_date' => [
-			'type' => 'date',
-			'required',	
-		],
+		'publish_date' => 'date required',
 		'tags' => 'checkboxes',
 		'updated_at',
 		'updated_by',

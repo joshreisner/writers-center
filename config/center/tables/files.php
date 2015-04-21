@@ -5,24 +5,12 @@ return [
 	'hidden',
 	'fields' => [
 		'row_id' => 'integer',
-		'table' => [
-			'type' => 'string',
-			'required',
-		],
-		'field' => [
-			'type' => 'string',
-			'required',
-		],
-		'url' => [
-			'type' => 'string',
-			'required',
-		],
+		'table' => 'string required',
+		'field' => 'string required',
+		'url' => 'string required',
 		'width' => 'integer',
 		'height' => 'integer',
-		'size' => [
-			'type' => 'integer',
-			'required',
-		],
+		'size' => 'integer required',
 		'created_at',
 		'created_by',
 		'precedence'=>'integer',

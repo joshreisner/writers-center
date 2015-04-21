@@ -7,18 +7,9 @@ return [
 	'url' => '/events',
 	'order_by' => ['start'=>'desc'],
 	'fields' => [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
-		'start' => [
-			'type' => 'datetime',
-			'required',
-		],
-		'end' => [
-			'type' => 'datetime',
-			'required',
-		],
+		'title' => 'string required',
+		'start' => 'datetime required',
+		'end' => 'datetime required',
 		'excerpt' => 'text',
 		'description' => 'html',
 		'slug' => [

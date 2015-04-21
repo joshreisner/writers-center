@@ -5,10 +5,7 @@ return [
 	'list_grouping' => 'Supporting Objects',
 	'order_by' => 'precedence',
 	'fields'=> [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'updated_at',
 		'updated_by',
 		'precedence',

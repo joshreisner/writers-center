@@ -1,5 +1,8 @@
 <?php namespace App\Http\Controllers;
 
+use Input;
+use Redirect;
+use Validator;
 use View;
 
 class PaymentController extends Controller {
@@ -40,10 +43,12 @@ class PaymentController extends Controller {
 			'phone' => 'numeric',
 			'state' => 'required',
 			'zip' => 'required|numeric',
-			'stripeToken' => 'required',
+			//'stripeToken' => 'required',
 		]);
 
 		if ($validator->fails()) {
+			$messages = $validator->messages();
+			dd($messages->all());
 			return Redirect::action('PaymentController@support_index')
 				->withInput()
 				->withErrors($validator)

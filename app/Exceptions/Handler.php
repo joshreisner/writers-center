@@ -1,6 +1,10 @@
 <?php namespace App\Exceptions;
 
+use Auth;
 use Exception;
+use Mail;
+use URL;
+use Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler {
@@ -24,6 +28,24 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
+		if (!config('app.debug') && !$e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+			
+			$data = [
+				'subject' => $e->getMessage(),
+				'line' => $e->getLine(),
+				'file' => $e->getFile(),
+				'trace' => $e->getTrace(),
+				'user' => Auth::guest() ? 'an unknown user' : Auth::user()->name,
+				'url' => URL::current(),
+				'previous' => URL::previous(),
+			];
+			
+			Mail::send('emails.error', $data, function($message) {
+			    $message->to('josh@left-right.co', 'Josh Reisner')->subject('HVWC Error');
+			});
+			
+		}
+
 		return parent::report($e);
 	}
 
@@ -36,9 +58,7 @@ class Handler extends ExceptionHandler {
 	 */
 	public function render($request, Exception $e)
 	{
-        if (config('app.debug')) {
-            return $this->renderExceptionWithWhoops($e);
-        }
+		if (config('app.debug')) return $this->renderExceptionWithWhoops($e);
 
 		return parent::render($request, $e);
 	}

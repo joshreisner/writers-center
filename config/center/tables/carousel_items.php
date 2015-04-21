@@ -11,10 +11,7 @@ return [
 			'width' => 654,
 			'height' => 400,
 		],
-		'title' => [
-			'type' => 'text',
-			'required',	
-		],
+		'title' => 'text required',
 		'course_id' => [
 			'type' => 'select',
 			'source' => 'courses'

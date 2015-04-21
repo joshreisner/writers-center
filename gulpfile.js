@@ -3,7 +3,7 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix
     .rubySass('main.sass', 'public/assets/css')
-    .rubySass('center.sass', 'public/assets/css')
+    //.rubySass('center.sass', 'public/assets/css')
     .scripts([
 	    '../../bower_components/jquery/dist/jquery.js',
 		'../../bower_components/bootstrap-sass/dist/js/bootstrap.js',

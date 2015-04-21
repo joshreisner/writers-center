@@ -10,10 +10,7 @@ return [
 			'type' => 'image',
 			'width' => 400,
 		],
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'author' => 'string',
 		'publish_date' => 'date',
 		'price' => 'integer',
@@ -22,6 +19,10 @@ return [
 			'source' => 'publication_types',
 		],
 		'pages' => 'integer',
+		'slug' => [
+			'type' => 'slug',
+			'source' => 'title',
+		],		
 		'description' => 'html',
 		'paypal_id' => 'string',
 		'updated_at',

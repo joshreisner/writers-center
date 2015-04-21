@@ -5,10 +5,7 @@ return [
 	'list_grouping' => 'Store',
 	'list' => ['user_id', 'section_id', 'created_at'],
 	'fields' => [
-		'user_id' => [
-			'type' => 'user',
-			'required',
-		],
+		'user_id' => 'user required',
 		'section_id' => [
 			'type' => 'select',
 			'source' => 'sections',

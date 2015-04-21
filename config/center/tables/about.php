@@ -7,11 +7,9 @@ return [
 	'order_by' => 'precedence',
 	'url' => '/about',
 	'model' => 'Page',
+	'search' => ['title', 'content'],
 	'fields' => [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'slug' => [
 			'type' => 'slug',
 			'source' => 'title',

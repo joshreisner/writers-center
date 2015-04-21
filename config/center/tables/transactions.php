@@ -5,10 +5,7 @@ return [
 	'list_grouping' => 'Store',
 	'list' => ['confirmation', 'type_id', 'amount', 'created_at'],
 	'fields' => [
-		'user_id' => [
-			'type' => 'user',
-			'required',
-		],
+		'user_id' => 'user required',
 		'confirmation' => 'string',
 		'paid' => 'checkbox',
 		'charge_id' => 'string',

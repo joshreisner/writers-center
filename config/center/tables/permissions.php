@@ -4,17 +4,8 @@ return [
 	'keep_clean',
 	'hidden',
 	'fields' =>	[
-		'user' => [
-			'type' => 'integer',
-			'required',
-		],
-		'table' => [
-			'type' => 'string',
-			'required',
-		],
-		'level' => [
-			'type' => 'string',
-			'required',
-		],
+		'user_id' => 'integer required',
+		'table' => 'string required',
+		'level' => 'string required',
 	],
 ];

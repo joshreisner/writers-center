@@ -22,14 +22,8 @@ return [
 			'type' => 'select',
 			'source' => 'days',
 		],
-		'start' => [
-			'type' => 'datetime',
-			'required',
-		],
-		'end' => [
-			'type' => 'datetime',
-			'required',
-		],
+		'start' => 'datetime required',
+		'end' => 'datetime required',
 		'notes' => 'string',
 		'price' => 'integer',
 		'register_url' => 'string',

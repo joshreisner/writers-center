@@ -10,10 +10,7 @@ return [
 			'type' => 'image',
 			'width' => 440,
 		],		
-		'name' => [
-			'type' => 'string',
-			'required',
-		],
+		'name' => 'string required',
 		'bio' => 'html',
 		'updated_at',
 		'updated_by',

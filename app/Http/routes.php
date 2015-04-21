@@ -91,6 +91,9 @@ Route::group(['before' => 'public'], function()
 		Route::group(['prefix'=>'my-hvwc'], function(){
 
 			Route::get('/', 'MyController@index');
+			Route::get('/settings', 'MyController@settings');
+			Route::get('/logout', 'MyController@logout');
+			Route::get('/{id}', 'MyController@message');
 
 			if (!Auth::check()) {
 				Route::post('login',		'MyController@login');
@@ -251,7 +254,7 @@ View::composer('publications.side', function($view){
 		})->orderBy('publish_date', 'desc')->first());
 });
 
-View::composer(['emails.support', 'emails.receipt', 'emails.notify', 'emails.simple'], function($view){
+View::composer(['emails.support', 'emails.error', 'emails.receipt', 'emails.notify', 'emails.simple'], function($view){
 	$view->with('green', '#298c76');
 	$view->with('light_green', '#b3d2b6');
 	$view->with('lighter_green', '#c6eee5');

@@ -6,10 +6,7 @@ return [
 	'list' => ['title', 'context_policy', 'updated_at'],
 	'order_by' => 'precedence',
 	'fields' => [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'content' => 'html',
 		'contexts' => 'checkboxes',
 		'updated_at',

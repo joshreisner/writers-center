@@ -11,10 +11,7 @@ return [
 			'source' => 'groups',
 			'required',	
 		],
-		'name' => [
-			'type' => 'string',
-			'required',
-		],
+		'name' => 'string required',
 		'role' => 'string',
 		'bio' => 'html',
 		'updated_at',

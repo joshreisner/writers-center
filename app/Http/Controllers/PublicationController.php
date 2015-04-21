@@ -30,16 +30,16 @@ class PublicationController extends Controller {
 	 */
 	function show($slug) {
 		$publication = Publication::where('slug', $slug)->first();
-
+		
 		//404
 		if (!$publication) return Redirect::action('PublicationController@index');
 
-		return View::make('publications.publication', array(
-			'title'=>strip_tags($publication->title),
-			'types'=>PublicationType::orderBy('title')->get(),
-			'publication'=>$publication,
-			'related'=>Publication::where('id', '<>', $publication->id)->orderBy('precedence')->take(5)->get(),
-		));
+		return View::make('publications.publication', [
+			'title' => strip_tags($publication->title),
+			'types' => PublicationType::orderBy('title')->get(),
+			'publication' => $publication,
+			'related' => Publication::where('id', '<>', $publication->id)->orderBy('publish_date', 'desc')->take(5)->get(),
+		]);
 	}
 
 	/**

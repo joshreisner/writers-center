@@ -4,10 +4,7 @@ return [
 	'keep_clean',
 	'hidden',
 	'fields' => [
-		'title' => [
-			'type' => 'string',
-			'required',
-		],
+		'title' => 'string required',
 		'precedence',
 	],
 ];
