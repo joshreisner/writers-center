@@ -9,6 +9,7 @@
 		"left-right/center": "dev-master",
 		"illuminate/html": "dev-master",
 		"filp/whoops": "~1.0",
+		"guzzlehttp/guzzle": "~5.0",
 		"laravel/cashier": "~5.0"
 	},
 	"require-dev": {

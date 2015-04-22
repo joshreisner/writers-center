@@ -49,6 +49,6 @@
 @section('script')
 	<script src="https://js.stripe.com/v2/"></script>
 	<script>
-		Stripe.setPublishableKey('{{ Config::get('services.stripe.publishable_key') }}');
+		Stripe.setPublishableKey('{{ env('STRIPE_API_PUBLISHABLE') }}');
 	</script>
 @endsection

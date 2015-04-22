@@ -1,6 +1,7 @@
 <?php
 
 return [
+	'billable',
 	'list_grouping' => 'Main Objects',
 	'list' => ['name', 'last_login', 'updated_at'],
 	'order_by' => 'name',

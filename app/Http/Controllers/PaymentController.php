@@ -1,6 +1,11 @@
 <?php namespace App\Http\Controllers;
 
+use App;
+use Auth;
 use Input;
+use LeftRight\Center\Models\Transaction;
+use LeftRight\Center\Models\User;
+use Mail;
 use Redirect;
 use Validator;
 use View;
@@ -25,7 +30,10 @@ class PaymentController extends Controller {
 	 * show support page
 	 */
 	public function support_index() {
-		return View::make('support')->with('preset_amounts', [50, 100, 200, 500, 1000]);
+		return View::make('support', [
+			'preset_amounts' => [50, 100, 200, 500, 1000],
+			'title' => 'Support the Center',
+		]);
 	}
 
 	/**
@@ -55,70 +63,40 @@ class PaymentController extends Controller {
 				->with('error', 'The form did not go through. Please correct the highlighted errors before continuing.');
 		}
 
-		//init
-		Stripe::setApiKey(Config::get('services.stripe.secret'));
-
 		//stripe records amounts as integer
-		$amount = Request::input('amount') * 100; 
-
-		//create or get user
-		if (Auth::user()) {
-			$user = Auth::user();
-		} else {
-			//create user (but don't log in)
-			$user = User::firstOrNew(['email' => Request::input('email')]);
-			if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
-		}
-		$user->name = Request::input('name');
-		$user->address = Request::input('address');
-		$user->city = Request::input('city');
-		$user->state = Request::input('state');
-		if (Request::has('phone')) $user->phone = Request::input('phone');
-		$user->zip = Request::input('zip');
-		$user->save();
+		$amount = Input::get('amount') * 100; 
+		$token = Input::get('stripeToken');
 		
-		//stripe customer ids differ depending on which environment you're in
-		$customer_id = (App::environment('production')) ? 'customer_id' : 'customer_test_id';
+		//create or get user
+		$user = User::firstOrNew(['email' => Input::get('email')]);
+		//if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
+		$user->name = Input::get('name');
+		$user->address = Input::get('address');
+		$user->city = Input::get('city');
+		$user->state = Input::get('state');
+		if (Input::has('phone')) $user->phone = Input::get('phone');
+		$user->zip = Input::get('zip');
+		
+		//run charge
+		$charge = $user->charge($amount, [
+		    'source' => $token,
+		    'receipt_email' => $user->email,
+		]);
 
-		//create or get customer
-		try {
-
-			if ($user->{$customer_id}) {
-				$customer = Stripe_Customer::retrieve($user->{$customer_id});
-				$customer->card = Request::input('stripeToken');
-				$customer->email = $user->email;
-				$customer->description = $user->name;
-				$customer->save();
-			} else {
-				$customer = Stripe_Customer::create([
-					'card' => Request::input('stripeToken'),
-					'email' => $user->email,
-					'description' => $user->name,
-				]);
-				$user->{$customer_id} = $customer->id;
-				$user->save();
-			}
-
-			$charge = Stripe_Charge::create([
-				'amount' => $amount,
-				'currency' => 'usd',
-				'customer' => $customer->id,
-				'description' => 'Support the Center',
-			]);
-
-		} catch(Exception $e) {
-			$body = $e->getJsonBody();
-			
-			//customer had a problem
-			return Redirect::action('PaymentController@support_index')->with('error', $body['error']['message']);
+		//customer had a problem
+		if (!$charge) {			
+			return redirect()->back()->with('error', 'An error occurred when running the transaction and your card was not charged.');
 		}
+		
+		//allows contact info change without password
+		$user->save();
 
 		//make a record
 		$transaction = $user->transactions()->save(new Transaction([
 			'amount' => $amount,
 			'charge_id' => $charge->id,
 			'paid' => $charge->paid,
-			'type' => 1,
+			'type_id' => 1,
 			'confirmation'=>strtoupper(str_random(6)),
 		]));
 
