@@ -12,7 +12,7 @@ class MoveFiles extends Migration {
 	 */
 	public function up()
 	{
-		Schema::drop('files');
+		Schema::dropIfExists('files');
 		Schema::rename('avalon_files', 'files');
 		Schema::table('files', function(Blueprint $table)
 		{
@@ -47,10 +47,10 @@ class MoveFiles extends Migration {
 		});
 
 		//drop unnecessary tables
-		Schema::drop('avalon_fields');
-		Schema::drop('avalon_object_links');
-		Schema::drop('avalon_object_user');
-		Schema::drop('avalon_objects');
+		Schema::dropIfExists('avalon_fields');
+		Schema::dropIfExists('avalon_object_links');
+		Schema::dropIfExists('avalon_object_user');
+		Schema::dropIfExists('avalon_objects');
 
 		Schema::table('transactions', function($table){
 			$table->renameColumn('type', 'type_id');
