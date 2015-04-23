@@ -4,6 +4,7 @@ use Auth;
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use LeftRight\Center\Controllers\LoginController;
 use Request;
 use URL;
 
@@ -34,10 +35,9 @@ abstract class Controller extends BaseController {
 	/**
 	 * generate avalon link
 	 */
-	public static function editLink($instance) {
-		if (!Auth::user() || !Auth::user()->role) return false;
-		return link_to(URL::action('\LeftRight\Center\Controllers\InstanceController@edit', array($instance->table, $instance->id)), '', array('class'=>'edit fa fa-edit'));
-		return link_to(URL::action('\LeftRight\Center\Controllers\InstanceController@edit', array($instance->table, $instance->id)) . '?return_to=' . urlencode(Url::current()), '', array('class'=>'edit fa fa-edit'));
+	public static function editLink($row) {
+		if (!LoginController::checkPermission($row->table)) return false;
+		return link_to(URL::action('\LeftRight\Center\Controllers\RowController@edit', [$row->table, $row->id]), '', ['class'=>'edit fa fa-edit']);
 	}
 
 	/**

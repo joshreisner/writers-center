@@ -14,7 +14,7 @@ return [
 		'author' => 'string',
 		'publish_date' => 'date',
 		'price' => 'integer',
-		'type' => [
+		'type_id' => [
 			'type' => 'select',
 			'source' => 'publication_types',
 		],

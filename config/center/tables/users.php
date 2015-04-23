@@ -2,6 +2,7 @@
 
 return [
 	'billable',
+	'deletable' => false,
 	'list_grouping' => 'Main Objects',
 	'list' => ['name', 'last_login', 'updated_at'],
 	'order_by' => 'name',
@@ -28,6 +29,6 @@ return [
 		'permissions', 
 		'updated_at',
 		'updated_by',
-		'deleted_at',
 	],
+	'group_by' => '\App\Http\Controllers\CenterController::groupUsers',
 ];

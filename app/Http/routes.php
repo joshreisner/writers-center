@@ -151,6 +151,19 @@ Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
 		//Session::flash('message', 'Test message.');
 		return View::make('page');
 	});
+	
+	Route::get('permissions', function(){
+		$tables = config('center.tables');
+		$users = DB::table('users')->whereNull('deleted_at')->whereNotNull('role')->lists('id');
+		DB::table('permissions')->truncate();
+		foreach ($tables as $table) {
+			$level = $table->editable ? 'edit' : 'view';
+			$table = $table->name;
+			$inserts = [];
+			foreach ($users as $user_id) $inserts[] = compact('user_id', 'table', 'level');
+			DB::table('permissions')->insert($inserts);
+		}
+	});
 
 	# Email formatting routes
 	Route::group(array('prefix'=>'email'), function(){

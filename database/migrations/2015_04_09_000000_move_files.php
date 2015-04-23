@@ -32,7 +32,7 @@ class MoveFiles extends Migration {
 			->update([
 				'url'   => DB::raw('REPLACE(files.url, \'/packages/joshreisner/avalon/files\', \'/vendor/center/files\')'),
 			]);
-
+		
 		Schema::table('files', function(Blueprint $table)
 		{
 			$table->renameColumn('instance_id', 'row_id');
@@ -55,6 +55,19 @@ class MoveFiles extends Migration {
 		Schema::table('transactions', function($table){
 			$table->renameColumn('type', 'type_id');
 		});
+		
+		//set permissions for all users based on legacy column
+		$tables = config('center.tables');
+		$users = DB::table('users')->whereNull('deleted_at')->whereNotNull('role')->lists('id');
+		DB::table('permissions')->truncate();
+		foreach ($tables as $table) {
+			$level = $table->editable ? 'edit' : 'view';
+			$table = $table->name;
+			$inserts = [];
+			foreach ($users as $user_id) $inserts[] = compact('user_id', 'table', 'level');
+			DB::table('permissions')->insert($inserts);
+		}
+		
 	}
 
 	/**

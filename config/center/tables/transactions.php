@@ -2,6 +2,9 @@
 
 return [
 	'keep_clean',
+	'creatable' => false,
+	'editable' => false,
+	'deletable' => false,
 	'list_grouping' => 'Store',
 	'list' => ['confirmation', 'type_id', 'amount', 'created_at'],
 	'fields' => [

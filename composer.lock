@@ -889,16 +889,16 @@
         },
         {
             "name": "intervention/image",
-            "version": "2.1.3",
+            "version": "2.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "8f3761154b4c1f5128365dfc32cbf757f27d97b6"
+                "reference": "9c26a834ff7d1c2bb4e88f98228030eed26960d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/8f3761154b4c1f5128365dfc32cbf757f27d97b6",
-                "reference": "8f3761154b4c1f5128365dfc32cbf757f27d97b6",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/9c26a834ff7d1c2bb4e88f98228030eed26960d4",
+                "reference": "9c26a834ff7d1c2bb4e88f98228030eed26960d4",
                 "shasum": ""
             },
             "require": {
@@ -941,7 +941,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-03-18 17:41:04"
+            "time": "2015-04-22 16:05:20"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -1401,12 +1401,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/left-right/center.git",
-                "reference": "9d1d47934cfadaafc7524861a6634bdc5bbc6e31"
+                "reference": "990ae76a6761d70bf9dd793741ce9c661d34049d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/left-right/center/zipball/9d1d47934cfadaafc7524861a6634bdc5bbc6e31",
-                "reference": "9d1d47934cfadaafc7524861a6634bdc5bbc6e31",
+                "url": "https://api.github.com/repos/left-right/center/zipball/990ae76a6761d70bf9dd793741ce9c661d34049d",
+                "reference": "990ae76a6761d70bf9dd793741ce9c661d34049d",
                 "shasum": ""
             },
             "require": {
@@ -1442,7 +1442,7 @@
                 "laravel",
                 "laravel5"
             ],
-            "time": "2015-04-22 00:57:14"
+            "time": "2015-04-23 07:59:12"
         },
         {
             "name": "maatwebsite/excel",
