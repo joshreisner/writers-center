@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0d4d57973ca3853745053978a51d568a",
+    "hash": "f52db26244cdc8351a45e4a44a9a0f1b",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1130,63 +1130,6 @@
             "time": "2015-03-11 20:06:43"
         },
         {
-            "name": "laravel/cashier",
-            "version": "v5.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/cashier.git",
-                "reference": "3b63ad422f44e41d9dc8eda006c17c882a438117"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier/zipball/3b63ad422f44e41d9dc8eda006c17c882a438117",
-                "reference": "3b63ad422f44e41d9dc8eda006c17c882a438117",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/filesystem": "~5.0",
-                "illuminate/support": "~5.0",
-                "nesbot/carbon": "~1.0",
-                "php": ">=5.4.0",
-                "stripe/stripe-php": "~2.0",
-                "symfony/http-kernel": "~2.3"
-            },
-            "require-dev": {
-                "illuminate/routing": "~5.0",
-                "illuminate/view": "~5.0",
-                "mockery/mockery": "~0.9",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Laravel\\Cashier\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "description": "Laravel Cashier provides an expressive, fluent interface to Stripe's subscription billing services.",
-            "keywords": [
-                "billing",
-                "laravel",
-                "stripe"
-            ],
-            "time": "2015-04-19 22:17:25"
-        },
-        {
             "name": "laravel/framework",
             "version": "v5.0.28",
             "source": {
@@ -1401,12 +1344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/left-right/center.git",
-                "reference": "990ae76a6761d70bf9dd793741ce9c661d34049d"
+                "reference": "8608b809dc60e4f001bc544e9882be62056f9deb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/left-right/center/zipball/990ae76a6761d70bf9dd793741ce9c661d34049d",
-                "reference": "990ae76a6761d70bf9dd793741ce9c661d34049d",
+                "url": "https://api.github.com/repos/left-right/center/zipball/8608b809dc60e4f001bc544e9882be62056f9deb",
+                "reference": "8608b809dc60e4f001bc544e9882be62056f9deb",
                 "shasum": ""
             },
             "require": {
@@ -1442,20 +1385,20 @@
                 "laravel",
                 "laravel5"
             ],
-            "time": "2015-04-23 07:59:12"
+            "time": "2015-04-24 00:03:52"
         },
         {
             "name": "maatwebsite/excel",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "5da62ad9c8250fe332a6322d0b110559174e30d5"
+                "reference": "557271c001d2efec5f8a4e8845dd802906f027ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/5da62ad9c8250fe332a6322d0b110559174e30d5",
-                "reference": "5da62ad9c8250fe332a6322d0b110559174e30d5",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/557271c001d2efec5f8a4e8845dd802906f027ef",
+                "reference": "557271c001d2efec5f8a4e8845dd802906f027ef",
                 "shasum": ""
             },
             "require": {
@@ -1509,7 +1452,7 @@
                 "import",
                 "laravel"
             ],
-            "time": "2015-03-19 13:47:43"
+            "time": "2015-04-23 17:41:51"
         },
         {
             "name": "monolog/monolog",

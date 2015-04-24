@@ -14,6 +14,8 @@ return [
 		'bio' => 'html',
 		'updated_at',
 		'updated_by',
+		'deleted_at',
 		'precedence',
 	],
+	'search' => ['name'],
 ];

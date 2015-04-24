@@ -1,9 +1,10 @@
 @extends('emails.template')
 
 @section('content')
+
 	<p style="color: {{ $green }}; margin: 0 0 20px 0;">
 		Please accept our gratitude for your generous gift of 
-		<strong>${{ number_format($transaction->amount / 100) }}</strong>
+		<strong>${{ number_format($donation->amount) }}</strong>
 		to The Hudson Valley Writers' Center.* Your contribution is very meaningful 
 		to the Center and will help us to continue and improve our programmatic implementation 
 		of our core mission to encourage and teach the art and craft of creative writing, to 
@@ -19,10 +20,6 @@
 	<p style="color: {{ $green }}; margin: 0 0 20px 0;">
 		* As no goods or services were provided, your contribution is deductible for income tax 
 		purposes to the extent allowed by law.
-	</p>
-
-	<p style="color: {{ $light_green }}; margin: 0 0 30px 0; font-size: 14px;">
-		Your payment confirmation is {{ $transaction->confirmation }}.
 	</p>
 
 @endsection

@@ -3,10 +3,14 @@
 use App;
 use Auth;
 use Input;
-use LeftRight\Center\Models\Transaction;
+use Exception;
+use LeftRight\Center\Models\Donation;
 use LeftRight\Center\Models\User;
 use Mail;
 use Redirect;
+use Stripe\Stripe;
+use Stripe\Charge as Stripe_Charge;
+use Stripe\Customer as Stripe_Customer;
 use Validator;
 use View;
 
@@ -63,13 +67,15 @@ class PaymentController extends Controller {
 				->with('error', 'The form did not go through. Please correct the highlighted errors before continuing.');
 		}
 
+		//init
+		Stripe::setApiKey(config('services.stripe.secret'));
+
 		//stripe records amounts as integer
 		$amount = Input::get('amount') * 100; 
-		$token = Input::get('stripeToken');
-		
-		//create or get user
+
+		//create user (but don't log in)
 		$user = User::firstOrNew(['email' => Input::get('email')]);
-		//if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
+		if ($user->password === null) $user->password = Hash::make(str_random(12)); //better than null?
 		$user->name = Input::get('name');
 		$user->address = Input::get('address');
 		$user->city = Input::get('city');
@@ -77,53 +83,56 @@ class PaymentController extends Controller {
 		if (Input::has('phone')) $user->phone = Input::get('phone');
 		$user->zip = Input::get('zip');
 		
-		//run charge
-		$charge = $user->charge($amount, [
-		    'source' => $token,
-		    'receipt_email' => $user->email,
-		]);
+		//stripe customer key different depending on which environment you're in
+		$customer_id = (App::environment('production')) ? 'customer_id' : 'customer_test_id';
 
-		//customer had a problem
-		if (!$charge) {			
-			return redirect()->back()->with('error', 'An error occurred when running the transaction and your card was not charged.');
+		//create or get customer
+		try {
+			if ($user->{$customer_id}) {
+				$customer = Stripe_Customer::retrieve($user->{$customer_id});
+				$customer->card = Input::get('stripeToken');
+				$customer->email = $user->email;
+				$customer->description = $user->name;
+				$customer->save();
+			} else {
+				$customer = Stripe_Customer::create([
+					'card' => Input::get('stripeToken'),
+					'email' => $user->email,
+					'description' => $user->name,
+				]);
+				$user->{$customer_id} = $customer->id;
+			}
+			$charge = Stripe_Charge::create([
+				'amount' => $amount,
+				'currency' => 'usd',
+				'customer' => $customer->id,
+				'description' => 'Support the Center',
+			]);
+		} catch(Exception $e) {
+
+			//customer had a problem
+			return redirect()->action('PaymentController@support_index')->with('error', $e->getMessage());
 		}
-		
-		//allows contact info change without password
+
+		//allows contact info change without password, ok
 		$user->save();
 
 		//make a record
-		$transaction = $user->transactions()->save(new Transaction([
-			'amount' => $amount,
+		$donation = $user->donations()->save(new Donation([
+			'amount' => $charge->amount / 100,
 			'charge_id' => $charge->id,
-			'paid' => $charge->paid,
-			'type_id' => 1,
-			'confirmation'=>strtoupper(str_random(6)),
 		]));
 
 		//send out confirmation to user
 		Mail::send('emails.support', [
 			'subject'=>'Thank you for your support!',
-			'transaction'=>$transaction,
+			'donation'=>$donation,
 		], function($message) use ($user) {
 		    $message->to($user->email, $user->name)->subject('Thank you for your support!');
 		});
 
-		//send out notification to Scott
-		Mail::send('emails.notify', [
-			'subject'=>'Website Transaction',
-			'type'=>'Support the Center',
-			'transaction'=>$transaction,
-			'user_name'=>$user->name,
-		], function($message) use ($user) {
-			if (App::environment('production')) {
-				$message->to('scott@writerscenter.org', 'Scott Dievendorf')->subject('Website Transaction');
-			} else {
-				$message->to($user->email, $user->name)->subject('Website Transaction');				
-			}
-		});
-
 		//redirect user
-		return Redirect::action('PaymentController@support_index')->with('message', 'Thank you for your support!');
+		return redirect()->action('PaymentController@support_index')->with('message', 'Thank you for your support!');
 	}
 
 	/**

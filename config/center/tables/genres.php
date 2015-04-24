@@ -9,6 +9,7 @@ return [
 		'title' => 'string required',				
 		'updated_at',
 		'updated_by',
+		'deleted_at',
 		'precedence',
 	],
 ];

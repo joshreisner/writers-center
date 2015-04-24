@@ -46,16 +46,30 @@ class MoveFiles extends Migration {
 			$table->renameColumn('updated_by', 'created_by');
 		});
 
+		//move transactions to donations
+		$transactions = DB::table('transactions')->get();
+		DB::table('donations')->truncate();
+		foreach ($transactions as $transaction) {
+			DB::table('donations')->insert([
+				'user_id' => $transaction->user_id,
+				'amount' => $transaction->amount / 100,
+				'created_at' => $transaction->created_at,
+				'created_by' => $transaction->updated_by,
+				'updated_at' => $transaction->updated_at,
+				'updated_by' => $transaction->updated_by,
+				'charge_id' => $transaction->charge_id,
+			]);
+		}
+		
 		//drop unnecessary tables
 		Schema::dropIfExists('avalon_fields');
 		Schema::dropIfExists('avalon_object_links');
 		Schema::dropIfExists('avalon_object_user');
 		Schema::dropIfExists('avalon_objects');
+		Schema::dropIfExists('transactions');
+		Schema::dropIfExists('transaction_types');
+		Schema::dropIfExists('user_roles');
 
-		Schema::table('transactions', function($table){
-			$table->renameColumn('type', 'type_id');
-		});
-		
 		//set permissions for all users based on legacy column
 		$tables = config('center.tables');
 		$users = DB::table('users')->whereNull('deleted_at')->whereNotNull('role')->lists('id');

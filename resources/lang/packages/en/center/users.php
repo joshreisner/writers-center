@@ -10,6 +10,7 @@ return [
 	'fields' => [
 		'name' => 'Name',
 		'last_login' => 'Last Login',
+		'customer_id' => 'Stripe ID',
 		'email' => 'Email',
 		'address' => 'Address',
 		'city' => 'City',
@@ -18,5 +19,6 @@ return [
 		'phone' => 'Phone',
 		'updated_at' => 'Updated',
 		'permissions' => 'Permissions',
+		'membership_expires' => 'Membership',
 	],
 ];	

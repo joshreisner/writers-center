@@ -1,15 +1,16 @@
 <?php
 
 return [	
-	'title' => 'Course Enrollments',
+	'title' => 'Event RSVPs',
 	'help' => [
 		'index' => '',
 		'create' => '',
 		'edit' => '',
 	],
 	'fields' => [
-		'section_id' => 'Section',
 		'user_id' => 'User',
 		'created_at' => 'Created',
+		'event_id' => 'Event',
+		'amount' => 'Amount',
 	],
 ];	

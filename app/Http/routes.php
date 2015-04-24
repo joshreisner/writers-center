@@ -120,8 +120,49 @@ Route::group(array('prefix'=>'inbound'), function(){
 
 # Testing routes
 
-Route::group(array('before' => 'auth', 'prefix'=>'test'), function()
+Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 {
+
+	Route::get('import', function(){
+		$emails = DB::table('users')->lists('email');
+		$contacts = DB::table('output')->whereNotNull('email')->get();
+		$inserts = [];
+		Schema::drop('users');
+		Schema::rename('users_copy', 'users');
+		foreach ($contacts as $contact) {
+
+			$contact->name = ucwords($contact->email);
+			$contact->address = ucwords($contact->address);
+			$contact->city = ucwords($contact->city);
+			$contact->state = strtoupper($contact->state);
+			$contact->email = strtolower($contact->email);
+			if (strlen($contact->phone) == 7) $contact->phone = '914' . $contact->phone;
+
+			if (in_array($contact->email, $emails)) {
+				DB::table('users')->update([
+					'name' => $contact->name,
+					'address' => $contact->address,
+					'city' => $contact->city,
+					'state' => $contact->state,
+					'zip' => $contact->zip,
+					'phone' => $contact->phone,
+					'membership_expires' => $membership->expires,				
+				])->where('email', $contact->email);
+			} else {
+				$inserts[] = [
+					'name' => $contact->name,
+					'email' => $contact->email,
+					'address' => $contact->address,
+					'city' => $contact->city,
+					'state' => $contact->state,
+					'zip' => $contact->zip,
+					'phone' => $contact->phone,
+					'membership_expires' => $contact->membership_expires,				
+				];
+			}
+		}
+		DB::table('users')->insert($inserts);
+	});
 
 	Route::get('cart', function(){
 		//clear cart

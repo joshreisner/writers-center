@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'billable',
+	'keep_clean',
 	'deletable' => false,
 	'list_grouping' => 'Main Objects',
 	'list' => ['name', 'last_login', 'updated_at'],
@@ -13,8 +13,8 @@ return [
 		'remember_token' => 'string hidden',
 		'token' => 'string hidden',
 		'last_login' => 'datetime hidden',
-		'customer_id' => 'string hidden',
-		'customer_test_id' => 'string hidden',
+		'customer_id' => 'stripe_customer',
+		'customer_test_id' => 'stripe_customer hidden',
 		'address' => 'string',
 		'city' => 'string',
 		'state' => [
@@ -26,9 +26,11 @@ return [
 			'length' => 5,
 		],
 		'phone' => 'string',
+		'membership_expires' => 'date',
 		'permissions', 
 		'updated_at',
 		'updated_by',
 	],
 	'group_by' => '\App\Http\Controllers\CenterController::groupUsers',
+	'search' => ['name', 'email'],
 ];
