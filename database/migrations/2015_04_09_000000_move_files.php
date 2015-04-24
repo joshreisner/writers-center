@@ -72,7 +72,7 @@ class MoveFiles extends Migration {
 
 		//set permissions for all users based on legacy column
 		$tables = config('center.tables');
-		$users = DB::table('users')->whereNull('deleted_at')->whereNotNull('role')->lists('id');
+		$users = DB::table('users')->whereNotNull('role')->lists('id');
 		DB::table('permissions')->truncate();
 		foreach ($tables as $table) {
 			$level = $table->editable ? 'edit' : 'view';

@@ -3,6 +3,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\BlogController;
+use \DateTime;
 use LeftRight\Center\Models\CarouselItem;
 use LeftRight\Center\Models\Course;
 use LeftRight\Center\Models\Event;
@@ -127,27 +128,28 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 		$emails = DB::table('users')->lists('email');
 		$contacts = DB::table('output')->whereNotNull('email')->get();
 		$inserts = [];
-		Schema::drop('users');
-		Schema::rename('users_copy', 'users');
 		foreach ($contacts as $contact) {
 
-			$contact->name = ucwords($contact->email);
-			$contact->address = ucwords($contact->address);
-			$contact->city = ucwords($contact->city);
-			$contact->state = strtoupper($contact->state);
-			$contact->email = strtolower($contact->email);
+			$contact->name = trim(ucwords($contact->name));
+			$contact->address = trim(ucwords($contact->address));
+			$contact->city = trim(ucwords($contact->city));
+			$contact->state = trim(strtoupper($contact->state));
+			$contact->email = trim(strtolower($contact->email));
+			$contact->phone = trim($contact->phone);
 			if (strlen($contact->phone) == 7) $contact->phone = '914' . $contact->phone;
 
 			if (in_array($contact->email, $emails)) {
-				DB::table('users')->update([
+				DB::table('users')->where('email', $contact->email)->update([
 					'name' => $contact->name,
 					'address' => $contact->address,
 					'city' => $contact->city,
 					'state' => $contact->state,
 					'zip' => $contact->zip,
 					'phone' => $contact->phone,
-					'membership_expires' => $membership->expires,				
-				])->where('email', $contact->email);
+					'membership_expires' => $contact->membership_expires,
+					'updated_at' => new DateTime,
+					'updated_by' => Auth::id(),
+				]);
 			} else {
 				$inserts[] = [
 					'name' => $contact->name,
@@ -158,7 +160,10 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 					'zip' => $contact->zip,
 					'phone' => $contact->phone,
 					'membership_expires' => $contact->membership_expires,				
+					'updated_at' => new DateTime,
+					'updated_by' => Auth::id(),
 				];
+				$emails[] = $contact->email;
 			}
 		}
 		DB::table('users')->insert($inserts);

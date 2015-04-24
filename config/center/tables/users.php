@@ -30,7 +30,9 @@ return [
 		'permissions', 
 		'updated_at',
 		'updated_by',
+		'role' => 'integer hidden', //legacy
 	],
 	'group_by' => '\App\Http\Controllers\CenterController::groupUsers',
 	'search' => ['name', 'email'],
+	'export' => ['name', 'email', 'address', 'city', 'state', 'zip', 'phone', 'membership_expires'],
 ];
