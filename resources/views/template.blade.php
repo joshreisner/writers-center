@@ -11,7 +11,7 @@
 	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/icons/favicon-72.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/icons/favicon-144.png" type="image/png">
 		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
-		<link rel="stylesheet" href="/assets/css/main.css">
+		<link rel="stylesheet" href="/assets/css/main.min.css">
 	</head>
 	<body class="{{ $body_class or '' }}">
 		<div class="background"></div>
@@ -23,9 +23,9 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						@if (!App::environment('production'))
-							{!! link_to_action('MyController@index', 'My HVWC', null, ['class'=>Request::is('my-hvwc' . '*') ? 'active' : false]) !!}
+							{!! link_to_action('MyController@index', 'My HVWC', [], ['class'=>Request::is('my-hvwc' . '*') ? 'active' : null]) !!}
 						@endif
-						{!! link_to_action('PaymentController@support_index', 'Support the Center', null, ['class'=>Request::is('support' . '*') ? 'active' : false]) !!}
+						{!! link_to_action('PaymentController@support_index', 'Support the Center', [], ['class'=>Request::is('support' . '*') ? 'active' : false]) !!}
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="fa fa-twitter"></a>
 						<a href="http://instagram.com/hudson_valley_writers_center" class="fa fa-instagram"></a>
@@ -45,8 +45,8 @@
 		</div>
 		@yield('page')
 		@include('partials.login')
-		<script src="/assets/js/lib.js"></script>
-		<script src="/assets/js/main.js"></script>
+		<script src="/assets/js/lib.min.js"></script>
+		<script src="/assets/js/main.min.js"></script>
 		@yield('script')
 		<script>
 			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

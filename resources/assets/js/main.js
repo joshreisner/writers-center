@@ -1,3 +1,10 @@
+//= include ../../assets/js/login.js
+//= include ../../assets/js/page-home.js
+//= include ../../assets/js/page-support.js
+//= include ../../assets/js/page-checkout.js
+//= include ../../assets/js/page-transactions.js
+//= include ../../assets/js/page-my-hvwc.js
+
 $(function(){
 
 	//open external links in new tab

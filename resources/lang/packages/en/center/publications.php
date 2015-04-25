@@ -14,10 +14,11 @@ return [
 		'author' => 'Author',
 		'publish_date' => 'Publish Date',
 		'price' => 'Price',
-		'type' => 'Type',
+		'type_id' => 'Type',
 		'pages' => 'Pages',
 		'description' => 'Description',
 		'paypal_id' => 'Paypal ID',
 		'updated_at' => 'Updated',
+		'slug' => 'Link',
 	],
 ];	

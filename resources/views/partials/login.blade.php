@@ -11,13 +11,13 @@
 				<div class="modal-body">
 					<!--<div class="alert alert-info">That email / password combination was not found, please try again.</div>-->
 					<div class="form-group email">
-						<label class="col-md-3 control-label" for="email">{{ trans('center::users.email') }}</label>
+						<label class="col-md-3 control-label" for="email">Email</label>
 						<div class="col-md-9">
 							<input type="text" name="email" class="form-control required email">
 						</div>
 					</div>
 					<div class="form-group password">
-						<label class="col-md-3 control-label" for="password">{{ trans('center::users.password') }}</label>
+						<label class="col-md-3 control-label" for="password">Password</label>
 						<div class="col-md-9">
 							<input type="password" name="password" class="form-control required">
 						</div>

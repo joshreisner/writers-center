@@ -29,4 +29,8 @@ return [
 		'updated_by',
 		'deleted_at',
 	],
+	'url' => '/shp',
+	'links' => [
+		'purchases' => 'publication_id',	
+	],
 ];
