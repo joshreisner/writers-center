@@ -125,7 +125,18 @@ body
 		.form-group
 			.checkbox-inline
 				font-size: 11px
-			
+	
+	.pagination
+		a
+			color: $default
+		li.active
+			span
+				border-color: $default
+				background-color: $default
+			&:hover span
+				border-color: $default
+				background-color: $default
+				
 @each $section in $sections
 	$name:    nth($section, 1)
 	$color:   nth($section, 2)

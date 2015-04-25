@@ -91,6 +91,14 @@ body {
     font-family: "Apercu Mono Pro Regular", "Helvetica Neue", sans-serif; }
   body form .form-group .checkbox-inline {
     font-size: 11px; }
+  body .pagination a {
+    color: #298c76; }
+  body .pagination li.active span {
+    border-color: #298c76;
+    background-color: #298c76; }
+  body .pagination li.active:hover span {
+    border-color: #298c76;
+    background-color: #298c76; }
 
 form.default .form-group.field-html .redactor-editor {
   color: #298c76; }
