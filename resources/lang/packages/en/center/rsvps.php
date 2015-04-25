@@ -7,6 +7,8 @@ return [
 		'create' => '',
 		'edit' => '',
 	],
+	'create' => 'Create RSVP',
+	'edit' => 'Change RSVP',
 	'fields' => [
 		'user_id' => 'User',
 		'created_at' => 'Created',

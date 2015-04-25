@@ -2,6 +2,8 @@
 
 return [	
 	'title' => 'Course Enrollments',
+	'create' => 'Create Enrollment',
+	'edit' => 'Edit Enrollment',
 	'help' => [
 		'index' => '',
 		'create' => '',
@@ -11,5 +13,6 @@ return [
 		'section_id' => 'Section',
 		'user_id' => 'User',
 		'created_at' => 'Created',
+		'amount' => 'Amount',
 	],
 ];	

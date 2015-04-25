@@ -3,7 +3,8 @@
 return [
 	'keep_clean',
 	'list_grouping' => 'Store',
-	'list' => ['user_id', 'publication_id', 'amount', 'created_at'],
+	'list' => ['user_id', 'publication_id', 'created_at', 'amount'],
+	'order_by' => ['created_at' => 'desc'],
 	'fields' => [
 		'user_id' => 'user required',
 		'publication_id' => [
@@ -11,8 +12,8 @@ return [
 			'source' => 'publications',
 			'required',
 		],
-		'amount' => 'integer',
-		'charge_id' => 'string',
+		'amount' => 'money',
+		'charge_id' => 'stripe_charge',
 		'shipped_date' => 'date',
 		'created_at',
 		'created_by',

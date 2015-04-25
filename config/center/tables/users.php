@@ -35,4 +35,10 @@ return [
 	'group_by' => '\App\Http\Controllers\CenterController::groupUsers',
 	'search' => ['name', 'email'],
 	'export' => ['name', 'email', 'address', 'city', 'state', 'zip', 'phone', 'membership_expires'],
+	'links' => [
+		'donations' => 'user_id',	
+		'rsvps' => 'user_id',	
+		'enrollments' => 'user_id',	
+		'purchases' => 'user_id',
+	],
 ];

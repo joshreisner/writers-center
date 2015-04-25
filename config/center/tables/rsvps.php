@@ -2,12 +2,12 @@
 
 return [
 	'keep_clean',
+	'list_grouping' => 'Store',
 	'creatable' => true,
 	'editable' => true,
 	'deletable' => true,
-	'list_grouping' => 'Store',
-	'list' => ['user_id', 'created_at', 'amount'],
-	'group_by' => 'event_id',
+	'order_by' => ['created_at' => 'desc'],
+	'list' => ['event_id', 'user_id', 'created_at', 'amount'],
 	'fields' => [
 		'user_id' => 'user required',
 		'event_id' => [
@@ -16,7 +16,7 @@ return [
 			'required',
 		],
 		'charge_id' => 'stripe_charge',
-		'amount' => 'money',
+		'amount' => 'money required',
 		'created_at',
 		'updated_at',
 		'updated_by',

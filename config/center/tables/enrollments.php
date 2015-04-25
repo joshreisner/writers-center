@@ -3,7 +3,8 @@
 return [
 	'keep_clean',
 	'list_grouping' => 'Store',
-	'list' => ['user_id', 'section_id', 'created_at'],
+	'list' => ['section_id', 'user_id', 'created_at', 'amount'],
+	'order_by' => ['created_at' => 'desc'],
 	'fields' => [
 		'user_id' => 'user required',
 		'section_id' => [
@@ -11,6 +12,7 @@ return [
 			'source' => 'sections',
 			'required',
 		],
+		'amount' => 'money required',
 		'created_at',
 		'created_by',
 		'updated_at',

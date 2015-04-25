@@ -2,7 +2,7 @@
 
 return [
 	'keep_clean',
-	'creatable' => false,
+	'creatable' => true,
 	'editable' => true,
 	'deletable' => true,
 	'list_grouping' => 'Store',

@@ -2,6 +2,8 @@
 
 return [	
 	'title' => 'Donations',
+	'create' => 'Create Donation',
+	'edit' => 'Edit Donation',
 	'help' => [
 		'index' => '',
 		'create' => '',

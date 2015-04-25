@@ -31,4 +31,7 @@ return [
 		'updated_by',
 		'deleted_at',
 	],
+	'links' => [
+		'enrollments' => 'section_id',
+	],
 ];

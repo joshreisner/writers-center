@@ -23,4 +23,7 @@ return [
 		'updated_by',
 		'deleted_at',
 	],
+	'links' => [
+		'rsvps' => 'event_id',
+	],
 ];
