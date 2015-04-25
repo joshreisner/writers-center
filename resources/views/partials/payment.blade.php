@@ -22,7 +22,7 @@
 	</div>
 	
 	<div class="row form-group">
-		<div class="col-sm-12"><h3>Contact Info:</h3></div>
+		<div class="col-sm-12"><h3>Contact Information:</h3></div>
 	</div>
 	
 	<div class="row form-group">

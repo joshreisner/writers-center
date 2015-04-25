@@ -6,15 +6,15 @@ $('a[href=#login]').click(function(e){
 
 //modal, focus on the username
 $('#login')
-.on('show.bs.modal', centerModal)
-.on('shown.bs.modal', function(e) {
-	$('input[name=email]').focus();
-});
+	.on('show.bs.modal', centerModal)
+	.on('shown.bs.modal', function(e) {
+		$('input[name=email]').focus();
+	});
 
 //handle either login or reset password
 $('#login form').submit(function(){
 	if ($(this).hasClass('login')) {
-		$.post('/my-hvwc/login', $(this).serialize(), function(data) {
+		$.post($(this).attr('action'), $(this).serialize(), function(data) {
 			//console.log(data);
 			if (data.status == 'success') {
 				$('#login').modal('hide');
@@ -52,7 +52,7 @@ $('#login form a').click(function(e){
 		$(this).html('Forgot Password');
 		$form.find('input[type=submit]').val('Log In');
 	}
-	$(this).blur();
+	$form.find('input[name=email]').focus();
 });
 
 function alertLoginModal(message) {

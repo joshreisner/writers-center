@@ -1,9 +1,9 @@
-{{-- login modal partial --}}
 @if (Auth::guest())
+
 <div class="modal fade" id="login">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form class="form-horizontal login">
+			{!! Form::open(['method'=>'post', 'action'=>'MyController@login', 'class'=>'form-horizontal login']) !!}
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
 					<h1 class="modal-title">Please log in</h1>
@@ -27,8 +27,9 @@
 					<a href="#reset" class="btn btn-default">Reset Password</a>
 					<input type="submit" class="btn btn-primary" value="Log In">
 				</div>
-			</form>
+			{!! Form::close() !!}
 		</div>
 	</div>
 </div>
+
 @endif

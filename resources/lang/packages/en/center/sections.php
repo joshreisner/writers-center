@@ -6,8 +6,8 @@ return [
 	'title' => 'Sections',
 	'help' => [
 		'index' => '',
-		'create' => '',
-		'edit' => '',
+		'create' => 'The Open checkbox will determine whether a user may enroll.',
+		'edit' => 'The Open checkbox will determine whether a user may enroll.',
 	],
 	'fields' => [
 		'title' => 'Title',
@@ -20,5 +20,6 @@ return [
 		'notes' => 'Notes',
 		'price' => 'Member Tuition',
 		'register_url' => 'Register URL',
+		'open' => 'Open?',
 	],
 ];	

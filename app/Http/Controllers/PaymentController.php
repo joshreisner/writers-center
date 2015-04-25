@@ -4,15 +4,19 @@ use App;
 use Auth;
 use Input;
 use Exception;
+use LeftRight\Center\Models\Course;
 use LeftRight\Center\Models\Donation;
+use LeftRight\Center\Models\Event;
+use LeftRight\Center\Models\Policy;
+use LeftRight\Center\Models\Publication;
+use LeftRight\Center\Models\Section;
 use LeftRight\Center\Models\User;
 use Mail;
-use Redirect;
+use Session;
 use Stripe\Stripe;
 use Stripe\Charge as Stripe_Charge;
 use Stripe\Customer as Stripe_Customer;
 use Validator;
-use View;
 
 class PaymentController extends Controller {
 
@@ -20,21 +24,23 @@ class PaymentController extends Controller {
 	 * show checkout page
 	 */
 	public function checkout_index() {
-		return View::make('checkout')->with('class', 'checkout')->with('policies', Policy::get());
+		return view('checkout', [
+			'policies' => Policy::get()
+		]);
 	}
 
 	/**
 	 * handle checkout form submit
 	 */
 	public function checkout_submit() {
-		return View::make('checkout');
+		return view('checkout');
 	}
 
 	/**
 	 * show support page
 	 */
 	public function support_index() {
-		return View::make('support', [
+		return view('support', [
 			'preset_amounts' => [50, 100, 200, 500, 1000],
 			'title' => 'Support the Center',
 		]);
@@ -61,7 +67,7 @@ class PaymentController extends Controller {
 		if ($validator->fails()) {
 			$messages = $validator->messages();
 			dd($messages->all());
-			return Redirect::action('PaymentController@support_index')
+			return redirect()->action('PaymentController@support_index')
 				->withInput()
 				->withErrors($validator)
 				->with('error', 'The form did not go through. Please correct the highlighted errors before continuing.');
@@ -159,12 +165,16 @@ class PaymentController extends Controller {
 		}
 
 		# Return from whence you came (the publication page)
-		return Redirect::to($course->url)->with('message', 'Course added to cart.');
+		return redirect()->to($course->url)->with('message', 'Course added to cart.');
 	}
 
 	public static function has_course($section_id) {
 		$courses = Session::get('cart.courses', []);
 		return isset($courses[$section_id]);
+	}
+
+	public static function has_membership() {
+		return Session::has('cart.membership');
 	}
 
 	public function add_event($event_id) {
@@ -187,7 +197,7 @@ class PaymentController extends Controller {
 		}
 
 		# Return from whence you came (the publication page)
-		return Redirect::to($event->url)->with('message', 'Event ticket added to cart.');
+		return redirect()->to($event->url)->with('message', 'Event ticket added to cart.');
 	}
 
 	public function add_publication($publication_id) {
@@ -210,7 +220,31 @@ class PaymentController extends Controller {
 		}
 
 		# Return from whence you came (the publication page)
-		return Redirect::to($publication->url)->with('message', 'Publication added to cart.');
+		return redirect()->to($publication->url)->with('message', 'Publication added to cart.');
+	}
+	
+	public function add_membership() {
+		Session::put('cart.membership', ['membership'=>[
+			'name' => 'Annual Membership',
+			'quantity' => 1,
+			'id' => null,
+			'url' => null,
+			'price' => 45,
+		]]);
+		return redirect()->back()->with('message', 'Membership added to cart.');
+	}
+	
+	public function remove_item($type, $id=null) {
+		if ($type == 'course') {
+			
+		} elseif ($type == 'event') {
+			
+		} elseif ($type == 'publication') {
+			
+		} elseif ($type == 'membership') {
+			
+		}
+		return redirect()->back()->with('message', 'Item removed from cart.');
 	}
 
 }

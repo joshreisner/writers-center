@@ -8,7 +8,7 @@ $("form#checkout table input").change(function(){
 		var row_total = quantity * price;
 
 		//set row total
-		$(this).find("td.total").html(row_total);
+		$(this).find("td.total").html(format_money(row_total));
 
 		//increment main total
 		total += row_total;
@@ -22,11 +22,15 @@ $("form#checkout table input").change(function(){
 
 	//update footer totals
 	var shipping = publications * 2;
-	$("form#checkout tfoot tr.subtotal td.value").html(total);
-	$("form#checkout tfoot tr.shipping td.value").html(shipping);
-	$("form#checkout tfoot tr.total td.value").html(total + shipping);
+	$("form#checkout tfoot tr.subtotal td.value").html(format_money(total));
+	$("form#checkout tfoot tr.shipping td.value").html(format_money(shipping));
+	$("form#checkout tfoot tr.total td.value").html(format_money(total + shipping));
 
 	//save the new value to the session
 
 
 });
+
+function format_money(number) {
+	return '$' + parseFloat(Math.round(number * 100) / 100).toFixed(2);
+}

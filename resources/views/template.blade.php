@@ -10,8 +10,8 @@
 	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/icons/favicon-114.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/icons/favicon-72.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/icons/favicon-144.png" type="image/png">
-		<link rel="stylesheet" href="//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/{{ $_SERVER['SERVER_NAME'] }}/45521.css">
-		<link rel="stylesheet" href="/assets/css/main.min.css">
+		{!! HTML::style('//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/' . env('SERVER_NAME') . '/45521.css') !!}
+		{!! HTML::style('/assets/css/main.min.css') !!}
 	</head>
 	<body class="{{ $body_class or '' }}">
 		<div class="background"></div>

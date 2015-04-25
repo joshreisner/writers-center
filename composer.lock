@@ -1344,12 +1344,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/left-right/center.git",
-                "reference": "da8cf9b443776e1ed15d66174ea4ff3a02a35111"
+                "reference": "e427910db086e94a1b61534b4b460f45b2cdee21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/left-right/center/zipball/da8cf9b443776e1ed15d66174ea4ff3a02a35111",
-                "reference": "da8cf9b443776e1ed15d66174ea4ff3a02a35111",
+                "url": "https://api.github.com/repos/left-right/center/zipball/e427910db086e94a1b61534b4b460f45b2cdee21",
+                "reference": "e427910db086e94a1b61534b4b460f45b2cdee21",
                 "shasum": ""
             },
             "require": {
@@ -1385,7 +1385,7 @@
                 "laravel",
                 "laravel5"
             ],
-            "time": "2015-04-25 07:03:33"
+            "time": "2015-04-25 22:47:42"
         },
         {
             "name": "maatwebsite/excel",

@@ -36,9 +36,8 @@ Route::group(['before' => 'public'], function()
 			}
 		}
 
-		return View::make('home', array(
+		return view('home', array(
 			'items'				=>$carouselItems,
-			'class'				=>'home',
 			'event_dates'		=>DB::table('events')->distinct()->lists(DB::raw('DATE_FORMAT(start, "%Y-%m-%d")')),
 			'start'				=>strtotime('this week', time()),
 			'instructor_select'	=>CourseController::getInstructorList(),
@@ -66,12 +65,8 @@ Route::group(['before' => 'public'], function()
 	Route::get('/shp/{slug}', 					'PublicationController@show');
 
 	# Contact
-	Route::get('/contact', function()
-	{
-		return View::make('contact', array(
-			'title'=>'Contact',
-			'class'=>'contact',
-		));
+	Route::get('/contact', function(){
+		return view('contact', ['title'=>'Contact']);
 	});
 
 	# Support the Center
@@ -79,10 +74,12 @@ Route::group(['before' => 'public'], function()
 	Route::post('/support', 					'PaymentController@support_submit');
 
 	if (!App::environment('production')) {
-		Route::group(array('prefix'=>'cart'), function(){
+		Route::group(['prefix'=>'cart'], function(){
 			Route::get('/add/course/{id}',			'PaymentController@add_course');
 			Route::get('/add/event/{id}',			'PaymentController@add_event');
 			Route::get('/add/publication/{id}',		'PaymentController@add_publication');
+			Route::get('/add/membership',			'PaymentController@add_membership');
+			Route::get('/remove/{type}/{id?}',		'PaymentController@remove_item');
 		});
 
 		Route::get('/checkout',						'PaymentController@checkout_index');
@@ -183,19 +180,10 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 		trigger_error('Test error');
 	});
 
-	Route::get('lists', function(){
-		$years = Post::orderBy('publish_date', 'desc')
-			->distinct()
-			->lists(DB::raw('publish_date', 'id'));
-		dd($years);
-		dd(DB::getQueryLog());
-
-	});
-
 	Route::get('notifications', function(){
 		Session::flash('error', 'Test error!!!');
 		//Session::flash('message', 'Test message.');
-		return View::make('page');
+		return view('page');
 	});
 	
 	Route::get('permissions', function(){
@@ -219,7 +207,7 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 			$transaction = new Transaction;
 			$transaction->amount = 100000;
 			$transaction->confirmation = 'XYZ123';
-			return View::make('emails.support', [
+			return view('emails.support', [
 				'transaction'=>$transaction,
 				'subject'=>'Thank you for your support!',
 			]);
@@ -230,7 +218,7 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 			$transaction = new Transaction;
 			$transaction->amount = 100000;
 			$transaction->confirmation = 'XYZ123';
-			return View::make('emails.notify', [
+			return view('emails.notify', [
 				'transaction'=>$transaction,
 				'subject'=>'Website Transaction',
 				'type'=>'Support the Center',
@@ -243,7 +231,7 @@ Route::group(['before' => 'auth', 'prefix'=>'test'], function()
 			$transaction = new Transaction;
 			$transaction->amount = 100000;
 			$transaction->confirmation = 'XYZ123';
-			return View::make('emails.receipt', [
+			return view('emails.receipt', [
 				'transaction'=>$transaction,
 				'subject'=>'Thank you for your support!',
 			]);
@@ -274,6 +262,8 @@ View::composer('template', function($view)
 	$body_class = null;
 	if (Request::is('/')) {
 		$body_class = 'home';	
+	} elseif (Request::is('checkout')) {
+		$body_class = 'checkout';	
 	} else {
 		foreach ($sections as $section=>$name) {
 			if (Request::is($section . '*')) {

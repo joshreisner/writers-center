@@ -13,7 +13,7 @@ return [
 		'instructors' => 'Instructors',
 		'description' => 'Description',
 		'tuition' => 'Member Tuition',
-		'tutorial' => 'Tutorial Available?',
+		'tutorial_available' => 'Tutorial?',
 		'slug' => 'Location',
 		'updated_at' => 'Updated',
 	],

@@ -3,7 +3,7 @@
 return [
 	'keep_clean',
 	'list_grouping' => 'Store',
-	'list' => ['user_id', 'publication_id', 'created_at', 'amount'],
+	'list' => ['user_id', 'publication_id', 'created_at', 'shipped_date', 'amount'],
 	'order_by' => ['created_at' => 'desc'],
 	'fields' => [
 		'user_id' => 'user required',
@@ -20,4 +20,5 @@ return [
 		'updated_at',
 		'updated_by',
 	],
+	'group_by' => '\App\Http\Controllers\CenterController::groupPurchases',
 ];

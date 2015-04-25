@@ -6,21 +6,29 @@ body.home
 		visibility: hidden
 
 		button
+			position: absolute
+			top: 50%
 			height: 0
 			width: 0
-			margin-top: -40px
+			margin: -40px 0 0
 			border: 40px solid transparent
 			opacity: .9
+			line-height: 0
+			font-size: 0
+			padding: 0
+			background-color: transparent
 			&.slick-prev
 				left: 0
-				border-right: 40px solid white
+				border-right-color: white
 			&.slick-next
 				right: 0
-				border-left: 40px solid white
+				border-left-color: white
 			&::before
 				content: ''
 			&:hover
 				opacity: 1
+			&:focus
+				outline: 0
 
 		.item
 			color: inherit

@@ -34,6 +34,16 @@ gulp.task('center-css', function(){
 	    .pipe(notify('center CSS compiled'));
 });
 
+gulp.task('center-js', function(){
+	return gulp.src(assetsDir + '/center.js')
+		.pipe(include())
+		.pipe(uglify())
+		.on('error', handleJsError)		
+        .pipe(rename({suffix: '.min'}))
+		.pipe(gulp.dest(outputDir + '/js'))
+	    .pipe(notify('center JS compiled'));
+});
+
 gulp.task('main-js', function(){
 	return gulp.src(assetsDir + '/js/main.js')
 		.pipe(include())
@@ -56,11 +66,12 @@ gulp.task('lib-js', function(){
 
 gulp.task('watch', function(){
 	gulp.watch(assetsDir + '/**/*.sass', ['main-css', 'center-css']);
+	gulp.watch(assetsDir + '/center.js', ['center-js']);
 	gulp.watch(assetsDir + '/lib.js', ['lib-js']);
 	gulp.watch(assetsDir + '/**/*.js', ['main-js']);
 });
 
-gulp.task('default', ['main-css', 'center-css', 'main-js', 'lib-js', 'watch']);
+gulp.task('default', ['main-css', 'center-css', 'main-js', 'center-js', 'lib-js', 'watch']);
 
 function handleJsError(err, line) {
 	gulp.src(assetsDir + '/main.js').pipe(notify(err + ' ' + line));

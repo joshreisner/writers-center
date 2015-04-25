@@ -2,11 +2,10 @@
 
 use Auth;
 use DateTime;
+use Input;
 use LeftRight\Center\Models\Message;
-use Redirect;
-use Request;
-use Response;
-use View;
+use LeftRight\Center\Models\User;
+use Mail;
 
 class MyController extends Controller {
 
@@ -14,10 +13,10 @@ class MyController extends Controller {
 	public function index() {
 
 		# Guest page
-		if (Auth::guest()) return View::make('my.guest');
+		if (Auth::guest()) return view('my.guest');
 
 		# Logged in page
-		return View::make('my.index', [
+		return view('my.index', [
 			'targets'=>[
 				'Groups'=>[
 					'everyone'=>'Everyone',
@@ -38,40 +37,51 @@ class MyController extends Controller {
 
 	# Log in via post
 	public function login() {
-		if (Auth::attempt(['email'=>Request::input('email'), 'password'=>Request::input('password')], true)) {
+		if (Auth::attempt(['email'=>Input::get('email'), 'password'=>Input::get('password')], true)) {
 			$user = Auth::user();
 			$user->last_login = new DateTime;
 			$user->save();
-			return Response::json(['status'=>'success', 'name'=>$user->name]);
+			return response()->json(['status'=>'success', 'name'=>$user->name]);
 		} else {
-			return Response::json(['status'=>'error', 'message'=>'That username / password combination was not found.']);
+			return response()->json(['status'=>'error', 'message'=>'That username / password combination was not found.']);
 		}		
 	}
 
 	# Reset your password
 	public function reset() {
-		return Response::json(['message'=>'This feature has not yet been implemented, sorry!']);
+		if ($user = User::where('email', Input::get('email'))->first()) {
+			//send eamil		
+			return response()->json([
+				'status' => 'success', 
+				'message' => 'An email was just sent with reset instructions.',
+			]);
+		} else {
+			return response()->json([
+				'status' => 'error', 
+				'message' => 'That email address was not found.'
+			]);
+		}
 	}
 
 	# Log out
 	public function logout() {
 		Auth::logout();
-		return Redirect::back()->with('message', 'You are now logged out.');		
+		return redirect()->back()->with('message', 'You are now logged out.');		
 	}
 
 	# Show settings page
 	public function settings() {
-		return View::make('my.settings');
+		return view('my.settings');
 	}
 
 	# Add new post
 	public function message() {
 		$message = new Message;
-		$message->content = Request::input('content');
+		$message->content = Input::get('content');
 		$message->save();
 
 		# Get all posts again, return html
-		return View::make('my.messages', [
+		return view('my.messages', [
 			'messages'=>Message::with(['creator', 'replies'=>function($query){
 					$query->orderBy('created_at', 'asc');
 				}])
@@ -83,12 +93,12 @@ class MyController extends Controller {
 	# Add new comment
 	public function reply($message_id) {
 		$reply = new Reply;
-		$reply->message_id = Request::input('message_id');
-		$reply->content = Request::input('content');
+		$reply->message_id = Input::get('message_id');
+		$reply->content = Input::get('content');
 		$reply->save();
 
 		# Get all replies again, return html
-		return View::make('my.replies', [
+		return view('my.replies', [
 			'message'=>Message::with(['creator', 'replies'=>function($query){
 					$query->orderBy('created_at', 'asc');
 				}])
@@ -98,14 +108,14 @@ class MyController extends Controller {
 
 	# Show single post
 	public function show($message_id) {
-		return View::make('my.show', ['message'=>Message::find($message_id)]);
+		return view('my.show', ['message'=>Message::find($message_id)]);
 	}
 
 	# Inbound message
 	public function inbound_everyone() {
 
 		//http://help.mandrill.com/entries/22092308-What-is-the-format-of-inbound-email-webhooks-
-		$inbound = json_decode(Request::input('mandrill_events'))[0];
+		$inbound = json_decode(Input::get('mandrill_events'))[0];
 
 		# Log in user (is this really safe?) todo check if user is active
 		if ($user = User::where('email', $inbound->msg->from_email)->first()) {

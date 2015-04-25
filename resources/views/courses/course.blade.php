@@ -47,7 +47,7 @@
 					<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
 				@elseif ($section->open)
 					<div class="register">
-						@if (PaymentController::has_course($section->id))
+						@if (App\Http\Controllers\PaymentController::has_course($section->id))
 						<a class="btn btn-disabled">Course Added</a>
 						@else
 						<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>

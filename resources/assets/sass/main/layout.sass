@@ -68,15 +68,22 @@ body.scrolled .background
 
 .alert
 	border: 0
+	margin: $margin 0
 	&.alert-info
 		background-color: $default-light
 		color: $default
+		a.alert-link
+			font-family: $font-bold
+			color: $default
+			text-decoration: underline
 	&.alert-warning
 		background-color: $default
 		color: white
-		a
+		a.alert-link
 			color: white
 			text-decoration: underline
+	& > p
+		margin: 0 0 $margin
 
 
 .page
@@ -168,6 +175,11 @@ body.scrolled .background
 			ul
 				list-style-type: none
 				padding: $margin 0
+				margin-bottom: 0
+				li
+					margin-top: $margin
+					&:first-child
+						margin-top: 0
 
 		.wallpaper
 			position: relative
@@ -229,7 +241,7 @@ body.scrolled .background
 		border: 0
 		//border: $border-width solid $default
 	.alert
-		margin: -20px -20px 20px -20px
+		margin: -20px -15px 20px
 		padding: 15px 20px
 		a
 			text-decoration: underline
@@ -238,6 +250,8 @@ body.scrolled .background
 
 .modal-backdrop
 	background-color: #fff
+	opacity: 0.8%
+	filter: alpha(opacity=80)
 
 @media (min-width: $screen-sm)
 
