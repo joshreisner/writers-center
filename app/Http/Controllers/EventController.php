@@ -4,8 +4,6 @@ use DateTime;
 use DB;
 use LeftRight\Center\Models\Event;
 use Request;
-use URL;
-use View;
 
 class EventController extends Controller {
 
@@ -24,7 +22,7 @@ class EventController extends Controller {
 			$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
 		}
 
-		return View::make('events.index', array(
+		return view('events.index', array(
 			'title'=>'Events',
 			'years'=>Event::orderBy('start', 'desc')->select(DB::raw('YEAR(start) as start'))->distinct()->lists('start', 'start'),
 			'months'=>self::groupByMonth($events),
@@ -40,9 +38,9 @@ class EventController extends Controller {
 			->first();
 
 		//404
-		if (!$event) return Redirect::action('EventController@index');
+		if (!$event) return redirect()->action('EventController@index');
 
-		return View::make('events.event', array(
+		return view('events.event', array(
 			'title'=>strip_tags($event->title),
 			'event'=>$event,
 			'next'=>Event::where('start', '>', new DateTime)->orderBy('start', 'asc')->first(),
@@ -53,7 +51,7 @@ class EventController extends Controller {
 	 * Get a URL to the show() method
 	 */
 	public static function url(Event $event) {
-		return URL::action('EventController@show', $event->slug);
+		return action('EventController@show', $event->slug);
 	}
 
 	/**
@@ -84,7 +82,7 @@ class EventController extends Controller {
 		$events = App\Http\Controllers\Controller::highlightResults($events, array('title', 'description'));
 
 		# Return HTML view
-		return View::make('events.events', array('months'=>self::groupByMonth($events)));
+		return view('events.events', array('months'=>self::groupByMonth($events)));
 	}
 
 	private function groupByMonth($events) {

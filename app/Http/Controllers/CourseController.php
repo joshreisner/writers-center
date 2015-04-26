@@ -8,8 +8,6 @@ use LeftRight\Center\Models\Genre;
 use LeftRight\Center\Models\Instructor;
 use LeftRight\Center\Models\Section;
 use Request;
-use URL;
-use View;
 
 class CourseController extends Controller {
 
@@ -18,7 +16,7 @@ class CourseController extends Controller {
 	 */
 	public function index() {
 
-		return View::make('courses.index', array(
+		return view('courses.index', array(
 			'title'				=>'Courses',
 			'genres'			=>self::searchCoursesByGenre(),
 			'genre_select'		=>self::getGenreList(),
@@ -39,7 +37,7 @@ class CourseController extends Controller {
 		}))->where('slug', $slug)->first();
 		
 		//404
-		if (!$course) return Redirect::action('CourseController@index');
+		if (!$course) return redirect()->action('CourseController@index');
 
 		//past sections
 		$past_sections = Section::where('course_id', $course->id)
@@ -60,7 +58,7 @@ class CourseController extends Controller {
 				->orderBy(DB::raw('RAND()'))
 				->first();
 
-		return View::make('courses.course', array(
+		return view('courses.course', array(
 			'title'=>strip_tags($course->title),
 			'course'=>$course,
 			'related'=>$related,
@@ -72,7 +70,7 @@ class CourseController extends Controller {
 	 * Get a URL to the show() method
 	 */
 	public static function url(Course $course) {
-		return URL::action('CourseController@show', $course->slug);
+		return action('CourseController@show', $course->slug);
 	}
 
 	/**
@@ -81,7 +79,7 @@ class CourseController extends Controller {
 	public function ajax() {
 
 		# Return
-		return View::make('courses.genres', array('genres'=>self::searchCoursesByGenre()));
+		return view('courses.genres', array('genres'=>self::searchCoursesByGenre()));
 	}
 
 	/**

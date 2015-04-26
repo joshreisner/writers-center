@@ -6,7 +6,6 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use LeftRight\Center\Controllers\LoginController;
 use Request;
-use URL;
 
 abstract class Controller extends BaseController {
 
@@ -37,7 +36,7 @@ abstract class Controller extends BaseController {
 	 */
 	public static function editLink($row) {
 		if (!LoginController::checkPermission($row->table)) return false;
-		return link_to(URL::action('\LeftRight\Center\Controllers\RowController@edit', [$row->table, $row->id]), '', ['class'=>'edit fa fa-edit']);
+		return link_to_action('\LeftRight\Center\Controllers\RowController@edit', '', [$row->table, $row->id], ['class'=>'edit fa fa-edit']);
 	}
 
 	/**

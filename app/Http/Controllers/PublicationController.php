@@ -3,8 +3,6 @@
 use DB;
 use LeftRight\Center\Models\Publication;
 use LeftRight\Center\Models\PublicationType;
-use URL;
-use View;
 
 class PublicationController extends Controller {
 	
@@ -22,7 +20,7 @@ class PublicationController extends Controller {
 		$years = Publication::orderBy('publish_date', 'desc')->select(DB::raw('YEAR(publish_date) AS publish_date'))->distinct()->lists('publish_date', 'publish_date');
 		$types = PublicationType::orderBy('title')->lists('title', 'id');
 
-		return View::make('publications.index', compact('title', 'publications', 'years', 'types'));		
+		return view('publications.index', compact('title', 'publications', 'years', 'types'));		
 	}
 
 	/**
@@ -32,9 +30,9 @@ class PublicationController extends Controller {
 		$publication = Publication::where('slug', $slug)->first();
 		
 		//404
-		if (!$publication) return Redirect::action('PublicationController@index');
+		if (!$publication) return redirect()->action('PublicationController@index');
 
-		return View::make('publications.publication', [
+		return view('publications.publication', [
 			'title' => strip_tags($publication->title),
 			'types' => PublicationType::orderBy('title')->get(),
 			'publication' => $publication,
@@ -46,7 +44,7 @@ class PublicationController extends Controller {
 	 * Get a URL to the show() method
 	 */
 	public static function url(Publication $publication) {
-		return URL::action('PublicationController@show', $publication->slug);
+		return action('PublicationController@show', $publication->slug);
 	}
 
 	/**
@@ -79,7 +77,7 @@ class PublicationController extends Controller {
 		}
 
 		# Return HTML view
-		return View::make('publications.publications', array('publications'=>$publications));
+		return view('publications.publications', array('publications'=>$publications));
 	}
 
 }

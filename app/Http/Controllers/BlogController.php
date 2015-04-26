@@ -3,8 +3,6 @@
 use DB;
 use LeftRight\Center\Models\Post;
 use LeftRight\Center\Models\Tag;
-use URL;
-use View;
 
 class BlogController extends Controller {
 
@@ -25,7 +23,7 @@ class BlogController extends Controller {
 
 		$tags = Tag::orderBy('title')->get();
 		
-		return View::make('blog.index', compact('title', 'years', 'posts', 'tags'));
+		return view('blog.index', compact('title', 'years', 'posts', 'tags'));
 	}
 
 	/**
@@ -35,9 +33,9 @@ class BlogController extends Controller {
 		$post = Post::where('slug', $slug)->first();
 
 		//404
-		if (!$post) return Redirect::action('BlogController@index');
+		if (!$post) return redirect()->action('BlogController@index');
 
-		return View::make('blog.post', array(
+		return view('blog.post', array(
 			'title'=>strip_tags($post->title),
 			'post'=>$post,
 			'related'=>Post::where('id', '<>', $post->id)->orderBy('publish_date', 'desc')->take(5)->get(),
@@ -49,7 +47,7 @@ class BlogController extends Controller {
 	 * Get a URL to the show() method
 	 */
 	public static function url(Post $post) {
-		return URL::action('BlogController@show', $post->slug);
+		return action('BlogController@show', $post->slug);
 	}
 
 	/**
@@ -88,7 +86,7 @@ class BlogController extends Controller {
 		}
 
 		# Return HTML view
-		return View::make('blog.posts', array('posts'=>$posts));
+		return view('blog.posts', array('posts'=>$posts));
 	}
 
 }
