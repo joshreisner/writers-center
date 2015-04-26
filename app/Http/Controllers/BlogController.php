@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use DB;
+use Input;
 use LeftRight\Center\Models\Post;
 use LeftRight\Center\Models\Tag;
 
@@ -58,27 +59,27 @@ class BlogController extends Controller {
 		# Construct chained Eloquent statement based on input
 		$posts = Post::orderBy('publish_date', 'desc');
 
-		if (Request::has('search')) {
+		if (Input::has('search')) {
 			$posts
-				->where('title', 'like', '%' . Request::input('search') . '%')
-				->orWhere('excerpt', 'like', '%' . Request::input('search') . '%')
-				->orWhere('content', 'like', '%' . Request::input('search') . '%');
+				->where('title', 'like', '%' . Input::get('search') . '%')
+				->orWhere('excerpt', 'like', '%' . Input::get('search') . '%')
+				->orWhere('content', 'like', '%' . Input::get('search') . '%');
 		}
 		
-		if (Request::has('year')) {
-			$posts->where(DB::raw('YEAR(publish_date)'), Request::input('year'));
+		if (Input::has('year')) {
+			$posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
 		}
 
-		if (Request::has('tags')) {
+		if (Input::has('tags')) {
 		    $posts->whereHas('tags', function($query) {
-				$query->whereIn('id', Request::input('tags'));
+				$query->whereIn('id', Input::get('tags'));
 			});
 		}
 
 		$posts = $posts->take(10)->get();
 
 		# Highlight search terms
-		$posts = App\Http\Controllers\Controller::highlightResults($posts, array('title', 'excerpt'));
+		$posts = self::highlightResults($posts, ['title', 'excerpt']);
 
 		# Set URLs
 		foreach ($posts as $post) {
@@ -86,7 +87,7 @@ class BlogController extends Controller {
 		}
 
 		# Return HTML view
-		return view('blog.posts', array('posts'=>$posts));
+		return view('blog.posts', compact('posts'));
 	}
 
 }

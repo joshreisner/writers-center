@@ -2,8 +2,8 @@
 
 use DateTime;
 use DB;
+use Input;
 use LeftRight\Center\Models\Event;
-use Request;
 
 class EventController extends Controller {
 
@@ -13,38 +13,37 @@ class EventController extends Controller {
 	public function index() {
 
 		# Build array of months
-		if (Request::has('date')) {
-			list($year, $month, $day) = explode('-', Request::input('date'));
-			$events = Event::whereRaw('MONTH(start) = ?', array($month))
-						->whereRaw('DAY(start) = ?', array($day))
-						->whereRaw('YEAR(start) = ?', array($year))->get();
+		if (Input::has('date')) {
+			list($year, $month, $day) = explode('-', Input::get('date'));
+			$events = Event::whereRaw('MONTH(start) = ?', [$month])
+						->whereRaw('DAY(start) = ?', [$day])
+						->whereRaw('YEAR(start) = ?', [$year])->get();
 		} else {
 			$events = Event::where('end', '>', new DateTime())->orderBy('start', 'asc')->get();
 		}
 
-		return view('events.index', array(
-			'title'=>'Events',
-			'years'=>Event::orderBy('start', 'desc')->select(DB::raw('YEAR(start) as start'))->distinct()->lists('start', 'start'),
-			'months'=>self::groupByMonth($events),
-		));
+		return view('events.index', [
+			'title' => 'Events',
+			'years' => Event::orderBy('start', 'desc')->select(DB::raw('YEAR(start) as start'))->distinct()->lists('start', 'start'),
+			'months' => self::groupByMonth($events),
+		]);
 	}
 
 	/**
 	 * show individual event
 	 */
 	public function show($slug) {
-		$event = Event::
-			where('slug', $slug)
-			->first();
 
 		//404
-		if (!$event) return redirect()->action('EventController@index');
+		if (!$event = Event::where('slug', $slug)->first()) {
+			return redirect()->action('EventController@index');
+		}
 
-		return view('events.event', array(
-			'title'=>strip_tags($event->title),
-			'event'=>$event,
-			'next'=>Event::where('start', '>', new DateTime)->orderBy('start', 'asc')->first(),
-		));
+		return view('events.event', [
+			'title' => strip_tags($event->title),
+			'event' => $event,
+			'next' => Event::where('start', '>', time())->orderBy('start', 'asc')->first(),
+		]);
 	}
 
 	/**
@@ -61,28 +60,28 @@ class EventController extends Controller {
 
 		# Construct chained Eloquent statement based on input
 		$events = Event::orderBy('start', 'asc');
-		if (Request::has('search') or Request::has('year')) {
+		if (Input::has('search') || Input::has('year')) {
 
-			if (Request::has('search')) {
+			if (Input::has('search')) {
 				$events
-					->where('title', 'like', '%' . Request::input('search') . '%')
-					->orWhere('description', 'like', '%' . Request::input('search') . '%');
+					->where('title', 'like', '%' . Input::get('search') . '%')
+					->orWhere('description', 'like', '%' . Input::get('search') . '%');
 			}
 			
-			if (Request::has('year')) {
-				$events->where(DB::raw('YEAR(start)'), Request::input('year'));
+			if (Input::has('year')) {
+				$events->where(DB::raw('YEAR(start)'), Input::get('year'));
 			}			
 		} else {
-			$events->where('end', '>', new DateTime());
+			$events->where('end', '>', time());
 		}
 
 		$events = $events->get();
 
 		# Highlight search terms
-		$events = App\Http\Controllers\Controller::highlightResults($events, array('title', 'description'));
+		$events = self::highlightResults($events, array('title', 'description'));
 
 		# Return HTML view
-		return view('events.events', array('months'=>self::groupByMonth($events)));
+		return view('events.events', ['months'=>self::groupByMonth($events)]);
 	}
 
 	private function groupByMonth($events) {

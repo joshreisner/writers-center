@@ -369,6 +369,6 @@ Form::macro('chkbox', function($name, $value)
 {
 	return '<div class="chkbox">' .
 			Form::checkbox($name, $value) . 
-			'<i class="dashicons dashicons-no"></i>
+			'<i class="fa fa-times"></i>
 		</div>';
 });

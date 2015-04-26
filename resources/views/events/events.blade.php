@@ -6,7 +6,7 @@
 		<ul class="events">
 		@foreach ($events as $event)
 			<li>
-				<a class="title" href="{{ $event->url }}">{{ $event->title }}</a>
+				<a class="title" href="{{ $event->url }}">{!! $event->title !!}</a>
 				@if ($event->start->format('m/d') == $event->end->format('m/d'))
 					{{-- single day --}}
 					<em>{{ $event->start->format('D') }} {{ $event->start->format('m/d') }}, {{ $event->start->format('g:i a') }}</em>
@@ -14,7 +14,7 @@
 					{{-- multi day --}}
 					<em>{{ $event->start->format('m/d') }} through {{ $event->end->format('m/d') }}</em>
 				@endif
-				<p>{{ $event->excerpt }}</p>
+				<p>{!! $event->excerpt !!}</p>
 			</li>
 		@endforeach
 		</ul>
