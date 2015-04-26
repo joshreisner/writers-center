@@ -1,4 +1,4 @@
-@if (Auth::guest())
+@if (Auth::guest() && !App::environment('production'))
 
 <div class="modal fade" id="login">
 	<div class="modal-dialog">
