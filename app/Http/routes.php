@@ -73,6 +73,11 @@ Route::group(['before' => 'public'], function()
 	Route::get('/support',						'PaymentController@support_index');
 	Route::post('/support', 					'PaymentController@support_submit');
 
+	# Robots
+	Route::get('/robots.txt', function(){
+		return response()->view('robots')->header('Content-Type', 'text/plain');
+	});
+
 	if (!App::environment('production')) {
 		Route::group(['prefix'=>'cart'], function(){
 			Route::get('/add/course/{id}',			'PaymentController@add_course');
