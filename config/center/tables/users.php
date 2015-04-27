@@ -25,7 +25,7 @@ return [
 			'type' => 'string',
 			'length' => 5,
 		],
-		'phone' => 'string',
+		'phone' => 'phone',
 		'membership_expires' => 'date',
 		'permissions', 
 		'updated_at',
