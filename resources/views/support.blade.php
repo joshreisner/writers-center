@@ -27,6 +27,16 @@
 				</div>
 			</div>
 
+			<div class="row form-group">
+				<div class="col-sm-12"><h3>Notes (optional):</h3></div>
+			</div>
+		
+			<div class="row form-group">
+				<div class="col-sm-12 @if ($errors->has('notes')) error @endif ">
+					{!! Form::text('notes', null, ['class'=>'form-control']) !!}
+				</div>
+			</div>
+
 			@include('partials.payment')
 
 			<div class="row form-group">

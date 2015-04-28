@@ -127,6 +127,7 @@ class PaymentController extends Controller {
 		$donation = $user->donations()->save(new Donation([
 			'amount' => $charge->amount / 100,
 			'charge_id' => $charge->id,
+			'notes' => Input::has('notes') ? Input::get('notes') : null,
 		]));
 
 		//send out confirmation to user

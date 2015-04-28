@@ -14,6 +14,7 @@ return [
 	'fields' => [
 		'user_id' => 'User',
 		'amount' => 'Amount',
+		'notes' => 'Notes',
 		'created_at' => 'Created',
 		'charge_id' => 'Charge',
 	],
