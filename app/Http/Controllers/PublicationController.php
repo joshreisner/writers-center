@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use DB;
+use Input;
 use LeftRight\Center\Models\Publication;
 use LeftRight\Center\Models\PublicationType;
 
@@ -55,18 +56,18 @@ class PublicationController extends Controller {
 		# Construct chained Eloquent statement based on input
 		$publications = Publication::orderBy('publish_date', 'desc');
 
-		if (Request::has('search')) {
+		if (Input::has('search')) {
 			$publications
-				->where('title', 'like', '%' . Request::input('search') . '%')
-				->orWhere('description', 'like', '%' . Request::input('search') . '%');
+				->where('title', 'like', '%' . Input::get('search') . '%')
+				->orWhere('description', 'like', '%' . Input::get('search') . '%');
 		}
 		
-		if (Request::has('year')) {
-			$publications->where(DB::raw('YEAR(publish_date)'), Request::input('year'));
+		if (Input::has('year')) {
+			$publications->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
 		}
 
-		if (Request::has('type_id')) {
-			$publications->where('type_id', Request::input('type_id'));
+		if (Input::has('type_id')) {
+			$publications->where('type_id', Input::get('type_id'));
 		}
 
 		$publications = $publications->get();
