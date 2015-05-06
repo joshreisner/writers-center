@@ -58,15 +58,12 @@ class PaymentController extends Controller {
 			'email' => 'required|email',
 			'address' => 'required',
 			'city' => 'required',
-			'phone' => 'numeric',
 			'state' => 'required',
 			'zip' => 'required|numeric',
 			//'stripeToken' => 'required',
 		]);
 
 		if ($validator->fails()) {
-			$messages = $validator->messages();
-			dd($messages->all());
 			return redirect()->action('PaymentController@support_index')
 				->withInput()
 				->withErrors($validator)
@@ -86,7 +83,10 @@ class PaymentController extends Controller {
 		$user->address = Input::get('address');
 		$user->city = Input::get('city');
 		$user->state = Input::get('state');
-		if (Input::has('phone')) $user->phone = Input::get('phone');
+		if (Input::has('phone')) {
+			$user->phone = preg_replace('/\D/', '', Input::get('phone'));
+			if (strlen($user->phone) != 10) $user->phone = null;
+		}
 		$user->zip = Input::get('zip');
 		
 		//stripe customer key different depending on which environment you're in

@@ -2,10 +2,12 @@
 
 use Auth;
 use DateTime;
+use Hash;
 use Input;
 use LeftRight\Center\Models\Message;
 use LeftRight\Center\Models\User;
 use Mail;
+use Validator;
 
 class MyController extends Controller {
 
@@ -71,7 +73,51 @@ class MyController extends Controller {
 
 	# Show settings page
 	public function settings() {
-		return view('my.settings');
+
+		# Guest page
+		if (Auth::guest()) return view('my.guest');
+
+		return view('my.settings', ['user' => User::find(Auth::id())]);
+	}
+
+	# Save changes from settings page
+	public function saveSettings() {
+
+		//validate form
+		$validator = Validator::make(Input::all(), [
+			'name' => 'required',
+			'email' => 'required|email',
+			'address' => 'required',
+			'city' => 'required',
+			'state' => 'required',
+			'zip' => 'required|numeric',
+			'password' => 'min:8|confirmed',
+		]);
+
+		if ($validator->fails()) {
+			return redirect()->action('PaymentController@support_index')
+				->withInput()
+				->withErrors($validator)
+				->with('error', 'The form did not go through. Please correct the highlighted errors before continuing.');
+		}
+		
+		$user = User::find(Auth::id());
+		$user->name = Input::get('name');
+		$user->email = Input::get('email');
+		$user->address = Input::get('address');
+		$user->city = Input::get('city');
+		$user->state = Input::get('state');
+		$user->zip = Input::get('zip');
+		if (Input::has('phone')) {
+			$user->phone = preg_replace('/\D/', '', Input::get('phone'));
+			if (strlen($user->phone) != 10) $user->phone = null;
+		}
+		if (Input::has('password')) {
+			$user->password = Hash::make(Input::get('password'));
+		}
+		$user->save();
+
+		return redirect()->action('MyController@settings')->with('message', 'Your settings were successfully updated.');
 	}
 
 	# Add new post

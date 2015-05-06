@@ -39,7 +39,7 @@
 			{!! Form::text('address', @Auth::user()->address, ['class'=>'form-control required' . ($errors->has('address') ? ' error' : ''), 'placeholder'=>'Address', 'title'=>$errors->first('address')]) !!}
 		</div>
 		<div class="col-sm-6 @if ($errors->has('phone')) has-error @endif">
-			{!! Form::text('phone', @Auth::user()->phone, ['class'=>'form-control' . ($errors->has('phone') ? ' error' : ''), 'pattern'=>'\d*', 'data-numeric', 'maxlength'=>10, 'placeholder'=>'Phone', 'title'=>$errors->first('phone')]) !!}
+			{!! Form::text('phone', @Auth::user()->phone, ['class'=>'form-control' . ($errors->has('phone') ? ' error' : ''), 'data-phone', 'placeholder'=>'Phone', 'title'=>$errors->first('phone')]) !!}
 		</div>
 	</div>
 	

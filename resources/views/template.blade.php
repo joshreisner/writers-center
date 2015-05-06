@@ -23,7 +23,7 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						@if (!App::environment('production'))
-							{!! link_to_action('MyController@index', 'My HVWC', [], ['class'=>Request::is('my-hvwc' . '*') ? 'active' : null]) !!}
+							{!! link_to_action('MyController@settings', 'My HVWC', [], ['class'=>Request::is('my-hvwc' . '*') ? 'active' : null]) !!}
 						@endif
 						{!! link_to_action('PaymentController@support_index', 'Support the Center', [], ['class'=>Request::is('support' . '*') ? 'active' : false]) !!}
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>

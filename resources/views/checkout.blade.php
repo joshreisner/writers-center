@@ -11,7 +11,7 @@
 			</div>
 		@elseif (empty(Auth::user()->membership_expires))
 			<div class="alert alert-info">
-				<p>HVWC Members get discounts on publications, classes, and events!</p>
+				<p>HVWC Members get discounts on courses, publications, and events!</p>
 				{!! link_to_action('PaymentController@add_membership', 'Become a Member', [], ['class'=>'btn btn-primary']) !!}
 			</div>
 		@elseif (Auth::user()->membership_expires < now())

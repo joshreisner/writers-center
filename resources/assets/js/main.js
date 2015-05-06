@@ -2,8 +2,8 @@
 //= include ../../assets/js/page-home.js
 //= include ../../assets/js/page-support.js
 //= include ../../assets/js/page-checkout.js
-//= include ../../assets/js/page-transactions.js
 //= include ../../assets/js/page-my-hvwc.js
+//= include ../../assets/js/page-settings.js
 
 $(function(){
 
@@ -97,5 +97,6 @@ $(function(){
 	$('input[data-stripe=number]').payment('formatCardNumber');
 	$('input[data-stripe=cvc]').payment('formatCardCVC');
 	$('input[data-numeric]').payment('restrictNumeric');
+	$('input[data-phone]').mask('(999) 999-9999');
 
 });

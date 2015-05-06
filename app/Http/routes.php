@@ -93,21 +93,16 @@ Route::group(['before' => 'public'], function()
 		# My HVWC and all associated login stuff
 		Route::group(['prefix'=>'my-hvwc'], function(){
 
-			Route::get('/', 'MyController@index');
-			Route::get('/settings', 'MyController@settings');
-			Route::get('/logout', 'MyController@logout');
-			Route::get('/{id}', 'MyController@message');
+			//Route::get('/', 'MyController@index');
+			Route::get('settings',		'MyController@settings');
+				Route::post('settings', 	'MyController@saveSettings');
 
-			if (!Auth::check()) {
 				Route::post('login',		'MyController@login');
 				Route::post('reset',		'MyController@reset');
-			} else {
 				Route::get('logout',		'MyController@logout');
-				Route::get('settings',		'MyController@settings');
-				Route::post('message',		'MyController@message');
-				Route::post('{message_id}',	'MyController@reply');
-				Route::get('{message_id}',	'MyController@show');
-			}
+				//Route::post('message',		'MyController@message');
+				//Route::post('{message_id}',	'MyController@reply');
+				//Route::get('{message_id}',	'MyController@show');
 
 		});
 	}
@@ -116,9 +111,9 @@ Route::group(['before' => 'public'], function()
 
 # Inbound email routes
 Route::group(array('prefix'=>'inbound'), function(){
-	Route::any('everyone', 'MyController@inbound_everyone');
-	Route::any('admin', 'MyController@inbound_admin');
-	Route::any('reply', 'MyController@inbound_reply');
+	//Route::any('everyone', 'MyController@inbound_everyone');
+	//Route::any('admin', 'MyController@inbound_admin');
+	//Route::any('reply', 'MyController@inbound_reply');
 });
 
 # Testing routes

@@ -17,6 +17,7 @@
     "bootstrap-sass": "latest",
     "slick-carousel": "latest",
     "jquery.payment": "latest",
+    "jquery-maskedinput": "latest",
     "fontawesome": "latest"
   }
 }
