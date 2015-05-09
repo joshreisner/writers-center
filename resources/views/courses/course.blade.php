@@ -43,8 +43,10 @@
 					<div class="price">{{ App\Http\Controllers\Controller::formatPrice($section->price) }} members / {{ App\Http\Controllers\Controller::formatPrice($section->price, true) }} non-members</div>
 				@endif
 				
-				@if (App::environment('production') && !empty($section->register_url))
-					<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+				@if (App::environment('production'))
+					@if (!empty($section->register_url))
+						<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+					@endif
 				@elseif ($section->open)
 					<div class="register">
 						@if (App\Http\Controllers\PaymentController::has_course($section->id))
