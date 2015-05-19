@@ -11,6 +11,7 @@ return [
 		'name' => 'Name',
 		'group_id' => 'Group',
 		'role' => 'Role',
+		'bio' => 'Bio',
 		'updated_at' => 'Updated',
 	],
 ];	
