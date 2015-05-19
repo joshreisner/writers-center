@@ -9,7 +9,7 @@
 	</div>
 @endsection
 
-@section('side')
+@section('switchboard')
 	<form class="switchboard form-horizontal" data-model="shp">
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Search</label>
@@ -28,6 +28,8 @@
 			</div>
 		</div>
 	</form>
+@endsection
 
+@section('side')
 	@include('publications.side') 
 @endsection

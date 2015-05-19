@@ -9,7 +9,7 @@
 	</div>
 @endsection
 
-@section('side')
+@section('switchboard')
 	<form class="switchboard form-horizontal" data-model="courses">
 		<div class="form-group">
 			<label for="search" class="col-md-3">Search</label>
@@ -32,7 +32,9 @@
 			<div class="col-md-9">{!! Form::dropdown('duration', $duration_select, Request::input('duration')) !!}</div>
 		</div>
 	</form>
+@endsection
 
+@section('side')
 	<div class="wallpaper">
 		<span class="label">Tutorials</span>
 		<h3>Tutorials are Available</h3>

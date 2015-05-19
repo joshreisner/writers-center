@@ -11,7 +11,7 @@
 	
 @endsection
 
-@section('side')
+@section('switchboard')
 
 	<form class="switchboard form-horizontal" data-model="events">
 		<div class="form-group">

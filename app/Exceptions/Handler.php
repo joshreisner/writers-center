@@ -6,6 +6,8 @@ use Mail;
 use URL;
 use Response;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Illuminate\Session\TokenMismatchException;
 
 class Handler extends ExceptionHandler {
 
@@ -28,7 +30,9 @@ class Handler extends ExceptionHandler {
 	 */
 	public function report(Exception $e)
 	{
-		if (!config('app.debug') && !$e instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+		if (!config('app.debug') &&
+			(!$e instanceof NotFoundHttpException) &&
+			(!$e instanceof TokenMismatchException)) {
 			
 			$data = [
 				'subject' => $e->getMessage(),
