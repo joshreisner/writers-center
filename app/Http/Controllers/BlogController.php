@@ -38,6 +38,7 @@ class BlogController extends Controller {
 
 		return view('blog.post', array(
 			'title'=>strip_tags($post->title),
+			'type' => 'article',
 			'post'=>$post,
 			'related'=>Post::where('id', '<>', $post->id)->orderBy('publish_date', 'desc')->take(5)->get(),
 			'tags'=>Tag::orderBy('title')->get(),

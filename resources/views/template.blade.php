@@ -10,6 +10,15 @@
 	    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/icons/favicon-114.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/icons/favicon-72.png" type="image/png">
 	    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/icons/favicon-144.png" type="image/png">
+
+		<meta property="og:title" content="{{ $title or 'Hudson Valley Writers Center' }}">
+		<meta property="og:site_name" content="Hudson Valley Writers Center">
+		<meta property="og:url" content="{{ URL::current() }}">
+		<meta property="fb:app_id" content="968125376554285">
+		<meta property="og:type" content="{{ $type or 'website' }}">
+		<meta property="og:locale" content="en_US"> 
+		<meta property="article:publisher" content="https://www.facebook.com/hvwriterscenter">
+
 		{!! HTML::style('//f.fontdeck.com/s/css/ApCX21svi87NZWDjljPZF9DNBA4/' . env('SERVER_NAME') . '/45521.css') !!}
 		{!! HTML::style('/assets/css/main.min.css') !!}
 	</head>

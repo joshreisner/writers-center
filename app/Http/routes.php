@@ -66,7 +66,7 @@ Route::group(['before' => 'public'], function()
 
 	# Contact
 	Route::get('/contact', function(){
-		return view('contact', ['title'=>'Contact']);
+		return view('contact', ['title'=>'Contact', 'type'=>'place']);
 	});
 
 	# Support the Center

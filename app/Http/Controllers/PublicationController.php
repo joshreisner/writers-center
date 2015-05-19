@@ -35,6 +35,7 @@ class PublicationController extends Controller {
 
 		return view('publications.publication', [
 			'title' => strip_tags($publication->title),
+			'type' => 'books.book',
 			'types' => PublicationType::orderBy('title')->get(),
 			'publication' => $publication,
 			'related' => Publication::where('id', '<>', $publication->id)->orderBy('publish_date', 'desc')->take(5)->get(),
