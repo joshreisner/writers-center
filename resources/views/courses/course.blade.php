@@ -43,11 +43,11 @@
 					<div class="price">{{ App\Http\Controllers\Controller::formatPrice($section->price) }} members / {{ App\Http\Controllers\Controller::formatPrice($section->price, true) }} non-members</div>
 				@endif
 				
-				@if (App::environment('production'))
-					@if (!empty($section->register_url))
-						<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
-					@endif
-				@elseif ($section->open)
+				@if ($section->open && !empty($section->register_url))
+					<div class="register"><a class="btn btn-primary" href="{{ $section->register_url }}">Register</a></div>
+				@endif
+
+				{{--
 					<div class="register">
 						@if (App\Http\Controllers\PaymentController::has_course($section->id))
 						<a class="btn btn-disabled">Course Added</a>
@@ -55,7 +55,7 @@
 						<a class="btn btn-primary" href="{{ URL::action('PaymentController@add_course', $section->id) }}">Register</a>
 						@endif
 					</div>
-				@endif
+				--}}
 	
 			@endforeach
 			@if ($course->tutorial_available)

@@ -32,7 +32,7 @@ class CourseController extends Controller {
 	 */
 	public function show($slug) {
 		$course = Course::with(['instructors', 'sections'=>function($query){
-			$query->where('start', '>', new DateTime);
+			$query->where('open', 1);
 			$query->orderBy('start', 'asc');
 		}])->where('slug', $slug)->first();
 		
