@@ -1,7 +1,7 @@
 @if (count($genres))
 	@foreach ($genres as $title=>$statuses)
 		<h3>{{ $title }}</h3>
-		@foreach (['open', 'closed'] as $status)
+		@foreach (['open', 'closed', 'archive'] as $status)
 			@if (count($statuses[$status]))
 				<ul class="courses">
 				<h4>@lang('messages.course_status_' . $status)</h4>

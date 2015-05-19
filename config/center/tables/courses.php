@@ -17,6 +17,7 @@ return [
 		],
 		'description' => 'text',
 		'tuition' => 'integer',
+		'current' => 'checkbox',
 		'tutorial_available' => 'checkbox',
 		'instructors' => 'checkboxes',
 		'slug' => [

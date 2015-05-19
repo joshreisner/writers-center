@@ -16,5 +16,6 @@ return [
 		'tutorial_available' => 'Tutorial?',
 		'slug' => 'Location',
 		'updated_at' => 'Updated',
+		'current' => 'Current?',
 	],
 ];	

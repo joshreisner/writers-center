@@ -16,7 +16,7 @@ class CourseController extends Controller {
 	 */
 	public function index() {
 
-		return view('courses.index', array(
+		return view('courses.index', [
 			'title'				=>'Courses',
 			'genres'			=>self::searchCoursesByGenre(),
 			'genre_select'		=>self::getGenreList(),
@@ -24,7 +24,7 @@ class CourseController extends Controller {
 			'duration_select'	=>self::getDurationList(),
 			'day_select'		=>self::getDayList(),
 			'year_of_your_book'	=>Course::where('title', 'like', 'The Year of Your Book%')->orderBy('title')->get(),
-		));		
+		]);
 	}
 
 	/**
@@ -116,11 +116,11 @@ class CourseController extends Controller {
 				}
 
 				//always order by title
-				$query->select('id', 'title', 'tutorial_available', 'genre_id', 'slug', DB::raw('
+				$query->select('id', 'title', 'tutorial_available', 'genre_id', 'current', 'slug', DB::raw('
 					(SELECT COUNT(*) FROM sections 
 						WHERE sections.course_id = courses.id AND
 						sections.deleted_at IS NULL AND
-						sections.start > \'' . date('Y-m-d H:i:s') . '\'
+						sections.open = 1
 						) AS open_sections')
 					)->orderBy('title', 'asc');
 			}, 
@@ -169,11 +169,13 @@ class CourseController extends Controller {
 
 			$genre->courses = self::highlightResults($genre->courses, array('title'));
 
-			$return_genre = array('open'=>[], 'closed'=>[]);
+			$return_genre = array('open'=>[], 'closed'=>[], 'archive'=>[]);
 
 			foreach ($genre->courses as $course) {
 				if ($course->tutorial_available || $course->open_sections) {
 					$return_genre['open'][] = $course;
+				} elseif (!$course->current) {
+					$return_genre['archive'][] = $course;
 				} else {
 					$return_genre['closed'][] = $course;
 				}
