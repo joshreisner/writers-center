@@ -49,7 +49,6 @@ Route::group(['before' => 'public'], function()
 
 
 	# Main sections
-
 	Route::get('/about/{slug?}',				'AboutController@show');
 	Route::get('/courses', 						'CourseController@index');
 	Route::get('/courses/ajax', 				'CourseController@ajax');
@@ -72,6 +71,11 @@ Route::group(['before' => 'public'], function()
 	# Support the Center
 	Route::get('/support',						'PaymentController@support_index');
 	Route::post('/support', 					'PaymentController@support_submit');
+
+	# Newsletter
+	Route::get('/newsletter', function(){
+		return view('newsletter', ['title'=>'Newsletter']);
+	});
 
 	# Robots
 	Route::get('/robots.txt', function(){

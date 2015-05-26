@@ -32,9 +32,10 @@
 				<div class="col-sm-8 hidden-xs">
 					<nav id="utility">
 						@if (!App::environment('production'))
-							{!! link_to_action('MyController@settings', 'My HVWC', [], ['class'=>Request::is('my-hvwc' . '*') ? 'active' : null]) !!}
+							<!-- {!! link_to_action('MyController@settings', 'My HVWC', [], ['class'=>Request::is('my-hvwc' . '*') ? 'active' : null]) !!} -->
 						@endif
 						{!! link_to_action('PaymentController@support_index', 'Support the Center', [], ['class'=>Request::is('support' . '*') ? 'active' : false]) !!}
+						{!! link_to('newsletter', 'Subscribe to Our Newsletter', ['class'=>Request::is('newsletter' . '*') ? 'active' : false]) !!}
 						<a href="https://www.facebook.com/hvwriterscenter" class="fa fa-facebook"></a>
 						<a href="https://twitter.com/HVWritersCenter" class="fa fa-twitter"></a>
 						<a href="http://instagram.com/hudson_valley_writers_center" class="fa fa-instagram"></a>
