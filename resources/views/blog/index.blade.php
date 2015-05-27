@@ -11,6 +11,7 @@
 
 @section('switchboard')
 	<form class="switchboard form-horizontal" data-model="blog">
+		{!! Form::hidden('limit', 10) !!}
 		<div class="form-group">
 			<label for="genre" class="col-md-3">Search</label>
 			<div class="col-md-9">{!! Form::text('search', false, ['class'=>'form-control']) !!}</div>

@@ -1,4 +1,5 @@
 @if (count($posts))
+
 	@foreach ($posts as $post)
 
 		<div class="post">
@@ -10,8 +11,16 @@
 
 	@endforeach
 
+	@if ($more)
+		<div class="load_more">
+			<a href="#" class="btn btn-default">Load More Posts</a>
+		</div>
+	@endif
+
 @else
+
 	<div class="alert alert-info">
 		No posts matched the selected criteria.
 	</div>
+
 @endif

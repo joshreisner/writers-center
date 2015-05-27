@@ -92,6 +92,15 @@ $(function(){
 			$('.page .content .inner div.target').html(data);
 		});
 	}
+	
+	//multiple switchboards??
+	$('.target').on('click', '.load_more a', function(e){
+		e.preventDefault();
+		var switchboard = $('form.switchboard').first();
+		var limit = switchboard.find('input[name=limit]');
+		limit.val(parseInt(limit.val()) + 10);
+		updateSwitchboard(switchboard);
+	});
 
 	//set up input masks
 	$('input[data-stripe=number]').payment('formatCardNumber');

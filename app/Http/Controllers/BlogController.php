@@ -1,7 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use DB;
-use Input;
+use Request;
 use LeftRight\Center\Models\Post;
 use LeftRight\Center\Models\Tag;
 
@@ -12,11 +12,15 @@ class BlogController extends Controller {
 	 */
 	function index() {
 		
+		$limit = 10;
+		
 		# Set URLs
-		$posts = Post::orderBy('publish_date', 'desc')->take(10)->get();
+		$posts = Post::orderBy('publish_date', 'desc')->take($limit)->get();
 		foreach ($posts as $post) {
 			$post->url = self::url($post);
 		}
+		
+		if (Post::count() >= $limit) $more = true;
 		
 		$title = 'Blog';
 		
@@ -24,7 +28,7 @@ class BlogController extends Controller {
 
 		$tags = Tag::orderBy('title')->get();
 		
-		return view('blog.index', compact('title', 'years', 'posts', 'tags'));
+		return view('blog.index', compact('title', 'years', 'posts', 'tags', 'more'));
 	}
 
 	/**
@@ -60,24 +64,28 @@ class BlogController extends Controller {
 		# Construct chained Eloquent statement based on input
 		$posts = Post::orderBy('publish_date', 'desc');
 
-		if (Input::has('search')) {
+		if (Request::has('search')) {
 			$posts
-				->where('title', 'like', '%' . Input::get('search') . '%')
-				->orWhere('excerpt', 'like', '%' . Input::get('search') . '%')
-				->orWhere('content', 'like', '%' . Input::get('search') . '%');
+				->where('title', 'like', '%' . Request::get('search') . '%')
+				->orWhere('excerpt', 'like', '%' . Request::get('search') . '%')
+				->orWhere('content', 'like', '%' . Request::get('search') . '%');
 		}
 		
-		if (Input::has('year')) {
-			$posts->where(DB::raw('YEAR(publish_date)'), Input::get('year'));
+		if (Request::has('year')) {
+			$posts->where(DB::raw('YEAR(publish_date)'), Request::get('year'));
 		}
 
-		if (Input::has('tags')) {
+		if (Request::has('tags')) {
 		    $posts->whereHas('tags', function($query) {
-				$query->whereIn('id', Input::get('tags'));
+				$query->whereIn('id', Request::get('tags'));
 			});
 		}
+		
+		$limit = Request::get('limit', 10);
+		
+		$more = ($limit <= $posts->count());
 
-		$posts = $posts->take(10)->get();
+		$posts = $posts->take($limit)->get();
 
 		# Highlight search terms
 		$posts = self::highlightResults($posts, ['title', 'excerpt']);
@@ -88,7 +96,7 @@ class BlogController extends Controller {
 		}
 
 		# Return HTML view
-		return view('blog.posts', compact('posts'));
+		return view('blog.posts', compact('posts', 'more'));
 	}
 
 }
