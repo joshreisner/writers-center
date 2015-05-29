@@ -13,6 +13,8 @@ $('.carousel').slick({
 	centerPadding: '260px',
 	slidesToShow: 1,
 	infinite: true,
+	prevArrow: '<button class="slick-prev" aria-label="previous" data-role="none" type="button" style="display: block;"></button>',
+	nextArrow: '<button class="slick-next" aria-label="previous" data-role="none" type="button" style="display: block;"></button>',
 	responsive: [
 		{
 			breakpoint: 400,
