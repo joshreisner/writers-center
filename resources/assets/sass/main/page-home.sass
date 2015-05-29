@@ -8,23 +8,29 @@ body.home
 		button
 			position: absolute
 			top: 50%
-			height: 0
-			width: 0
+			height: 70px
+			width: 40px
 			margin: -40px 0 0
-			border: 40px solid transparent
+			border: 0
 			opacity: .9
-			line-height: 0
-			font-size: 0
+			line-height: 40px
+			font-size: 40px
+			font-family: 'FontAwesome'
 			padding: 0
 			background-color: transparent
+			visibility: hidden
+			color: white
+			font-size: 100px
 			&.slick-prev
-				left: 0
-				border-right-color: white
+				left: 30px
+				&:before
+					visibility: visible
+					content: "\f104"
 			&.slick-next
-				right: 0
-				border-left-color: white
-			&::before
-				content: ''
+				right: 30px
+				&:before
+					visibility: visible
+					content: "\f105"
 			&:hover
 				opacity: 1
 			&:focus
