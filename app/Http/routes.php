@@ -3,6 +3,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PublicationController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ImageController;
 use \DateTime;
 use LeftRight\Center\Models\CarouselItem;
 use LeftRight\Center\Models\Course;
@@ -24,15 +25,19 @@ Route::group(['before' => 'public'], function()
 			if (isset($item->courses)) {
 				$item->type = ['Course', 'courses'];
 				$item->title = link_to(CourseController::url($item->courses), $item->title);
+				$item->wallpaper = ImageController::wallpaper('courses');
 			} elseif (isset($item->events)) {
 				$item->type = ['Event', 'events'];
 				$item->title = link_to(EventController::url($item->events), $item->title);
+				$item->wallpaper = ImageController::wallpaper('events');
 			} elseif (isset($item->publications)) {
 				$item->type = ['Publication', 'shp'];
 				$item->title = link_to(PublicationController::url($item->publications), $item->title);
+				$item->wallpaper = ImageController::wallpaper('shp');
 			} elseif (isset($item->posts)) {
 				$item->type = ['Blog', 'blog'];
 				$item->title = link_to(BlogController::url($item->posts), $item->title);
+				$item->wallpaper = ImageController::wallpaper('blog');
 			}
 		}
 

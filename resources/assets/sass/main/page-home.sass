@@ -60,16 +60,6 @@ body.home
 				letter-spacing: -1px
 				margin: 0 0 $margin 0
 
-			.image
-				position: absolute
-				background-size: cover
-				opacity: .15
-				top: 0
-				left: 0
-				right: 0
-				bottom: 0
-				z-index: -1
-
 			.description
 				+font("md")
 				text-transform: uppercase
@@ -86,7 +76,6 @@ body.home
 				$name:  nth($section, 1)
 				$color: nth($section, 2)
 				&.#{$name} .inner
-					background-color: transparentize($color, .7)
 					color: $color
 					a
 						color: $color

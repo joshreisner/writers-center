@@ -5,13 +5,12 @@
 
 	<div class="carousel">
 		@foreach ($items as $item)
-		<div class="item {{ $item->type[1] }} {{ $item->slug }}">
+		<div class="item {{ $item->type[1] }} {{ $item->slug }}" style="background-image:url({{ $item->wallpaper }})">
 			<div class="inner">
 				{!! \App\Http\Controllers\Controller::editLink($item) !!}
 				<h1>{!! nl2br($item->title) !!}</h1>
 				<div class="description">{!! nl2br($item->content) !!}</div>
 				<div class="type">{{ $item->type[0] }}</div>
-				<div class="image" style="background-image:url({{ $item->backing->url }})"></div>
 			</div>
 		</div>
 		@endforeach
