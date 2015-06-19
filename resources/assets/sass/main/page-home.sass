@@ -8,26 +8,19 @@ body.home
 		button
 			position: absolute
 			top: 50%
-			height: 70px
-			width: 40px
-			margin: -40px 0 0
+			height: 68px
+			width: 37px
+			margin: -34px 0 0
 			border: 0
-			opacity: .9
-			line-height: 40px
-			font-size: 40px
-			font-family: 'FontAwesome'
+			opacity: .75
 			padding: 0
 			background-color: transparent
-			color: white
-			font-size: 100px
 			&.slick-prev
 				left: 30px
-				&:before
-					content: "\f104"
+				background-image: url(/assets/img/arrow-left.png)
 			&.slick-next
 				right: 30px
-				&:before
-					content: "\f105"
+				background-image: url(/assets/img/arrow-right.png)
 			&:hover
 				opacity: 1
 			&:focus
@@ -38,6 +31,10 @@ body.home
 			height: $carousel-height
 			overflow: hidden
 			width: $carousel-width
+			background-size: cover
+			background-repeat: no-repeat
+			background-position: center center
+
 
 			a:hover
 				color: $default
@@ -101,7 +98,7 @@ body.home
 				+font("sm")
 				table
 					width: 100%
-					color: $about
+					color: #999
 					th, a
 						+font("sm", "bold")
 						color: $events

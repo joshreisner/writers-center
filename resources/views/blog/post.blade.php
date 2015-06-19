@@ -41,7 +41,7 @@
 @endsection
 
 @section('side')
-	<div class="wallpaper">
+	<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('blog') }}');">
 		<span class="label">Recent posts</span>
 		@foreach ($related as $post)
 		<h1>

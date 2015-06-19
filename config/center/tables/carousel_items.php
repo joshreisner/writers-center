@@ -6,11 +6,6 @@ return [
 	'list' => ['backing_id', 'title', 'updated_at'],
 	'order_by' => 'precedence',
 	'fields' => [
-		'backing_id' => [
-			'type' => 'image',
-			'width' => 654,
-			'height' => 400,
-		],
 		'title' => 'text required',
 		'course_id' => [
 			'type' => 'select',

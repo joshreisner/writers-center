@@ -1,16 +1,16 @@
-<div class="wallpaper">
+<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('shp') }}');">
 	<h3 style="margin:0;"><a href="/about/shp">About Slapering Hol Press</a></h3>
 </div>	
 
 @if (!empty($post))
-<div class="wallpaper">
+<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('shp') }}');">
 	<span class="label">Latest News</span>
 	<h3><a href="/blog/{{ $post->slug }}">{{ $post->title }}</a></h3>
 </div>	
 @endif
 
 @if (count($events))
-<div class="wallpaper">
+<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('shp') }}');">
 	<span class="label">Upcoming Events</span>
 	<ul class="events">
 		@foreach ($events as $event)
@@ -20,7 +20,7 @@
 </div>	
 @endif
 
-<div class="wallpaper">
+<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('shp') }}');">
 	<span class="label">SHP Masthead</span>
 
 	@foreach ($groups as $group)

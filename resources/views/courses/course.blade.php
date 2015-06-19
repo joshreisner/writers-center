@@ -104,7 +104,7 @@
 
 @section('side')
 	@if (!empty($related))
-	<div class="wallpaper">
+	<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('courses') }}');">
 		<span class="label">You might also like</span>
 		<h1>
 			<a href="/courses/{{ $related->slug }}">{{ $related->title }}</a>

@@ -71,7 +71,7 @@
 @endsection
 
 @section('side')
-	<div class="wallpaper">
+	<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('contact') }}');">
 		<h4>Contact Information</h4>
 		<ul class="navigation">
 			<li><a href="tel:9143325953"><i class="fa fa-phone"></i> (914) 332-5953</a></li>

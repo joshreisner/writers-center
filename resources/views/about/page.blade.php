@@ -14,7 +14,7 @@
 @endsection
 
 @section('side')
-	<div class="inner wallpaper">
+	<div class="inner wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('about') }}');">
 		<ul class="navigation">
 			@foreach ($pages as $p)
 			<li class="{{ Request::is('about' . (empty($p->slug) ? '' : '/' . $p->slug)) ? 'active' : '' }}"><a href="/about/{{ $p->slug }}">{{ $p->title }}</a></li>

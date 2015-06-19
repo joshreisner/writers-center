@@ -47,7 +47,7 @@
 @endsection
 
 @section('side')
-	<div class="wallpaper">
+	<div class="wallpaper" style="background-image:url('{{ App\Http\Controllers\ImageController::wallpaper('events') }}');">
 		<span class="label">Next Event</span>
 		<h1>
 			{{ $next->title }}
