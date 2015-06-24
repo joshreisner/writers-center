@@ -4,6 +4,7 @@ use App;
 use Auth;
 use Input;
 use Exception;
+use Hash;
 use LeftRight\Center\Models\Course;
 use LeftRight\Center\Models\Donation;
 use LeftRight\Center\Models\Event;
