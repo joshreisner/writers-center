@@ -3,7 +3,7 @@
 return [
 	'keep_clean',
 	'list_grouping' => 'Main Objects',
-	'list' => ['backing_id', 'title', 'updated_at'],
+	'list' => ['title', 'updated_at'],
 	'order_by' => 'precedence',
 	'fields' => [
 		'title' => 'text required',
